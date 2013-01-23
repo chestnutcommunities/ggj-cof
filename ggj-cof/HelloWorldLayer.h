@@ -3,7 +3,7 @@
 //  ggj-cof
 //
 //  Created by Shingo Tamura on 23/01/13.
-//  Copyright __MyCompanyName__ 2013. All rights reserved.
+//  Copyright Chopsticks On Fire 2013. All rights reserved.
 //
 
 

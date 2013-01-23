@@ -1018,6 +1018,7 @@
 				F490F13816AFD62B00BBA594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
