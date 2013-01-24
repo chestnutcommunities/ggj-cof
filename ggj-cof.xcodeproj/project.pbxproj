@@ -121,7 +121,23 @@
 		F490F12916AFD62B00BBA594 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12816AFD62B00BBA594 /* main.m */; };
 		F490F12C16AFD62B00BBA594 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12B16AFD62B00BBA594 /* AppDelegate.m */; };
 		F490F12F16AFD62B00BBA594 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12E16AFD62B00BBA594 /* RootViewController.m */; };
-		F490F13216AFD62B00BBA594 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F13116AFD62B00BBA594 /* HelloWorldLayer.m */; };
+		F4B1EBC916B1023A009A4F12 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBC616B1023A009A4F12 /* GameCharacter.m */; };
+		F4B1EBCA16B1023A009A4F12 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBC816B1023A009A4F12 /* GameObject.m */; };
+		F4B1EBD116B102B0009A4F12 /* GamePlayInputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBCC16B102B0009A4F12 /* GamePlayInputLayer.m */; };
+		F4B1EBD216B102B0009A4F12 /* GamePlayStatusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */; };
+		F4B1EBD316B102B0009A4F12 /* TitleScreenScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */; };
+		F4B1EBD616B102D8009A4F12 /* ShingoTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */; };
+		F4B1EBD916B10309009A4F12 /* ShortestPathStep.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */; };
+		F4B1EBED16B104A5009A4F12 /* CCSpotLight.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBDC16B104A5009A4F12 /* CCSpotLight.m */; };
+		F4B1EBEE16B104A5009A4F12 /* ColoredCircleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBDE16B104A5009A4F12 /* ColoredCircleSprite.m */; };
+		F4B1EBEF16B104A5009A4F12 /* ColoredSquareSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBE016B104A5009A4F12 /* ColoredSquareSprite.m */; };
+		F4B1EBF016B104A5009A4F12 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBE216B104A5009A4F12 /* SneakyButton.m */; };
+		F4B1EBF116B104A5009A4F12 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBE416B104A5009A4F12 /* SneakyButtonSkinnedBase.m */; };
+		F4B1EBF216B104A5009A4F12 /* SneakyJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBE616B104A5009A4F12 /* SneakyJoystick.m */; };
+		F4B1EBF316B104A5009A4F12 /* SneakyJoystickSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBE816B104A5009A4F12 /* SneakyJoystickSkinnedBase.m */; };
+		F4B1EBF416B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBEA16B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m */; };
+		F4B1EBF516B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBEC16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m */; };
+		F4B1EBF816B104FE009A4F12 /* GamePlayRenderingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -357,9 +373,43 @@
 		F490F12B16AFD62B00BBA594 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F490F12D16AFD62B00BBA594 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F490F12E16AFD62B00BBA594 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		F490F13016AFD62B00BBA594 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		F490F13116AFD62B00BBA594 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		F490F13316AFD62B00BBA594 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		F4B1EBC316B101E2009A4F12 /* CommonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocol.h; sourceTree = "<group>"; };
+		F4B1EBC416B101E2009A4F12 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F4B1EBC516B1023A009A4F12 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
+		F4B1EBC616B1023A009A4F12 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
+		F4B1EBC716B1023A009A4F12 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		F4B1EBC816B1023A009A4F12 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
+		F4B1EBCB16B102B0009A4F12 /* GamePlayInputLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayInputLayer.h; sourceTree = "<group>"; };
+		F4B1EBCC16B102B0009A4F12 /* GamePlayInputLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayInputLayer.m; sourceTree = "<group>"; };
+		F4B1EBCD16B102B0009A4F12 /* GamePlayStatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayStatusLayer.h; sourceTree = "<group>"; };
+		F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayStatusLayer.m; sourceTree = "<group>"; };
+		F4B1EBCF16B102B0009A4F12 /* TitleScreenScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScreenScene.h; sourceTree = "<group>"; };
+		F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScreenScene.m; sourceTree = "<group>"; };
+		F4B1EBD416B102D8009A4F12 /* ShingoTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShingoTestLayer.h; sourceTree = "<group>"; };
+		F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShingoTestLayer.m; sourceTree = "<group>"; };
+		F4B1EBD716B10309009A4F12 /* ShortestPathStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortestPathStep.h; sourceTree = "<group>"; };
+		F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortestPathStep.m; sourceTree = "<group>"; };
+		F4B1EBDB16B104A5009A4F12 /* CCSpotLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSpotLight.h; sourceTree = "<group>"; };
+		F4B1EBDC16B104A5009A4F12 /* CCSpotLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSpotLight.m; sourceTree = "<group>"; };
+		F4B1EBDD16B104A5009A4F12 /* ColoredCircleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredCircleSprite.h; sourceTree = "<group>"; };
+		F4B1EBDE16B104A5009A4F12 /* ColoredCircleSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredCircleSprite.m; sourceTree = "<group>"; };
+		F4B1EBDF16B104A5009A4F12 /* ColoredSquareSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredSquareSprite.h; sourceTree = "<group>"; };
+		F4B1EBE016B104A5009A4F12 /* ColoredSquareSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredSquareSprite.m; sourceTree = "<group>"; };
+		F4B1EBE116B104A5009A4F12 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
+		F4B1EBE216B104A5009A4F12 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
+		F4B1EBE316B104A5009A4F12 /* SneakyButtonSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButtonSkinnedBase.h; sourceTree = "<group>"; };
+		F4B1EBE416B104A5009A4F12 /* SneakyButtonSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButtonSkinnedBase.m; sourceTree = "<group>"; };
+		F4B1EBE516B104A5009A4F12 /* SneakyJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystick.h; sourceTree = "<group>"; };
+		F4B1EBE616B104A5009A4F12 /* SneakyJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystick.m; sourceTree = "<group>"; };
+		F4B1EBE716B104A5009A4F12 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
+		F4B1EBE816B104A5009A4F12 /* SneakyJoystickSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedBase.m; sourceTree = "<group>"; };
+		F4B1EBE916B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedDPadExample.h; sourceTree = "<group>"; };
+		F4B1EBEA16B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedDPadExample.m; sourceTree = "<group>"; };
+		F4B1EBEB16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedJoystickExample.h; sourceTree = "<group>"; };
+		F4B1EBEC16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedJoystickExample.m; sourceTree = "<group>"; };
+		F4B1EBF616B104FE009A4F12 /* GamePlayRenderingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayRenderingLayer.h; sourceTree = "<group>"; };
+		F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayRenderingLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,12 +466,14 @@
 		F490EFD816AFD62900BBA594 /* ggj-cof */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1EBBD16B0FD73009A4F12 /* Utilities */,
+				F4B1EBBC16B0FD4F009A4F12 /* Constants */,
+				F4B1EBBB16B0FD25009A4F12 /* GameObjects */,
+				F4B1EBB916B0FD0D009A4F12 /* Scenes */,
 				F490F12A16AFD62B00BBA594 /* AppDelegate.h */,
 				F490F12B16AFD62B00BBA594 /* AppDelegate.m */,
 				F490F12D16AFD62B00BBA594 /* RootViewController.h */,
 				F490F12E16AFD62B00BBA594 /* RootViewController.m */,
-				F490F13016AFD62B00BBA594 /* HelloWorldLayer.h */,
-				F490F13116AFD62B00BBA594 /* HelloWorldLayer.m */,
 				F490F13316AFD62B00BBA594 /* GameConfig.h */,
 				F490EFD916AFD62900BBA594 /* Resources */,
 				F490EFED16AFD62900BBA594 /* libs */,
@@ -433,6 +485,9 @@
 		F490EFD916AFD62900BBA594 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1EBC116B0FE86009A4F12 /* Maps */,
+				F4B1EBC016B0FDFE009A4F12 /* Sounds */,
+				F4B1EBBE16B0FDC8009A4F12 /* Images */,
 				F490EFDA16AFD62900BBA594 /* Default.png */,
 				F490EFDC16AFD62900BBA594 /* fps_images.png */,
 				F490EFDE16AFD62900BBA594 /* Icon-72.png */,
@@ -450,6 +505,7 @@
 		F490EFED16AFD62900BBA594 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1EBDA16B10440009A4F12 /* Extensions */,
 				F490F0E316AFD62A00BBA594 /* LICENSE_cocos2d.txt */,
 				F490F0F216AFD62B00BBA594 /* LICENSE_CocosDenshion.txt */,
 				F490F0FD16AFD62B00BBA594 /* LICENSE_TouchJSON.txt */,
@@ -758,6 +814,106 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F4B1EBB916B0FD0D009A4F12 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1EBCB16B102B0009A4F12 /* GamePlayInputLayer.h */,
+				F4B1EBCC16B102B0009A4F12 /* GamePlayInputLayer.m */,
+				F4B1EBCD16B102B0009A4F12 /* GamePlayStatusLayer.h */,
+				F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */,
+				F4B1EBCF16B102B0009A4F12 /* TitleScreenScene.h */,
+				F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */,
+				F4B1EBD416B102D8009A4F12 /* ShingoTestLayer.h */,
+				F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */,
+				F4B1EBF616B104FE009A4F12 /* GamePlayRenderingLayer.h */,
+				F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		F4B1EBBB16B0FD25009A4F12 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1EBC516B1023A009A4F12 /* GameCharacter.h */,
+				F4B1EBC616B1023A009A4F12 /* GameCharacter.m */,
+				F4B1EBC716B1023A009A4F12 /* GameObject.h */,
+				F4B1EBC816B1023A009A4F12 /* GameObject.m */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
+		F4B1EBBC16B0FD4F009A4F12 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1EBC316B101E2009A4F12 /* CommonProtocol.h */,
+				F4B1EBC416B101E2009A4F12 /* Constants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		F4B1EBBD16B0FD73009A4F12 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1EBD716B10309009A4F12 /* ShortestPathStep.h */,
+				F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		F4B1EBBE16B0FDC8009A4F12 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1EBBF16B0FDF0009A4F12 /* Sprites */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		F4B1EBC016B0FDFE009A4F12 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		F4B1EBC116B0FE86009A4F12 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		F4B1EBDA16B10440009A4F12 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1EBDB16B104A5009A4F12 /* CCSpotLight.h */,
+				F4B1EBDC16B104A5009A4F12 /* CCSpotLight.m */,
+				F4B1EBDD16B104A5009A4F12 /* ColoredCircleSprite.h */,
+				F4B1EBDE16B104A5009A4F12 /* ColoredCircleSprite.m */,
+				F4B1EBDF16B104A5009A4F12 /* ColoredSquareSprite.h */,
+				F4B1EBE016B104A5009A4F12 /* ColoredSquareSprite.m */,
+				F4B1EBE116B104A5009A4F12 /* SneakyButton.h */,
+				F4B1EBE216B104A5009A4F12 /* SneakyButton.m */,
+				F4B1EBE316B104A5009A4F12 /* SneakyButtonSkinnedBase.h */,
+				F4B1EBE416B104A5009A4F12 /* SneakyButtonSkinnedBase.m */,
+				F4B1EBE516B104A5009A4F12 /* SneakyJoystick.h */,
+				F4B1EBE616B104A5009A4F12 /* SneakyJoystick.m */,
+				F4B1EBE716B104A5009A4F12 /* SneakyJoystickSkinnedBase.h */,
+				F4B1EBE816B104A5009A4F12 /* SneakyJoystickSkinnedBase.m */,
+				F4B1EBE916B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.h */,
+				F4B1EBEA16B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m */,
+				F4B1EBEB16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.h */,
+				F4B1EBEC16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -924,7 +1080,23 @@
 				F490F12916AFD62B00BBA594 /* main.m in Sources */,
 				F490F12C16AFD62B00BBA594 /* AppDelegate.m in Sources */,
 				F490F12F16AFD62B00BBA594 /* RootViewController.m in Sources */,
-				F490F13216AFD62B00BBA594 /* HelloWorldLayer.m in Sources */,
+				F4B1EBC916B1023A009A4F12 /* GameCharacter.m in Sources */,
+				F4B1EBCA16B1023A009A4F12 /* GameObject.m in Sources */,
+				F4B1EBD116B102B0009A4F12 /* GamePlayInputLayer.m in Sources */,
+				F4B1EBD216B102B0009A4F12 /* GamePlayStatusLayer.m in Sources */,
+				F4B1EBD316B102B0009A4F12 /* TitleScreenScene.m in Sources */,
+				F4B1EBD616B102D8009A4F12 /* ShingoTestLayer.m in Sources */,
+				F4B1EBD916B10309009A4F12 /* ShortestPathStep.m in Sources */,
+				F4B1EBED16B104A5009A4F12 /* CCSpotLight.m in Sources */,
+				F4B1EBEE16B104A5009A4F12 /* ColoredCircleSprite.m in Sources */,
+				F4B1EBEF16B104A5009A4F12 /* ColoredSquareSprite.m in Sources */,
+				F4B1EBF016B104A5009A4F12 /* SneakyButton.m in Sources */,
+				F4B1EBF116B104A5009A4F12 /* SneakyButtonSkinnedBase.m in Sources */,
+				F4B1EBF216B104A5009A4F12 /* SneakyJoystick.m in Sources */,
+				F4B1EBF316B104A5009A4F12 /* SneakyJoystickSkinnedBase.m in Sources */,
+				F4B1EBF416B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m in Sources */,
+				F4B1EBF516B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m in Sources */,
+				F4B1EBF816B104FE009A4F12 /* GamePlayRenderingLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
