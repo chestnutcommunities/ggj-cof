@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  ggj-cof
+//  TileGame
 //
-//  Created by Shingo Tamura on 23/01/13.
-//  Copyright Chopsticks On Fire 2013. All rights reserved.
+//  Created by Shingo Tamura on 5/07/12.
+//  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
 #import "cocos2d.h"
@@ -25,18 +25,18 @@
 	// Uncomment the following code if you Application only supports landscape mode
 	//
 #if GAME_AUTOROTATION == kGameAutorotationUIViewController
-
-//	CC_ENABLE_DEFAULT_GL_STATES();
-//	CCDirector *director = [CCDirector sharedDirector];
-//	CGSize size = [director winSize];
-//	CCSprite *sprite = [CCSprite spriteWithFile:@"Default.png"];
-//	sprite.position = ccp(size.width/2, size.height/2);
-//	sprite.rotation = -90;
-//	[sprite visit];
-//	[[director openGLView] swapBuffers];
-//	CC_ENABLE_DEFAULT_GL_STATES();
+    
+    //	CC_ENABLE_DEFAULT_GL_STATES();
+    //	CCDirector *director = [CCDirector sharedDirector];
+    //	CGSize size = [director winSize];
+    //	CCSprite *sprite = [CCSprite spriteWithFile:@"Default.png"];
+    //	sprite.position = ccp(size.width/2, size.height/2);
+    //	sprite.rotation = -90;
+    //	[sprite visit];
+    //	[[director openGLView] swapBuffers];
+    //	CC_ENABLE_DEFAULT_GL_STATES();
 	
-#endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
+#endif // GAME_AUTOROTATION == kGameAutorotationUIViewController
 }
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
@@ -66,12 +66,14 @@
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
 	
+    [glView setMultipleTouchEnabled:YES];
+    
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
 	
-//	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-//	if( ! [director enableRetinaDisplay:YES] )
-//		CCLOG(@"Retina Display Not supported");
+    //	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
+	if( ! [director enableRetinaDisplay:YES] )
+		CCLOG(@"Retina Display Not supported");
 	
 	//
 	// VERY IMPORTANT:
@@ -96,15 +98,22 @@
 	[viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-	[window addSubview: viewController.view];
-	
+	if ([[UIDevice currentDevice].systemVersion floatValue] < 6.0) {
+        // iOS5 and below
+        [window addSubview: viewController.view];
+    }
+    else {
+        // Use this method on iOS6 and greater
+        [window setRootViewController:viewController];
+    }
+    
 	[window makeKeyAndVisible];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
 	// You can change anytime.
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-
+    
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
@@ -143,7 +152,7 @@
 	
 	[window release];
 	
-	[director end];	
+	[director end];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {

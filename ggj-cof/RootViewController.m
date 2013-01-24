@@ -1,9 +1,9 @@
 //
 //  RootViewController.m
-//  ggj-cof
+//  TileGame
 //
-//  Created by Shingo Tamura on 23/01/13.
-//  Copyright Chopsticks On Fire 2013. All rights reserved.
+//  Created by Shingo Tamura on 5/07/12.
+//  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
 //
@@ -12,35 +12,10 @@
 //
 
 #import "cocos2d.h"
-
 #import "RootViewController.h"
 #import "GameConfig.h"
 
 @implementation RootViewController
-
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
- - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-	// Custom initialization
-	}
-	return self;
- }
- */
-
-/*
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView {
- }
- */
-
-/*
- // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- - (void)viewDidLoad {
-	[super viewDidLoad];
- }
- */
-
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -56,7 +31,7 @@
 #if GAME_AUTOROTATION==kGameAutorotationNone
 	//
 	// EAGLView won't be autorotated.
-	// Since this method should return YES in at least 1 orientation, 
+	// Since this method should return YES in at least 1 orientation,
 	// we return YES only in the Portrait orientation
 	//
 	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
@@ -73,7 +48,7 @@
 		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeLeft];
 	}
 	
-	// Since this method should return YES in at least 1 orientation, 
+	// Since this method should return YES in at least 1 orientation,
 	// we return YES only in the Portrait orientation
 	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
 	
@@ -109,9 +84,9 @@
 	///
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 	CGRect rect = CGRectZero;
-
+    
 	
-	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)		
+	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
 		rect = screenRect;
 	
 	else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
@@ -148,6 +123,19 @@
     [super dealloc];
 }
 
+-(NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscapeRight|UIInterfaceOrientationMaskLandscapeLeft;
+}
+
+-(BOOL)shouldAutorotate {
+    return [[UIDevice currentDevice] orientation] != UIInterfaceOrientationPortrait;
+}
+
+// This sets the preferred orientation
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationLandscapeRight;
+}
 
 @end
 
