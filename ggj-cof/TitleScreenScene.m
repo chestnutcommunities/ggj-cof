@@ -9,6 +9,8 @@
 #import "TitleScreenScene.h"
 #import "GamePlayRenderingLayer.h"
 #import "SimpleAudioEngine.h"
+#import "ColoredCircleSprite.h"
+#import "ColoredSquareSprite.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
@@ -32,6 +34,8 @@
 
 - (void)startButtonTapped:(id)sender
 {
+    CCLOG(@"Start Button Tapped");
+    
     [[CCDirector sharedDirector] replaceScene:[GamePlayRenderingLayer scene]];
 }
 
@@ -51,10 +55,20 @@
 }
 
 -(id) init {
-    if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];
+    if ((self=[super initWithColor:ccc4(0, 0, 0, 255)])) {
+        self.isTouchEnabled = YES;
         
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
+        ColoredSquareSprite* normal = [ColoredSquareSprite squareWithColor:ccc4(150, 150, 150, 255) size:CGSizeMake(100, 100)];
+        ColoredSquareSprite* hover = [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 255) size:CGSizeMake(100, 100)];
+        
+        CCMenuItemSprite* item = [CCMenuItemSprite itemFromNormalSprite:normal selectedSprite:hover target:self selector:@selector(startButtonTapped:)];        item.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+        
+        CCMenu *starMenu = [CCMenu menuWithItems:item, nil];
+        starMenu.position = CGPointZero;
+        [self addChild:starMenu];
+
     }
     return self;
 }
@@ -62,4 +76,5 @@
 -(void)dealloc {
     [super dealloc];
 }
+
 @end
