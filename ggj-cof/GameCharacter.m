@@ -14,6 +14,7 @@
 @synthesize characterHealth;
 @synthesize characterState; 
 @synthesize speed = _speed;
+@synthesize isMoving = _isMoving;
 
 -(void) dealloc { 
     [super dealloc];
@@ -23,6 +24,7 @@
 	if ((self = [super init])) {
         CCLOG(@"GameCharacter init");
         self.speed = 0.0f;
+        self.isMoving = NO;
 		gameObjectType = kObjectTypePlayer;
     }
     return self;

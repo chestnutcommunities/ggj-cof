@@ -97,13 +97,14 @@
                 newPosition.x += node.speed;
             }
 			
-            //[_gameLayer moveHero:newPosition facing:dir];
+            [_gameLayer movePlayer:newPosition facing:dir];
         }
     }
 }
 
 -(void)update:(ccTime)deltaTime {
     // need to add [glView setMultipleTouchEnabled:YES]; to AppDelegate.m to enable multi-touch
+    [self applyDirectionalJoystick:_leftJoystick toNode:(GameCharacter*)_gameLayer.player forTimeDelta:deltaTime];
 }
 
 -(void) onEnter

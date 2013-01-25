@@ -8,26 +8,31 @@
 
 #import "ShingoTestLayer.h"
 #import "GamePlayInputLayer.h"
+#import "TileMapManager.h"
 #import "GamePlayStatusLayer.h"
 #import "GameCharacter.h"
 #import "ColoredSquareSprite.h"
 #import "Human.h"
+#import "PositioningHelper.h"
 
 @implementation ShingoTestLayer
 
 @synthesize inputLayer = _inputLayer;
 @synthesize statusLayer = _statusLayer;
 @synthesize player = _player;
+@synthesize mapManager = _mapManager;
 
 - (void) dealloc
 {
     self.inputLayer = nil;
     self.statusLayer = nil;
 	self.player = nil;
+	self.mapManager = nil;
     
 	[_inputLayer release];
     [_statusLayer release];
     [_player release];
+    [_mapManager release];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
@@ -101,10 +106,14 @@
     [self addChild:_sceneBatchNode];
     
     _player = [[Human alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
-    CGPoint position = ccp(winSize.width / 2.0f, winSize.height / 2.0f);
+    
+    CGPoint position = [_mapManager getPlayerSpawnPoint];
+    
     [_player setPosition:position];
     
-    [_sceneBatchNode addChild:_player z:0];    
+    [_sceneBatchNode addChild:_player z:0];
+    
+    self.position = [PositioningHelper getViewpointPosition:_player.position]; // TODO: get spawning point from tilemap
 }
 
 -(void) initTouchEventHandlers
@@ -117,8 +126,54 @@
 
 -(void) initTileMap
 {
-    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"shingo.tmx"];
-    self.mapManager = [TileMapManager initWithTileMap:map forLayer:(GamePlayRenderingLayer*)self];
+    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino.tmx"];
+    self.mapManager = [[[TileMapManager alloc] initWithTileMap:map] retain];
+    [self addChild:self.mapManager.tileMap];
+}
+
+- (void) playerMoved:(id)sender {
+    GameCharacter* player = (GameCharacter*)sender;
+    player.isMoving = NO;
+}
+
+-(void) movePlayer:(CGPoint)destination facing:(FacingDirection)direction {
+    CGPoint pos = destination;
+    BOOL doMove = NO;
+    
+    // Make sure the player won't go outside the map
+    if (pos.x <= (_mapManager.tileMap.mapSize.width * _mapManager.tileSizeInPoints.width) && pos.y <= (_mapManager.tileMap.mapSize.height * _mapManager.tileSizeInPoints.height) && pos.y >= 0 && pos.x >= 0) {
+        doMove = YES;
+    }
+    
+    if (!doMove) {
+        return;
+    }
+    
+    if (_player.isMoving) {
+        return;
+    }
+    
+    CGPoint tileCoord = [PositioningHelper tileCoordForPositionInPoints:destination tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+    
+    int metaGid = [_mapManager.meta tileGIDAt:tileCoord];
+    if (metaGid) {
+        NSDictionary *properties = [_mapManager.tileMap propertiesForGID:metaGid];
+        if (properties) {
+            if ([_mapManager isCollidable:destination forMeta:properties]) {
+                return;
+            }
+        }
+    }
+    
+    id actionMove = [CCMoveTo actionWithDuration:0.2f position:destination];
+    id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)];
+    CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:destination];
+    id actionViewpointMove = [CCMoveTo actionWithDuration:0.2f position:viewPointPosition];
+    
+    _player.isMoving = YES;
+    
+    [_player runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    [self runAction:[CCSequence actions:actionViewpointMove, nil]];
 }
 
 -(id) init

@@ -7,11 +7,12 @@
 //
 
 #import "cocos2d.h"
-#import "TileMapManager.h"
+#import "CommonProtocol.h"
 
 @class GamePlayInputLayer;
 @class GamePlayStatusLayer;
 @class Human;
+@class TileMapManager;
 
 @interface ShingoTestLayer : CCLayerColor
 {
@@ -29,5 +30,7 @@
 @property (nonatomic, retain) Human *player;
 
 +(CCScene *) scene;
+
+-(void) movePlayer:(CGPoint)destination facing:(FacingDirection)direction;
 
 @end

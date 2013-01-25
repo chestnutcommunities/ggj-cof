@@ -13,10 +13,13 @@
 	int characterHealth;
 	CharacterStates characterState;
     CGFloat _speed;
+    BOOL _isMoving;
 }
 
 @property (readwrite) int characterHealth;
 @property (readwrite) CharacterStates characterState;
 @property (nonatomic, assign) CGFloat speed;
+@property (nonatomic, assign) BOOL isMoving;
+
 
 @end
