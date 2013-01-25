@@ -34,8 +34,6 @@
     [_player release];
     [_mapManager release];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
 	[super dealloc];
 }
 
@@ -64,40 +62,7 @@
 	return scene;
 }
 
--(void)update:(ccTime)delta
-{
-}
-
--(void) handleTouchCompleted:(NSNotification *)notification {
-	NSDictionary *data = [notification userInfo];
-    float x = [[data objectForKey:@"x"] floatValue];
-    float y = [[data objectForKey:@"y"] floatValue];
-    
-    CCLOG(@"Touched at (%f, %f)", x, y);
-}
-
--(void) handleTouchSwipedDown:(NSNotification *)notification {
-    CCLOG(@"Swiped down");
-    if (_player.characterState == kStateJumping) {
-        [_player initiateLanding];
-    }
-    else {
-        [_player initiateCrouch];
-    }
-}
-
--(void) handleTouchSwipedUp:(NSNotification *)notification {
-    CCLOG(@"Swiped up");
-    [_player initiateJump];
-}
-
--(void) handleTouchHeld:(NSNotification *)notification {
-	NSDictionary *data = [notification userInfo];
-    float x = [[data objectForKey:@"x"] floatValue];
-    float y = [[data objectForKey:@"y"] floatValue];
-    
-    CCLOG(@"Held at (%f, %f)", x, y);
-}
+-(void)update:(ccTime)delta {}
 
 -(void) initPlayer:(CGSize)winSize
 {
@@ -110,19 +75,14 @@
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     
     [_player setPosition:position];
+    _player.speed = 20.0f;
     
     [_sceneBatchNode addChild:_player z:0];
     
     self.position = [PositioningHelper getViewpointPosition:_player.position]; // TODO: get spawning point from tilemap
 }
 
--(void) initTouchEventHandlers
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchCompleted:) name:@"touchEnded" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchSwipedDown:) name:@"touchSwipedDown" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchSwipedUp:) name:@"touchSwipedUp" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchHeld:) name:@"touchHeld" object:nil];
-}
+-(void) initTouchEventHandlers {}
 
 -(void) initTileMap
 {
@@ -137,11 +97,12 @@
 }
 
 -(void) movePlayer:(CGPoint)destination facing:(FacingDirection)direction {
-    CGPoint pos = destination;
     BOOL doMove = NO;
     
+    CGPoint fittedPos = [PositioningHelper computeTileFittingPositionInPoints:destination tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+    
     // Make sure the player won't go outside the map
-    if (pos.x <= (_mapManager.tileMap.mapSize.width * _mapManager.tileSizeInPoints.width) && pos.y <= (_mapManager.tileMap.mapSize.height * _mapManager.tileSizeInPoints.height) && pos.y >= 0 && pos.x >= 0) {
+    if (fittedPos.x <= (_mapManager.tileMap.mapSize.width * _mapManager.tileSizeInPoints.width) && fittedPos.y <= (_mapManager.tileMap.mapSize.height * _mapManager.tileSizeInPoints.height) && fittedPos.y >= 0 && fittedPos.x >= 0) {
         doMove = YES;
     }
     
@@ -153,21 +114,22 @@
         return;
     }
     
-    CGPoint tileCoord = [PositioningHelper tileCoordForPositionInPoints:destination tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+    CGPoint tileCoord = [PositioningHelper tileCoordForPositionInPoints:fittedPos tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
     
     int metaGid = [_mapManager.meta tileGIDAt:tileCoord];
     if (metaGid) {
         NSDictionary *properties = [_mapManager.tileMap propertiesForGID:metaGid];
         if (properties) {
-            if ([_mapManager isCollidable:destination forMeta:properties]) {
+            if ([_mapManager isCollidable:fittedPos forMeta:properties]) {
                 return;
             }
         }
     }
     
-    id actionMove = [CCMoveTo actionWithDuration:0.2f position:destination];
+    
+    id actionMove = [CCMoveTo actionWithDuration:0.2f position:fittedPos];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)];
-    CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:destination];
+    CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
     id actionViewpointMove = [CCMoveTo actionWithDuration:0.2f position:viewPointPosition];
     
     _player.isMoving = YES;
