@@ -6,7 +6,7 @@
 //
 //
 
-#import "cocos2d.h"
+#import "GamePlayRenderingLayer.h"
 
-@interface ShingoTestLayer : CCLayerColor
+@interface ShingoTestLayer : GamePlayRenderingLayer
 @end

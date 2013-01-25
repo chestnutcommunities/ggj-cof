@@ -7,7 +7,7 @@
 //
 
 #import "TitleScreenScene.h"
-#import "GamePlayRenderingLayer.h"
+#import "ShingoTestLayer.h"
 #import "SimpleAudioEngine.h"
 #import "ColoredCircleSprite.h"
 #import "ColoredSquareSprite.h"
@@ -36,7 +36,7 @@
 {
     CCLOG(@"Start Button Tapped");
     
-    [[CCDirector sharedDirector] replaceScene:[GamePlayRenderingLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[ShingoTestLayer scene]];
 }
 
 +(CCScene *) scene
