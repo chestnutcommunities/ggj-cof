@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE163AC016B26F390066449B /* casino-land-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163ABD16B26F390066449B /* casino-land-hd.png */; };
 		CE163AC116B26F390066449B /* casino.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE163ABE16B26F390066449B /* casino.tmx */; };
-		CE163AC216B26F390066449B /* meta-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163ABF16B26F390066449B /* meta-hd.png */; };
+		CE163AC516B2719C0066449B /* casino-land.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC316B2719C0066449B /* casino-land.png */; };
+		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
 		F490EFC916AFD62900BBA594 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFC816AFD62900BBA594 /* QuartzCore.framework */; };
 		F490EFCB16AFD62900BBA594 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCA16AFD62900BBA594 /* OpenGLES.framework */; };
 		F490EFCD16AFD62900BBA594 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCC16AFD62900BBA594 /* OpenAL.framework */; };
@@ -153,9 +153,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE163ABD16B26F390066449B /* casino-land-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "casino-land-hd.png"; sourceTree = "<group>"; };
 		CE163ABE16B26F390066449B /* casino.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = casino.tmx; sourceTree = "<group>"; };
-		CE163ABF16B26F390066449B /* meta-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meta-hd.png"; sourceTree = "<group>"; };
+		CE163AC316B2719C0066449B /* casino-land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "casino-land.png"; sourceTree = "<group>"; };
+		CE163AC416B2719C0066449B /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta.png; sourceTree = "<group>"; };
 		F490EFC416AFD62900BBA594 /* ggj-cof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ggj-cof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F490EFC816AFD62900BBA594 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F490EFCA16AFD62900BBA594 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -461,9 +461,9 @@
 		CE163ABB16B26F270066449B /* Sam */ = {
 			isa = PBXGroup;
 			children = (
-				CE163ABD16B26F390066449B /* casino-land-hd.png */,
+				CE163AC316B2719C0066449B /* casino-land.png */,
+				CE163AC416B2719C0066449B /* meta.png */,
 				CE163ABE16B26F390066449B /* casino.tmx */,
-				CE163ABF16B26F390066449B /* meta-hd.png */,
 			);
 			name = Sam;
 			sourceTree = "<group>";
@@ -1037,9 +1037,9 @@
 				F4B9319216B21B930079774F /* wheel.png in Resources */,
 				F4B9319616B262740079774F /* shingo.tmx in Resources */,
 				F4B9319816B262910079774F /* shingo.png in Resources */,
-				CE163AC016B26F390066449B /* casino-land-hd.png in Resources */,
 				CE163AC116B26F390066449B /* casino.tmx in Resources */,
-				CE163AC216B26F390066449B /* meta-hd.png in Resources */,
+				CE163AC516B2719C0066449B /* casino-land.png in Resources */,
+				CE163AC616B2719C0066449B /* meta.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="64" tileheight="64">
  <tileset firstgid="1" name="casino-tiles" tilewidth="64" tileheight="64">
-  <image source="casino-land-hd.png" width="128" height="64"/>
+  <image source="casino-land.png" width="128" height="64"/>
  </tileset>
  <tileset firstgid="3" name="meta-hd" tilewidth="64" tileheight="64">
-  <image source="meta-hd.png" width="384" height="64"/>
+  <image source="meta.png" width="384" height="64"/>
   <tile id="0">
    <properties>
     <property name="Collidable" value="True"/>
