@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="casino-tiles" tilewidth="64" tileheight="64">
+  <image source="casino-land-hd.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="3" name="meta-hd" tilewidth="64" tileheight="64">
+  <image source="meta-hd.png" width="384" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Land" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJy1k7ERwDAIA433HzqXLgVIH7ALKrhHCIi1VhyODfLfILwsImGoWqVvFzlVe5On5iI80sd57ZiE1537T9C90PmzHSpP3K1lNzvxrdJZaXJ6HI96SDWd4HVvSOmjfnf31OFN/mH6C67/m38Alr4CIw==
+  </data>
+ </layer>
+ <layer name="Meta" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJy1klsKADEIAwPe/87L/i3FmmnoCoVCZIyPklSXn4D+DcLropa/y538aaNNuX/ypr4Ij9Rxs3ZMwkv7Pgm6F+K343W1Tm5t1YgP53nXd+LH8egMqacbvPSGJn903umeEl4SpJ6rT+b56g+1GwL7
+  </data>
+ </layer>
+</map>
