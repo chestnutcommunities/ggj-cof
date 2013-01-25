@@ -18,8 +18,7 @@
     GamePlayRenderingLayer *_gameLayer;
     
 	SneakyJoystick *_leftJoystick;
-    SneakyButton *_rightButton;
-    ButtonStates _buttonState;}
+}
 
 @property (nonatomic, retain) GamePlayRenderingLayer *gameLayer;
 

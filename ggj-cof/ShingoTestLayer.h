@@ -12,7 +12,7 @@
 @class GamePlayStatusLayer;
 @class Human;
 
-@interface ShingoTestLayer : CCLayer
+@interface ShingoTestLayer : CCLayerColor
 {
     CCSpriteBatchNode *_sceneBatchNode;
     Human *_player;

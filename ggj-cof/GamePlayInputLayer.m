@@ -19,9 +19,6 @@
 
 - (void) dealloc
 {
-    [_rightButton release];
-    _rightButton = nil;
-    
 	[super dealloc];
 }
 
@@ -55,26 +52,13 @@
 -(void)initJoystickAndButtons {
     // initialize a joystick
     SneakyJoystickSkinnedBase *leftJoy = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
-    leftJoy.position = ccp(64, 64);
+    leftJoy.position = ccp(80, 80); // 64 + 16 = 80
     leftJoy.backgroundSprite = [CCSprite spriteWithFile:@"wheel.png"];
     leftJoy.thumbSprite = [CCSprite spriteWithFile:@"lever.png"];    
-    leftJoy.joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0,0,128,128)];
+    leftJoy.joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0, 0, 128, 128)];
     _leftJoystick = [leftJoy.joystick retain];
     
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
-    SneakyButtonSkinnedBase *rightButton = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
-    rightButton.position = ccp(winSize.width-64.0f, 64.0f);
-    rightButton.defaultSprite = [CCSprite spriteWithFile:@"released.png"];
-    rightButton.activatedSprite = [CCSprite spriteWithFile:@"grabbed.png"];
-    rightButton.pressSprite = [CCSprite spriteWithFile:@"grabbed.png"];
-    rightButton.button = [[SneakyButton alloc] initWithRect:CGRectMake(0, 0, 128, 128)];
-    [rightButton.button setRadius:128.0f];
-    _rightButton = [rightButton.button retain];
-    _rightButton.isHoldable = YES;
-    
     [self addChild:leftJoy z:2];
-    [self addChild:rightButton z:2];
 }
 
 -(id) init

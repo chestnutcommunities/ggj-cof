@@ -99,7 +99,7 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
-    if ((self=[super init])) {
+    if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ninja.plist"];
         _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"ninja.png"] retain];
         [self addChild:_sceneBatchNode];
