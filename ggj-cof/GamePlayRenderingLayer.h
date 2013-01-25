@@ -30,7 +30,7 @@
 @property (nonatomic, retain) Human *player;
 @property (nonatomic, retain) CCSpriteBatchNode *sceneBatchNode;
 
-
+-(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction;
 -(void) movePlayer:(CGPoint)destination facing:(FacingDirection)direction;
 
 @end

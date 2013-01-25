@@ -11,5 +11,6 @@
 @interface ShingoTestLayer : GamePlayRenderingLayer
 
 +(CCScene *) scene;
+-(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction;
 
 @end

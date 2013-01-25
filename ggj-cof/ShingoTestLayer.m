@@ -44,16 +44,44 @@
 -(void) initFriendsAndEnemies {
     for (NSValue* val in _mapManager.enemySpawnPoints) {
         CGPoint spawnPoint = [val CGPointValue];
+        
         Human* enemy = [[Human alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
+        enemy.number = 2;
+        
 		[enemy setPosition:spawnPoint];
 		[self.sceneBatchNode addChild:enemy z:100];
         [enemy release];
     }
 }
 
+-(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
+    CCArray* cards = [self.sceneBatchNode children];
+    for (Card* card in cards) {
+        if (self.player != card && card.characterState != kStateDead) {
+            CGRect target = CGRectMake(card.position.x - (card.contentSize.width/2), card.position.y - (card.contentSize.height/2), card.contentSize.width, card.contentSize.height);
+            
+            if (CGRectContainsPoint(target, destination)) {
+                // If card number is lower than or equal to the player's number...
+                if (self.player.number >= card.number) {
+                    // Kill the card and add the numbers together
+                    [card changeState:kStateDead];
+                    self.player.number += card.number;
+                }
+                else {
+                    // Kill the player, change game state
+                }
+            }
+        }
+    }
+}
+
 -(id) init {
     if ((self = [super init])) {
         [self initFriendsAndEnemies];
+        
+        _player.number = 1;
+        
+		[self scheduleUpdate];
 	}
 	return self;
 }

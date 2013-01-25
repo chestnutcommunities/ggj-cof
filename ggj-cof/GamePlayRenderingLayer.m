@@ -43,6 +43,8 @@
 
 -(void)update:(ccTime)delta {}
 
+-(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {}
+
 -(void) initPlayer:(CGSize)winSize
 {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ninja.plist"];
@@ -105,6 +107,7 @@
         }
     }
     
+    [self postMovePlayer:destination facing:direction];
     
     id actionMove = [CCMoveTo actionWithDuration:0.2f position:fittedPos];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)];
@@ -128,8 +131,6 @@
         [self initTileMap];
         [self initPlayer:winSize];
         [self initTouchEventHandlers];
-        
-		[self scheduleUpdate];
 	}
 	return self;
 }

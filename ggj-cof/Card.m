@@ -17,9 +17,18 @@
     [super dealloc];
 }
 
+-(void)changeState:(CharacterStates)newState {
+    if (self.characterState == newState) {
+        return;
+    }
+    
+    self.characterState = newState;
+}
+
 -(id) init {
 	if ((self = [super init])) {
         self.number = 1;
+        self.characterState = kStateIdle;
         self.cardSuit = kCardSuitHeart;
     }
     return self;

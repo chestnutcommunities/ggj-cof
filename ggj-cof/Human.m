@@ -99,6 +99,18 @@
     self.characterState = kStateCrouching;
 }
 
+-(void)changeState:(CharacterStates)newState {
+    if (self.characterState == newState) {
+        return;
+    }
+    
+    if (newState == kStateDead) {
+        self.visible = NO;
+    }
+    
+    self.characterState = newState;
+}
+
 -(id) init
 {
     if( (self=[super init]) )
