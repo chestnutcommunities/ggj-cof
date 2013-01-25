@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameCharacter.h"
+#import "AICharacter.h"
 
-@interface Card : GameCharacter {
+@interface Card : AICharacter {
     int _number;
 	CardSuit _cardSuit;
 }
