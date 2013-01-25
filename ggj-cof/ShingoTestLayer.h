@@ -9,4 +9,7 @@
 #import "GamePlayRenderingLayer.h"
 
 @interface ShingoTestLayer : GamePlayRenderingLayer
+
++(CCScene *) scene;
+
 @end

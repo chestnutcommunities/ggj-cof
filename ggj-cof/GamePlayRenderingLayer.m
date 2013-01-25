@@ -14,6 +14,7 @@
 #import "ColoredSquareSprite.h"
 #import "Human.h"
 #import "PositioningHelper.h"
+#import "ShingoTestLayer.h"
 
 @implementation GamePlayRenderingLayer
 
@@ -21,6 +22,7 @@
 @synthesize statusLayer = _statusLayer;
 @synthesize player = _player;
 @synthesize mapManager = _mapManager;
+@synthesize sceneBatchNode = _sceneBatchNode;
 
 - (void) dealloc
 {
@@ -28,38 +30,15 @@
     self.statusLayer = nil;
 	self.player = nil;
 	self.mapManager = nil;
+	self.sceneBatchNode = nil;
     
 	[_inputLayer release];
     [_statusLayer release];
     [_player release];
     [_mapManager release];
+    [_sceneBatchNode release];
     
 	[super dealloc];
-}
-
-+(CCScene *) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	GamePlayRenderingLayer *renderingLayer = [GamePlayRenderingLayer node];
-	
-	// add layer as a child to scene
-	[scene addChild: renderingLayer];
-	
-    GamePlayInputLayer *inputLayer = [GamePlayInputLayer node];
-    [scene addChild: inputLayer];
-    renderingLayer.inputLayer = inputLayer;
-    inputLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
-	
-    GamePlayStatusLayer *statusDisplayLayer = [GamePlayStatusLayer node];
-    [scene addChild: statusDisplayLayer];
-    renderingLayer.statusLayer = statusDisplayLayer;
-    statusDisplayLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
-    
-	// return the scene
-	return scene;
 }
 
 -(void)update:(ccTime)delta {}
@@ -142,7 +121,7 @@
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
-    if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
+    if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         

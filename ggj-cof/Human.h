@@ -6,9 +6,9 @@
 //
 //
 
-#import "GameCharacter.h"
+#import "Card.h"
 
-@interface Human : GameCharacter {
+@interface Human : Card {
     CCAnimation *_crouchAnim;
     CCAnimation *_jumpAnim;
     CCAnimation *_landAnim;

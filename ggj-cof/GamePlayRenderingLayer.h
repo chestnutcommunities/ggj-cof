@@ -28,8 +28,8 @@
 @property (nonatomic, retain) GamePlayStatusLayer *statusLayer;
 @property (nonatomic, retain) TileMapManager *mapManager;
 @property (nonatomic, retain) Human *player;
+@property (nonatomic, retain) CCSpriteBatchNode *sceneBatchNode;
 
-+(CCScene *) scene;
 
 -(void) movePlayer:(CGPoint)destination facing:(FacingDirection)direction;
 
