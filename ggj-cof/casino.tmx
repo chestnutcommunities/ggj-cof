@@ -21,4 +21,14 @@
    eJy1klsKADEIAwPe/87L/i3FmmnoCoVCZIyPklSXn4D+DcLropa/y538aaNNuX/ypr4Ij9Rxs3ZMwkv7Pgm6F+K343W1Tm5t1YgP53nXd+LH8egMqacbvPSGJn903umeEl4SpJ6rT+b56g+1GwL7
   </data>
  </layer>
+ <objectgroup name="Cards" width="20" height="20">
+  <object name="CardSpawnPoint1" x="265" y="781" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Objects" width="20" height="20">
+  <object name="SpawnPoint" x="140" y="140" width="43" height="40"/>
+ </objectgroup>
 </map>

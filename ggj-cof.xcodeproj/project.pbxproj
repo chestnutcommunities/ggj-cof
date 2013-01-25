@@ -10,6 +10,8 @@
 		CE163AC116B26F390066449B /* casino.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE163ABE16B26F390066449B /* casino.tmx */; };
 		CE163AC516B2719C0066449B /* casino-land.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC316B2719C0066449B /* casino-land.png */; };
 		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
+		CE163AC916B278420066449B /* SamTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163AC816B278420066449B /* SamTestLayer.m */; };
+		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
 		F490EFC916AFD62900BBA594 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFC816AFD62900BBA594 /* QuartzCore.framework */; };
 		F490EFCB16AFD62900BBA594 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCA16AFD62900BBA594 /* OpenGLES.framework */; };
 		F490EFCD16AFD62900BBA594 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCC16AFD62900BBA594 /* OpenAL.framework */; };
@@ -156,6 +158,10 @@
 		CE163ABE16B26F390066449B /* casino.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = casino.tmx; sourceTree = "<group>"; };
 		CE163AC316B2719C0066449B /* casino-land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "casino-land.png"; sourceTree = "<group>"; };
 		CE163AC416B2719C0066449B /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta.png; sourceTree = "<group>"; };
+		CE163AC716B278420066449B /* SamTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamTestLayer.h; sourceTree = "<group>"; };
+		CE163AC816B278420066449B /* SamTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamTestLayer.m; sourceTree = "<group>"; };
+		CE163ACA16B2818C0066449B /* CardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardManager.h; sourceTree = "<group>"; };
+		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
 		F490EFC416AFD62900BBA594 /* ggj-cof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ggj-cof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F490EFC816AFD62900BBA594 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F490EFCA16AFD62900BBA594 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -864,6 +870,8 @@
 				F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */,
 				F4B1EBD416B102D8009A4F12 /* ShingoTestLayer.h */,
 				F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */,
+				CE163AC716B278420066449B /* SamTestLayer.h */,
+				CE163AC816B278420066449B /* SamTestLayer.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -899,6 +907,8 @@
 				F4B9318316B210940079774F /* PositioningHelper.m */,
 				F4B9319916B265F50079774F /* TileMapManager.h */,
 				F4B9319A16B265F50079774F /* TileMapManager.m */,
+				CE163ACA16B2818C0066449B /* CardManager.h */,
+				CE163ACB16B2818C0066449B /* CardManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1167,6 +1177,8 @@
 				F4B1EC0616B152F0009A4F12 /* Human.m in Sources */,
 				F4B9318416B210940079774F /* PositioningHelper.m in Sources */,
 				F4B9319B16B265F60079774F /* TileMapManager.m in Sources */,
+				CE163AC916B278420066449B /* SamTestLayer.m in Sources */,
+				CE163ACC16B2818C0066449B /* CardManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
