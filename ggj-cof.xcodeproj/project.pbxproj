@@ -146,6 +146,7 @@
 		F4B9319216B21B930079774F /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319016B21B930079774F /* wheel.png */; };
 		F4B9319616B262740079774F /* shingo.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319516B262740079774F /* shingo.tmx */; };
 		F4B9319816B262910079774F /* shingo.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319716B262910079774F /* shingo.png */; };
+		F4B9319B16B265F60079774F /* TileMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9319A16B265F50079774F /* TileMapManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -428,6 +429,8 @@
 		F4B9319016B21B930079774F /* wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel.png; sourceTree = "<group>"; };
 		F4B9319516B262740079774F /* shingo.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = shingo.tmx; sourceTree = "<group>"; };
 		F4B9319716B262910079774F /* shingo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shingo.png; sourceTree = "<group>"; };
+		F4B9319916B265F50079774F /* TileMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapManager.h; sourceTree = "<group>"; };
+		F4B9319A16B265F50079774F /* TileMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -878,6 +881,8 @@
 				F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */,
 				F4B9318216B210940079774F /* PositioningHelper.h */,
 				F4B9318316B210940079774F /* PositioningHelper.m */,
+				F4B9319916B265F50079774F /* TileMapManager.h */,
+				F4B9319A16B265F50079774F /* TileMapManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1141,6 +1146,7 @@
 				F4B1EBF816B104FE009A4F12 /* GamePlayRenderingLayer.m in Sources */,
 				F4B1EC0616B152F0009A4F12 /* Human.m in Sources */,
 				F4B9318416B210940079774F /* PositioningHelper.m in Sources */,
+				F4B9319B16B265F60079774F /* TileMapManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
