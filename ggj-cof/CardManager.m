@@ -12,12 +12,12 @@
 
 @synthesize cardDeckSpriteBatchNode = _cardDeckSpriteBatchNode;
 
-+(CCTMXObjectGroup *)getCardsFromTileMap:(CCTMXTiledMap*)tileMap {    
+-(CCTMXObjectGroup *)getCardsFromTileMap:(CCTMXTiledMap*)tileMap {
     CCTMXObjectGroup *cards = [tileMap objectGroupNamed:@"Cards"];
     return cards;
 }
 
-+(void)setCardPositionOnTileMap:(CCTMXObjectGroup*)cards onMap:(CCTMXTiledMap*)tileMap {
+-(void)setCardPositionOnTileMap:(CCTMXObjectGroup*)cards onMap:(CCTMXTiledMap*)tileMap {
     int x, y; //positions of spawn points
     NSMutableDictionary *objectTile;
     for (objectTile in [cards objects]) {
@@ -25,7 +25,7 @@
         y = [[objectTile valueForKey:@"y"] intValue];
         
         if ([[objectTile valueForKey:@"Card"] intValue] == 1) {
-            
+            [self addCardToDeck];
         }
     }
 }

@@ -55,6 +55,13 @@ typedef enum {
     kObjectTypePlayer
 } GameObjectType;
 
+typedef enum {
+    kCardSuitSpades,
+    kCardSuitClover,
+    kCardSuitDiamond,
+    kCardSuitHeart
+} CardSuit;
+
 @protocol GameplayLayerDelegate
 
 -(void)createObjectOfType:(GameObjectType)objectType 

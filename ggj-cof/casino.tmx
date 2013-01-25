@@ -31,4 +31,21 @@
  <objectgroup name="Objects" width="20" height="20">
   <object name="SpawnPoint" x="140" y="140" width="43" height="40"/>
  </objectgroup>
+ <objectgroup name="Destinations" width="20" height="20">
+  <object name="Destination1" x="333" y="140" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="777" y="75" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="204" y="520" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
