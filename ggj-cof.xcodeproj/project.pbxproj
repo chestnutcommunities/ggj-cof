@@ -138,6 +138,10 @@
 		F4B1EBF416B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBEA16B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m */; };
 		F4B1EBF516B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBEC16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m */; };
 		F4B1EBF816B104FE009A4F12 /* GamePlayRenderingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */; };
+		F4B1EC0216B152C2009A4F12 /* ninja.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4B1EC0016B152C2009A4F12 /* ninja.plist */; };
+		F4B1EC0316B152C2009A4F12 /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B1EC0116B152C2009A4F12 /* ninja.png */; };
+		F4B1EC0616B152F0009A4F12 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EC0516B152F0009A4F12 /* Human.m */; };
+		F4B9318416B210940079774F /* PositioningHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9318316B210940079774F /* PositioningHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -410,6 +414,12 @@
 		F4B1EBEC16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedJoystickExample.m; sourceTree = "<group>"; };
 		F4B1EBF616B104FE009A4F12 /* GamePlayRenderingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayRenderingLayer.h; sourceTree = "<group>"; };
 		F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayRenderingLayer.m; sourceTree = "<group>"; };
+		F4B1EC0016B152C2009A4F12 /* ninja.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ninja.plist; sourceTree = "<group>"; };
+		F4B1EC0116B152C2009A4F12 /* ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninja.png; sourceTree = "<group>"; };
+		F4B1EC0416B152F0009A4F12 /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
+		F4B1EC0516B152F0009A4F12 /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
+		F4B9318216B210940079774F /* PositioningHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningHelper.h; sourceTree = "<group>"; };
+		F4B9318316B210940079774F /* PositioningHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -819,14 +829,14 @@
 			children = (
 				F4B1EBCB16B102B0009A4F12 /* GamePlayInputLayer.h */,
 				F4B1EBCC16B102B0009A4F12 /* GamePlayInputLayer.m */,
+				F4B1EBF616B104FE009A4F12 /* GamePlayRenderingLayer.h */,
+				F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */,
 				F4B1EBCD16B102B0009A4F12 /* GamePlayStatusLayer.h */,
 				F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */,
 				F4B1EBCF16B102B0009A4F12 /* TitleScreenScene.h */,
 				F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */,
 				F4B1EBD416B102D8009A4F12 /* ShingoTestLayer.h */,
 				F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */,
-				F4B1EBF616B104FE009A4F12 /* GamePlayRenderingLayer.h */,
-				F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -834,6 +844,8 @@
 		F4B1EBBB16B0FD25009A4F12 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1EC0416B152F0009A4F12 /* Human.h */,
+				F4B1EC0516B152F0009A4F12 /* Human.m */,
 				F4B1EBC516B1023A009A4F12 /* GameCharacter.h */,
 				F4B1EBC616B1023A009A4F12 /* GameCharacter.m */,
 				F4B1EBC716B1023A009A4F12 /* GameObject.h */,
@@ -856,6 +868,8 @@
 			children = (
 				F4B1EBD716B10309009A4F12 /* ShortestPathStep.h */,
 				F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */,
+				F4B9318216B210940079774F /* PositioningHelper.h */,
+				F4B9318316B210940079774F /* PositioningHelper.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -871,6 +885,8 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1EC0016B152C2009A4F12 /* ninja.plist */,
+				F4B1EC0116B152C2009A4F12 /* ninja.png */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -973,6 +989,8 @@
 				F490EFE716AFD62900BBA594 /* Icon.png in Resources */,
 				F490EFE916AFD62900BBA594 /* Icon@2x.png in Resources */,
 				F490EFEC16AFD62900BBA594 /* iTunesArtwork in Resources */,
+				F4B1EC0216B152C2009A4F12 /* ninja.plist in Resources */,
+				F4B1EC0316B152C2009A4F12 /* ninja.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,6 +1115,8 @@
 				F4B1EBF416B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m in Sources */,
 				F4B1EBF516B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m in Sources */,
 				F4B1EBF816B104FE009A4F12 /* GamePlayRenderingLayer.m in Sources */,
+				F4B1EC0616B152F0009A4F12 /* Human.m in Sources */,
+				F4B9318416B210940079774F /* PositioningHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

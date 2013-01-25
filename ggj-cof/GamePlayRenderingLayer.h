@@ -6,20 +6,8 @@
 //
 //
 
-#import "cocos2d.h"
+#import "ShingoTestLayer.h"
 
-@class GamePlayInputLayer;
-@class GamePlayStatusLayer;
-
-@interface GamePlayRenderingLayer : CCLayer
-{
-    GamePlayInputLayer *_inputLayer;
-    GamePlayStatusLayer *_statusLayer;
-}
-
-@property (nonatomic, retain) GamePlayInputLayer *inputLayer;
-@property (nonatomic, retain) GamePlayStatusLayer *statusLayer;
-
-+(CCScene *) scene;
+@interface GamePlayRenderingLayer : ShingoTestLayer
 
 @end

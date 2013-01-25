@@ -6,8 +6,25 @@
 //
 //
 
-#import "GamePlayRenderingLayer.h"
+#import "cocos2d.h"
 
-@interface ShingoTestLayer : GamePlayRenderingLayer
+@class GamePlayInputLayer;
+@class GamePlayStatusLayer;
+@class Human;
+
+@interface ShingoTestLayer : CCLayer
+{
+    CCSpriteBatchNode *_sceneBatchNode;
+    Human *_player;
+
+    GamePlayInputLayer *_inputLayer;
+    GamePlayStatusLayer *_statusLayer;
+}
+
+@property (nonatomic, retain) GamePlayInputLayer *inputLayer;
+@property (nonatomic, retain) GamePlayStatusLayer *statusLayer;
+@property (nonatomic, retain) Human *player;
+
++(CCScene *) scene;
 
 @end

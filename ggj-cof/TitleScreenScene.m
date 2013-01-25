@@ -63,7 +63,8 @@
         ColoredSquareSprite* normal = [ColoredSquareSprite squareWithColor:ccc4(150, 150, 150, 255) size:CGSizeMake(100, 100)];
         ColoredSquareSprite* hover = [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 255) size:CGSizeMake(100, 100)];
         
-        CCMenuItemSprite* item = [CCMenuItemSprite itemFromNormalSprite:normal selectedSprite:hover target:self selector:@selector(startButtonTapped:)];        item.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+        CCMenuItemSprite* item = [CCMenuItemSprite itemFromNormalSprite:normal selectedSprite:hover target:self selector:@selector(startButtonTapped:)];
+        item.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
         
         CCMenu *starMenu = [CCMenu menuWithItems:item, nil];
         starMenu.position = CGPointZero;

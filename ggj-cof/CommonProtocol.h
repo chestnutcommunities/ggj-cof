@@ -30,7 +30,8 @@ typedef enum {
     kStateDrilling,
     kStateAfterJumping,
     kStateCarryingGold,
-	kStateChasing
+	kStateChasing,
+    kStateLanding,
 } CharacterStates;
 
 typedef enum {
@@ -50,6 +51,8 @@ typedef enum {
     kEnemyTypeZombie,
     kObjectTypeGoldCart,
     kObjectTypeGold,
+    kObjectTypeEnemy,
+    kObjectTypePlayer
 } GameObjectType;
 
 @protocol GameplayLayerDelegate

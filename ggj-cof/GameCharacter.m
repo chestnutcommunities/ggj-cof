@@ -7,6 +7,7 @@
 //
 
 #import "GameCharacter.h"
+#import "CommonProtocol.h"
 
 @implementation GameCharacter
 
@@ -15,6 +16,14 @@
 
 -(void) dealloc { 
     [super dealloc];
+}
+
+-(id) init {
+	if ((self = [super init])) {
+        CCLOG(@"GameCharacter init");
+		gameObjectType = kObjectTypePlayer;
+    }
+    return self;
 }
 
 @end
