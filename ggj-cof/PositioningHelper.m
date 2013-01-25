@@ -5,7 +5,7 @@
 //  Created by Shingo Tamura on 25/01/13.
 //
 //
-/* sam test */
+
 #import "PositioningHelper.h"
 
 @implementation PositioningHelper
