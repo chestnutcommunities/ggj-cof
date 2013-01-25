@@ -6,7 +6,7 @@
 //
 //
 
-#import "CCLayer.h"
+#import "cocos2d.h"
 
 @interface PositioningHelper : CCLayer
 
