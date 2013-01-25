@@ -15,16 +15,7 @@
 
 @interface SamTestLayer : CCLayer {
     CCSpriteBatchNode *_sceneBatchNode;
-    Human *_player;
-    TileMapManager* _mapManager;
-    GamePlayInputLayer *_inputLayer;
-    GamePlayStatusLayer *_statusLayer;
 }
-
-@property (nonatomic, retain) GamePlayInputLayer *inputLayer;
-@property (nonatomic, retain) GamePlayStatusLayer *statusLayer;
-@property (nonatomic, retain) TileMapManager *mapManager;
-@property (nonatomic, retain) Human *player;
 
 +(CCScene *) scene;
 

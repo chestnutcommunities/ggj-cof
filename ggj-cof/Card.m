@@ -11,7 +11,7 @@
 @implementation Card
 
 @synthesize number = _number;
-@synthesize cardSuite = _cardSuite;
+@synthesize cardSuit = _cardSuit;
 
 -(void) dealloc {
     [super dealloc];
@@ -20,7 +20,7 @@
 -(id) init {
 	if ((self = [super init])) {
         self.number = 1;
-        self.cardSuite = kCardSuitHeart;
+        self.cardSuit = kCardSuitHeart;
     }
     return self;
 }

@@ -12,10 +12,10 @@
 
 @interface Card : GameCharacter {
     int _number;
-	CardSuit _cardSuite;
+	CardSuit _cardSuit;
 }
 
 @property (readwrite) int number;
-@property (readwrite) CardSuit cardSuite;
+@property (readwrite) CardSuit cardSuit;
 
 @end
