@@ -12,9 +12,11 @@
 @interface GameCharacter : GameObject {
 	int characterHealth;
 	CharacterStates characterState;
+    CGFloat _speed;
 }
 
 @property (readwrite) int characterHealth;
-@property (readwrite) CharacterStates characterState; 
+@property (readwrite) CharacterStates characterState;
+@property (nonatomic, assign) CGFloat speed;
 
 @end

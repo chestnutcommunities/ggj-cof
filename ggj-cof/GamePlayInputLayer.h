@@ -16,11 +16,14 @@
 @interface GamePlayInputLayer : CCLayer
 {
     GamePlayRenderingLayer *_gameLayer;
-    
 	SneakyJoystick *_leftJoystick;
+    
+    ccTime _tmpMovingDelta;
+    ccTime _movingThreshold;
 }
 
 @property (nonatomic, retain) GamePlayRenderingLayer *gameLayer;
+@property (nonatomic, assign) ccTime movingThreshold;
 
 @end
 

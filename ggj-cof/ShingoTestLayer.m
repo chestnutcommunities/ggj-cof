@@ -94,32 +94,45 @@
     CCLOG(@"Held at (%f, %f)", x, y);
 }
 
-// on "init" you need to initialize your instance
+-(void) initPlayer:(CGSize)winSize
+{
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ninja.plist"];
+    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"ninja.png"] retain];
+    [self addChild:_sceneBatchNode];
+    
+    _player = [[Human alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
+    CGPoint position = ccp(winSize.width / 2.0f, winSize.height / 2.0f);
+    [_player setPosition:position];
+    
+    [_sceneBatchNode addChild:_player z:0];    
+}
+
+-(void) initTouchEventHandlers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchCompleted:) name:@"touchEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchSwipedDown:) name:@"touchSwipedDown" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchSwipedUp:) name:@"touchSwipedUp" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchHeld:) name:@"touchHeld" object:nil];
+}
+
+-(void) initTileMap
+{
+    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"shingo.tmx"];
+    self.mapManager = [TileMapManager initWithTileMap:map forLayer:(GamePlayRenderingLayer*)self];
+}
+
 -(id) init
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
     if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ninja.plist"];
-        _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"ninja.png"] retain];
-        [self addChild:_sceneBatchNode];
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
-        _player = [[Human alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
-        CGPoint position = ccp(winSize.width / 2.0f, winSize.height / 2.0f);
-        [_player setPosition:position];
+        [self initTileMap];
+        [self initPlayer:winSize];
+        [self initTouchEventHandlers];
         
-        [_sceneBatchNode addChild:_player z:0];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchCompleted:) name:@"touchEnded" object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchSwipedDown:) name:@"touchSwipedDown" object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchSwipedUp:) name:@"touchSwipedUp" object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTouchHeld:) name:@"touchHeld" object:nil];
-
 		[self scheduleUpdate];
 	}
 	return self;

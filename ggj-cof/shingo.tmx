@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="shingo.png" tilewidth="32" tileheight="32" spacing="1" margin="1">
-  <image source="desert.png" width="265" height="199"/>
+ <tileset firstgid="1" name="desert" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="shingo.png" width="265" height="199"/>
  </tileset>
  <layer name="base" width="50" height="50">
   <data encoding="base64" compression="zlib">
