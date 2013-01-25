@@ -12,22 +12,10 @@
 
 @synthesize cardDeckSpriteBatchNode = _cardDeckSpriteBatchNode;
 
--(CCTMXObjectGroup *)getCardsFromTileMap:(CCTMXTiledMap*)tileMap {
-    CCTMXObjectGroup *cards = [tileMap objectGroupNamed:@"Cards"];
-    return cards;
-}
-
--(void)setCardPositionOnTileMap:(CCTMXObjectGroup*)cards onMap:(CCTMXTiledMap*)tileMap {
-    int x, y; //positions of spawn points
-    NSMutableDictionary *objectTile;
-    for (objectTile in [cards objects]) {
-        x = [[objectTile valueForKey:@"x"] intValue];
-        y = [[objectTile valueForKey:@"y"] intValue];
-        
-        if ([[objectTile valueForKey:@"Card"] intValue] == 1) {
-            [self addCardToDeck];
-        }
-    }
+-(id) initCardsFromTileMap:(CCTMXTiledMap*)tileMap {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"zombie.plist"];
+    self.cardDeckSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"zombie.png"];
+    return self;
 }
 
 @end

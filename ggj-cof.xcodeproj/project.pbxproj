@@ -13,6 +13,8 @@
 		CE163AC916B278420066449B /* SamTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163AC816B278420066449B /* SamTestLayer.m */; };
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
+		CE79B74616B318A0004B160B /* zombie-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE79B74416B318A0004B160B /* zombie-hd.png */; };
+		CE79B74716B318A0004B160B /* zombie-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE79B74516B318A0004B160B /* zombie-hd.plist */; };
 		F490EFC916AFD62900BBA594 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFC816AFD62900BBA594 /* QuartzCore.framework */; };
 		F490EFCB16AFD62900BBA594 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCA16AFD62900BBA594 /* OpenGLES.framework */; };
 		F490EFCD16AFD62900BBA594 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCC16AFD62900BBA594 /* OpenAL.framework */; };
@@ -166,6 +168,8 @@
 		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
 		CE79B73F16B312B3004B160B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		CE79B74416B318A0004B160B /* zombie-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zombie-hd.png"; sourceTree = "<group>"; };
+		CE79B74516B318A0004B160B /* zombie-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "zombie-hd.plist"; sourceTree = "<group>"; };
 		F490EFC416AFD62900BBA594 /* ggj-cof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ggj-cof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F490EFC816AFD62900BBA594 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F490EFCA16AFD62900BBA594 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -475,6 +479,15 @@
 				CE163AC316B2719C0066449B /* casino-land.png */,
 				CE163AC416B2719C0066449B /* meta.png */,
 				CE163ABE16B26F390066449B /* casino.tmx */,
+			);
+			name = Sam;
+			sourceTree = "<group>";
+		};
+		CE79B74316B31896004B160B /* Sam */ = {
+			isa = PBXGroup;
+			children = (
+				CE79B74416B318A0004B160B /* zombie-hd.png */,
+				CE79B74516B318A0004B160B /* zombie-hd.plist */,
 			);
 			name = Sam;
 			sourceTree = "<group>";
@@ -932,6 +945,7 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CE79B74316B31896004B160B /* Sam */,
 				F4B9318F16B21B930079774F /* lever.png */,
 				F4B9319016B21B930079774F /* wheel.png */,
 				F4B1EC0016B152C2009A4F12 /* ninja.plist */,
@@ -1059,6 +1073,8 @@
 				CE163AC516B2719C0066449B /* casino-land.png in Resources */,
 				CE163AC616B2719C0066449B /* meta.png in Resources */,
 				F4ABBC3416B2AA3800BB3A51 /* Default-568h@2x.png in Resources */,
+				CE79B74616B318A0004B160B /* zombie-hd.png in Resources */,
+				CE79B74716B318A0004B160B /* zombie-hd.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

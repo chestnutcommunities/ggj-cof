@@ -7,16 +7,17 @@
 //
 
 #import "cocos2d.h"
-#import "TileMapManager.h"
+#import "GamePlayRenderingLayer.h";
 
-@class GamePlayInputLayer;
-@class GamePlayStatusLayer;
-@class Human;
+@class CardManager;
 
-@interface SamTestLayer : CCLayer {
-    CCSpriteBatchNode *_sceneBatchNode;
+@interface SamTestLayer : GamePlayRenderingLayer {
+    CCSpriteBatchNode *_cardBatchNode;
+    CardManager* _cardManager;
 }
 
-+(CCScene *) scene;
+@property (nonatomic, retain) CardManager *cardManager;
+
+-(void) initCard;
 
 @end

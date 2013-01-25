@@ -7,16 +7,18 @@
 //
 
 #import "SamTestLayer.h"
+#import "GamePlayRenderingLayer.h"
+#import "TileMapManager.h"
+#import "CardManager.h"
 
 @implementation SamTestLayer
 
-- (void) dealloc
-{
-}
+@synthesize cardManager = _cardManager;
 
--(void)update:(ccTime)delta
+-(void) initCard
 {
+    self.cardManager = [[[CardManager alloc] initCardsFromTileMap:self.mapManager.tileMap] retain];
+    [self addChild:self.cardManager.cardDeckSpriteBatchNode];
 }
-
 
 @end

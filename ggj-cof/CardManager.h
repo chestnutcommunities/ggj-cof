@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) CCSpriteBatchNode *cardDeckSpriteBatchNode;
 
--(CCTMXObjectGroup *)getCardsFromTileMap:(CCTMXTiledMap*)tileMap;
+-(id) initCardsFromTileMap:(CCTMXTiledMap*)tileMap;
 
 @end
