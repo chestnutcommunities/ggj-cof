@@ -141,7 +141,8 @@
     }
     
     if (newState == kStateDying) {
-        
+        [self stopAllActions];
+
         id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
         id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
         
@@ -190,3 +191,4 @@
     }
     return self;
 }
+@end

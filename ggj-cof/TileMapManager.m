@@ -77,42 +77,44 @@
 }
 
 -(id) initWithTileMap:(CCTMXTiledMap*)tileMap {
-    self.tileMap = tileMap;
-    
-    // Set the tile size in points (this is universal across normal and retina displays)
-    self.tileSizeInPoints = CGSizeMake(32.0f, 32.0f);
-    
-    self.meta = [_tileMap layerNamed:@"Meta"];
-    NSAssert(self.meta != nil, @"'Meta' layer not found");
-    _meta.visible = NO;
-    
-    self.objects = [_tileMap objectGroupNamed:@"Objects"];
-    NSAssert(self.objects != nil, @"'Objects' object group not found");
-    
-    int x = 0, y = 0;
-    
-    self.enemySpawnPoints = [[NSMutableArray alloc] init];
-    self.enemyDestinationPoints = [[NSMutableArray alloc] init];
-
-    NSMutableDictionary *obj;
-    for (obj in [self.objects objects]) {
-        x = [[obj valueForKey:@"x"] intValue];
-        y = [[obj valueForKey:@"y"] intValue];
+    if (self = [super init]) {
+        self.tileMap = tileMap;
         
-        CGPoint tileFittingPositionInPixels = [PositioningHelper computeTileFittingPositionInPixels:ccp(x, y) tileMap:_tileMap tileSizeInPoints:_tileSizeInPoints];
-        CGPoint objPos = [PositioningHelper convertPixelsToPoints:tileFittingPositionInPixels retina:YES];
+        // Set the tile size in points (this is universal across normal and retina displays)
+        self.tileSizeInPoints = CGSizeMake(32.0f, 32.0f);
         
-        if ([[obj valueForKey:@"Card"] intValue] == 1) {
-            [self.enemySpawnPoints addObject:[NSValue valueWithCGPoint:objPos]];
-        }
-        else if ([[obj valueForKey:@"Destination"] intValue] == 1) {
-            [self.enemyDestinationPoints addObject:[NSValue valueWithCGPoint:objPos]];
-        }
-        else {
-            // do nothing
+        self.meta = [_tileMap layerNamed:@"Meta"];
+        NSAssert(self.meta != nil, @"'Meta' layer not found");
+        _meta.visible = NO;
+        
+        self.objects = [_tileMap objectGroupNamed:@"Objects"];
+        NSAssert(self.objects != nil, @"'Objects' object group not found");
+        
+        int x = 0, y = 0;
+        
+        self.enemySpawnPoints = [[[NSMutableArray alloc] init] retain];
+        self.enemyDestinationPoints = [[[NSMutableArray alloc] init] retain];
+        
+        NSMutableDictionary *obj;
+        for (obj in [self.objects objects]) {
+            x = [[obj valueForKey:@"x"] intValue];
+            y = [[obj valueForKey:@"y"] intValue];
+            
+            CGPoint tileFittingPositionInPixels = [PositioningHelper computeTileFittingPositionInPixels:ccp(x, y) tileMap:_tileMap tileSizeInPoints:_tileSizeInPoints];
+            CGPoint objPos = [PositioningHelper convertPixelsToPoints:tileFittingPositionInPixels retina:YES];
+            
+            if ([[obj valueForKey:@"Card"] intValue] == 1) {
+                [self.enemySpawnPoints addObject:[NSValue valueWithCGPoint:objPos]];
+            }
+            else if ([[obj valueForKey:@"Destination"] intValue] == 1) {
+                [self.enemyDestinationPoints addObject:[NSValue valueWithCGPoint:objPos]];
+            }
+            else {
+                // do nothing
+            }
         }
     }
-
+    
     return self;
 }
 

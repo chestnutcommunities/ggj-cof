@@ -22,6 +22,9 @@
 
 - (void) dealloc
 {
+    _leftJoystick = nil;
+    [_leftJoystick release];
+    
 	[super dealloc];
 }
 
@@ -130,7 +133,7 @@
     // initialize a joystick
     SneakyJoystickSkinnedBase *leftJoy = [[[SneakyJoystickSkinnedBase alloc] init] autorelease];
     leftJoy.position = ccp(80, 80); // 64 + 16 = 80
-    leftJoy.backgroundSprite = [CCSprite spriteWithFile:@"wheel.png"];
+    leftJoy.backgroundSprite = [[CCSprite spriteWithFile:@"wheel.png"] retain];
     leftJoy.thumbSprite = [CCSprite spriteWithFile:@"lever.png"];    
     leftJoy.joystick = [[SneakyJoystick alloc] initWithRect:CGRectMake(0, 0, 128, 128)];
     _leftJoystick = [leftJoy.joystick retain];

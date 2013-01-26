@@ -109,15 +109,15 @@
     
     [self postMovePlayer:destination facing:direction];
     
-    id actionMove = [CCMoveTo actionWithDuration:0.2f position:fittedPos];
-    id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)];
+    id actionMove = [[CCMoveTo actionWithDuration:0.2f position:fittedPos] retain];
+    id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
     CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
-    id actionViewpointMove = [CCMoveTo actionWithDuration:0.2f position:viewPointPosition];
+    id actionViewpointMove = [[CCMoveTo actionWithDuration:0.2f position:viewPointPosition] retain];
     
     _player.isMoving = YES;
     
-    [_player runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
-    [self runAction:[CCSequence actions:actionViewpointMove, nil]];
+    [_player runAction:[[CCSequence actions:actionMove, actionMoveDone, nil] retain]];
+    [self runAction:[[CCSequence actions:actionViewpointMove, nil] retain]];
 }
 
 -(id) init

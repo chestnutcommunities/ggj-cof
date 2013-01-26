@@ -99,9 +99,8 @@
                         // Disable touch
                         [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
                         
-                        id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:1.0f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
+                        id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
                         [self runAction:sequeunce];
-
                     }
                     else {
                         // Game goes on, shuffle cards
@@ -109,13 +108,13 @@
                     }
                 }
                 else {
-                    // Kill the player, change game state
-                    [_player changeState:kStateDying];
-                    
                     // Disable touch
                     [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
                     
-                    id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:1.0f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
+                    // Kill the player, change game state
+                    [_player changeState:kStateDying];
+                    
+                    id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
                     [self runAction:sequeunce];
                 }
             }
