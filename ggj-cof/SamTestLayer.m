@@ -49,7 +49,10 @@
 -(void) initFriendsAndEnemies {
     for (NSValue* val in _mapManager.enemySpawnPoints) {
         CGPoint spawnPoint = [val CGPointValue];
-        Card* enemy = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
+        
+        Card* enemy = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]];
+        [enemy setNumber:1];
+        
 		[enemy setPosition:spawnPoint];
 		[self.sceneBatchNode addChild:enemy z:100];
         [enemy release];

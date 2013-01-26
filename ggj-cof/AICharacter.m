@@ -36,7 +36,7 @@
     
     [super dealloc];
 }
-
+/*
 - (void)popStepAndAnimate:(id)sender tileMapManager:(TileMapManager*)tileMapManager {
     self.currentStepAction = nil;
 	
@@ -76,6 +76,6 @@
 	// Play actions
 	[self runAction:self.currentStepAction];
 }
-
+*/
 
 @end

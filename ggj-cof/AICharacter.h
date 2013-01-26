@@ -25,6 +25,6 @@
 @property (nonatomic, retain) CCAction *currentStepAction;
 @property (nonatomic, retain) NSValue *pendingMove;
 
-- (void)popStepAndAnimate:(id)sender data:(TileMapManager*)tileMapManager;
+//- (void)popStepAndAnimate:(id)sender data:(TileMapManager*)tileMapManager;
 
 @end

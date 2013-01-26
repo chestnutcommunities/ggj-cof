@@ -17,6 +17,17 @@
 @synthesize card = _card;
 @synthesize tileMapManager = _tileMapManager;
 
+- (void) dealloc
+{
+	self.tileMapManager = nil;
+    self.card = nil;
+    
+	[_tileMapManager release];
+	[_card release];
+    
+    [super dealloc];
+}
+
 @end
 
 @implementation AIHelper
@@ -74,6 +85,7 @@
 	id moveAction = [CCMoveTo actionWithDuration:1.0f position:[PositioningHelper positionInPointsForTileCoord:s.position tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints]];
 	// set the method itself as the callback
     //id moveCallback = [CCCallFunc actionWithTarget:self selector:@selector(popStepAndAnimate:tileMapManager:) tileMapManager:tileMapManager];
+    
     id moveCallback = [CCCallFuncND actionWithTarget:self selector:@selector(popStepAndAnimate:data:) data:data];
     card.currentStepAction = [CCSequence actions:moveAction, moveCallback, nil];
 	
@@ -82,7 +94,6 @@
 	
 	// Play actions
 	[card runAction:card.currentStepAction];
-    
 }
 
 // Go backward from a step (the final one) to reconstruct the shortest computed path
@@ -97,7 +108,10 @@
 		step = step.parent; // Go backward
 	} while (step != nil); // Until there is no more parent
     
-    PopStepAnimateData *data; // = [PopStepAnimateData ];
+    PopStepAnimateData *data = [[PopStepAnimateData alloc] init];
+    data.card = card;
+    data.tileMapManager = tileMapManager;
+    
 	[AIHelper popStepAndAnimate:self data:data];
 }
 
