@@ -14,7 +14,6 @@
 #import "ColoredSquareSprite.h"
 #import "Card.h"
 #import "PositioningHelper.h"
-#import "ShingoTestLayer.h"
 
 @implementation GamePlayRenderingLayer
 

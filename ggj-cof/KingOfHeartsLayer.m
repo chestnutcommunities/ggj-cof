@@ -76,6 +76,7 @@
 }
 
 -(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
+    /*
     CCArray* cards = [_cardManager.enemyBatchNode children];
     for (Card* card in cards) {
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
@@ -118,6 +119,7 @@
             }
         }
     }
+     */
 }
 
 -(void) update:(ccTime)delta
@@ -127,27 +129,62 @@
     for (Card *card in cards) {
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
-            CGRect cardSightBoundingBox = [(Card *)card eyesightBoundingBox];
+            CGRect cardBoundingBox = [card adjustedBoundingBox];
+            CGRect cardSightBoundingBox = [card eyesightBoundingBox];
             
+            BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
             BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
             
             int playerNumber = [self.player getNumber];
             int cardNumber = [(Card *)card getNumber];
             
-            if (isHeroWithinSight && (playerNumber < cardNumber)) {
-                [card changeState:kStateChasing];
-                [AIHelper moveToTarget:(Card *)card
-                        tileMapManager:_mapManager
-                               tileMap:_mapManager.tileMap
-                                target:_player.position];
+            if (isHeroWithinBoundingBox) {
+                // If card number is lower than or equal to the player's number...
+                if (playerNumber >= cardNumber) {
+                    // Kill the card and add the numbers together
+                    playerNumber += cardNumber;
+                    
+                    [self.player setNumber:playerNumber];
+                    [card changeState:kStateDying];
+                    
+                    if (playerNumber >= 13) {
+                        // Disable touch
+                        [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
+                        
+                        id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
+                        [self runAction:sequeunce];
+                    }
+                    else {
+                        // Game goes on, shuffle cards
+                        [_cardManager shuffleCards:playerNumber];
+                    }
+                }
+                else {
+                    // Disable touch
+                    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
+                    
+                    // Kill the player, change game state
+                    [_player changeState:kStateDying];
+                    
+                    id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
+                    [self runAction:sequeunce];
+                }
             }
             else {
-                [card changeState:kStateWalking];
-                [AIHelper moveToTarget:(Card *)card
-                        tileMapManager:_mapManager
-                               tileMap:_mapManager.tileMap
-                                target:[_mapManager getCurrentDestinationOfCard:card]];
-                
+                if (isHeroWithinSight && (playerNumber < cardNumber)) {
+                    [card changeState:kStateChasing];
+                    [AIHelper moveToTarget:(Card *)card
+                            tileMapManager:_mapManager
+                                   tileMap:_mapManager.tileMap
+                                    target:_player.position];
+                }
+                else {
+                    [card changeState:kStateWalking];
+                    [AIHelper moveToTarget:(Card *)card
+                            tileMapManager:_mapManager
+                                   tileMap:_mapManager.tileMap
+                                    target:[_mapManager getCurrentDestinationOfCard:card]];
+                }
             }
         }
     }

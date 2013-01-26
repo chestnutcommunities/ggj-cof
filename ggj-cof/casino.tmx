@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="64" tileheight="64">
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="64" tileheight="64">
  <tileset firstgid="1" name="casino-tiles" tilewidth="64" tileheight="64">
   <image source="casino-land.png" width="128" height="64"/>
  </tileset>
@@ -11,84 +11,84 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Land" width="20" height="20">
+ <layer name="Land" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJxjZGBgYKQyZqIiZkSiqcWmhXmj/h3176h/R/070vwLAHABAmo=
+   eJztVDESwDAISvr/R/cDoCi2kwNDc1YCYu455y4WP+AB3xVEvaq8ar3LG2lANei8q/chvZBGptPhRecZj8uLPGO+ZrXdXDFetbbCm+0Km/sEL9Om3M3ZI3WWrIfKq/qE8jfxbrCeyrwn8lzxLnprKh5HerM8dPVGPZScO3lmnn053+xftj/qPlTmm2mefJ/VrE/k2UE3V4uFixesBgRd
   </data>
  </layer>
- <layer name="Meta" width="20" height="20">
+ <layer name="Meta" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJxjZmBgYKYypiZgRqKpxaaFedQCo/4d9e+of0f9O1T8CwApYQIm
+   eJztklEKwDAIQ4Xd/877HSVRE8u+FGS0qG+xeSLi2dz8IQOclchmqdxu/ZSbaUA16N7V+/2i+Scrm+Fw0X3FmXIDzEBaO7Wurxi3W6twWbC3vcll2jr/pnIzbZ3ZqH/i6cp/Z72jl81EwXSq3Gr/yg6cHSNdmcaT43InPp/4me2MaUS9rl7Wi+67ver7VppvcFWv3/DzJFxfbW5O8wW3rAgF
   </data>
  </layer>
- <objectgroup name="Objects" width="20" height="20">
-  <object name="SpawnPoint" x="648" y="654" width="43" height="40"/>
-  <object name="CardSpawnPoint1" x="457" y="398" width="45" height="43">
+ <objectgroup name="Objects" width="30" height="30">
+  <object name="SpawnPoint" x="714" y="782" width="43" height="40"/>
+  <object name="CardSpawnPoint1" x="461" y="552" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="453" y="82" width="44" height="40">
+  <object name="Destination1" x="599" y="338" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="268" y="462" width="44" height="40">
+  <object name="Destination1" x="522" y="912" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="777" y="75" width="44" height="40">
+  <object name="Destination1" x="1419" y="903" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="842" y="272" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1156" y="650" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="80" y="1224" width="45" height="43">
+  <object name="CardSpawnPoint1" x="328" y="1544" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="1225" y="1230" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1203" y="1168" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="1227" y="588" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1545" y="346" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="650" y="974" width="45" height="43">
+  <object name="CardSpawnPoint1" x="706" y="1040" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="1036" y="786" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1286" y="1468" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="260" y="972" width="45" height="43">
+  <object name="CardSpawnPoint1" x="326" y="694" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="345" y="655" width="44" height="40">
+  <object name="Destination1" x="713" y="1169" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="841" y="845" width="44" height="40">
+  <object name="Destination1" x="967" y="915" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="1035" y="463" width="44" height="40">
+  <object name="Destination1" x="843" y="589" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
@@ -98,27 +98,27 @@
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="1035" y="1231" width="44" height="40">
+  <object name="Destination1" x="971" y="1299" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="1223" y="929" width="44" height="40">
+  <object name="Destination1" x="1547" y="1221" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="79" y="843" width="44" height="40">
+  <object name="Destination1" x="783" y="1549" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="75" y="271" width="44" height="40">
+  <object name="Destination1" x="327" y="345" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="649" y="277" width="44" height="40">
+  <object name="Destination1" x="1099" y="341" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
