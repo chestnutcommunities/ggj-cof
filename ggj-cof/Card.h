@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "AICharacter.h"
 
+@class TileMapManager;
+
 @interface Card : AICharacter {
     int _number;
 	CardSuit _cardSuit;
@@ -25,7 +27,16 @@
     CGFloat _factor;
     CGFloat _limit;
     CGFloat _momentum;
+    
+    //spawning & AI
+    CGPoint _originPoint;
+    int _currentDestinationPath;
+    NSMutableArray *_destinationPoints;
 }
+
+@property (nonatomic, assign) CGPoint originPoint;
+@property (nonatomic, assign) int currentDestinationPath;
+@property (nonatomic, retain) NSMutableArray *destinationPoints;
 
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;
@@ -36,4 +47,5 @@
 -(void) initiateCrouch;
 -(void) initiateLanding;
 
+-(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager;
 @end

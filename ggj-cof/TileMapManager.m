@@ -9,6 +9,8 @@
 #import "TileMapManager.h"
 #import "GamePlayRenderingLayer.h"
 #import "PositioningHelper.h"
+#import "Constants.h"
+#import "Card.h"
 
 @implementation TileMapManager
 
@@ -128,7 +130,6 @@
     }
 }
 
-
 -(BOOL)isProp:(NSString*)prop atTileCoord:(CGPoint)tileCoord forLayer:(CCTMXLayer *)layer {
     if (![self isValidTileCoord:tileCoord]) return NO;
     int gid = [self.meta tileGIDAt:tileCoord];
@@ -204,6 +205,12 @@
 	}
 	
 	return [NSArray arrayWithArray:tmp];
+}
+
+-(CGPoint) getCurrentDestinationOfCard:(Card *)card {
+    card.currentDestinationPath = (card.currentDestinationPath % kNumberOfDestinationPointsPerCard);
+    NSValue* val = [card.destinationPoints objectAtIndex:card.currentDestinationPath];
+    return (CGPoint)[val CGPointValue];
 }
 
 @end

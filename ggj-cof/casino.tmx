@@ -13,27 +13,27 @@
  </tileset>
  <layer name="Land" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJy1k7ERwDAIA433HzqXLgVIH7ALKrhHCIi1VhyODfLfILwsImGoWqVvFzlVe5On5iI80sd57ZiE1537T9C90PmzHSpP3K1lNzvxrdJZaXJ6HI96SDWd4HVvSOmjfnf31OFN/mH6C67/m38Alr4CIw==
+   eJxjZGBgYKQyZqIiZkSiqcWmhXmj/h3176h/R/070vwLAHABAmo=
   </data>
  </layer>
  <layer name="Meta" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJy1klsKADEIAwPe/87L/i3FmmnoCoVCZIyPklSXn4D+DcLropa/y538aaNNuX/ypr4Ij9Rxs3ZMwkv7Pgm6F+K343W1Tm5t1YgP53nXd+LH8egMqacbvPSGJn903umeEl4SpJ6rT+b56g+1GwL7
+   eJxjZmBgYKYypiZgRqKpxaaFedQCo/4d9e+of0f9O1T8CwApYQIm
   </data>
  </layer>
  <objectgroup name="Objects" width="20" height="20">
-  <object name="SpawnPoint" x="140" y="140" width="43" height="40"/>
-  <object name="CardSpawnPoint1" x="393" y="334" width="45" height="43">
+  <object name="SpawnPoint" x="648" y="654" width="43" height="40"/>
+  <object name="CardSpawnPoint1" x="457" y="398" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="333" y="140" width="44" height="40">
+  <object name="Destination1" x="453" y="82" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="204" y="520" width="44" height="40">
+  <object name="Destination1" x="268" y="462" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
@@ -43,17 +43,17 @@
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="778" y="396" width="45" height="43">
+  <object name="CardSpawnPoint1" x="842" y="272" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="140" y="1232" width="45" height="43">
+  <object name="CardSpawnPoint1" x="80" y="1224" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="1161" y="1230" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1225" y="1230" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
@@ -63,19 +63,64 @@
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="720" y="974" width="45" height="43">
+  <object name="CardSpawnPoint1" x="650" y="974" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="970" y="784" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1036" y="786" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="262" y="980" width="45" height="43">
+  <object name="CardSpawnPoint1" x="260" y="972" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="345" y="655" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="841" y="845" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="1035" y="463" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="461" y="1223" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="1035" y="1231" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="1223" y="929" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="79" y="843" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="75" y="271" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="649" y="277" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
    </properties>
   </object>
  </objectgroup>

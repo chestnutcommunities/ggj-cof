@@ -7,13 +7,20 @@
 //
 
 #import "Card.h"
+#import "AIHelper.h"
+#import "TileMapManager.h"
 
 @implementation Card
+
+@synthesize originPoint = _originPoint;
+@synthesize destinationPoints = _destinationPoints;
+@synthesize currentDestinationPath = _currentDestinationPath;
 
 -(void) dealloc {
     _crouchAnim = nil;
     _jumpAnim = nil;
     _landAnim = nil;
+    _destinationPoints = nil;
     
     [_crouchAnim release];
     [_jumpAnim release];
@@ -73,7 +80,49 @@
 
 -(void) loadAnimations {}
 
--(void) updateStateWithDeltaTime:(ccTime)deltaTime andGameObject:(GameObject *)gameObject {
+-(CGRect)eyesightBoundingBox {
+    CGRect cardSightBoundingBox;
+    CGRect cardBoundingBox = [self adjustedBoundingBox];
+	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width*5.0f,
+										cardBoundingBox.origin.y - cardBoundingBox.size.height*5.0f,
+										cardBoundingBox.size.width*10.0f,
+										cardBoundingBox.size.height*10.0f);
+	return cardSightBoundingBox;
+}
+
+-(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager {
+    CGPoint test = [tileMapManager getPlayerSpawnPoint];
+    
+    CGRect heroBoundingBox = [gameObject adjustedBoundingBox];
+	CGRect cardBoundingBox = [self adjustedBoundingBox];
+	CGRect cardSightBoundingBox = [self eyesightBoundingBox];
+    
+    BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
+    
+    if (isHeroWithinSight) {
+        [self changeState:kStateChasing];
+    }
+    else {
+        [self changeState:kStateWalking];
+    }
+    /*
+    //if ([AIHelper checkIfPointIsInSight:test card:self tileMapManager:tileMapManager]) {
+        //chase player if in sight
+        [AIHelper moveToTarget:self
+                tileMapManager:tileMapManager
+                       tileMap:tileMapManager.tileMap
+                        target:gameObject.position];
+    //}
+    
+    else {
+    */
+        //go to regular routine
+        [AIHelper moveToTarget:self
+                tileMapManager:tileMapManager
+                       tileMap:tileMapManager.tileMap
+                        target:[tileMapManager getCurrentDestinationOfCard:self]];
+    
+
 }
 
 -(void) initiateLanding {
@@ -140,33 +189,35 @@
         return;
     }
     
-    if (newState == kStateDying) {
-        [self stopAllActions];
-
-        id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
-        id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
-        
-        id actionFade2 = [CCFadeOut actionWithDuration:0.5f];
-        id actionScale2 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
-        
-        id actionFade3 = [CCFadeOut actionWithDuration:0.5f];
-        id actionScale3 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
-
-        id aciontSequence = [CCSequence actions: [CCDelayTime actionWithDuration:0.5f], [CCCallFunc actionWithTarget:self selector:@selector(handleDead:)], nil];
-        
-        self.characterState = newState;
-        
-        [_suitPanel runAction:actionFade1];
-        [_suitPanel runAction:actionScale1];
-        [_numberPanel runAction:actionFade2];
-        [_numberPanel runAction:actionScale2];
-        [self runAction:actionFade3];
-        [self runAction:actionScale3];
-        
-        [self runAction:aciontSequence];
-    }
-    else {
-        self.characterState = newState;
+    switch (newState) {
+        case kStateDying:
+            [self stopAllActions];
+            
+            id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
+            id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+            
+            id actionFade2 = [CCFadeOut actionWithDuration:0.5f];
+            id actionScale2 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+            
+            id actionFade3 = [CCFadeOut actionWithDuration:0.5f];
+            id actionScale3 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+            
+            id aciontSequence = [CCSequence actions: [CCDelayTime actionWithDuration:0.5f], [CCCallFunc actionWithTarget:self selector:@selector(handleDead:)], nil];
+            
+            self.characterState = newState;
+            
+            [_suitPanel runAction:actionFade1];
+            [_suitPanel runAction:actionScale1];
+            [_numberPanel runAction:actionFade2];
+            [_numberPanel runAction:actionScale2];
+            [self runAction:actionFade3];
+            [self runAction:actionScale3];
+            
+            [self runAction:aciontSequence];
+            break;
+        default:
+            self.characterState = newState;
+            break;
     }
 }
 
@@ -188,6 +239,8 @@
         
         [self addChild:_suitPanel];
         [self addChild:_numberPanel];
+        
+        _currentDestinationPath = 0;
     }
     return self;
 }

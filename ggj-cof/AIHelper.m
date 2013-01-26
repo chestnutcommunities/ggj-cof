@@ -11,6 +11,7 @@
 #import "PositioningHelper.h"
 #import "TileMapManager.h"
 #import "ShortestPathStep.h"
+#import "Constants.h"
 
 @implementation PopStepAnimateData
 
@@ -141,6 +142,7 @@
     
 	//Check if target has been reached
 	if (CGPointEqualToPoint(fromTileCoor, toTileCoord)) {
+        card.currentDestinationPath = card.currentDestinationPath + 1;
 		return;
 	}
     
@@ -221,6 +223,94 @@
 		}
         
 	} while ([card.spOpenSteps count] > 0);
+}
+
+//Bresenenham line drawing algorithm
++(void) getPointsOnLine:(int)x0 y0:(int)y0 x1:(int)x1 y1:(int)y1 pointsArray:(NSMutableArray *)pointsArray {
+	int pointsOnLineGranularity = 1;
+	
+	int Dx = x1 - x0;
+	int Dy = y1 - y0;
+	int steep = (abs(Dy) >= abs(Dx));
+	if (steep) {
+		//swap x and y values
+		int temp = x0;
+		x0 = y0;
+		y0 = temp;
+		temp = x1;
+		x1 = y1;
+		y1 = temp;
+		// recompute Dx, Dy after swap
+		Dx = x1 - x0;
+		Dy = y1 - y0;
+	}
+	int xstep = pointsOnLineGranularity;
+	if (Dx < 0) {
+		xstep = -pointsOnLineGranularity;
+		Dx = -Dx;
+	}
+	int ystep = pointsOnLineGranularity;
+	if (Dy < 0) {
+		ystep = -pointsOnLineGranularity;
+		Dy = -Dy;
+	}
+	int TwoDy = 2*Dy;
+	int TwoDyTwoDx = TwoDy - 2*Dx; // 2*Dy - 2*Dx
+	int E = TwoDy - Dx; //2*Dy - Dx
+	int y = y0;
+	int xDraw, yDraw;
+	int x = x0;
+	while (abs(x-x1) > pointsOnLineGranularity) {
+		x += xstep;
+		//for (int x = x0; x != x1; x += xstep) {
+		if (steep) {
+			xDraw = y;
+			yDraw = x;
+		} else {
+			xDraw = x;
+			yDraw = y;
+		}
+		// Add point to array.
+		[pointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(xDraw, yDraw)]];
+		
+		// next
+		if (E > 0) {
+			E += TwoDyTwoDx; //E += 2*Dy - 2*Dx;
+			y = y + ystep;
+		} else {
+			E += TwoDy; //E += 2*Dy;
+		}
+	}
+}
+
++(BOOL) checkIfPointIsInSight:(CGPoint)targetPos card:(Card *)card tileMapManager:(TileMapManager*)tileMapManager {
+    CGPoint attackerPos = card.position;
+    
+    CGPoint diff = ccpSub(targetPos, attackerPos);
+    if ((abs(diff.x) > kMaxLineOfSight) || (abs(diff.y) > kMaxLineOfSight)){
+        return NO;
+    }
+    
+    NSMutableArray *points = [NSMutableArray array];
+	[self getPointsOnLine:targetPos.x y0:targetPos.y x1:attackerPos.x y1:attackerPos.y pointsArray:points];
+	
+    BOOL lineOfSight = YES;
+    for (int i=0; i<[points count]; i++) {
+		CGPoint thisPoint = [[points objectAtIndex:i] CGPointValue];
+		CGPoint thisTile = [PositioningHelper computeTileFittingPositionInPoints:thisPoint
+                                                                         tileMap:tileMapManager.tileMap
+                                                                tileSizeInPoints:tileMapManager.tileSizeInPoints];
+		if ([tileMapManager isWallAtTileCoord:thisTile]) {
+			lineOfSight = NO;
+		}
+	}
+	
+	 if (lineOfSight) {
+         glColor4ub(255,0,255,255); // Or whatever drawing setup you need
+         ccDrawLine(ccp(targetPos.x, targetPos.y), ccp(attackerPos.x, attackerPos.y));
+     }
+	 
+	return lineOfSight;
 }
 
 @end

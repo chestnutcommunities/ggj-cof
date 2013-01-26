@@ -27,9 +27,7 @@
 + (void)constructPathAndStartAnimationFromStep:(Card *)card step:(ShortestPathStep *)step;
 + (int)costToMoveFromStep:(ShortestPathStep *)fromStep toAdjacentStep:(ShortestPathStep *)toStep;
 + (int)computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord;
-
 + (void)popStepAndAnimate:(id)sender data:(void*)popStepAnimateData;
-
 +(void) moveToTarget:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap target:(CGPoint)target;
-
++(BOOL) checkIfPointIsInSight:(CGPoint)targetPos card:(Card *)card tileMapManager:(TileMapManager*)tileMapManager;
 @end

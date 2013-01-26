@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "GameCharacter.h"
-#import "ShortestPathStep.h"
-#import "TileMapManager.h"
 
 @interface AICharacter : GameCharacter {
 	NSMutableArray *_spOpenSteps;
@@ -24,7 +22,5 @@
 @property (nonatomic, retain) NSMutableArray *shortestPath;
 @property (nonatomic, retain) CCAction *currentStepAction;
 @property (nonatomic, retain) NSValue *pendingMove;
-
-//- (void)popStepAndAnimate:(id)sender data:(TileMapManager*)tileMapManager;
 
 @end

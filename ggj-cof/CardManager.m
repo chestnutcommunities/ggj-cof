@@ -8,6 +8,8 @@
 
 #import "CardManager.h"
 #import "Card.h"
+#import "Constants.h"
+#import "TileMapManager.h"
 
 @implementation CardManager
 
@@ -77,6 +79,36 @@
 -(void) spawnCards:(int)baseNumber spawnPoints:(NSMutableArray*) spawnPoints {
     for (NSValue* val in spawnPoints) {        
         CGPoint spawnPoint = [val CGPointValue];
+        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]] retain];
+        
+		[card setPosition:spawnPoint];
+		[_enemyBatchNode addChild:card z:100];
+        [card release];
+    }
+    [self shuffleCards:baseNumber];
+}
+
+-(void) addDestinationPointsToCards:(TileMapManager *)tileMapManager {
+    for (Card* card in [_enemyBatchNode children]) {
+        int randomIndex;
+        NSValue* selectedDestination;
+        NSMutableArray *destinationList = [[NSMutableArray alloc] init];
+        
+        for (int i=0; i< kNumberOfDestinationPointsPerCard; i++) {
+            randomIndex = arc4random() % [tileMapManager.enemyDestinationPoints count];
+            selectedDestination = [tileMapManager.enemyDestinationPoints objectAtIndex:randomIndex];
+            
+            [destinationList addObject:(NSValue *)selectedDestination];
+        }
+        card.destinationPoints = destinationList;
+    }
+}
+
+-(void) spawnCardsWithTileMap:(int)baseNumber tileMapManager:(TileMapManager *)tileMapManager {
+    NSMutableArray *spawnPoints = tileMapManager.enemySpawnPoints;
+
+    for (NSValue* val in spawnPoints) {
+        CGPoint spawnPoint = [val CGPointValue];
         
         Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]] retain];
         
@@ -85,6 +117,7 @@
         [card release];
     }
     [self shuffleCards:baseNumber];
+    [self addDestinationPointsToCards:tileMapManager];
 }
 
 -(id) init {

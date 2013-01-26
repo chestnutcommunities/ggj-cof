@@ -7,17 +7,31 @@
 //
 
 #import "SamTestLayer.h"
-
 #import "TileMapManager.h"
 #import "Card.h"
 #import "GamePlayInputLayer.h"
 #import "GamePlayStatusLayer.h"
-
-#import "GameObject.h"
+#import "GameOverLayer.h"
+#import "GameCompleteLayer.h"
 #import "CardManager.h"
-#import "AIHelper.h"
 
 @implementation SamTestLayer
+
+@synthesize completeLayer = _completeLayer;
+@synthesize gameOverLayer = _gameOverLayer;
+
+- (void) dealloc
+{
+    self.completeLayer = nil;
+    self.gameOverLayer = nil;
+    _cardManager = nil;
+    
+	[_completeLayer release];
+    [_gameOverLayer release];
+    [_cardManager release];
+    
+	[super dealloc];
+}
 
 +(CCScene *) scene
 {
@@ -44,34 +58,84 @@
 	return scene;
 }
 
--(void) initFriendsAndEnemies {
-    for (NSValue* val in _mapManager.enemySpawnPoints) {
-        CGPoint spawnPoint = [val CGPointValue];
-        
-        Card* enemy = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]];
-        [enemy setNumber:1];
-        
-		[enemy setPosition:spawnPoint];
-		[self.sceneBatchNode addChild:enemy z:100];
-        [enemy release];
+-(void) handleWin:(id)sender {
+    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+    
+    GameCompleteScene *gameOverScene = [GameCompleteScene node];
+    [gameOverScene.layer.label setString:@"You Win!"];
+    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+}
+
+-(void) handleLoss:(id)sender {
+    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+    
+    GameOverScene *gameOverScene = [GameOverScene node];
+    [gameOverScene.layer.label setString:@"You Lose!"];
+    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+}
+
+-(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
+    CCArray* cards = [_cardManager.enemyBatchNode children];
+    for (Card* card in cards) {
+        if (card.characterState != kStateDying && card.characterState != kStateDead) {
+            CGRect target = CGRectMake(card.position.x - (card.contentSize.width/2), card.position.y - (card.contentSize.height/2), card.contentSize.width, card.contentSize.height);
+            
+            if (CGRectContainsPoint(target, destination)) {
+                int playerNumber = [self.player getNumber];
+                int cardNumber = [card getNumber];
+                
+                // If card number is lower than or equal to the player's number...
+                if (playerNumber >= cardNumber) {
+                    // Kill the card and add the numbers together
+                    playerNumber += cardNumber;
+                    
+                    [self.player setNumber:playerNumber];
+                    [card changeState:kStateDying];
+                    
+                    if (playerNumber >= 13) {
+                        // Disable touch
+                        [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
+                        
+                        id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
+                        [self runAction:sequeunce];
+                    }
+                    else {
+                        // Game goes on, shuffle cards
+                        [_cardManager shuffleCards:playerNumber];
+                    }
+                }
+                else {
+                    // Disable touch
+                    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
+                    
+                    // Kill the player, change game state
+                    [_player changeState:kStateDying];
+                    
+                    id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
+                    [self runAction:sequeunce];
+                }
+            }
+        }
     }
 }
 
 -(void) update:(ccTime)delta
 {
-    CCArray *cards = [self.sceneBatchNode children];
-    CGPoint target = [self.mapManager getPlayerSpawnPoint];
-    
-    for (GameObject *card in cards) {
-        [AIHelper moveToTarget:(Card *)card tileMapManager:self.mapManager tileMap:self.mapManager.tileMap target:(CGPoint)target];
-    }
+    CCArray *cards = [_cardManager.enemyBatchNode children];
 
+    for (GameObject *card in cards) {
+        [(Card *)card updateStateWithTileMapManager:delta andGameObject:(GameObject *)_player tileMapManager:self.mapManager];
+    }
 }
 
 -(id) init {
     if ((self = [super init])) {
-        [self initFriendsAndEnemies];
-        [self scheduleUpdate];
+        _cardManager = [[[CardManager alloc] init] retain];
+        [_player setNumber:1];
+        int playerNumber = [_player getNumber];
+        [_cardManager spawnCardsWithTileMap:playerNumber tileMapManager:_mapManager];
+        [self addChild:_cardManager.enemyBatchNode];
+		[self scheduleUpdate];
 	}
 	return self;
 }

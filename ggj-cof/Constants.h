@@ -18,3 +18,6 @@
 
 #define kCardMaxNumber 13
 #define kCardMinNumber 1
+
+#define kMaxLineOfSight 200
+#define kNumberOfDestinationPointsPerCard 2

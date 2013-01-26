@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 
 @class GamePlayRenderingLayer;
+@class Card;
 
 @interface TileMapManager: NSObject
 {
@@ -33,4 +34,6 @@
 -(BOOL)isValidTileCoord:(CGPoint)tileCoord;
 -(BOOL)isWallAtTileCoord:(CGPoint)tileCoord;
 -(NSArray *)walkableAdjacentTilesCoordForTileCoord:(CGPoint)tileCoord;
+-(CGPoint)getCurrentDestinationOfCard:(Card *)card;
+
 @end
