@@ -11,6 +11,9 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="9" name="decoration" tilewidth="64" tileheight="64">
+  <image source="decoration.png" width="512" height="512"/>
+ </tileset>
  <layer name="Land" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztVDESwDAISvr/R/cDoCi2kwNDc1YCYu455y4WP+AB3xVEvaq8ar3LG2lANei8q/chvZBGptPhRecZj8uLPGO+ZrXdXDFetbbCm+0Km/sEL9Om3M3ZI3WWrIfKq/qE8jfxbrCeyrwn8lzxLnprKh5HerM8dPVGPZScO3lmnn053+xftj/qPlTmm2mefJ/VrE/k2UE3V4uFixesBgRd
@@ -19,6 +22,31 @@
  <layer name="Meta" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztklEKwDAIQ4Xd/877HSVRE8u+FGS0qG+xeSLi2dz8IQOclchmqdxu/ZSbaUA16N7V+/2i+Scrm+Fw0X3FmXIDzEBaO7Wurxi3W6twWbC3vcll2jr/pnIzbZ3ZqH/i6cp/Z72jl81EwXSq3Gr/yg6cHSNdmcaT43InPp/4me2MaUS9rl7Wi+67ver7VppvcFWv3/DzJFxfbW5O8wW3rAgF
+  </data>
+ </layer>
+ <layer name="Decoration" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4A+QAgLX5gEeigCZD+QKk9Nfw/lMCQFCDHgDmuY/HAKByEcNDIYSP8ihze+eCHGHHx5hJh4pcR+YgHMHZSEObZyEtn/hMJ0oNM4uXYPh/KeHECKf4d62GBLw+jy+OrLgQDkhDe+NsxITeejYPADACQbBa8=
+  </data>
+ </layer>
+ <layer name="Decoration2" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2DggBQQS+OgkeWHKoD5A58fsPmRmv4mZJYUHjlqA1rGJbFhhp7GhjpA9vdgyy/o+ZpcMxiw6CfFbHqFC7XsQY9P9LSKz++08CexeYVS/8P0S6OJIQMhKBam0K7BBNDDDV/9N1TLLVx1/GAG5KRnfG0aYuhRMAoGCgAAdT8JUg==
+  </data>
+ </layer>
+ <layer name="Decoration3" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlUsOgDAIRHsIl97/nO5JmQ9UExNmR5UHjA2uNRp9o4vEHRbSTWLEjnVYbsZx34l1KvOiHNWDyrxZ70o/Su8sF51n3M68CivjKt5EKfOojOq8jqfus6isR/e8o86ucvMznyssx4s3fFPE5nF24Wlv2LdwWDvmLka8zj807la1xi63cp+ZR+iun9zPSg+V/RgZo9Hf9AC7Jggd
+  </data>
+ </layer>
+ <layer name="Decoration4" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztljkOwCAMBPmES/7/zVSR0MoLvkIaTwMW+CAxK8ZomjtIoa8n1kzkQl9vLA9abIHRAvMRMtfsCaMF5jPJfLWx5sh50bbEwpoj57XEwr2V5z3Vpa0J2BbWvdG7jPm9ZDRkze/Nl7333rqrdMYT5y99Znt3evWS0WfWi7t7y4h8u0ztkb7M9PJXenX695X6bFljPZHVHSs33xtNgzzxtQjg
+  </data>
+ </layer>
+ <layer name="Background" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlrcOgDAMRPkWykJZKAvl/3+LWyxFKKRaJhF50k3IthwuB1VV+JIaaqAW6gTqiB4aoBGaBOqIGVqgFdoE6ji5BHqcDDNU9oAZHHvaOARmFPjR+Ylw9Y2pBxGbb6GE5ptuJ597pMs3XX1q94Y7r2IIORu15rmLrZ+Lj3PA5NPU/OaL6R29PZP4/tmgc88tB2NJ4T/vz9yoGg40
   </data>
  </layer>
  <objectgroup name="Objects" width="30" height="30">
