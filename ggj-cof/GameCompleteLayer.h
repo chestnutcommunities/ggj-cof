@@ -8,10 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface GameCompleteLayer : CCLayerColor {
-    CCLabelTTF *_label;
-}
-@property (nonatomic, retain) CCLabelTTF *label;
+@interface GameCompleteLayer : CCLayerColor
 @end
 
 @interface GameCompleteScene : CCScene {

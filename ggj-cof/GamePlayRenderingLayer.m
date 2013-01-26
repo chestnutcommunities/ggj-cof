@@ -14,6 +14,7 @@
 #import "ColoredSquareSprite.h"
 #import "Card.h"
 #import "PositioningHelper.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GamePlayRenderingLayer
 
@@ -124,12 +125,16 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
     if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
-        
+                
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
         [self initTileMap];
         [self initPlayer:winSize];
         [self initTouchEventHandlers];
+        
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"main-theme.mp3" loop:YES];
 	}
 	return self;
 }

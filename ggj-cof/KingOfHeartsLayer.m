@@ -15,6 +15,7 @@
 #import "GameCompleteLayer.h"
 #import "CardManager.h"
 #import "AIHelper.h"
+#import "SimpleAudioEngine.h"
 
 @implementation KingOfHeartsLayer
 
@@ -60,19 +61,21 @@
 }
 
 -(void) handleWin:(id)sender {
-    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.8f];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"win!.mp3" loop:NO];
     
-    GameCompleteScene *gameOverScene = [GameCompleteScene node];
-    [gameOverScene.layer.label setString:@"You Win!"];
-    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    GameCompleteScene *scene = [GameCompleteScene node];
+    [[CCDirector sharedDirector] replaceScene:scene];
 }
 
 -(void) handleLoss:(id)sender {
-    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.8f];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"lose!.mp3" loop:NO];
     
-    GameOverScene *gameOverScene = [GameOverScene node];
-    [gameOverScene.layer.label setString:@"You Lose!"];
-    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    GameOverScene *scene = [GameOverScene node];
+    [[CCDirector sharedDirector] replaceScene:scene];
 }
 
 -(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
@@ -144,6 +147,7 @@
                     // Kill the card and add the numbers together
                     playerNumber += cardNumber;
                     
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"draw-card.caf"];
                     [self.player setNumber:playerNumber];
                     [card changeState:kStateDying];
                     

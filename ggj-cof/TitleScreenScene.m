@@ -11,6 +11,7 @@
 #import "ColoredCircleSprite.h"
 #import "ColoredSquareSprite.h"
 #import "KingOfHeartsLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
@@ -32,11 +33,13 @@
 
 @implementation TitleScreenLayer
 
-- (void)startButtonTapped:(id)sender
-{
-    CCLOG(@"Start Button Tapped");
-    
+- (void)replaceScene:(id)sender {
     [[CCDirector sharedDirector] replaceScene:[KingOfHeartsLayer scene]];
+}
+
+- (void)startButtonTapped:(id)sender {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"selection.caf"];
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:2.0f], [CCCallFunc actionWithTarget:self selector:@selector(replaceScene:)], nil]];
 }
 
 +(CCScene *) scene
@@ -58,18 +61,55 @@
     if ((self=[super initWithColor:ccc4(0, 0, 0, 255)])) {
         self.isTouchEnabled = YES;
         
+        // Turn on/off audio
+        [[SimpleAudioEngine sharedEngine] setEnabled:NO];
+        
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"main-theme.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"win!.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"lose!.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"selection.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"draw-card.caf"];
+        
         CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];
         
-        ColoredSquareSprite* normal = [ColoredSquareSprite squareWithColor:ccc4(150, 150, 150, 255) size:CGSizeMake(100, 100)];
-        ColoredSquareSprite* hover = [ColoredSquareSprite squareWithColor:ccc4(255, 255, 255, 255) size:CGSizeMake(100, 100)];
+        // Add sprites that make up the title screen
+        CCSprite *bg, *title;
         
-        CCMenuItemSprite* item = [CCMenuItemSprite itemFromNormalSprite:normal selectedSprite:hover target:self selector:@selector(startButtonTapped:)];
-        item.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+        if (pixelSize.width == 1136) {
+            // iPhone 5
+            bg = [CCSprite spriteWithFile:@"bg-1136x640.png"];
+        }
+        else {
+            // iPhone 4
+            bg = [CCSprite spriteWithFile:@"bg-960x640.png"];
+        }
         
-        CCMenu *starMenu = [CCMenu menuWithItems:item, nil];
+        title = [CCSprite spriteWithFile:@"title.png"];
+        
+        bg.tag = 1;
+        bg.anchorPoint = CGPointMake(0, 0);
+        title.tag = 1;
+        title.position = ccp(winSize.width * 0.5, winSize.height * 0.95f);
+        
+        id actionTitleMove = [CCMoveTo actionWithDuration:1.0f position:ccp(winSize.width * 0.5f, winSize.height * 0.65f)];
+        id bounceTitleMove = [CCEaseBounceOut actionWithAction:actionTitleMove];
+        
+        [self addChild:bg z:0];
+        [self addChild:title z:0];
+        
+        // Add start button
+        CCMenuItem *button = [CCMenuItemImage itemFromNormalImage:@"start.png" selectedImage:@"start-roll.png" target:self selector:@selector(startButtonTapped:)];
+        
+        button.position = ccp(winSize.width * 0.5f, winSize.height * 0.3f);
+        
+        CCMenu *starMenu = [CCMenu menuWithItems:button, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
-
+        
+        [title runAction:bounceTitleMove];
+        
+        [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
     }
     return self;
 }

@@ -29,29 +29,23 @@
 
 @implementation GameOverLayer
 
-@synthesize label = _label;
-
-
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    NSLog(@"ccTouchBegan fired");
-	return YES;
-}
-
 -(id) init {
     if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
-        self.isTouchEnabled = YES;
-        
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        self.label = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:32];
-        _label.color = ccc3(0, 0, 0);
-        _label.position = ccp(winSize.width/2, winSize.height/2);
-        [self addChild:_label];
         
+        // Add sprites that make up the title screen
+        CCSprite *title = [CCSprite spriteWithFile:@"you-lose.png"];
+        
+        title.tag = 1;
+        title.position = ccp(winSize.width * 0.5, winSize.height * 0.75f);
+        
+        id actionTitleMove = [CCMoveTo actionWithDuration:1.0f position:ccp(winSize.width * 0.5f, winSize.height * 0.5f)];
+        id bounceTitleMove = [CCEaseBounceOut actionWithAction:actionTitleMove];
+        
+        [self addChild:title z:0];
+        
+        [title runAction:bounceTitleMove];
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5], [CCCallFunc actionWithTarget:self selector:@selector(gameOverDone)], nil]];
-        
-        NSLog(@"GameOverLayer initialised");
-        
     }
     return self;
 }
@@ -62,8 +56,7 @@
 }
 
 -(void)dealloc {
-    [_label release];
-    _label = nil;
+    
     [super dealloc];
 }
 
