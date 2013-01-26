@@ -7,11 +7,10 @@
 //
 
 #import "TitleScreenScene.h"
-#import "ShingoTestLayer.h"
 #import "SimpleAudioEngine.h"
 #import "ColoredCircleSprite.h"
 #import "ColoredSquareSprite.h"
-#import "SamTestLayer.h"
+#import "KingOfHeartsLayer.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
@@ -37,7 +36,7 @@
 {
     CCLOG(@"Start Button Tapped");
     
-    [[CCDirector sharedDirector] replaceScene:[SamTestLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[KingOfHeartsLayer scene]];
 }
 
 +(CCScene *) scene

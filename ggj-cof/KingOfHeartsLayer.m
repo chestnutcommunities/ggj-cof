@@ -1,12 +1,12 @@
 //
-//  SamTestLayer.m
+//  KingOfHeartsLayer.m
 //  ggj-cof
 //
-//  Created by Sam Christian Lee on 1/25/13.
+//  Created by Sam Christian Lee on 1/27/13.
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "SamTestLayer.h"
+#import "KingOfHeartsLayer.h"
 #import "TileMapManager.h"
 #import "Card.h"
 #import "GamePlayInputLayer.h"
@@ -16,7 +16,7 @@
 #import "CardManager.h"
 #import "AIHelper.h"
 
-@implementation SamTestLayer
+@implementation KingOfHeartsLayer
 
 @synthesize completeLayer = _completeLayer;
 @synthesize gameOverLayer = _gameOverLayer;
@@ -40,7 +40,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	SamTestLayer *renderingLayer = [SamTestLayer node];
+	KingOfHeartsLayer *renderingLayer = [KingOfHeartsLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: renderingLayer];
@@ -123,7 +123,7 @@
 -(void) update:(ccTime)delta
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];
-
+    
     for (Card *card in cards) {
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
@@ -166,3 +166,4 @@
 }
 
 @end
+

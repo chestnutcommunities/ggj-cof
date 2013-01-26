@@ -10,9 +10,9 @@
 		CE163AC116B26F390066449B /* casino.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE163ABE16B26F390066449B /* casino.tmx */; };
 		CE163AC516B2719C0066449B /* casino-land.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC316B2719C0066449B /* casino-land.png */; };
 		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
-		CE163AC916B278420066449B /* SamTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163AC816B278420066449B /* SamTestLayer.m */; };
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
 		CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A12D816B37F010091D6BC /* AIHelper.m */; };
+		CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74616B318A0004B160B /* zombie-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE79B74416B318A0004B160B /* zombie-hd.png */; };
 		CE79B74716B318A0004B160B /* zombie-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE79B74516B318A0004B160B /* zombie-hd.plist */; };
@@ -142,7 +142,6 @@
 		F4B1EBD116B102B0009A4F12 /* GamePlayInputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBCC16B102B0009A4F12 /* GamePlayInputLayer.m */; };
 		F4B1EBD216B102B0009A4F12 /* GamePlayStatusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */; };
 		F4B1EBD316B102B0009A4F12 /* TitleScreenScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */; };
-		F4B1EBD616B102D8009A4F12 /* ShingoTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */; };
 		F4B1EBD916B10309009A4F12 /* ShortestPathStep.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */; };
 		F4B1EBED16B104A5009A4F12 /* CCSpotLight.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBDC16B104A5009A4F12 /* CCSpotLight.m */; };
 		F4B1EBEE16B104A5009A4F12 /* ColoredCircleSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EBDE16B104A5009A4F12 /* ColoredCircleSprite.m */; };
@@ -169,12 +168,12 @@
 		CE163ABE16B26F390066449B /* casino.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = casino.tmx; sourceTree = "<group>"; };
 		CE163AC316B2719C0066449B /* casino-land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "casino-land.png"; sourceTree = "<group>"; };
 		CE163AC416B2719C0066449B /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta.png; sourceTree = "<group>"; };
-		CE163AC716B278420066449B /* SamTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamTestLayer.h; sourceTree = "<group>"; };
-		CE163AC816B278420066449B /* SamTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamTestLayer.m; sourceTree = "<group>"; };
 		CE163ACA16B2818C0066449B /* CardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardManager.h; sourceTree = "<group>"; };
 		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
 		CE4A12D716B37F010091D6BC /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
 		CE4A12D816B37F010091D6BC /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
+		CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KingOfHeartsLayer.h; sourceTree = "<group>"; };
+		CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KingOfHeartsLayer.m; sourceTree = "<group>"; };
 		CE79B73F16B312B3004B160B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74416B318A0004B160B /* zombie-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zombie-hd.png"; sourceTree = "<group>"; };
@@ -434,8 +433,6 @@
 		F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayStatusLayer.m; sourceTree = "<group>"; };
 		F4B1EBCF16B102B0009A4F12 /* TitleScreenScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScreenScene.h; sourceTree = "<group>"; };
 		F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScreenScene.m; sourceTree = "<group>"; };
-		F4B1EBD416B102D8009A4F12 /* ShingoTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShingoTestLayer.h; sourceTree = "<group>"; };
-		F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShingoTestLayer.m; sourceTree = "<group>"; };
 		F4B1EBD716B10309009A4F12 /* ShortestPathStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortestPathStep.h; sourceTree = "<group>"; };
 		F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortestPathStep.m; sourceTree = "<group>"; };
 		F4B1EBDB16B104A5009A4F12 /* CCSpotLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSpotLight.h; sourceTree = "<group>"; };
@@ -907,12 +904,10 @@
 				F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */,
 				F4B1EBCD16B102B0009A4F12 /* GamePlayStatusLayer.h */,
 				F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */,
-				CE163AC716B278420066449B /* SamTestLayer.h */,
-				CE163AC816B278420066449B /* SamTestLayer.m */,
-				F4B1EBD416B102D8009A4F12 /* ShingoTestLayer.h */,
-				F4B1EBD516B102D8009A4F12 /* ShingoTestLayer.m */,
 				F4B1EBCF16B102B0009A4F12 /* TitleScreenScene.h */,
 				F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */,
+				CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */,
+				CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1219,7 +1214,6 @@
 				F4B1EBD116B102B0009A4F12 /* GamePlayInputLayer.m in Sources */,
 				F4B1EBD216B102B0009A4F12 /* GamePlayStatusLayer.m in Sources */,
 				F4B1EBD316B102B0009A4F12 /* TitleScreenScene.m in Sources */,
-				F4B1EBD616B102D8009A4F12 /* ShingoTestLayer.m in Sources */,
 				F4B1EBD916B10309009A4F12 /* ShortestPathStep.m in Sources */,
 				F4B1EBED16B104A5009A4F12 /* CCSpotLight.m in Sources */,
 				F4B1EBEE16B104A5009A4F12 /* ColoredCircleSprite.m in Sources */,
@@ -1234,13 +1228,13 @@
 				F4B1EC0616B152F0009A4F12 /* Human.m in Sources */,
 				F4B9318416B210940079774F /* PositioningHelper.m in Sources */,
 				F4B9319B16B265F60079774F /* TileMapManager.m in Sources */,
-				CE163AC916B278420066449B /* SamTestLayer.m in Sources */,
 				CE163ACC16B2818C0066449B /* CardManager.m in Sources */,
 				CE79B74116B312B3004B160B /* Card.m in Sources */,
 				CE79B74E16B330EC004B160B /* AICharacter.m in Sources */,
 				F4A6209116B340290092DB8E /* GameCompleteLayer.m in Sources */,
 				F4A6209516B3404A0092DB8E /* GameOverLayer.m in Sources */,
 				CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */,
+				CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
