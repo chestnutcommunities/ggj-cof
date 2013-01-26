@@ -1,56 +1,70 @@
 //
-//  GameCompleteLayer.m
+//  GameOverScene.m
 //  TileGame
 //
-//  Created by Shingo Tamura on 12/10/12.
-//
+//  Created by Shingo Tamura on 12/07/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "GameOverLayer.h"
+#import "TitleScreenScene.h"
 
-@implementation GameOverLayer
-@synthesize gameLayer = _gameLayer;
-@synthesize isInProgress = _isInProgress;
+@implementation GameOverScene
+@synthesize layer = _layer;
 
--(void) animationDone {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"animationDone" object:self ];
-    self.isInProgress = NO;
-}
-
--(void) startAnimation {
-    self.isInProgress = YES;
-    
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
-    // Title
-    CCSprite *title = [CCSprite spriteWithFile:@"you-win.png"];
-    title.position = ccp(winSize.width * 0.5, winSize.height * 3.0f);
-    title.scale = 5.0f;
-    title.opacity = 0.0f;
-    
-    id actionTitleFade = [CCFadeTo actionWithDuration:1.5f opacity:255.0f];
-    id actionTitleMove = [CCMoveTo actionWithDuration:1.5f position:ccp(winSize.width * 0.5, winSize.height * 0.5)];
-    id actionTitleScale = [CCScaleTo actionWithDuration:1.5f scale:1.0f];
-    id bounceTitleMove = [CCEaseBounceOut actionWithAction:actionTitleMove];
-    
-    [self addChild:title z:2];
-    
-    id actionLayer = [CCFadeIn actionWithDuration:0.3];
-    [self runAction:actionLayer];
-    
-    [title runAction:actionTitleFade];
-    [title runAction:actionTitleScale];
-    [title runAction:bounceTitleMove];
-    
-    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:10], [CCCallFunc actionWithTarget:self selector:@selector(animationDone)], nil]];
-}
-
--(id) init
-{
-    if ((self=[super initWithColor:ccc4(255, 255, 255, 0)])) {
-        self.isInProgress = NO;
+- (id)init {
+    if ((self = [super init])) {
+        self.layer = [GameOverLayer node];
+        [self addChild:_layer];
     }
     return self;
+}
+
+- (void)dealloc {
+    [_layer release];
+    _layer = nil;
+    [super dealloc];
+}
+@end
+
+@implementation GameOverLayer
+
+@synthesize label = _label;
+
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    NSLog(@"ccTouchBegan fired");
+	return YES;
+}
+
+-(id) init {
+    if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
+        self.isTouchEnabled = YES;
+        
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        self.label = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:32];
+        _label.color = ccc3(0, 0, 0);
+        _label.position = ccp(winSize.width/2, winSize.height/2);
+        [self addChild:_label];
+        
+        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5], [CCCallFunc actionWithTarget:self selector:@selector(gameOverDone)], nil]];
+        
+        NSLog(@"GameOverLayer initialised");
+        
+    }
+    return self;
+}
+
+-(void)gameOverDone {
+    TitleScreenScene *titleScene = [TitleScreenScene node];
+    [[CCDirector sharedDirector] replaceScene:titleScene];
+}
+
+-(void)dealloc {
+    [_label release];
+    _label = nil;
+    [super dealloc];
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "SamTestLayer.h"
 
 #import "TileMapManager.h"
-#import "Human.h"
+#import "Card.h"
 #import "GamePlayInputLayer.h"
 #import "GamePlayStatusLayer.h"
 

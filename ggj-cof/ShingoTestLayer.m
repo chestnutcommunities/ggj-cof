@@ -8,11 +8,27 @@
 
 #import "ShingoTestLayer.h"
 #import "TileMapManager.h"
-#import "Human.h"
+#import "Card.h"
 #import "GamePlayInputLayer.h"
 #import "GamePlayStatusLayer.h"
+#import "GameOverLayer.h"
+#import "GameCompleteLayer.h"
 
 @implementation ShingoTestLayer
+
+@synthesize completeLayer = _completeLayer;
+@synthesize gameOverLayer = _gameOverLayer;
+
+- (void) dealloc
+{
+    self.completeLayer = nil;
+    self.gameOverLayer = nil;
+    
+	[_completeLayer release];
+    [_gameOverLayer release];
+    
+	[super dealloc];
+}
 
 -(void)update:(ccTime)delta {}
 
@@ -45,8 +61,8 @@
     for (NSValue* val in _mapManager.enemySpawnPoints) {
         CGPoint spawnPoint = [val CGPointValue];
         
-        Human* enemy = [[Human alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
-        enemy.number = 2;
+        Card* enemy = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]];
+        [enemy setNumber:1];
         
 		[enemy setPosition:spawnPoint];
 		[self.sceneBatchNode addChild:enemy z:100];
@@ -61,14 +77,27 @@
             CGRect target = CGRectMake(card.position.x - (card.contentSize.width/2), card.position.y - (card.contentSize.height/2), card.contentSize.width, card.contentSize.height);
             
             if (CGRectContainsPoint(target, destination)) {
+                int playerNumber = [self.player getNumber];
+                int cardNumber = [card getNumber];
+                
                 // If card number is lower than or equal to the player's number...
-                if (self.player.number >= card.number) {
+                if (playerNumber >= cardNumber) {
                     // Kill the card and add the numbers together
                     [card changeState:kStateDead];
-                    self.player.number += card.number;
+                    playerNumber++;
+                    [self.player setNumber:playerNumber];
+                    
+                    if (playerNumber >= 13) {
+                        GameCompleteScene *gameOverScene = [GameCompleteScene node];
+                        [gameOverScene.layer.label setString:@"You Win!"];
+                        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                    }
                 }
                 else {
                     // Kill the player, change game state
+                    GameOverScene *gameOverScene = [GameOverScene node];
+                    [gameOverScene.layer.label setString:@"You Lose!"];
+                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
                 }
             }
         }
@@ -79,7 +108,7 @@
     if ((self = [super init])) {
         [self initFriendsAndEnemies];
         
-        _player.number = 1;
+        [_player setNumber:1];
         
 		[self scheduleUpdate];
 	}

@@ -13,9 +13,27 @@
 @interface Card : AICharacter {
     int _number;
 	CardSuit _cardSuit;
+    
+    CCAnimation *_crouchAnim;
+    CCAnimation *_jumpAnim;
+    CCAnimation *_landAnim;
+    CCAnimate *_animationHandle;
+    
+    GameObject* _suitPanel;
+    GameObject* _numberPanel;
+    
+    CGFloat _factor;
+    CGFloat _limit;
+    CGFloat _momentum;
 }
 
-@property (readwrite) int number;
-@property (readwrite) CardSuit cardSuit;
+-(void)setNumber:(int)number;
+-(void)setSuit:(CardSuit)suit;
+-(int)getNumber;
+-(CardSuit)getSuit;
+
+-(void) initiateJump;
+-(void) initiateCrouch;
+-(void) initiateLanding;
 
 @end

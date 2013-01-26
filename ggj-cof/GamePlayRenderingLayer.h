@@ -11,13 +11,13 @@
 
 @class GamePlayInputLayer;
 @class GamePlayStatusLayer;
-@class Human;
+@class Card;
 @class TileMapManager;
 
 @interface GamePlayRenderingLayer: CCLayerColor
 {
     CCSpriteBatchNode *_sceneBatchNode;
-    Human *_player;
+    Card *_player;
     TileMapManager* _mapManager;
     
     GamePlayInputLayer *_inputLayer;
@@ -27,7 +27,7 @@
 @property (nonatomic, retain) GamePlayInputLayer *inputLayer;
 @property (nonatomic, retain) GamePlayStatusLayer *statusLayer;
 @property (nonatomic, retain) TileMapManager *mapManager;
-@property (nonatomic, retain) Human *player;
+@property (nonatomic, retain) Card *player;
 @property (nonatomic, retain) CCSpriteBatchNode *sceneBatchNode;
 
 -(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction;

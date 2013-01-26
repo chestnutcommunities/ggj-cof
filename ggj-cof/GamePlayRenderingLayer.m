@@ -12,7 +12,7 @@
 #import "GamePlayStatusLayer.h"
 #import "GameCharacter.h"
 #import "ColoredSquareSprite.h"
-#import "Human.h"
+#import "Card.h"
 #import "PositioningHelper.h"
 #import "ShingoTestLayer.h"
 
@@ -47,11 +47,11 @@
 
 -(void) initPlayer:(CGSize)winSize
 {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ninja.plist"];
-    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"ninja.png"] retain];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"card-sprite.plist"];
+    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"card-sprite.png"] retain];
     [self addChild:_sceneBatchNode];
     
-    _player = [[Human alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"ninja-normal.png"]];
+    _player = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]];
     
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     

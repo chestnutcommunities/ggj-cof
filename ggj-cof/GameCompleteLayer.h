@@ -1,24 +1,21 @@
 //
-//  GameCompleteLayer.h
+//  GameOverScene.h
 //  TileGame
 //
-//  Created by Shingo Tamura on 12/10/12.
-//
+//  Created by Shingo Tamura on 12/07/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "cocos2d.h"
 
-@class GamePlayRenderingLayer;
-
-@interface GameCompleteLayer : CCLayerColor
-{
-    GamePlayRenderingLayer *_gameLayer;
-    BOOL _isInProgress;
+@interface GameCompleteLayer : CCLayerColor {
+    CCLabelTTF *_label;
 }
+@property (nonatomic, retain) CCLabelTTF *label;
+@end
 
--(void) startAnimation;
-
-@property (nonatomic, retain) GamePlayRenderingLayer *gameLayer;
-@property (nonatomic, assign) BOOL isInProgress;
-
+@interface GameCompleteScene : CCScene {
+    GameCompleteLayer *layer;
+}
+@property (nonatomic, retain) GameCompleteLayer *layer;
 @end

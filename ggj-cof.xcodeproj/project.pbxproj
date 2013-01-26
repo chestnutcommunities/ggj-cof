@@ -130,6 +130,8 @@
 		F490F12916AFD62B00BBA594 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12816AFD62B00BBA594 /* main.m */; };
 		F490F12C16AFD62B00BBA594 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12B16AFD62B00BBA594 /* AppDelegate.m */; };
 		F490F12F16AFD62B00BBA594 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12E16AFD62B00BBA594 /* RootViewController.m */; };
+		F49E3B4E16B36BE30051B21E /* card-sprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49E3B4C16B36BE30051B21E /* card-sprite.plist */; };
+		F49E3B4F16B36BE30051B21E /* card-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E3B4D16B36BE30051B21E /* card-sprite.png */; };
 		F4A6209116B340290092DB8E /* GameCompleteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A6209016B340290092DB8E /* GameCompleteLayer.m */; };
 		F4A6209516B3404A0092DB8E /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A6209416B3404A0092DB8E /* GameOverLayer.m */; };
 		F4A6209B16B342110092DB8E /* you-win.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A6209A16B342110092DB8E /* you-win.png */; };
@@ -409,6 +411,8 @@
 		F490F12D16AFD62B00BBA594 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F490F12E16AFD62B00BBA594 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		F490F13316AFD62B00BBA594 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		F49E3B4C16B36BE30051B21E /* card-sprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "card-sprite.plist"; sourceTree = "<group>"; };
+		F49E3B4D16B36BE30051B21E /* card-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card-sprite.png"; sourceTree = "<group>"; };
 		F4A6208F16B340280092DB8E /* GameCompleteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompleteLayer.h; sourceTree = "<group>"; };
 		F4A6209016B340290092DB8E /* GameCompleteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompleteLayer.m; sourceTree = "<group>"; };
 		F4A6209316B3404A0092DB8E /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
@@ -963,6 +967,8 @@
 			isa = PBXGroup;
 			children = (
 				CE79B74316B31896004B160B /* Sam */,
+				F49E3B4C16B36BE30051B21E /* card-sprite.plist */,
+				F49E3B4D16B36BE30051B21E /* card-sprite.png */,
 				F4B9318F16B21B930079774F /* lever.png */,
 				F4B9319016B21B930079774F /* wheel.png */,
 				F4A6209A16B342110092DB8E /* you-win.png */,
@@ -1094,6 +1100,8 @@
 				CE79B74616B318A0004B160B /* zombie-hd.png in Resources */,
 				CE79B74716B318A0004B160B /* zombie-hd.plist in Resources */,
 				F4A6209B16B342110092DB8E /* you-win.png in Resources */,
+				F49E3B4E16B36BE30051B21E /* card-sprite.plist in Resources */,
+				F49E3B4F16B36BE30051B21E /* card-sprite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
