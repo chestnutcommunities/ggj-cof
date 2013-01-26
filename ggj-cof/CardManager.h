@@ -7,17 +7,9 @@
 //
 
 #import "cocos2d.h"
-@class GamePlayRenderingLayer;
-@class GameObject;
-@class TileMapManager;
 
 @interface CardManager : NSObject {
-    CCSpriteBatchNode *_cardDeckSpriteBatchNode;
+    
 }
-
-@property (nonatomic, retain) CCSpriteBatchNode *cardDeckSpriteBatchNode;
-
--(id) initCardsFromTileMap:(CCTMXTiledMap*)tileMap;
--(void) addCard:(CGPoint)spawnLocationInPixels withZValue:(int)zValue;
 
 @end

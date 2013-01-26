@@ -19,8 +19,6 @@
 
 @implementation SamTestLayer
 
-@synthesize cardManager = _cardManager;
-
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -56,24 +54,6 @@
 		[enemy setPosition:spawnPoint];
 		[self.sceneBatchNode addChild:enemy z:100];
         [enemy release];
-    }
-}
-
--(void) initCard
-{
-    self.cardManager = [[[CardManager alloc] initCardsFromTileMap:self.mapManager.tileMap] retain];
-    [self addChild:self.cardManager.cardDeckSpriteBatchNode];
-    
-    CCTMXObjectGroup *objects = [self.mapManager.tileMap objectGroupNamed:@"Objects"];
-    NSMutableDictionary *objectTile;
-    int x, y;
-    for (objectTile in [objects objects]) {
-        x = [[objectTile valueForKey:@"x"] intValue];
-        y = [[objectTile valueForKey:@"y"] intValue];
-        
-        if ([[objectTile valueForKey:@"Card"] intValue] == 1) {
-            [self.cardManager addCard:ccp(x,y) withZValue:2];
-        }
     }
 }
 

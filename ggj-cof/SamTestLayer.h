@@ -13,13 +13,8 @@
 @class CardManager;
 
 @interface SamTestLayer : GamePlayRenderingLayer {
-    CCSpriteBatchNode *_cardBatchNode;
-    CardManager* _cardManager;
 }
 
-@property (nonatomic, retain) CardManager *cardManager;
-
 +(CCScene *) scene;
--(void) initCard;
 
 @end
