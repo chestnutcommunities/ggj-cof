@@ -30,5 +30,7 @@
 -(id)initWithTileMap:(CCTMXTiledMap*)tileMap;
 -(BOOL)isCollidable:(CGPoint)position forMeta:(NSDictionary*)meta;
 -(CGPoint) getPlayerSpawnPoint;
-
+-(BOOL)isValidTileCoord:(CGPoint)tileCoord;
+-(BOOL)isWallAtTileCoord:(CGPoint)tileCoord;
+-(NSArray *)walkableAdjacentTilesCoordForTileCoord:(CGPoint)tileCoord;
 @end

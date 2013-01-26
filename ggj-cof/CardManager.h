@@ -19,5 +19,5 @@
 
 -(id) initCardsFromTileMap:(CCTMXTiledMap*)tileMap;
 -(void) addCard:(CGPoint)spawnLocationInPixels withZValue:(int)zValue;
--(void) updateCardState:(GameObject*)object tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap;
+
 @end

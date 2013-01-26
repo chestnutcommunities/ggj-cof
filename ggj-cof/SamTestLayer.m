@@ -15,6 +15,7 @@
 
 #import "GameObject.h"
 #import "CardManager.h"
+#import "AIHelper.h"
 
 @implementation SamTestLayer
 
@@ -75,15 +76,19 @@
 
 -(void) update:(ccTime)delta
 {
-    CCArray *cards = [self.cardManager.cardDeckSpriteBatchNode children];
+    CCArray *cards = [self.sceneBatchNode children];
+    CGPoint target = [self.mapManager getPlayerSpawnPoint];
+    
     for (GameObject *card in cards) {
-        [self.cardManager updateCardState:card];
+        [AIHelper moveToTarget:(Card *)card tileMapManager:self.mapManager tileMap:self.mapManager.tileMap target:(CGPoint)target];
     }
+
 }
 
 -(id) init {
     if ((self = [super init])) {
         [self initFriendsAndEnemies];
+        [self scheduleUpdate];
 	}
 	return self;
 }

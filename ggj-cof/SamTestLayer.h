@@ -7,7 +7,8 @@
 //
 
 #import "cocos2d.h"
-#import "GamePlayRenderingLayer.h";
+#import "GamePlayRenderingLayer.h"
+
 
 @class CardManager;
 

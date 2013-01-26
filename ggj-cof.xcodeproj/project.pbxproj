@@ -12,6 +12,7 @@
 		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
 		CE163AC916B278420066449B /* SamTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163AC816B278420066449B /* SamTestLayer.m */; };
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
+		CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A12D816B37F010091D6BC /* AIHelper.m */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74616B318A0004B160B /* zombie-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE79B74416B318A0004B160B /* zombie-hd.png */; };
 		CE79B74716B318A0004B160B /* zombie-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE79B74516B318A0004B160B /* zombie-hd.plist */; };
@@ -172,6 +173,8 @@
 		CE163AC816B278420066449B /* SamTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamTestLayer.m; sourceTree = "<group>"; };
 		CE163ACA16B2818C0066449B /* CardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardManager.h; sourceTree = "<group>"; };
 		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
+		CE4A12D716B37F010091D6BC /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
+		CE4A12D816B37F010091D6BC /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
 		CE79B73F16B312B3004B160B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74416B318A0004B160B /* zombie-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zombie-hd.png"; sourceTree = "<group>"; };
@@ -943,6 +946,8 @@
 		F4B1EBBD16B0FD73009A4F12 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CE4A12D716B37F010091D6BC /* AIHelper.h */,
+				CE4A12D816B37F010091D6BC /* AIHelper.m */,
 				CE163ACA16B2818C0066449B /* CardManager.h */,
 				CE163ACB16B2818C0066449B /* CardManager.m */,
 				F4B9318216B210940079774F /* PositioningHelper.h */,
@@ -1235,6 +1240,7 @@
 				CE79B74E16B330EC004B160B /* AICharacter.m in Sources */,
 				F4A6209116B340290092DB8E /* GameCompleteLayer.m in Sources */,
 				F4A6209516B3404A0092DB8E /* GameOverLayer.m in Sources */,
+				CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

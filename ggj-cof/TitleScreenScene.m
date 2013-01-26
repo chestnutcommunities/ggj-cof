@@ -11,6 +11,7 @@
 #import "SimpleAudioEngine.h"
 #import "ColoredCircleSprite.h"
 #import "ColoredSquareSprite.h"
+#import "SamTestLayer.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
