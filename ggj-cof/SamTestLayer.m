@@ -14,6 +14,7 @@
 #import "GameOverLayer.h"
 #import "GameCompleteLayer.h"
 #import "CardManager.h"
+#import "AIHelper.h"
 
 @implementation SamTestLayer
 
@@ -124,7 +125,29 @@
     CCArray *cards = [_cardManager.enemyBatchNode children];
 
     for (GameObject *card in cards) {
-        [(Card *)card updateStateWithTileMapManager:delta andGameObject:(GameObject *)_player tileMapManager:self.mapManager];
+        CGRect heroBoundingBox = [_player adjustedBoundingBox];
+        CGRect cardSightBoundingBox = [(Card *)card eyesightBoundingBox];
+        
+        BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
+        
+        int playerNumber = [self.player getNumber];
+        int cardNumber = [(Card *)card getNumber];
+        
+        if (isHeroWithinSight && (playerNumber < cardNumber)) {
+            [card changeState:kStateChasing];
+            [AIHelper moveToTarget:(Card *)card
+                    tileMapManager:_mapManager
+                           tileMap:_mapManager.tileMap
+                            target:_player.position];
+        }
+        else {
+            [card changeState:kStateWalking];
+            [AIHelper moveToTarget:(Card *)card
+                    tileMapManager:_mapManager
+                           tileMap:_mapManager.tileMap
+                            target:[_mapManager getCurrentDestinationOfCard:card]];
+
+        }
     }
 }
 

@@ -115,13 +115,13 @@
     //}
     
     else {
-    */
+    
         //go to regular routine
         [AIHelper moveToTarget:self
                 tileMapManager:tileMapManager
                        tileMap:tileMapManager.tileMap
                         target:[tileMapManager getCurrentDestinationOfCard:self]];
-    
+    */
 
 }
 

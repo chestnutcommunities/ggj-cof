@@ -55,7 +55,6 @@
     Card *card = data.card;
     TileMapManager *tileMapManager = data.tileMapManager;
     
-    //+ (void)popStepAndAnimate:(Card *)card tileMapManager:(TileMapManager*)tileMapManager {
     card.currentStepAction = nil;
 	
     // Check if there is a pending move
@@ -63,7 +62,7 @@
         CGPoint moveTarget = [card.pendingMove CGPointValue];
         card.pendingMove = nil;
 		card.shortestPath = nil;
-        //[self chaseHero:moveTarget];
+        [self moveToTarget:card tileMapManager:tileMapManager tileMap:tileMapManager.tileMap target:moveTarget];
         return;
     }
     
@@ -98,8 +97,7 @@
 }
 
 // Go backward from a step (the final one) to reconstruct the shortest computed path
-+ (void)constructPathAndStartAnimationFromStep:(Card *)card step:(ShortestPathStep *)step tileMapManager:(TileMapManager *)tileMapManager
-{
++ (void)constructPathAndStartAnimationFromStep:(Card *)card step:(ShortestPathStep *)step tileMapManager:(TileMapManager *)tileMapManager {
 	card.shortestPath = [NSMutableArray array];
 	
 	do {
@@ -130,6 +128,9 @@
 
 +(void) moveToTarget:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap target:(CGPoint)target {
     if (card.currentStepAction) {
+        if (card.characterState == kStateChasing) {
+            card.pendingMove = [NSValue valueWithCGPoint:target];
+        }
         return;
     }
     
