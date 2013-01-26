@@ -61,10 +61,26 @@
 	return scene;
 }
 
+-(void) handleWin:(id)sender {
+    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+    
+    GameCompleteScene *gameOverScene = [GameCompleteScene node];
+    [gameOverScene.layer.label setString:@"You Win!"];
+    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+}
+
+-(void) handleLoss:(id)sender {
+    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+    
+    GameOverScene *gameOverScene = [GameOverScene node];
+    [gameOverScene.layer.label setString:@"You Lose!"];
+    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+}
+
 -(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
     CCArray* cards = [_cardManager.enemyBatchNode children];
     for (Card* card in cards) {
-        if (card.characterState != kStateDead) {
+        if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect target = CGRectMake(card.position.x - (card.contentSize.width/2), card.position.y - (card.contentSize.height/2), card.contentSize.width, card.contentSize.height);
             
             if (CGRectContainsPoint(target, destination)) {
@@ -73,15 +89,19 @@
                 
                 // If card number is lower than or equal to the player's number...
                 if (playerNumber >= cardNumber) {
-                    // Kill the card and add the numbers together
-                    [card changeState:kStateDead];
+                    // Kill the card and add the numbers together                    
                     playerNumber += cardNumber;
+                    
                     [self.player setNumber:playerNumber];
+                    [card changeState:kStateDying];
                     
                     if (playerNumber >= 13) {
-                        GameCompleteScene *gameOverScene = [GameCompleteScene node];
-                        [gameOverScene.layer.label setString:@"You Win!"];
-                        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                        // Disable touch
+                        [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
+                        
+                        id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:1.0f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
+                        [self runAction:sequeunce];
+
                     }
                     else {
                         // Game goes on, shuffle cards
@@ -90,9 +110,13 @@
                 }
                 else {
                     // Kill the player, change game state
-                    GameOverScene *gameOverScene = [GameOverScene node];
-                    [gameOverScene.layer.label setString:@"You Lose!"];
-                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                    [_player changeState:kStateDying];
+                    
+                    // Disable touch
+                    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
+                    
+                    id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:1.0f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
+                    [self runAction:sequeunce];
                 }
             }
         }

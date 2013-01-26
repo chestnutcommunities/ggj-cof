@@ -23,11 +23,15 @@
 }
 
 -(void)setNumber:(int)number {
-    if (number <= 0 || number > 13) {
+    if (number <= 0) {
         return;
     }
     
     _number = number;
+    
+    if (_number >= 13) {
+        _number = 13;
+    }
     
     NSString *numberString;
     numberString = [NSString stringWithFormat:@"%d.png", _number];
@@ -126,16 +130,43 @@
     self.characterState = kStateCrouching;
 }
 
+-(void) handleDead:(id)sender {
+    self.characterState = kStateDead;
+    self.visible = NO;
+}
+
 -(void)changeState:(CharacterStates)newState {
     if (self.characterState == newState) {
         return;
     }
     
-    if (newState == kStateDead) {
-        self.visible = NO;
+    if (newState == kStateDying) {
+        
+        id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
+        id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+        
+        id actionFade2 = [CCFadeOut actionWithDuration:0.5f];
+        id actionScale2 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+        
+        id actionFade3 = [CCFadeOut actionWithDuration:0.5f];
+        id actionScale3 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+
+        id aciontSequence = [CCSequence actions: [CCDelayTime actionWithDuration:0.5f], [CCCallFunc actionWithTarget:self selector:@selector(handleDead:)], nil];
+        
+        self.characterState = newState;
+        
+        [_suitPanel runAction:actionFade1];
+        [_suitPanel runAction:actionScale1];
+        [_numberPanel runAction:actionFade2];
+        [_numberPanel runAction:actionScale2];
+        [self runAction:actionFade3];
+        [self runAction:actionScale3];
+        
+        [self runAction:aciontSequence];
     }
-    
-    self.characterState = newState;
+    else {
+        self.characterState = newState;
+    }
 }
 
 -(id) init

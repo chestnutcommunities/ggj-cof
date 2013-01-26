@@ -38,7 +38,7 @@
     int count = 0;
     
     for (Card* card in [_enemyBatchNode children]) {
-        if (card.characterState != kStateDead) {
+        if (card.characterState != kStateDying && card.characterState != kStateDead) {
             int cardNumber;
             if (count % 2 == 0) {
                 cardNumber = [self generateLowerOrSameNumber:baseNumber];
