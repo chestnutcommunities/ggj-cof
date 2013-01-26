@@ -15,3 +15,6 @@
 #define ENEMY_STATE_DEBUG 1
 
 #define kHeroInitialHealth 100
+
+#define kCardMaxNumber 13
+#define kCardMinNumber 1

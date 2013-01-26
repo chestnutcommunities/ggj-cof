@@ -45,7 +45,7 @@
             suitString = @"clubs.png";
             break;
         case kCardSuitDiamond:
-            suitString = @"diamond.png";
+            suitString = @"diamonds.png";
             break;
         case kCardSuitSpades:
             suitString = @"spades.png";

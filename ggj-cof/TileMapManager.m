@@ -76,8 +76,7 @@
     return NO;
 }
 
--(id) initWithTileMap:(CCTMXTiledMap*)tileMap
-{
+-(id) initWithTileMap:(CCTMXTiledMap*)tileMap {
     self.tileMap = tileMap;
     
     // Set the tile size in points (this is universal across normal and retina displays)

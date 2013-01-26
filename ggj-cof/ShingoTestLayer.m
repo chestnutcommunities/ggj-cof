@@ -13,19 +13,23 @@
 #import "GamePlayStatusLayer.h"
 #import "GameOverLayer.h"
 #import "GameCompleteLayer.h"
+#import "CardManager.h"
 
 @implementation ShingoTestLayer
 
 @synthesize completeLayer = _completeLayer;
 @synthesize gameOverLayer = _gameOverLayer;
 
+
 - (void) dealloc
 {
     self.completeLayer = nil;
     self.gameOverLayer = nil;
+    _cardManager = nil;
     
 	[_completeLayer release];
     [_gameOverLayer release];
+    [_cardManager release];
     
 	[super dealloc];
 }
@@ -57,23 +61,10 @@
 	return scene;
 }
 
--(void) initFriendsAndEnemies {
-    for (NSValue* val in _mapManager.enemySpawnPoints) {
-        CGPoint spawnPoint = [val CGPointValue];
-        
-        Card* enemy = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]];
-        [enemy setNumber:1];
-        
-		[enemy setPosition:spawnPoint];
-		[self.sceneBatchNode addChild:enemy z:100];
-        [enemy release];
-    }
-}
-
 -(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
-    CCArray* cards = [self.sceneBatchNode children];
+    CCArray* cards = [_cardManager.enemyBatchNode children];
     for (Card* card in cards) {
-        if (self.player != card && card.characterState != kStateDead) {
+        if (card.characterState != kStateDead) {
             CGRect target = CGRectMake(card.position.x - (card.contentSize.width/2), card.position.y - (card.contentSize.height/2), card.contentSize.width, card.contentSize.height);
             
             if (CGRectContainsPoint(target, destination)) {
@@ -84,13 +75,17 @@
                 if (playerNumber >= cardNumber) {
                     // Kill the card and add the numbers together
                     [card changeState:kStateDead];
-                    playerNumber++;
+                    playerNumber += cardNumber;
                     [self.player setNumber:playerNumber];
                     
                     if (playerNumber >= 13) {
                         GameCompleteScene *gameOverScene = [GameCompleteScene node];
                         [gameOverScene.layer.label setString:@"You Win!"];
                         [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                    }
+                    else {
+                        // Game goes on, shuffle cards
+                        [_cardManager shuffleCards:playerNumber];
                     }
                 }
                 else {
@@ -106,9 +101,13 @@
 
 -(id) init {
     if ((self = [super init])) {
-        [self initFriendsAndEnemies];
+        _cardManager = [[[CardManager alloc] init] retain];
         
         [_player setNumber:1];
+        
+        int playerNumber = [_player getNumber];
+        [_cardManager spawnCards:playerNumber spawnPoints:_mapManager.enemySpawnPoints];
+        [self addChild:_cardManager.enemyBatchNode];
         
 		[self scheduleUpdate];
 	}

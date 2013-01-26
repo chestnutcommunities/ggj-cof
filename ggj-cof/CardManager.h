@@ -8,8 +8,14 @@
 
 #import "cocos2d.h"
 
-@interface CardManager : NSObject {
-    
+@interface CardManager : NSObject
+{
+    CCSpriteBatchNode* _enemyBatchNode;
 }
+
+@property (nonatomic, retain) CCSpriteBatchNode *enemyBatchNode;
+
+-(void) spawnCards:(int)baseNumber spawnPoints:(NSMutableArray*) spawnPoints;
+-(void) shuffleCards:(int)baseNumber;
 
 @end

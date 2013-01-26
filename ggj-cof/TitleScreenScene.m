@@ -37,7 +37,7 @@
 {
     CCLOG(@"Start Button Tapped");
     
-    [[CCDirector sharedDirector] replaceScene:[SamTestLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[ShingoTestLayer scene]];
 }
 
 +(CCScene *) scene

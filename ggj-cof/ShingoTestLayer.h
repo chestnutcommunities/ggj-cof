@@ -10,11 +10,14 @@
 
 @class GameCompleteLayer;
 @class GameOverLayer;
+@class CardManager;
 
 @interface ShingoTestLayer : GamePlayRenderingLayer
 {
+    CCSpriteBatchNode *_enemyBatchNode;
     GameCompleteLayer *_completeLayer;
     GameOverLayer *_gameOverLayer;
+    CardManager* _cardManager;
 }
 
 +(CCScene *) scene;
