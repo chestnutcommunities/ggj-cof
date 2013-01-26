@@ -46,7 +46,7 @@
  </layer>
  <layer name="Background" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlrcOgDAMRPkWykJZKAvl/3+LWyxFKKRaJhF50k3IthwuB1VV+JIaaqAW6gTqiB4aoBGaBOqIGVqgFdoE6ji5BHqcDDNU9oAZHHvaOARmFPjR+Ylw9Y2pBxGbb6GE5ptuJ597pMs3XX1q94Y7r2IIORu15rmLrZ+Lj3PA5NPU/OaL6R29PZP4/tmgc88tB2NJ4T/vz9yoGg40
+   eJxjYBgFIx3okqDWCIiNKbALpt8EiE3J0E+uPmoAWzqYYUMFO5CBFYl2uACxK5XdgA4oTUOjYOAAtvQEA8TmD3xmoAMVIFYlQT2lQAuJTUq5iM1PpJQXyHkCVr5h029Ngpn0ANQurygB5IQNsh5kvzgBsTMBvfQoK+kB8KXToV5W4ytrcMUfNep5SgEsXSoBsTID/ctBZEBKOUgpGOrpbagDAK0EC7c=
   </data>
  </layer>
  <objectgroup name="Objects" width="30" height="30">

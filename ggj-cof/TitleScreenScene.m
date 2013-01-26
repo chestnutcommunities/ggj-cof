@@ -62,7 +62,7 @@
         self.isTouchEnabled = YES;
         
         // Turn on/off audio
-        [[SimpleAudioEngine sharedEngine] setEnabled:NO];
+        [[SimpleAudioEngine sharedEngine] setEnabled:YES];
         
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"main-theme.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"win!.mp3"];
