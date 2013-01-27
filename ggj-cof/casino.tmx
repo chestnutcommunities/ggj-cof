@@ -44,6 +44,11 @@
    eJztljkOwCAMBPmES/7/zVSR0MoLvkIaTwMW+CAxK8ZomjtIoa8n1kzkQl9vLA9abIHRAvMRMtfsCaMF5jPJfLWx5sh50bbEwpoj57XEwr2V5z3Vpa0J2BbWvdG7jPm9ZDRkze/Nl7333rqrdMYT5y99Znt3evWS0WfWi7t7y4h8u0ztkb7M9PJXenX695X6bFljPZHVHSs33xtNgzzxtQjg
   </data>
  </layer>
+ <layer name="Background2" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1LENgDAMRNFMA1RABakCFWT/ifiNF7AlK0j3pF9ee6WMZ6KZlqSdWWmjPWlnDjqpJu1Mo4vupJ156KWetBP5q+ineUU/zSv6aV7RT/PSp4mIyAg+8MYJrA==
+  </data>
+ </layer>
  <layer name="Background" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJxjYBgFIx3okqDWCIiNKbALpt8EiE3J0E+uPmoAWzqYYUMFO5CBFYl2uACxK5XdgA4oTUOjYOAAtvQEA8TmD3xmoAMVIFYlQT2lQAuJTUq5iM1PpJQXyHkCVr5h029Ngpn0ANQurygB5IQNsh5kvzgBsTMBvfQoK+kB8KXToV5W4ytrcMUfNep5SgEsXSoBsTID/ctBZEBKOUgpGOrpbagDAK0EC7c=
