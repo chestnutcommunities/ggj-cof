@@ -17,14 +17,11 @@
 @synthesize currentDestinationPath = _currentDestinationPath;
 
 -(void) dealloc {
-    _crouchAnim = nil;
-    _jumpAnim = nil;
-    _landAnim = nil;
+    _walkingAnim = nil;
     _destinationPoints = nil;
     
-    [_crouchAnim release];
-    [_jumpAnim release];
-    [_landAnim release];
+    [_walkingAnim release];
+    [_destinationPoints release];
     
     [super dealloc];
 }
@@ -36,8 +33,8 @@
     
     _number = number;
     
-    if (_number >= 13) {
-        _number = 13;
+    if (_number >= kCardMaxNumber) {
+        _number = kCardMaxNumber;
     }
     
     NSString *numberString;
@@ -45,6 +42,19 @@
     
     CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:numberString];
     [_numberPanel setDisplayFrame:frame];
+}
+
+-(void) loadAnimations {
+    NSMutableArray *animFrames = [NSMutableArray array];
+    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]];
+    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-2.png"]];
+    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-3.png"]];
+    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-4.png"]];
+    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-5.png"]];
+    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-6.png"]];
+    
+    // set up walking animations
+    _walkingAnim = [[CCAnimation animationWithFrames:animFrames delay:0.1f] retain];
 }
 
 -(void)setSuit:(CardSuit)suit {
@@ -77,8 +87,6 @@
 -(CardSuit)getSuit {
     return _cardSuit;
 }
-
--(void) loadAnimations {}
 
 -(CGRect)eyesightBoundingBox {
     CGRect cardSightBoundingBox;
@@ -125,58 +133,16 @@
 
 }
 
--(void) initiateLanding {
-    if (self.characterState != kStateJumping) {
-        return;
-    }
+-(void) startWalking {
+    [self stopAllActions];
     
-    if (_landAnim != nil) {
-        if (_animationHandle != nil) {
-            [self stopAction:_animationHandle];
-            _animationHandle = nil;
-        }
-        _animationHandle = [[CCAnimate actionWithAnimation:_landAnim restoreOriginalFrame:NO] retain];
-        
-        [self runAction:_animationHandle];
-    }
+    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkingAnim restoreOriginalFrame:YES]] retain];
     
-    self.characterState = kStateLanding;
+    [self runAction:action];
 }
 
--(void) initiateJump {
-    if (self.characterState != kStateCrouching) {
-        return;
-    }
-    
-    if (_jumpAnim != nil) {
-        if (_animationHandle != nil) {
-            [self stopAction:_animationHandle];
-            _animationHandle = nil;
-        }
-        _animationHandle = [[CCAnimate actionWithAnimation:_jumpAnim restoreOriginalFrame:NO] retain];
-        
-        [self runAction:_animationHandle];
-    }
-    
-    self.characterState = kStateJumping;
-}
-
--(void) initiateCrouch {
-    if (self.characterState == kStateCrouching) {
-        return;
-    }
-    
-    if (_crouchAnim != nil) {
-        if (_animationHandle != nil) {
-            [self stopAction:_animationHandle];
-            _animationHandle = nil;
-        }
-        _animationHandle = [[CCAnimate actionWithAnimation:_crouchAnim restoreOriginalFrame:NO] retain];
-        
-        [self runAction:_animationHandle];
-    }
-    
-    self.characterState = kStateCrouching;
+-(void) stopWalking {
+    [self stopAllActions];
 }
 
 -(void) handleDead:(id)sender {
@@ -192,6 +158,7 @@
     switch (newState) {
         case kStateDying:
             [self stopAllActions];
+            [self stopWalking];
             
             id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
             id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
@@ -241,6 +208,8 @@
         [self addChild:_numberPanel];
         
         _currentDestinationPath = 0;
+        
+        [self startWalking];
     }
     return self;
 }

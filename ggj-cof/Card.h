@@ -16,9 +16,7 @@
     int _number;
 	CardSuit _cardSuit;
     
-    CCAnimation *_crouchAnim;
-    CCAnimation *_jumpAnim;
-    CCAnimation *_landAnim;
+    CCAnimation *_walkingAnim;
     CCAnimate *_animationHandle;
     
     GameObject* _suitPanel;
@@ -43,9 +41,8 @@
 -(int)getNumber;
 -(CardSuit)getSuit;
 
--(void) initiateJump;
--(void) initiateCrouch;
--(void) initiateLanding;
+-(void) startWalking;
+-(void) stopWalking;
 
 -(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager;
 -(CGRect)eyesightBoundingBox;

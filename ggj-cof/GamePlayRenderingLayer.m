@@ -51,7 +51,7 @@
     _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"card-sprite.png"] retain];
     [self addChild:_sceneBatchNode];
     
-    _player = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card.png"]];
+    _player = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]];
     
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     

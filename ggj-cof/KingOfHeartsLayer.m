@@ -62,7 +62,7 @@
 
 -(void) handleWin:(id)sender {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.8f];
+    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6f];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"win!.mp3" loop:NO];
     
     GameCompleteScene *scene = [GameCompleteScene node];
@@ -71,7 +71,7 @@
 
 -(void) handleLoss:(id)sender {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.8f];
+    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6f];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"lose!.mp3" loop:NO];
     
     GameOverScene *scene = [GameOverScene node];
