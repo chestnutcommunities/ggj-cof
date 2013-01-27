@@ -18,6 +18,7 @@
     GameCompleteLayer *_completeLayer;
     GameOverLayer *_gameOverLayer;
     CardManager* _cardManager;
+    ccTime _tmpPathFindingDelta;
 }
 
 +(CCScene *) scene;

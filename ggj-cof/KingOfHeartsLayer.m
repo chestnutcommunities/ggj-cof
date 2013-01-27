@@ -128,7 +128,7 @@
 -(void) update:(ccTime)delta
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];
-    
+    int beingChased = 0;
     for (Card *card in cards) {
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
@@ -181,6 +181,7 @@
                             tileMapManager:_mapManager
                                    tileMap:_mapManager.tileMap
                                     target:_player.position];
+                    beingChased = beingChased + 1;
                 }
                 else {
                     [card changeState:kStateWalking];
@@ -192,6 +193,16 @@
             }
         }
     }
+    
+    //Play heartbeat
+    _tmpPathFindingDelta += delta;
+    if (_tmpPathFindingDelta >= 1.0f) {
+        _tmpPathFindingDelta = 0.5f;
+        if (beingChased ) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"heartbeat.mp3"];
+        }
+    }
+
 }
 
 -(id) init {
