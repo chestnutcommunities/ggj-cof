@@ -22,6 +22,8 @@
     GameObject* _suitPanel;
     GameObject* _numberPanel;
     
+    FacingDirection _facing;
+    
     CGFloat _factor;
     CGFloat _limit;
     CGFloat _momentum;
@@ -35,12 +37,13 @@
 @property (nonatomic, assign) CGPoint originPoint;
 @property (nonatomic, assign) int currentDestinationPath;
 @property (nonatomic, retain) NSMutableArray *destinationPoints;
+@property (nonatomic, assign) FacingDirection facing;
 
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;
 -(int)getNumber;
 -(CardSuit)getSuit;
-
+-(void)face:(FacingDirection)direction;
 -(void) startWalking;
 -(void) stopWalking;
 

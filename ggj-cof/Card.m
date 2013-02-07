@@ -15,6 +15,7 @@
 @synthesize originPoint = _originPoint;
 @synthesize destinationPoints = _destinationPoints;
 @synthesize currentDestinationPath = _currentDestinationPath;
+@synthesize facing = _facing;
 
 -(void) dealloc {
     _walkingAnim = nil;
@@ -24,6 +25,26 @@
     [_destinationPoints release];
     
     [super dealloc];
+}
+
+-(void)face:(FacingDirection)direction {
+    switch (direction) {
+        case kFacingRight:
+            if (_facing != kFacingRight) {
+                _facing = kFacingRight;
+                self.flipX = NO;
+            }
+            break;
+        case kFacingLeft:
+            if (_facing != kFacingLeft) {
+                _facing = kFacingLeft;
+                self.flipX = YES;
+            }
+            break;
+        default:
+            // keep current facing direction
+            break;
+    }
 }
 
 -(void)setNumber:(int)number {
@@ -195,6 +216,7 @@
         _number = 1;
         self.characterState = kStateIdle;
         _cardSuit = kCardSuitHeart;
+        _facing = kFacingRight;
         
         _suitPanel = [[[GameObject alloc] initWithSpriteFrameName:@"hearts.png"] retain];
         _numberPanel = [[[GameObject alloc] initWithSpriteFrameName:@"1.png"] retain];

@@ -107,6 +107,7 @@
         }
     }
     
+    [_player face:direction];
     [self postMovePlayer:destination facing:direction];
     
     id actionMove = [[CCMoveTo actionWithDuration:0.2f position:fittedPos] retain];

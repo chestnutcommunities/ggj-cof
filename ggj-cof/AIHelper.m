@@ -80,12 +80,22 @@
 	// Get the next step to move to
 	ShortestPathStep *s = [card.shortestPath objectAtIndex:0];
 	
-    //+(CGPoint)positionInPointsForTileCoord:(CGPoint)tileCoord tileMap:(CCTMXTiledMap*)tileMap tileSizeInPoints:(CGSize)tileSizeInPoints
-	// Prepare the action and the callback
-	id moveAction = [CCMoveTo actionWithDuration:1.0f position:[PositioningHelper positionInPointsForTileCoord:s.position tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints]];
-	// set the method itself as the callback
-    //id moveCallback = [CCCallFunc actionWithTarget:self selector:@selector(popStepAndAnimate:tileMapManager:) tileMapManager:tileMapManager];
+    CGPoint destination = [PositioningHelper positionInPointsForTileCoord:s.position tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
+    if (card.position.x != destination.x) {
+        if (card.position.x < destination.x) {
+            [card face:kFacingRight];
+        }
+        else {
+            [card face:kFacingLeft];
+        }
+    }
+    
+	// Prepare the action and the callback
+	id moveAction = [CCMoveTo actionWithDuration:1.0f position:destination];
+    
+    
+	// set the method itself as the callback
     id moveCallback = [CCCallFuncND actionWithTarget:self selector:@selector(popStepAndAnimate:data:) data:data];
     card.currentStepAction = [CCSequence actions:moveAction, moveCallback, nil];
 	
