@@ -22,7 +22,6 @@
 }
 
 +(CCScene *) scene;
--(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction;
 @property (nonatomic, retain) GameCompleteLayer *completeLayer;
 @property (nonatomic, retain) GameOverLayer *gameOverLayer;
 

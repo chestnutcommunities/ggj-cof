@@ -78,53 +78,6 @@
     [[CCDirector sharedDirector] replaceScene:scene];
 }
 
--(void) postMovePlayer:(CGPoint)destination facing:(FacingDirection)direction {
-    /*
-    CCArray* cards = [_cardManager.enemyBatchNode children];
-    for (Card* card in cards) {
-        if (card.characterState != kStateDying && card.characterState != kStateDead) {
-            CGRect target = CGRectMake(card.position.x - (card.contentSize.width/2), card.position.y - (card.contentSize.height/2), card.contentSize.width, card.contentSize.height);
-            
-            if (CGRectContainsPoint(target, destination)) {
-                int playerNumber = [self.player getNumber];
-                int cardNumber = [card getNumber];
-                
-                // If card number is lower than or equal to the player's number...
-                if (playerNumber >= cardNumber) {
-                    // Kill the card and add the numbers together
-                    playerNumber += cardNumber;
-                    
-                    [self.player setNumber:playerNumber];
-                    [card changeState:kStateDying];
-                    
-                    if (playerNumber >= 13) {
-                        // Disable touch
-                        [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
-                        
-                        id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
-                        [self runAction:sequeunce];
-                    }
-                    else {
-                        // Game goes on, shuffle cards
-                        [_cardManager shuffleCards:playerNumber];
-                    }
-                }
-                else {
-                    // Disable touch
-                    [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
-                    
-                    // Kill the player, change game state
-                    [_player changeState:kStateDying];
-                    
-                    id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
-                    [self runAction:sequeunce];
-                }
-            }
-        }
-    }
-     */
-}
-
 -(void) update:(ccTime)delta
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];

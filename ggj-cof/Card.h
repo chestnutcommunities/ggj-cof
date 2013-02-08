@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "AICharacter.h"
+#import "CommonProtocol.h"
 
 @class TileMapManager;
 
@@ -32,12 +33,14 @@
     CGPoint _originPoint;
     int _currentDestinationPath;
     NSMutableArray *_destinationPoints;
+    FacingDirection _previousDirection;
 }
 
 @property (nonatomic, assign) CGPoint originPoint;
 @property (nonatomic, assign) int currentDestinationPath;
 @property (nonatomic, retain) NSMutableArray *destinationPoints;
 @property (nonatomic, assign) FacingDirection facing;
+@property (nonatomic, assign) FacingDirection previousDirection;
 
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;

@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "CommonProtocol.h"
 
 @class GamePlayRenderingLayer;
 @class Card;

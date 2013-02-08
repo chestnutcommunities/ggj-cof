@@ -10,6 +10,11 @@
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
+  <tile id="1">
+   <properties>
+    <property name="Walkable" value="1"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="9" name="decoration" tilewidth="64" tileheight="64">
   <image source="decoration.png" width="512" height="512"/>
@@ -21,7 +26,7 @@
  </layer>
  <layer name="Meta" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztklEKwDAIQ4Xd/877HSVRE8u+FGS0qG+xeSLi2dz8IQOclchmqdxu/ZSbaUA16N7V+/2i+Scrm+Fw0X3FmXIDzEBaO7Wurxi3W6twWbC3vcll2jr/pnIzbZ3ZqH/i6cp/Z72jl81EwXSq3Gr/yg6cHSNdmcaT43InPp/4me2MaUS9rl7Wi+67ver7VppvcFWv3/DzJFxfbW5O8wW3rAgF
+   eJztVDESwDAIyl36/zf3A6AotpMDQ3NWAmLuOecuFj/gAd8VRL2qvGq9yxtpQDXovKv3Ib2QRqbT4UXnGY/Lizxjvma13VwxXrW2wpvtCpv7BC/TptzN2SN1lqyHyqv6hPI38W6wnsq8J/Jc8S56ayoeR3qzPHT1Rj2UnDt5Zp59Od/sX7Y/6j5U5ptpnnyf1axP5NlBN1eLhYsXLUQLZQ==
   </data>
  </layer>
  <layer name="Decoration" width="30" height="30">

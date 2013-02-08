@@ -12,6 +12,7 @@ typedef enum {
     kFacingUp,
     kFacingLeft,
     kFacingRight,
+    kFacingNone,
 } FacingDirection;
 
 typedef enum {

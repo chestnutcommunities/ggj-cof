@@ -15,6 +15,7 @@
 @synthesize originPoint = _originPoint;
 @synthesize destinationPoints = _destinationPoints;
 @synthesize currentDestinationPath = _currentDestinationPath;
+@synthesize previousDirection = _previousDirection;
 @synthesize facing = _facing;
 
 -(void) dealloc {
@@ -134,24 +135,6 @@
     else {
         [self changeState:kStateWalking];
     }
-    /*
-    //if ([AIHelper checkIfPointIsInSight:test card:self tileMapManager:tileMapManager]) {
-        //chase player if in sight
-        [AIHelper moveToTarget:self
-                tileMapManager:tileMapManager
-                       tileMap:tileMapManager.tileMap
-                        target:gameObject.position];
-    //}
-    
-    else {
-    
-        //go to regular routine
-        [AIHelper moveToTarget:self
-                tileMapManager:tileMapManager
-                       tileMap:tileMapManager.tileMap
-                        target:[tileMapManager getCurrentDestinationOfCard:self]];
-    */
-
 }
 
 -(void) startWalking {
@@ -223,6 +206,8 @@
                 
         _suitPanel.position = ccp(22, 14);
         _numberPanel.position = ccp(11, 24);
+        
+        _previousDirection = kFacingNone;
         
         [self loadAnimations];
         

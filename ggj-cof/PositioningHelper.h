@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "CommonProtocol.h"
 
 @interface PositioningHelper : CCLayer
 
@@ -19,5 +20,7 @@
 +(CGPoint)positionInPointsForTileCoord:(CGPoint)tileCoord tileMap:(CCTMXTiledMap*)tileMap tileSizeInPoints:(CGSize)tileSizeInPoints;
 +(CGPoint) computeTileFittingPositionInPoints:(CGPoint)positionInPoints tileMap:(CCTMXTiledMap*)tileMap tileSizeInPoints:(CGSize)tileSizeInPoints;
 +(CGPoint) computeTileFittingPositionInPixels:(CGPoint)positionInPixels tileMap:(CCTMXTiledMap*)tileMap tileSizeInPoints:(CGSize)tileSizeInPoints;
-
++(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection;
++(CGPoint) getFinalTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap previous:(FacingDirection)previousDirection;
++(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curveTile finalDest:(CGPoint)finalTile;
 @end

@@ -95,4 +95,91 @@
     return ccp(x, y);
 }
 
++(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curvePosition finalDest:(CGPoint)finalPosition {
+    if (curvePosition.x < finalPosition.x) {
+        return kFacingRight;
+    }
+    if (curvePosition.x > finalPosition.x) {
+        return kFacingLeft;
+    }
+    if (curvePosition.y > finalPosition.y) {
+        return kFacingDown;
+    }
+    if (curvePosition.y < finalPosition.y) {
+        return kFacingUp;
+    }
+    return kFacingNone;
+}
+
++(CGPoint) getFinalTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap previous:(FacingDirection)previousDirection
+{
+    CGFloat x = initialDestination.x;
+    CGFloat y = initialDestination.y;
+    switch (previousDirection) {
+        case kFacingDown:
+            x = x;
+            y = y + 1.0f;
+            break;
+        case kFacingRight:
+            x = x + 1.0f;
+            y = y;
+            break;
+        case kFacingLeft:
+            x = x - 1.0f;
+            y = y;
+            break;
+        case kFacingUp:
+            x = x;
+            y = y - 1.0f;
+            break;
+        default:
+            break;
+    }
+    
+    return ccp(x, y);
+
+}
+
+//Get adject tile coordinate for curve movement on collidable corners
++(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection
+{    
+    CGFloat x = initialDestination.x;
+    CGFloat y = initialDestination.y;
+    switch (current) {
+        case kFacingUp:
+            y = y + 1.0f;
+            break;
+        case kFacingDown:
+            y = y - 1.0f;
+            break;
+        case kFacingRight:
+            x = x - 1.0f;
+            break;
+        case kFacingLeft:
+            x = x + 1.0f;
+            break;
+        default:
+            break;
+    }
+    
+    switch (previousDirection) {
+        case kFacingDown:
+            y = y + 1.0f;
+            break;
+        case kFacingRight:
+            x = x + 1.0f;
+            break;
+        case kFacingLeft:
+            x = x - 1.0f;
+            break;
+        case kFacingUp:
+            y = y - 1.0f;
+            break;
+        default:
+            break;
+    }
+    
+    return ccp(x, y);
+}
+
 @end
