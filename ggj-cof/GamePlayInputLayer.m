@@ -46,8 +46,7 @@
 	[super dealloc];
 }
 
--(void)applyDirectionalJoystick:(SneakyJoystick*)joystick toNode:(GameCharacter*)node forTimeDelta:(ccTime)delta
-{
+-(void)applyDirectionalJoystick:(SneakyJoystick*)joystick toNode:(GameCharacter*)node forTimeDelta:(ccTime)delta {
 	// you can create a velocity specific to the node if you wanted, just supply a different multiplier
 	// which will allow you to do a parallax scrolling of sorts
 	//CGPoint scaledVelocity = ccpMult(joystick.velocity, 240.0f);
@@ -136,25 +135,25 @@
     }
 }
 
--(void) onEnter
-{
+-(void) onEnter {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:YES];
     [super onEnter];
 }
--(void) onExit
-{
+-(void) onExit {
     [[CCTouchDispatcher sharedDispatcher] removeDelegate: self];
     [super onExit];
 }
 
-
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [touch locationInView: [touch view]];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    CGRect upBox = CGRectMake(_up.position.x - (_up.size.width / 2), _up.position.y - (_up.size.height / 2), _up.size.width, _up.size.height);
-    CGRect downBox = CGRectMake(_down.position.x - (_down.size.width / 2), _down.position.y - (_down.size.height / 2), _down.size.width, _down.size.height);
-    CGRect leftBox = CGRectMake(_left.position.x - (_left.size.width / 2), _left.position.y - (_left.size.height / 2), _left.size.width, _left.size.height);
-    CGRect rightBox = CGRectMake(_right.position.x - (_right.size.width / 2), _right.position.y - (_right.size.height / 2), _right.size.width, _right.size.height);
+    CGFloat buttonHalfWidth = _up.boundingBox.size.width / 2.0f;
+    
+    CGRect upBox = CGRectMake(_up.position.x - buttonHalfWidth, winSize.height - _up.position.y - buttonHalfWidth, _up.boundingBox.size.width, _up.boundingBox.size.height);
+    CGRect downBox = CGRectMake(_down.position.x - buttonHalfWidth, winSize.height - _down.position.y - buttonHalfWidth, _down.boundingBox.size.width, _down.boundingBox.size.height);
+    CGRect leftBox = CGRectMake(_left.position.x - buttonHalfWidth, winSize.height - _left.position.y - buttonHalfWidth, _left.boundingBox.size.width, _left.boundingBox.size.height);
+    CGRect rightBox = CGRectMake(_right.position.x - buttonHalfWidth, winSize.height - _right.position.y - buttonHalfWidth, _right.boundingBox.size.width, _right.boundingBox.size.height);
     
     if (CGRectContainsPoint(upBox, location)) {
         _heldUp = YES;
@@ -185,22 +184,17 @@
     if ((self = [super init])) {
         self.isTouchEnabled = YES;
         
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CGSize buttonSize = CGSizeMake(60, 60);
         
-        CGSize buttonSize = CGSizeMake(44, 44);
+        _up = [[[ColoredSquareSprite alloc] initWithColor:ccc4(255, 0, 0, 100) size:buttonSize] retain];
+        _down = [[[ColoredSquareSprite alloc] initWithColor:ccc4(0, 255, 0, 100) size:buttonSize] retain];
+        _left = [[[ColoredSquareSprite alloc] initWithColor:ccc4(0, 0, 255, 100) size:buttonSize] retain];
+        _right = [[[ColoredSquareSprite alloc] initWithColor:ccc4(255, 0, 255, 100) size:buttonSize] retain];
         
-        CGSize upAndDownSize = CGSizeMake(winSize.width - (buttonSize.width * 2), buttonSize.height);
-        CGSize leftAndRightSize = CGSizeMake(buttonSize.width, winSize.height - (buttonSize.height * 2));
-        
-        _up = [[[ColoredSquareSprite alloc] initWithColor:ccc4(255, 0, 0, 100) size:upAndDownSize] retain];
-        _down = [[[ColoredSquareSprite alloc] initWithColor:ccc4(0, 255, 0, 100) size:upAndDownSize] retain];
-        _left = [[[ColoredSquareSprite alloc] initWithColor:ccc4(0, 0, 255, 100) size:leftAndRightSize] retain];
-        _right = [[[ColoredSquareSprite alloc] initWithColor:ccc4(255, 0, 255, 100) size:leftAndRightSize] retain];
-        
-        CGPoint upLocation = ccp(winSize.width * 0.5, buttonSize.height * 0.5);
-        CGPoint downLocation = ccp(winSize.width * 0.5, winSize.height - (buttonSize.height * 0.5));
-        CGPoint leftLocation = ccp(leftAndRightSize.width * 0.5, (leftAndRightSize.height * 0.5) + buttonSize.height);
-        CGPoint rightLocation = ccp(winSize.width - (leftAndRightSize.width * 0.5), (leftAndRightSize.height * 0.5) + buttonSize.height);
+        CGPoint upLocation = ccp(buttonSize.width + (buttonSize.width * 0.8f), (buttonSize.height * 2.0f) + (buttonSize.height * 0.8f));
+        CGPoint downLocation = ccp(buttonSize.width + (buttonSize.width * 0.8f), buttonSize.height * 0.8f);
+        CGPoint leftLocation = ccp(buttonSize.width * 0.8f, buttonSize.height + (buttonSize.height * 0.8f));
+        CGPoint rightLocation = ccp((buttonSize.height * 2.0f) + (buttonSize.height * 0.8f), buttonSize.height + (buttonSize.height * 0.8f));
         
         _up.position = upLocation;
         _down.position = downLocation;
