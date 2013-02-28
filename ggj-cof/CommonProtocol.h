@@ -64,6 +64,14 @@ typedef enum {
     kCardSuitHeart
 } CardSuit;
 
+typedef enum {
+    kStateAwaitingInput,
+    kStateSwipedDown,
+    kStateSwipedUp,
+    kStateSwipedLeft,
+    kStateSwipedRight
+} InputStates;
+
 @protocol GameplayLayerDelegate
 
 -(void)createObjectOfType:(GameObjectType)objectType 
