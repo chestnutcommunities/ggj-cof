@@ -34,6 +34,7 @@ typedef enum {
 	kStateChasing,
     kStateLanding,
     kStateDying,
+    kStateRunningAway
 } CharacterStates;
 
 typedef enum {

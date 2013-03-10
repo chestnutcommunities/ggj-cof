@@ -85,9 +85,19 @@
     if (card.position.x != destination.x) {
         if (card.position.x < destination.x) {
             [card face:kFacingRight];
+            card.facing = kFacingRight;
         }
         else {
             [card face:kFacingLeft];
+            card.facing = kFacingLeft;
+        }
+    }
+    if (card.position.y != destination.y) {
+        if (card.position.y > destination.y) {
+            card.facing = kFacingDown;
+        }
+        else {
+            card.facing = kFacingUp;
         }
     }
     
@@ -236,92 +246,256 @@
 	} while ([card.spOpenSteps count] > 0);
 }
 
-//Bresenenham line drawing algorithm
-+(void) getPointsOnLine:(int)x0 y0:(int)y0 x1:(int)x1 y1:(int)y1 pointsArray:(NSMutableArray *)pointsArray {
-	int pointsOnLineGranularity = 1;
-	
-	int Dx = x1 - x0;
-	int Dy = y1 - y0;
-	int steep = (abs(Dy) >= abs(Dx));
-	if (steep) {
-		//swap x and y values
-		int temp = x0;
-		x0 = y0;
-		y0 = temp;
-		temp = x1;
-		x1 = y1;
-		y1 = temp;
-		// recompute Dx, Dy after swap
-		Dx = x1 - x0;
-		Dy = y1 - y0;
-	}
-	int xstep = pointsOnLineGranularity;
-	if (Dx < 0) {
-		xstep = -pointsOnLineGranularity;
-		Dx = -Dx;
-	}
-	int ystep = pointsOnLineGranularity;
-	if (Dy < 0) {
-		ystep = -pointsOnLineGranularity;
-		Dy = -Dy;
-	}
-	int TwoDy = 2*Dy;
-	int TwoDyTwoDx = TwoDy - 2*Dx; // 2*Dy - 2*Dx
-	int E = TwoDy - Dx; //2*Dy - Dx
-	int y = y0;
-	int xDraw, yDraw;
-	int x = x0;
-	while (abs(x-x1) > pointsOnLineGranularity) {
-		x += xstep;
-		//for (int x = x0; x != x1; x += xstep) {
-		if (steep) {
-			xDraw = y;
-			yDraw = x;
-		} else {
-			xDraw = x;
-			yDraw = y;
-		}
-		// Add point to array.
-		[pointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(xDraw, yDraw)]];
-		
-		// next
-		if (E > 0) {
-			E += TwoDyTwoDx; //E += 2*Dy - 2*Dx;
-			y = y + ystep;
-		} else {
-			E += TwoDy; //E += 2*Dy;
-		}
-	}
+// Player detection is linear based on facing direction of card
++(BOOL)sawPlayer:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager player:(Card *)player {
+    CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:player.position
+                                                                   tileMap:tileMapManager.tileMap
+                                                          tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
+                                                                        tileMap:tileMapManager.tileMap
+                                                               tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    //NSMutableArray *tempTiles = [[NSMutableArray alloc] init];
+    CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
+    
+    int x, y;
+    
+    do {
+        x = tempTile.x;
+        y = tempTile.y;
+        
+        switch (observerCard.facing) {
+            case kFacingRight:
+                x = x + 1;
+                break;
+            case kFacingLeft:
+                x = x - 1;
+                break;
+            case kFacingDown:
+                y = y + 1;
+                break;
+            case kFacingUp:
+                y = y - 1;
+                break;
+            default:
+                break;
+        }
+        tempTile = CGPointMake(x, y);
+        if (CGPointEqualToPoint(tempTile, tileOfPlayer)) {
+            return YES;
+        }
+    } while ([tileMapManager isWalkableTile:tempTile]);
+    return NO;
 }
 
-+(BOOL) checkIfPointIsInSight:(CGPoint)targetPos card:(Card *)card tileMapManager:(TileMapManager*)tileMapManager {
-    CGPoint attackerPos = card.position;
-    
-    CGPoint diff = ccpSub(targetPos, attackerPos);
-    if ((abs(diff.x) > kMaxLineOfSight) || (abs(diff.y) > kMaxLineOfSight)){
-        return NO;
++(void) moveAwayFromChaser:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap {
+    if (card.characterState != kStateRunningAway) {
+        card.facing = [PositioningHelper getOppositeDirection:card.facing];
+        [card changeState:kStateRunningAway];
     }
     
-    NSMutableArray *points = [NSMutableArray array];
-	[self getPointsOnLine:targetPos.x y0:targetPos.y x1:attackerPos.x y1:attackerPos.y pointsArray:points];
-	
-    BOOL lineOfSight = YES;
-    for (int i=0; i<[points count]; i++) {
-		CGPoint thisPoint = [[points objectAtIndex:i] CGPointValue];
-		CGPoint thisTile = [PositioningHelper computeTileFittingPositionInPoints:thisPoint
-                                                                         tileMap:tileMapManager.tileMap
-                                                                tileSizeInPoints:tileMapManager.tileSizeInPoints];
-		if ([tileMapManager isWallAtTileCoord:thisTile]) {
-			lineOfSight = NO;
-		}
+    CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.position
+                                                                 tileMap:tileMap
+                                                        tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    CGPoint lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:card.facing];
+    
+    // go perpendicular when last tile of the line is where card is standing
+    if (CGPointEqualToPoint(tileOfCard, lastTile)) {
+        if ([PositioningHelper isMovingLateral:card.facing] == YES) {
+            lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:kFacingUp];
+            if ([tileMapManager isWalkableTile:lastTile] == NO || CGPointEqualToPoint(tileOfCard, lastTile)) {
+                lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:kFacingDown];
+            }
+        }
+        else {
+            lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:kFacingRight];
+            if ([tileMapManager isWalkableTile:lastTile] == NO || CGPointEqualToPoint(tileOfCard, lastTile)) {
+                lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:kFacingLeft];
+            }
+        }
+        
+        // dead end for card! charge to the player!
+        if ([tileMapManager isWalkableTile:lastTile] == NO || CGPointEqualToPoint(tileOfCard, lastTile)) {
+            lastTile = [self getLastTileWhereCardIsFacing:card
+                                           tileMapManager:tileMapManager
+                                                   facing:[PositioningHelper getOppositeDirection:card.facing]];
+        }
+    }
+    
+    // Run away path
+    CGPoint target = [PositioningHelper positionInPointsForTileCoord:lastTile
+                                                             tileMap:tileMapManager.tileMap
+                                                    tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    if (card.currentStepAction) {
+        if (card.characterState == kStateRunningAway) {
+            card.pendingMove = [NSValue valueWithCGPoint:target];
+        }
+        return;
+    }
+    
+    card.spOpenSteps = [NSMutableArray array];
+	card.spClosedSteps = [NSMutableArray array];
+	card.shortestPath = nil;
+    
+    CGPoint fromTileCoor = [PositioningHelper tileCoordForPositionInPoints:card.position
+                                                                   tileMap:tileMap
+                                                          tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    CGPoint toTileCoord = [PositioningHelper tileCoordForPositionInPoints:target
+                                                                  tileMap:tileMap
+                                                         tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    
+	//Check if target has been reached
+	if (CGPointEqualToPoint(fromTileCoor, toTileCoord)) {
+        card.currentDestinationPath = card.currentDestinationPath + 1;
+		return;
 	}
-	
-	 if (lineOfSight) {
-         glColor4ub(255,0,255,255); // Or whatever drawing setup you need
-         ccDrawLine(ccp(targetPos.x, targetPos.y), ccp(attackerPos.x, attackerPos.y));
-     }
-	 
-	return lineOfSight;
+    
+    [AIHelper insertInOpenSteps:card step:[[[ShortestPathStep alloc] initWithPosition:fromTileCoor] autorelease]];
+    
+    do
+	{
+        // Because the list is ordered, the first step is always the one with the lowest F cost
+		ShortestPathStep *currentStep = [card.spOpenSteps objectAtIndex:0];
+		
+		[card.spClosedSteps addObject:currentStep]; // Add the current step to the closed set
+		[card.spOpenSteps removeObjectAtIndex:0]; // Remove it from the open list
+        
+        // If currentStep is at the desired tile coordinate, we are done
+		if (CGPointEqualToPoint(currentStep.position, toTileCoord)) {
+			[AIHelper constructPathAndStartAnimationFromStep:card step:currentStep tileMapManager:tileMapManager];
+			card.spOpenSteps = nil; // Set to nil to release unused memory
+			card.spClosedSteps = nil; // Set to nil to release unused memory
+			break;
+		}
+        
+        CCArray *tileSteps = [self getTilesInStraightLine:card tileMapManager:tileMapManager facing:card.facing];
+        for (NSValue *item in tileSteps) {
+            ShortestPathStep *step = [[ShortestPathStep alloc] initWithPosition:[item CGPointValue]];
+			
+			// Check if the step isn't already in the closed set
+			if ([card.spClosedSteps containsObject:step]) {
+				[step release]; // Must releasing it to not leaking memory ;-)
+				continue; // Ignore it
+			}
+			
+			// Compute the cost form the current step to that step
+			int moveCost = [AIHelper costToMoveFromStep:currentStep toAdjacentStep:step];
+			
+			// Check if the step is already in the open list
+			NSUInteger index = [card.spOpenSteps indexOfObject:step];
+			
+			// if not on the open list, so add it
+			if (index == NSNotFound) {
+				// Set the current step as the parent
+				step.parent = currentStep;
+				// The G score is equal to the parent G score + the cost to move from the parent to it
+				step.gScore = currentStep.gScore + moveCost;
+				step.hScore = [AIHelper computeHScoreFromCoord:step.position toCoord:toTileCoord];
+				
+				[AIHelper insertInOpenSteps:card step:step];
+				[step release];
+			}
+        }
+	} while ([card.spOpenSteps count] > 0);
+}
+
+// Get last tile of where card is facing
++(CGPoint)getLastTileWhereCardIsFacing:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing {
+    /*
+    CCArray *tilesFromStraightLine = [self getTilesInStraightLine:observerCard tileMapManager:tileMapManager facing:facing];
+    CGPoint lastTile = [[tilesFromStraightLine lastObject] CGPointValue];
+    [tilesFromStraightLine release];
+    return lastTile;
+    */
+    
+    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
+                                                                        tileMap:tileMapManager.tileMap
+                                                               tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
+    CGPoint prevTile = tempTile;
+    int x, y;
+    
+    do {
+        x = tempTile.x;
+        y = tempTile.y;
+        
+        switch (facing) {
+            case kFacingRight:
+                x = x + 1;
+                break;
+            case kFacingLeft:
+                x = x - 1;
+                break;
+            case kFacingDown:
+                y = y + 1;
+                break;
+            case kFacingUp:
+                y = y - 1;
+                break;
+            default:
+                break;
+        }
+        tempTile = CGPointMake(x, y);
+        
+        if ([tileMapManager isWalkableTile:tempTile]) {
+            prevTile = tempTile;
+        }
+    } while ([tileMapManager isWalkableTile:tempTile]);
+    
+    return prevTile;
+}
+
++(CCArray *)getTilesInStraightLine:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing {
+    CCArray *tempTileList = [[CCArray alloc] init];
+    
+    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
+                                                                        tileMap:tileMapManager.tileMap
+                                                               tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
+    int x, y;
+    
+    do {
+        x = tempTile.x;
+        y = tempTile.y;
+        
+        switch (facing) {
+            case kFacingRight:
+                x = x + 1;
+                break;
+            case kFacingLeft:
+                x = x - 1;
+                break;
+            case kFacingDown:
+                y = y + 1;
+                break;
+            case kFacingUp:
+                y = y - 1;
+                break;
+            default:
+                break;
+        }
+        tempTile = CGPointMake(x, y);
+        
+        if ([tileMapManager isWalkableTile:tempTile]) {
+            [tempTileList addObject:[NSValue valueWithCGPoint:tempTile]];
+        }
+    } while ([tileMapManager isWalkableTile:tempTile]);
+    
+    return tempTileList;
+}
+
++(CCArray *)getTilesForEscapePath:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing {
+    
+    //Get straight escape
+    
+    
+    //Go perpendicular (random maybe?)
+    
+    
+    //Go perpendicular again (random)
+    
+    
+    //Go perpendicular last time (random)
+    
 }
 
 @end

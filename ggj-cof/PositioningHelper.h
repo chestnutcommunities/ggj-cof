@@ -23,4 +23,6 @@
 +(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection;
 +(CGPoint) getFinalTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap previous:(FacingDirection)previousDirection;
 +(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curveTile finalDest:(CGPoint)finalTile;
++(FacingDirection)getOppositeDirection:(FacingDirection)facingDirection;
++(BOOL)isMovingLateral:(FacingDirection)direction;
 @end

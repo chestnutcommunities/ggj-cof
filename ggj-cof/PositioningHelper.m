@@ -182,4 +182,32 @@
     return ccp(x, y);
 }
 
++(BOOL)isMovingLateral:(FacingDirection)direction {
+	if (direction == kFacingUp || direction == kFacingDown) {
+		return NO;
+	}
+	return YES;
+}
+
++(FacingDirection)getOppositeDirection:(FacingDirection)facingDirection {
+	FacingDirection oppositeDirection = kFacingNone;
+	switch (facingDirection) {
+		case kFacingLeft:
+			oppositeDirection = kFacingRight;
+			break;
+		case kFacingRight:
+			oppositeDirection = kFacingLeft;
+			break;
+		case kFacingUp:
+			oppositeDirection = kFacingDown;
+			break;
+		case kFacingDown:
+			oppositeDirection = kFacingUp;
+			break;
+		default:
+			break;
+	}
+	return oppositeDirection;
+}
+
 @end

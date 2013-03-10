@@ -36,5 +36,5 @@
 -(BOOL)isWallAtTileCoord:(CGPoint)tileCoord;
 -(NSArray *)walkableAdjacentTilesCoordForTileCoord:(CGPoint)tileCoord;
 -(CGPoint)getCurrentDestinationOfCard:(Card *)card;
-
+-(BOOL)isWalkableTile:(CGPoint)tileCoord;
 @end

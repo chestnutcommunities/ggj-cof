@@ -142,6 +142,15 @@
     return [self isProp:@"Collidable" atTileCoord:tileCoord forLayer:_meta];
 }
 
+//Convenience method to determine if tile is walkable or not (valid, no walls, etc)
+-(BOOL)isWalkableTile:(CGPoint)tileCoord {
+	BOOL walkable = NO;
+	if ([self isValidTileCoord:tileCoord] && ![self isWallAtTileCoord:tileCoord]) {
+		walkable = YES;
+	}
+	return walkable;
+}
+
 -(NSArray *)walkableAdjacentTilesCoordForTileCoord:(CGPoint)tileCoord
 {
 	NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:8];
@@ -153,28 +162,28 @@
 	
 	// Top
 	CGPoint p = CGPointMake(tileCoord.x, tileCoord.y - 1);
-	if ([self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if ([self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
         t = YES;
 	}
 	
 	// Left
 	p = CGPointMake(tileCoord.x - 1, tileCoord.y);
-	if ([self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if ([self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
         l = YES;
 	}
 	
 	// Bottom
 	p = CGPointMake(tileCoord.x, tileCoord.y + 1);
-	if ([self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if ([self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
         b = YES;
 	}
 	
 	// Right
 	p = CGPointMake(tileCoord.x + 1, tileCoord.y);
-	if ([self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if ([self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
         r = YES;
 	}
@@ -182,25 +191,25 @@
     
 	// Top Left
 	p = CGPointMake(tileCoord.x - 1, tileCoord.y - 1);
-	if (t && l && [self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if (t && l && [self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
 	}
 	
 	// Bottom Left
 	p = CGPointMake(tileCoord.x - 1, tileCoord.y + 1);
-	if (b && l && [self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if (b && l && [self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
 	}
 	
 	// Top Right
 	p = CGPointMake(tileCoord.x + 1, tileCoord.y - 1);
-	if (t && r && [self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if (t && r && [self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
 	}
 	
 	// Bottom Right
 	p = CGPointMake(tileCoord.x + 1, tileCoord.y + 1);
-	if (b && r && [self isValidTileCoord:p] && ![self isWallAtTileCoord:p]) {
+	if (b && r && [self isWalkableTile:p]) {
 		[tmp addObject:[NSValue valueWithCGPoint:p]];
 	}
 	

@@ -16,6 +16,7 @@
 #import "CardManager.h"
 #import "AIHelper.h"
 #import "SimpleAudioEngine.h"
+#import "PositioningHelper.h"
 
 @implementation KingOfHeartsLayer
 
@@ -86,10 +87,11 @@
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
             CGRect cardBoundingBox = [card adjustedBoundingBox];
-            CGRect cardSightBoundingBox = [card eyesightBoundingBox];
+            CGRect cardSightBoundingBox = [card chaseRunBoundingBox];
             
             BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
-            BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
+            BOOL isHeroWithinChasingRange = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
+            BOOL isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:_player];
             
             int playerNumber = [self.player getNumber];
             int cardNumber = [(Card *)card getNumber];
@@ -128,22 +130,39 @@
                 }
             }
             else {
-                if (isHeroWithinSight && (playerNumber < cardNumber)) {
-                    [card changeState:kStateChasing];
-                    [AIHelper moveToTarget:(Card *)card
-                            tileMapManager:_mapManager
-                                   tileMap:_mapManager.tileMap
-                                    target:_player.position];
-                    beingChased = beingChased + 1;
-                }
-                else {
-                    [card changeState:kStateWalking];
+				if (isHeroWithinSight == YES ||
+                    (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
+					if (playerNumber >= cardNumber) {
+                        CCLOG(@"Running Away from Player!");
+                        [AIHelper moveAwayFromChaser:card
+                                      tileMapManager:_mapManager
+                                             tileMap:_mapManager.tileMap];
+					}
+					else {
+                        CCLOG(@"Chasing player!");
+						[card changeState:kStateChasing];
+						[AIHelper moveToTarget:(Card *)card
+								tileMapManager:_mapManager
+									   tileMap:_mapManager.tileMap
+										target:_player.position];
+						beingChased = beingChased + 1;
+					}
+                    //Set back to walking only when player is out of range so that prey or predator will not give up at once
+                    if (!isHeroWithinChasingRange) {
+                        card.characterState = kStateWalking;
+                    }
+                    
+				}
+				else {
+                    CCLOG(@"Walking");
+					[card changeState:kStateWalking];
                     [AIHelper moveToTarget:(Card *)card
                             tileMapManager:_mapManager
                                    tileMap:_mapManager.tileMap
                                     target:[_mapManager getCurrentDestinationOfCard:card]];
-                }
-            }
+					
+				}
+			}
         }
     }
     

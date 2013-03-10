@@ -51,5 +51,5 @@
 -(void) stopWalking;
 
 -(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager;
--(CGRect)eyesightBoundingBox;
+-(CGRect)chaseRunBoundingBox;
 @end

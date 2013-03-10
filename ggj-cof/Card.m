@@ -110,7 +110,7 @@
     return _cardSuit;
 }
 
--(CGRect)eyesightBoundingBox {
+-(CGRect)chaseRunBoundingBox {
     CGRect cardSightBoundingBox;
     CGRect cardBoundingBox = [self adjustedBoundingBox];
 	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width*5.0f,
@@ -125,7 +125,7 @@
     
     CGRect heroBoundingBox = [gameObject adjustedBoundingBox];
 	CGRect cardBoundingBox = [self adjustedBoundingBox];
-	CGRect cardSightBoundingBox = [self eyesightBoundingBox];
+	CGRect cardSightBoundingBox = [self chaseRunBoundingBox];
     
     BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
     

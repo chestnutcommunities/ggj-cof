@@ -29,5 +29,8 @@
 + (int)computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord;
 + (void)popStepAndAnimate:(id)sender data:(void*)popStepAnimateData;
 +(void) moveToTarget:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap target:(CGPoint)target;
-+(BOOL) checkIfPointIsInSight:(CGPoint)targetPos card:(Card *)card tileMapManager:(TileMapManager*)tileMapManager;
++(void) moveAwayFromChaser:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap;
++(BOOL)sawPlayer:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager player:(Card *)player;
++(CGPoint)getLastTileWhereCardIsFacing:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing;
++(CCArray *)getTilesInStraightLine:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing;
 @end
