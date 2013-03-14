@@ -91,7 +91,6 @@
             
             BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
             BOOL isHeroWithinChasingRange = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
-            BOOL isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:_player];
             
             int playerNumber = [self.player getNumber];
             int cardNumber = [(Card *)card getNumber];
@@ -130,6 +129,11 @@
                 }
             }
             else {
+                
+                BOOL isHeroWithinSight = NO;
+                if (card.position.x == _player.position.x || card.position.y == _player.position.y) {
+                    isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:_player];
+                }
 				if (isHeroWithinSight == YES ||
                     (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
 					if (playerNumber >= cardNumber) {
