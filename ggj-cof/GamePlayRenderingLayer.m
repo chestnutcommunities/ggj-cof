@@ -191,7 +191,7 @@
         [self initTouchEventHandlers];
         
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6f];
         [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.5f];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"main-theme.mp3" loop:YES];
 	}
