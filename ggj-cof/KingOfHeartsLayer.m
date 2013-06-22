@@ -82,7 +82,6 @@
 -(void) update:(ccTime)delta
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];
-    int beingChased = 0;
     for (Card *card in cards) {
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
@@ -149,7 +148,6 @@
 								tileMapManager:_mapManager
 									   tileMap:_mapManager.tileMap
 										target:_player.position];
-						beingChased = beingChased + 1;
 					}
                     //Set back to walking only when player is out of range so that prey or predator will not give up at once
                     if (!isHeroWithinChasingRange) {

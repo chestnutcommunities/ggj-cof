@@ -95,8 +95,12 @@
         NSMutableArray *destinationList = [[NSMutableArray alloc] init];
         
         for (int i=0; i< kNumberOfDestinationPointsPerCard; i++) {
-            randomIndex = arc4random() % [tileMapManager.enemyDestinationPoints count];
-            selectedDestination = [tileMapManager.enemyDestinationPoints objectAtIndex:randomIndex];
+            //specify at different destinations so that card always moves
+            do
+            {
+                randomIndex = arc4random() % [tileMapManager.enemyDestinationPoints count];
+                selectedDestination = [tileMapManager.enemyDestinationPoints objectAtIndex:randomIndex];
+            } while ([destinationList containsObject:selectedDestination] && [destinationList count] > 0);
             
             [destinationList addObject:(NSValue *)selectedDestination];
         }
