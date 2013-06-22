@@ -102,8 +102,12 @@
     }
     
 	// Prepare the action and the callback
-	id moveAction = [CCMoveTo actionWithDuration:1.0f position:destination];
+    CGFloat duration = 0.65f; // normal speed
+    if (card.characterState == kStateChasing || card.characterState == kStateRunningAway) {
+        duration = 0.4f;
+    }
     
+	id moveAction = [CCMoveTo actionWithDuration:duration position:destination];
     
 	// set the method itself as the callback
     id moveCallback = [CCCallFuncND actionWithTarget:self selector:@selector(popStepAndAnimate:data:) data:data];

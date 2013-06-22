@@ -146,10 +146,10 @@
         [_player face:direction];
         [self postMovePlayer:destination facing:direction];
     
-        id actionMove = [[CCMoveTo actionWithDuration:0.2f position:fittedPos] retain];
+        id actionMove = [[CCMoveTo actionWithDuration:0.3f position:fittedPos] retain];
         id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
         CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
-        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.2f position:viewPointPosition] retain];
+        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.3f position:viewPointPosition] retain];
     
         _player.isMoving = YES;
         
