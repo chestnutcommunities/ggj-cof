@@ -169,16 +169,6 @@
 			}
         }
     }
-    
-    //Play heartbeat
-    _tmpPathFindingDelta += delta;
-    if (_tmpPathFindingDelta >= 1.0f) {
-        _tmpPathFindingDelta = 0.5f;
-        if (beingChased ) {
-            [[SimpleAudioEngine sharedEngine] playEffect:@"heartbeat.mp3"];
-        }
-    }
-
 }
 
 -(id) init {
