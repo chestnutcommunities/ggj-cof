@@ -89,7 +89,7 @@
             CGRect cardSightBoundingBox = [card chaseRunBoundingBox];
             
             BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
-            BOOL isHeroWithinChasingRange = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
+            BOOL isHeroWithinChasingRange = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox);
             
             int playerNumber = [self.player getNumber];
             int cardNumber = [(Card *)card getNumber];

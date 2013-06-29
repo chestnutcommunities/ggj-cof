@@ -160,18 +160,25 @@
         _player.previousDirection = [PositioningHelper getPreviousDirectionBasedFromCurveMovement:positionInPointsForNextTileCoord
                                                                                         finalDest:positionInPointsForFinalTileCoord];
         [_player face:_player.previousDirection];
-        ccBezierConfig bezier;
-        bezier.controlPoint_1 = _player.position;
-        bezier.controlPoint_2 = positionInPointsForNextTileCoord;
-        bezier.endPosition = positionInPointsForFinalTileCoord;
-        CGPoint viewPointCurvePosition = [PositioningHelper getViewpointPosition:positionInPointsForFinalTileCoord];
+        ccBezierConfig playerMoveBezier;
+        playerMoveBezier.controlPoint_1 = _player.position;
+        playerMoveBezier.controlPoint_2 = positionInPointsForNextTileCoord;
+        playerMoveBezier.endPosition = positionInPointsForFinalTileCoord;
         
-        id actionCurveMove = [CCBezierTo actionWithDuration:0.4f bezier:bezier];
+        id actionCurveMove = [CCBezierTo actionWithDuration:0.45f bezier:playerMoveBezier];
         id actionCurveMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
         
         _player.isMoving = YES;
         
-        id actionCurveViewpointMove = [[CCMoveTo actionWithDuration:0.2f position:viewPointCurvePosition] retain];
+        CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:_player.position];
+        CGPoint viewPointNextTilePosition = [PositioningHelper getViewpointPosition:positionInPointsForNextTileCoord];
+        CGPoint viewPointCurvePosition = [PositioningHelper getViewpointPosition:positionInPointsForFinalTileCoord];
+        
+        ccBezierConfig viewPortMoveBezier;
+        viewPortMoveBezier.controlPoint_1 = viewPointPosition;
+        viewPortMoveBezier.controlPoint_2 = viewPointNextTilePosition;
+        viewPortMoveBezier.endPosition = viewPointCurvePosition;
+        id actionCurveViewpointMove = [CCBezierTo actionWithDuration:0.45f bezier:viewPortMoveBezier];
         
         [_player runAction:[[CCSequence actions:actionCurveMove, actionCurveMoveDone, nil] retain]];
         [self runAction:[[CCSequence actions:actionCurveViewpointMove, nil] retain]];
