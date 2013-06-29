@@ -9,6 +9,7 @@
 #import "KingOfHeartsLayer.h"
 #import "TileMapManager.h"
 #import "Card.h"
+#import "Player.h"
 #import "GamePlayInputLayer.h"
 #import "GamePlayStatusLayer.h"
 #import "GameOverLayer.h"
@@ -128,10 +129,9 @@
                 }
             }
             else {
-                
                 BOOL isHeroWithinSight = NO;
                 if (card.position.x == _player.position.x || card.position.y == _player.position.y) {
-                    isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:_player];
+                    isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:(Card*)_player];
                 }
 				if (isHeroWithinSight == YES ||
                     (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {

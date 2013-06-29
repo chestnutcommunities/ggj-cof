@@ -13,6 +13,7 @@
 #import "GameCharacter.h"
 #import "ColoredSquareSprite.h"
 #import "Card.h"
+#import "Player.h"
 #import "PositioningHelper.h"
 #import "SimpleAudioEngine.h"
 
@@ -51,7 +52,7 @@
     _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"card-sprite.png"] retain];
     [self addChild:_sceneBatchNode];
     
-    _player = [[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]];
+    _player = [[Player alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]];
     
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     

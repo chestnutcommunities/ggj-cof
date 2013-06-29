@@ -142,6 +142,7 @@
 		F490F12916AFD62B00BBA594 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12816AFD62B00BBA594 /* main.m */; };
 		F490F12C16AFD62B00BBA594 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12B16AFD62B00BBA594 /* AppDelegate.m */; };
 		F490F12F16AFD62B00BBA594 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F12E16AFD62B00BBA594 /* RootViewController.m */; };
+		F498F548177EB3D50040C44C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F498F547177EB3D50040C44C /* Player.m */; };
 		F49E3B4E16B36BE30051B21E /* card-sprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49E3B4C16B36BE30051B21E /* card-sprite.plist */; };
 		F49E3B4F16B36BE30051B21E /* card-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E3B4D16B36BE30051B21E /* card-sprite.png */; };
 		F4A6209116B340290092DB8E /* GameCompleteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A6209016B340290092DB8E /* GameCompleteLayer.m */; };
@@ -435,6 +436,8 @@
 		F490F12D16AFD62B00BBA594 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F490F12E16AFD62B00BBA594 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		F490F13316AFD62B00BBA594 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		F498F546177EB3D50040C44C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F498F547177EB3D50040C44C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F49E3B4C16B36BE30051B21E /* card-sprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "card-sprite.plist"; sourceTree = "<group>"; };
 		F49E3B4D16B36BE30051B21E /* card-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card-sprite.png"; sourceTree = "<group>"; };
 		F4A6208F16B340280092DB8E /* GameCompleteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompleteLayer.h; sourceTree = "<group>"; };
@@ -959,6 +962,8 @@
 				F4B1EBC816B1023A009A4F12 /* GameObject.m */,
 				F4B1EC0416B152F0009A4F12 /* Human.h */,
 				F4B1EC0516B152F0009A4F12 /* Human.m */,
+				F498F546177EB3D50040C44C /* Player.h */,
+				F498F547177EB3D50040C44C /* Player.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1287,6 +1292,7 @@
 				F4A6209516B3404A0092DB8E /* GameOverLayer.m in Sources */,
 				CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */,
 				CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */,
+				F498F548177EB3D50040C44C /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
