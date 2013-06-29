@@ -121,10 +121,7 @@
 }
 
 -(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager {
-    CGPoint test = [tileMapManager getPlayerSpawnPoint];
-    
     CGRect heroBoundingBox = [gameObject adjustedBoundingBox];
-	CGRect cardBoundingBox = [self adjustedBoundingBox];
 	CGRect cardSightBoundingBox = [self chaseRunBoundingBox];
     
     BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
@@ -138,11 +135,17 @@
 }
 
 -(void) startWalking {
-    [self stopAllActions];
-    
+    [_walkingAnim setDelay:0.1f];
     id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkingAnim restoreOriginalFrame:YES]] retain];
-    
     [self runAction:action];
+    [self face:_facing];
+}
+
+-(void) startRunning {
+    [_walkingAnim setDelay:0.05f];
+    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkingAnim restoreOriginalFrame:YES]] retain];
+    [self runAction:action];
+    [self face:_facing];
 }
 
 -(void) stopWalking {
@@ -166,12 +169,15 @@
             
             id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
             id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+            id actionRotate1 = [CCRotateTo actionWithDuration:0.5f angle:180];
             
             id actionFade2 = [CCFadeOut actionWithDuration:0.5f];
             id actionScale2 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+            id actionRotate2 = [CCRotateTo actionWithDuration:0.5f angle:180];
             
             id actionFade3 = [CCFadeOut actionWithDuration:0.5f];
             id actionScale3 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
+            id actionRotate3 = [CCRotateTo actionWithDuration:0.5f angle:180];
             
             id aciontSequence = [CCSequence actions: [CCDelayTime actionWithDuration:0.5f], [CCCallFunc actionWithTarget:self selector:@selector(handleDead:)], nil];
             
@@ -179,12 +185,23 @@
             
             [_suitPanel runAction:actionFade1];
             [_suitPanel runAction:actionScale1];
+            [_suitPanel runAction:actionRotate1];
             [_numberPanel runAction:actionFade2];
             [_numberPanel runAction:actionScale2];
+            [_numberPanel runAction:actionRotate2];
             [self runAction:actionFade3];
             [self runAction:actionScale3];
-            
+            [self runAction:actionRotate3];
             [self runAction:aciontSequence];
+            break;
+        case kStateRunningAway:
+        case kStateChasing:
+            self.characterState = newState;
+            [self startRunning];
+            break;
+        case kStateWalking:
+            self.characterState = newState;
+            [self startWalking];
             break;
         default:
             self.characterState = newState;

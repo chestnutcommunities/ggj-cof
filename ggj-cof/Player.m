@@ -7,6 +7,7 @@
 //
 
 #import "Player.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Player
 

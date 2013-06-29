@@ -20,6 +20,5 @@
 -(void) spawnCards:(int)baseNumber spawnPoints:(NSMutableArray*) spawnPoints;
 -(void) shuffleCards:(int)baseNumber;
 -(void) spawnCardsWithTileMap:(int)baseNumber tileMapManager:(TileMapManager *)tileMapManager;
--(void) getDestinationPath:(int)currentIndex;
 
 @end

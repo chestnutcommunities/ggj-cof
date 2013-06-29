@@ -24,7 +24,6 @@
 @interface AIHelper : CCLayer
 
 + (void)insertInOpenSteps:(Card *)card step:(ShortestPathStep *)step;
-+ (void)constructPathAndStartAnimationFromStep:(Card *)card step:(ShortestPathStep *)step;
 + (int)costToMoveFromStep:(ShortestPathStep *)fromStep toAdjacentStep:(ShortestPathStep *)toStep;
 + (int)computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord;
 + (void)popStepAndAnimate:(id)sender data:(void*)popStepAnimateData;

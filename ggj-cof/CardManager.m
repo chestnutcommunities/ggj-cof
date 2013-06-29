@@ -79,7 +79,7 @@
 -(void) spawnCards:(int)baseNumber spawnPoints:(NSMutableArray*) spawnPoints {
     for (NSValue* val in spawnPoints) {        
         CGPoint spawnPoint = [val CGPointValue];
-        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]] retain];
+        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]] retain];
         
 		[card setPosition:spawnPoint];
 		[_enemyBatchNode addChild:card z:100];
@@ -94,7 +94,7 @@
         NSValue* selectedDestination;
         NSMutableArray *destinationList = [[NSMutableArray alloc] init];
         
-        for (int i=0; i< kNumberOfDestinationPointsPerCard; i++) {
+        for (int i = 0; i < kNumberOfDestinationPointsPerCard; i++) {
             //specify at different destinations so that card always moves
             do
             {
@@ -108,13 +108,28 @@
     }
 }
 
+- (void)shuffleItems:(NSMutableArray*) items
+{
+    srandom(time(NULL));
+    
+    NSUInteger count = [items count];
+    
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        int nElements = count - i;
+        int n = (random() % nElements) + i;
+        [items exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
+
 -(void) spawnCardsWithTileMap:(int)baseNumber tileMapManager:(TileMapManager *)tileMapManager {
     NSMutableArray *spawnPoints = tileMapManager.enemySpawnPoints;
-
+    [self shuffleItems:spawnPoints];
+    
     for (NSValue* val in spawnPoints) {
         CGPoint spawnPoint = [val CGPointValue];
         
-        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]] retain];
+        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]] retain];
         
 		[card setPosition:spawnPoint];
 		[_enemyBatchNode addChild:card z:100];

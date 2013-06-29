@@ -107,14 +107,9 @@
         if (properties) {
             if ([_mapManager isCollidable:fittedPos forMeta:properties]) {
                 noPossibleDestFound = YES;
-                CGPoint finalTileCoord = [PositioningHelper getFinalTileCoordForCurveMovement:tileCoord
-                                                                                      tileMap:_mapManager.tileMap
-                                                                                     previous: _player.previousDirection];
+                CGPoint finalTileCoord = [PositioningHelper getFinalTileCoordForCurveMovement:tileCoord tileMap:_mapManager.tileMap previous: _player.previousDirection];
                 
-                CGPoint nextTileCoord = [PositioningHelper getAdjacentTileCoordForCurveMovement:tileCoord
-                                                                                        tileMap:_mapManager.tileMap
-                                                                               currentDirection:direction
-                                                                                       previous: _player.previousDirection];
+                CGPoint nextTileCoord = [PositioningHelper getAdjacentTileCoordForCurveMovement:tileCoord tileMap:_mapManager.tileMap currentDirection:direction previous: _player.previousDirection];
                 
                 int metaPossibleGid = [_mapManager.meta tileGIDAt:nextTileCoord];
                 int metaPossibleFinalGid = [_mapManager.meta tileGIDAt:finalTileCoord];
@@ -124,12 +119,8 @@
                     NSDictionary *possibleFinalProperties = [_mapManager.tileMap propertiesForGID:metaPossibleFinalGid];
                     
                     if (possibleProperties && possibleFinalProperties) {
-                        positionInPointsForNextTileCoord = [PositioningHelper positionInPointsForTileCoord:nextTileCoord
-                                                                                                   tileMap:_mapManager.tileMap
-                                                                                          tileSizeInPoints:_mapManager.tileSizeInPoints];
-                        positionInPointsForFinalTileCoord = [PositioningHelper positionInPointsForTileCoord:finalTileCoord
-                                                                                                    tileMap:_mapManager.tileMap
-                                                                                           tileSizeInPoints:_mapManager.tileSizeInPoints];
+                        positionInPointsForNextTileCoord = [PositioningHelper positionInPointsForTileCoord:nextTileCoord tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+                        positionInPointsForFinalTileCoord = [PositioningHelper positionInPointsForTileCoord:finalTileCoord tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
                         if (![_mapManager isCollidable:positionInPointsForNextTileCoord forMeta:possibleProperties] &&
                             ![_mapManager isCollidable:positionInPointsForFinalTileCoord forMeta:possibleFinalProperties]) {
                             noPossibleDestFound = NO;
@@ -166,7 +157,7 @@
         playerMoveBezier.controlPoint_2 = positionInPointsForNextTileCoord;
         playerMoveBezier.endPosition = positionInPointsForFinalTileCoord;
         
-        id actionCurveMove = [CCBezierTo actionWithDuration:0.45f bezier:playerMoveBezier];
+        id actionCurveMove = [CCBezierTo actionWithDuration:0.4f bezier:playerMoveBezier];
         id actionCurveMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
         
         _player.isMoving = YES;
@@ -179,7 +170,7 @@
         viewPortMoveBezier.controlPoint_1 = viewPointPosition;
         viewPortMoveBezier.controlPoint_2 = viewPointNextTilePosition;
         viewPortMoveBezier.endPosition = viewPointCurvePosition;
-        id actionCurveViewpointMove = [CCBezierTo actionWithDuration:0.45f bezier:viewPortMoveBezier];
+        id actionCurveViewpointMove = [CCBezierTo actionWithDuration:0.4f bezier:viewPortMoveBezier];
         
         [_player runAction:[[CCSequence actions:actionCurveMove, actionCurveMoveDone, nil] retain]];
         [self runAction:[[CCSequence actions:actionCurveViewpointMove, nil] retain]];

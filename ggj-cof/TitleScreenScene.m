@@ -69,6 +69,7 @@
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"lose!.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"selection.caf"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"draw-card.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"consumed.caf"];
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];

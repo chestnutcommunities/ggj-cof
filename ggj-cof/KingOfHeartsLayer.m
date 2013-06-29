@@ -123,9 +123,13 @@
                     
                     // Kill the player, change game state
                     [_player changeState:kStateDying];
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"consumed.caf" pitch:1.0f pan:0.0f gain:0.7f];
                     
                     id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleLoss:)], nil];
                     [self runAction:sequeunce];
+                    
+                    [self unscheduleUpdate];
+                    return;
                 }
             }
             else {

@@ -84,6 +84,7 @@
     
     if (card.position.x != destination.x) {
         if (card.position.x < destination.x) {
+            // TODO: Refactor this code, strange you have to call face and then set facing manually..
             [card face:kFacingRight];
             card.facing = kFacingRight;
         }
@@ -104,7 +105,7 @@
 	// Prepare the action and the callback
     CGFloat duration = 0.65f; // normal speed
     if (card.characterState == kStateChasing || card.characterState == kStateRunningAway) {
-        duration = 0.4f;
+        duration = 0.375f;
     }
     
 	id moveAction = [CCMoveTo actionWithDuration:duration position:destination];
@@ -499,7 +500,7 @@
     
     
     //Go perpendicular last time (random)
-    
+    return NULL;
 }
 
 @end
