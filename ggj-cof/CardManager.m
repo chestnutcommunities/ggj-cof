@@ -96,11 +96,14 @@
         
         for (int i = 0; i < kNumberOfDestinationPointsPerCard; i++) {
             //specify at different destinations so that card always moves
+            //selectedDestination = [tileMapManager.enemyDestinationPoints objectAtIndex:i];
+            
             do
             {
                 randomIndex = arc4random() % [tileMapManager.enemyDestinationPoints count];
                 selectedDestination = [tileMapManager.enemyDestinationPoints objectAtIndex:randomIndex];
             } while ([destinationList containsObject:selectedDestination] && [destinationList count] > 0);
+            
             
             [destinationList addObject:(NSValue *)selectedDestination];
         }

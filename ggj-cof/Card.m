@@ -17,6 +17,7 @@
 @synthesize currentDestinationPath = _currentDestinationPath;
 @synthesize previousDirection = _previousDirection;
 @synthesize facing = _facing;
+@synthesize frontOrder = _frontOrder;
 
 -(void) dealloc {
     _walkingAnim = nil;

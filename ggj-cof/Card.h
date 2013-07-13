@@ -34,6 +34,7 @@
     int _currentDestinationPath;
     NSMutableArray *_destinationPoints;
     FacingDirection _previousDirection;
+    int _frontOrder;
 }
 
 @property (nonatomic, assign) CGPoint originPoint;
@@ -41,6 +42,7 @@
 @property (nonatomic, retain) NSMutableArray *destinationPoints;
 @property (nonatomic, assign) FacingDirection facing;
 @property (nonatomic, assign) FacingDirection previousDirection;
+@property (nonatomic, assign) int frontOrder;
 
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;

@@ -12,6 +12,7 @@
 		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
 		CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A12D816B37F010091D6BC /* AIHelper.m */; };
+		CE622754178198A4007F48D4 /* casino-test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE622753178198A4007F48D4 /* casino-test.tmx */; };
 		CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */; };
 		CE6317CE16B4920F00823F1C /* decoration.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6317CD16B4920F00823F1C /* decoration.png */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
@@ -185,6 +186,7 @@
 		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
 		CE4A12D716B37F010091D6BC /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
 		CE4A12D816B37F010091D6BC /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
+		CE622753178198A4007F48D4 /* casino-test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "casino-test.tmx"; sourceTree = "<group>"; };
 		CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KingOfHeartsLayer.h; sourceTree = "<group>"; };
 		CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KingOfHeartsLayer.m; sourceTree = "<group>"; };
 		CE6317CD16B4920F00823F1C /* decoration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration.png; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 		CE163ABB16B26F270066449B /* Sam */ = {
 			isa = PBXGroup;
 			children = (
+				CE622753178198A4007F48D4 /* casino-test.tmx */,
 				CE6317CD16B4920F00823F1C /* decoration.png */,
 				CE163AC316B2719C0066449B /* casino-land.png */,
 				CE163AC416B2719C0066449B /* meta.png */,
@@ -1163,6 +1166,7 @@
 				CE6317CE16B4920F00823F1C /* decoration.png in Resources */,
 				F45FCEDA16B4BE4700E5EC4C /* Default-480h@2x.png in Resources */,
 				F498F54A177EC36D0040C44C /* consumed.caf in Resources */,
+				CE622754178198A4007F48D4 /* casino-test.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

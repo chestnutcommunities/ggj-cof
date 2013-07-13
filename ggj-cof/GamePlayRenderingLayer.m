@@ -68,7 +68,7 @@
 
 -(void) initTileMap
 {
-    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino.tmx"];
+    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino-test.tmx"];
     self.mapManager = [[[TileMapManager alloc] initWithTileMap:map] retain];
     [self addChild:self.mapManager.tileMap];
 }

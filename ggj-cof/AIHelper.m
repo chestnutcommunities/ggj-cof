@@ -82,6 +82,15 @@
 	
     CGPoint destination = [PositioningHelper positionInPointsForTileCoord:s.position tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
+    if (card.frontOrder == 0) {
+        destination.x = destination.x;
+        destination.y = destination.y;
+    }
+    else {
+        destination.x = destination.x + card.frontOrder * 5;
+        destination.y = destination.y - card.frontOrder * 5;
+    }
+    
     if (card.position.x != destination.x) {
         if (card.position.x < destination.x) {
             // TODO: Refactor this code, strange you have to call face and then set facing manually..
@@ -256,9 +265,15 @@
     CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:player.position
                                                                    tileMap:tileMapManager.tileMap
                                                           tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    
+    
+    
     CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
                                                                         tileMap:tileMapManager.tileMap
                                                                tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    
+    
+    
     //NSMutableArray *tempTiles = [[NSMutableArray alloc] init];
     CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
     
@@ -285,9 +300,11 @@
                 break;
         }
         tempTile = CGPointMake(x, y);
-        if (CGPointEqualToPoint(tempTile, tileOfPlayer)) {
+        
+        if (CGPointEqualToPoint(tempTile, tileOfPlayer) == YES) {
             return YES;
         }
+        
     } while ([tileMapManager isWalkableTile:tempTile]);
     return NO;
 }

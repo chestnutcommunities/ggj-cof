@@ -83,7 +83,25 @@
 -(void) update:(ccTime)delta
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];
+    NSMutableArray *cardsLocation = [[NSMutableArray alloc] init];
+    
     for (Card *card in cards) {
+        card.frontOrder = 0;
+        //1. Get overlapping cards
+        CGPoint cardPosition = [PositioningHelper tileCoordForPositionInPoints:card.position tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints]; //see if cards are overlapping at a common tile not point
+        int indexOrder = 0;
+        for (NSValue *position in cardsLocation) {
+            if (CGPointEqualToPoint(cardPosition, [position CGPointValue]) == YES){
+                indexOrder = indexOrder + 1;
+            }
+        }
+        if (indexOrder > 0) {
+            CCLOG(@"overlap - %d", indexOrder);
+        }
+        card.frontOrder = indexOrder;
+        [cardsLocation addObject:[NSValue valueWithCGPoint:cardPosition]];
+
+        //2. Determine card's behavior by state
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
             CGRect cardBoundingBox = [card adjustedBoundingBox];
@@ -171,6 +189,7 @@
 			}
         }
     }
+    [cardsLocation release];
 }
 
 -(id) init {
