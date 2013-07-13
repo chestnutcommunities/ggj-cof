@@ -18,6 +18,7 @@
 @synthesize previousDirection = _previousDirection;
 @synthesize facing = _facing;
 @synthesize frontOrder = _frontOrder;
+@synthesize realPosition = _realPosition;
 
 -(void) dealloc {
     _walkingAnim = nil;
@@ -67,6 +68,10 @@
     [_numberPanel setDisplayFrame:frame];
 }
 
+-(void)setRealPosition:(CGPoint)mapPosition {
+    _realPosition = mapPosition;
+}
+
 -(void) loadAnimations {
     NSMutableArray *animFrames = [NSMutableArray array];
     [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]];
@@ -111,13 +116,21 @@
     return _cardSuit;
 }
 
+-(CGPoint)getCardDisplayPosition {
+    CGPoint displayPosition;
+    displayPosition.x = _realPosition.x + _frontOrder * 5;
+    displayPosition.y = _realPosition.y - _frontOrder * 5;
+    
+    return displayPosition;
+}
+
 -(CGRect)chaseRunBoundingBox {
     CGRect cardSightBoundingBox;
     CGRect cardBoundingBox = [self adjustedBoundingBox];
-	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width*5.0f,
-										cardBoundingBox.origin.y - cardBoundingBox.size.height*5.0f,
-										cardBoundingBox.size.width*10.0f,
-										cardBoundingBox.size.height*10.0f);
+	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width*7.0f,
+										cardBoundingBox.origin.y - cardBoundingBox.size.height*7.0f,
+										cardBoundingBox.size.width*14.0f,
+										cardBoundingBox.size.height*14.0f);
 	return cardSightBoundingBox;
 }
 
