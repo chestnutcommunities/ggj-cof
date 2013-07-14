@@ -16,6 +16,7 @@
 #import "Player.h"
 #import "PositioningHelper.h"
 #import "SimpleAudioEngine.h"
+#import "LevelManager.h"
 
 @implementation GamePlayRenderingLayer
 
@@ -190,7 +191,7 @@
     if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
                 
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        
+        //CCLOG(@"%d", [LevelManager sharedInstance].currentLevel.levelNumber);
         [self initTileMap];
         [self initPlayer:winSize];
         [self initTouchEventHandlers];

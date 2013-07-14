@@ -20,4 +20,4 @@
 #define kCardMinNumber 1
 
 #define kMaxLineOfSight 200
-#define kNumberOfDestinationPointsPerCard 2
+#define kNumberOfDestinationPointsPerCard 3
