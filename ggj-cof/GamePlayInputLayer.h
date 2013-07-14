@@ -22,6 +22,7 @@
     UISwipeGestureRecognizer *_swipeUpRecognizer;
     UISwipeGestureRecognizer *_swipeDownRecognizer;
     
+    bool _enabled;
     ccTime _tmpMovingDelta;
     ccTime _movingThreshold;
 }
@@ -34,6 +35,7 @@
 @property (retain) UISwipeGestureRecognizer *swipeDownRecognizer;
 
 @property (nonatomic, assign) ccTime movingThreshold;
+@property (nonatomic, assign) bool enabled;
 
 @end
 

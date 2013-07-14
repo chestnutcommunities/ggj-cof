@@ -3,7 +3,7 @@
 //  TileGame
 //
 //  Created by Sam Christian Lee on 9/22/12.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//  Copyright 2012 Chopsticks On Fire. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -3,7 +3,7 @@
 //  ggj-cof
 //
 //  Created by Sam Christian Lee on 1/27/13.
-//  Copyright 2013 __MyCompanyName__. All rights reserved.
+//  Copyright 2013 Chopsticks On Fire. All rights reserved.
 //
 
 #import "KingOfHeartsLayer.h"
@@ -18,6 +18,7 @@
 #import "AIHelper.h"
 #import "SimpleAudioEngine.h"
 #import "PositioningHelper.h"
+#import "TitleScreenScene.h"
 
 @implementation KingOfHeartsLayer
 
@@ -33,6 +34,8 @@
 	[_completeLayer release];
     [_gameOverLayer release];
     [_cardManager release];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 	[super dealloc];
 }
@@ -78,6 +81,29 @@
     
     GameOverScene *scene = [GameOverScene node];
     [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+-(void) goBackToMenu:(id)sender {
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
+    TitleScreenScene *titleScene = [TitleScreenScene node];
+    [[CCDirector sharedDirector] replaceScene:titleScene];
+}
+
+- (void) pauseGame:(NSNotification *) notification {
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    [self pauseSchedulerAndActions];
+    for (CCNode* child in [self children]) {
+        [child pauseSchedulerAndActions];
+    }
+}
+
+- (void) resumeGame:(NSNotification *) notification {
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    [self resumeSchedulerAndActions];
+    for (CCNode* child in [self children]) {
+        [child resumeSchedulerAndActions];
+    }
 }
 
 -(void) update:(ccTime)delta
@@ -195,6 +221,11 @@
         int playerNumber = [_player getNumber];
         [_cardManager spawnCardsWithTileMap:playerNumber tileMapManager:_mapManager];
         [self addChild:_cardManager.enemyBatchNode];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame:) name:@"pauseGame" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame:) name:@"resumeGame" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goBackToMenu:) name:@"backToMenu" object:nil];
+
 		[self scheduleUpdate];
 	}
 	return self;

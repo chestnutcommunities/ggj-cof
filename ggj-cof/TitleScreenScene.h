@@ -3,7 +3,7 @@
 //  TileGame
 //
 //  Created by Shingo Tamura on 26/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Chopsticks On Fire. All rights reserved.
 //
 
 #import "cocos2d.h"

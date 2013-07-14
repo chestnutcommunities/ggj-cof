@@ -14,13 +14,17 @@
 
 @interface GamePlayStatusLayer : CCLayer
 {
-    ColoredSquareSprite* _backPanel;
-    ColoredSquareSprite* _menuButton;
-    ColoredSquareSprite* _audioButton;
-    ColoredSquareSprite* _pauseButton;
-    ColoredSquareSprite* _playButton;
-    
+    NSString* _audioOnButtonNormalName;
+    NSString* _audioOnButtonPressedName;
+    NSString* _audioOffButtonNormalName;
+    NSString* _audioOffButtonPressedName;
+
+    ColoredSquareSprite* _background;
+    ColoredSquareSprite* _menuPanel;
+    CCMenu *_pauseButtonMenu;
+    CCMenuItemSprite *_audioButton;
     GamePlayRenderingLayer *_gameLayer;
+    BOOL _audioOn;
 }
 
 @property (nonatomic, retain) GamePlayRenderingLayer *gameLayer;

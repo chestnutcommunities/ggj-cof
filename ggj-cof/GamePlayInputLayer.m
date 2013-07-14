@@ -38,11 +38,22 @@
     [_swipeDownRecognizer release];
     _swipeDownRecognizer = nil;
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 	[super dealloc];
 }
+
+- (void) pauseGame:(NSNotification *) notification {
+    _enabled = NO;
+}
+
+- (void) resumeGame:(NSNotification *) notification {
+    _enabled = YES;
+}
+
 -(void)update:(ccTime)deltaTime {
     // need to add [glView setMultipleTouchEnabled:YES]; to AppDelegate.m to enable multi-touch
-    if (_inputState == kStateAwaitingInput) {
+    if (_inputState == kStateAwaitingInput || !_enabled) {
         return;
     }
     
@@ -81,18 +92,26 @@
 }
 
 -(void)handleLeftSwipe:(UISwipeGestureRecognizer*)sender {
+    if (!_enabled) { return; }
+    
     _inputState = kStateSwipedLeft;
 }
 
 -(void)handleRightSwipe:(UISwipeGestureRecognizer*)sender {
+    if (!_enabled) { return; }
+
     _inputState = kStateSwipedRight;
 }
 
 -(void)handleUpSwipe:(UISwipeGestureRecognizer*)sender {
+    if (!_enabled) { return; }
+
     _inputState = kStateSwipedUp;
 }
 
 -(void)handleDownSwipe:(UISwipeGestureRecognizer*)sender {
+    if (!_enabled) { return; }
+
     _inputState = kStateSwipedDown;
 }
 
@@ -131,7 +150,6 @@
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    //CGPoint position = [touch locationInView:touch.view];
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -142,8 +160,12 @@
 {
     if ((self = [super init])) {
         self.isTouchEnabled = YES;
+        _enabled = YES;
         _inputState = kStateAwaitingInput;
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame:) name:@"pauseGame" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame:) name:@"resumeGame" object:nil];
+
         [self scheduleUpdate];
     }
     return self;
