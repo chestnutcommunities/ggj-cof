@@ -17,8 +17,6 @@
 		CE6317CE16B4920F00823F1C /* decoration.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6317CD16B4920F00823F1C /* decoration.png */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
-		CEA33D1D179121C600BCFB12 /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA33D1C179121C600BCFB12 /* LevelManager.m */; };
-		CEA33D201791224200BCFB12 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA33D1F1791224200BCFB12 /* Level.m */; };
 		F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA516B478EE00E5EC4C /* bg-960x640.png */; };
 		F45FCEAC16B478EE00E5EC4C /* bg-1136x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA616B478EE00E5EC4C /* bg-1136x640.png */; };
 		F45FCEAD16B478EE00E5EC4C /* start-roll.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA716B478EE00E5EC4C /* start-roll.png */; };
@@ -199,10 +197,6 @@
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
 		CE79B74D16B330EC004B160B /* AICharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICharacter.m; sourceTree = "<group>"; };
-		CEA33D1B179121C600BCFB12 /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelManager.h; sourceTree = "<group>"; };
-		CEA33D1C179121C600BCFB12 /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelManager.m; sourceTree = "<group>"; };
-		CEA33D1E1791224200BCFB12 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
-		CEA33D1F1791224200BCFB12 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		F45FCEA516B478EE00E5EC4C /* bg-960x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-960x640.png"; sourceTree = "<group>"; };
 		F45FCEA616B478EE00E5EC4C /* bg-1136x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1136x640.png"; sourceTree = "<group>"; };
 		F45FCEA716B478EE00E5EC4C /* start-roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-roll.png"; sourceTree = "<group>"; };
@@ -983,8 +977,6 @@
 				F4B1EC0516B152F0009A4F12 /* Human.m */,
 				F498F546177EB3D50040C44C /* Player.h */,
 				F498F547177EB3D50040C44C /* Player.m */,
-				CEA33D1E1791224200BCFB12 /* Level.h */,
-				CEA33D1F1791224200BCFB12 /* Level.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1011,8 +1003,6 @@
 				F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */,
 				F4B9319916B265F50079774F /* TileMapManager.h */,
 				F4B9319A16B265F50079774F /* TileMapManager.m */,
-				CEA33D1B179121C600BCFB12 /* LevelManager.h */,
-				CEA33D1C179121C600BCFB12 /* LevelManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1323,8 +1313,6 @@
 				CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */,
 				CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */,
 				F498F548177EB3D50040C44C /* Player.m in Sources */,
-				CEA33D1D179121C600BCFB12 /* LevelManager.m in Sources */,
-				CEA33D201791224200BCFB12 /* Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
