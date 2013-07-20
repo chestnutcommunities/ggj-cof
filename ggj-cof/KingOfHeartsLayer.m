@@ -176,23 +176,20 @@
             else {
                 BOOL isHeroWithinSight = NO;
                 CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+                
                 CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+                
                 if (tileOfCard.x == tileOfPlayer.x || tileOfCard.y == tileOfPlayer.y) {
                     isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:(Card*)_player];
                 }
-				if (isHeroWithinSight == YES ||
-                    (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
+                
+				if (isHeroWithinSight == YES || (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
 					if (playerNumber >= cardNumber) {
-                        [AIHelper moveAwayFromChaser:card
-                                      tileMapManager:_mapManager
-                                             tileMap:_mapManager.tileMap];
+                        [AIHelper moveAwayFromChaser:card tileMapManager:_mapManager tileMap:_mapManager.tileMap];
 					}
 					else {
 						[card changeState:kStateChasing];
-						[AIHelper moveToTarget:(Card *)card
-								tileMapManager:_mapManager
-									   tileMap:_mapManager.tileMap
-										target:_player.realPosition];
+						[AIHelper moveToTarget:(Card *)card tileMapManager:_mapManager tileMap:_mapManager.tileMap target:_player.realPosition];
 					}
                     //Set back to walking only when player is out of range so that prey or predator will not give up at once
                     if (!isHeroWithinChasingRange) {
@@ -202,10 +199,7 @@
 				}
 				else {
 					[card changeState:kStateWalking];
-                    [AIHelper moveToTarget:(Card *)card
-                            tileMapManager:_mapManager
-                                   tileMap:_mapManager.tileMap
-                                    target:[_mapManager getCurrentDestinationOfCard:card]];
+                    [AIHelper moveToTarget:(Card *)card tileMapManager:_mapManager tileMap:_mapManager.tileMap target:[_mapManager getCurrentDestinationOfCard:card]];
 					
 				}
 			}

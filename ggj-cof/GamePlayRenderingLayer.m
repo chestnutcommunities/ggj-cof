@@ -154,8 +154,7 @@
     }
     else {
         // Curve assist
-        _player.previousDirection = [PositioningHelper getPreviousDirectionBasedFromCurveMovement:positionInPointsForNextTileCoord
-                                                                                        finalDest:positionInPointsForFinalTileCoord];
+        _player.previousDirection = [PositioningHelper getPreviousDirectionBasedFromCurveMovement:positionInPointsForNextTileCoord finalDest:positionInPointsForFinalTileCoord];
         [_player face:_player.previousDirection];
         ccBezierConfig playerMoveBezier;
         playerMoveBezier.controlPoint_1 = _player.realPosition;
