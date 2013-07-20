@@ -35,6 +35,8 @@
     NSMutableArray *_destinationPoints;
     FacingDirection _previousDirection;
     int _frontOrder;
+    
+    CGPoint _realPosition;
 }
 
 @property (nonatomic, assign) CGPoint originPoint;
@@ -43,11 +45,14 @@
 @property (nonatomic, assign) FacingDirection facing;
 @property (nonatomic, assign) FacingDirection previousDirection;
 @property (nonatomic, assign) int frontOrder;
+@property (nonatomic, assign) CGPoint realPosition;
 
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;
+-(void)setRealPosition:(CGPoint)mapPosition;
 -(int)getNumber;
 -(CardSuit)getSuit;
+-(CGPoint)getCardDisplayPosition;
 -(void)face:(FacingDirection)direction;
 -(void) startWalking;
 -(void) stopWalking;

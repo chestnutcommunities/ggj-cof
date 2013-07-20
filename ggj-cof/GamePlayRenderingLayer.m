@@ -57,18 +57,21 @@
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     
     [_player setPosition:position];
+    [_player setRealPosition:position];
+    
     _player.speed = 20.0f;
     
     [_sceneBatchNode addChild:_player z:0];
     
-    self.position = [PositioningHelper getViewpointPosition:_player.position]; // TODO: get spawning point from tilemap
+    
+    self.position = [PositioningHelper getViewpointPosition:_player.realPosition]; // TODO: get spawning point from tilemap
 }
 
 -(void) initTouchEventHandlers {}
 
 -(void) initTileMap
 {
-    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino-test.tmx"];
+    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino.tmx"];
     self.mapManager = [[[TileMapManager alloc] initWithTileMap:map] retain];
     [self addChild:self.mapManager.tileMap];
 }
@@ -134,26 +137,28 @@
         }
     }
     if (noPossibleDestFound) {
+        // No curve movements
         _player.previousDirection = direction;
         [_player face:direction];
-        [self postMovePlayer:destination facing:direction];
-    
+
         id actionMove = [[CCMoveTo actionWithDuration:0.3f position:fittedPos] retain];
         id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
         CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
         id actionViewpointMove = [[CCMoveTo actionWithDuration:0.3f position:viewPointPosition] retain];
-    
+        
         _player.isMoving = YES;
         
         [_player runAction:[[CCSequence actions:actionMove, actionMoveDone, nil] retain]];
+        [_player setRealPosition:fittedPos];
         [self runAction:[[CCSequence actions:actionViewpointMove, nil] retain]];
     }
     else {
+        // Curve assist
         _player.previousDirection = [PositioningHelper getPreviousDirectionBasedFromCurveMovement:positionInPointsForNextTileCoord
                                                                                         finalDest:positionInPointsForFinalTileCoord];
         [_player face:_player.previousDirection];
         ccBezierConfig playerMoveBezier;
-        playerMoveBezier.controlPoint_1 = _player.position;
+        playerMoveBezier.controlPoint_1 = _player.realPosition;
         playerMoveBezier.controlPoint_2 = positionInPointsForNextTileCoord;
         playerMoveBezier.endPosition = positionInPointsForFinalTileCoord;
         
@@ -162,7 +167,7 @@
         
         _player.isMoving = YES;
         
-        CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:_player.position];
+        CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:_player.realPosition];
         CGPoint viewPointNextTilePosition = [PositioningHelper getViewpointPosition:positionInPointsForNextTileCoord];
         CGPoint viewPointCurvePosition = [PositioningHelper getViewpointPosition:positionInPointsForFinalTileCoord];
         
@@ -173,6 +178,7 @@
         id actionCurveViewpointMove = [CCBezierTo actionWithDuration:0.4f bezier:viewPortMoveBezier];
         
         [_player runAction:[[CCSequence actions:actionCurveMove, actionCurveMoveDone, nil] retain]];
+        [_player setRealPosition:positionInPointsForFinalTileCoord];
         [self runAction:[[CCSequence actions:actionCurveViewpointMove, nil] retain]];
     }
 }

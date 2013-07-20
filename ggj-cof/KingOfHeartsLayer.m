@@ -114,15 +114,12 @@
     for (Card *card in cards) {
         card.frontOrder = 0;
         //1. Get overlapping cards
-        CGPoint cardPosition = [PositioningHelper tileCoordForPositionInPoints:card.position tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints]; //see if cards are overlapping at a common tile not point
+        CGPoint cardPosition = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints]; //see if cards are overlapping at a common tile not point
         int indexOrder = 0;
         for (NSValue *position in cardsLocation) {
             if (CGPointEqualToPoint(cardPosition, [position CGPointValue]) == YES){
                 indexOrder = indexOrder + 1;
             }
-        }
-        if (indexOrder > 0) {
-            CCLOG(@"overlap - %d", indexOrder);
         }
         card.frontOrder = indexOrder;
         [cardsLocation addObject:[NSValue valueWithCGPoint:cardPosition]];
@@ -178,24 +175,24 @@
             }
             else {
                 BOOL isHeroWithinSight = NO;
-                if (card.position.x == _player.position.x || card.position.y == _player.position.y) {
+                CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+                CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+                if (tileOfCard.x == tileOfPlayer.x || tileOfCard.y == tileOfPlayer.y) {
                     isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:(Card*)_player];
                 }
 				if (isHeroWithinSight == YES ||
                     (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
 					if (playerNumber >= cardNumber) {
-                        CCLOG(@"Running Away from Player!");
                         [AIHelper moveAwayFromChaser:card
                                       tileMapManager:_mapManager
                                              tileMap:_mapManager.tileMap];
 					}
 					else {
-                        CCLOG(@"Chasing player!");
 						[card changeState:kStateChasing];
 						[AIHelper moveToTarget:(Card *)card
 								tileMapManager:_mapManager
 									   tileMap:_mapManager.tileMap
-										target:_player.position];
+										target:_player.realPosition];
 					}
                     //Set back to walking only when player is out of range so that prey or predator will not give up at once
                     if (!isHeroWithinChasingRange) {
@@ -204,7 +201,6 @@
                     
 				}
 				else {
-                    CCLOG(@"Walking");
 					[card changeState:kStateWalking];
                     [AIHelper moveToTarget:(Card *)card
                             tileMapManager:_mapManager
