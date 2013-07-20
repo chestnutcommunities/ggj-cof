@@ -173,6 +173,7 @@
 		F4B1EC0216B152C2009A4F12 /* ninja.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4B1EC0016B152C2009A4F12 /* ninja.plist */; };
 		F4B1EC0316B152C2009A4F12 /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B1EC0116B152C2009A4F12 /* ninja.png */; };
 		F4B1EC0616B152F0009A4F12 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EC0516B152F0009A4F12 /* Human.m */; };
+		F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300E7179A1C2200FFCBCF /* Logger.m */; };
 		F4B9318416B210940079774F /* PositioningHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9318316B210940079774F /* PositioningHelper.m */; };
 		F4B9319116B21B930079774F /* lever.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9318F16B21B930079774F /* lever.png */; };
 		F4B9319216B21B930079774F /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319016B21B930079774F /* wheel.png */; };
@@ -494,6 +495,8 @@
 		F4B1EC0116B152C2009A4F12 /* ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninja.png; sourceTree = "<group>"; };
 		F4B1EC0416B152F0009A4F12 /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
 		F4B1EC0516B152F0009A4F12 /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
+		F4B300E6179A1C2200FFCBCF /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		F4B300E7179A1C2200FFCBCF /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		F4B9318216B210940079774F /* PositioningHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningHelper.h; sourceTree = "<group>"; };
 		F4B9318316B210940079774F /* PositioningHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningHelper.m; sourceTree = "<group>"; };
 		F4B9318F16B21B930079774F /* lever.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lever.png; sourceTree = "<group>"; };
@@ -1003,6 +1006,8 @@
 				F4B1EBD816B10309009A4F12 /* ShortestPathStep.m */,
 				F4B9319916B265F50079774F /* TileMapManager.h */,
 				F4B9319A16B265F50079774F /* TileMapManager.m */,
+				F4B300E6179A1C2200FFCBCF /* Logger.h */,
+				F4B300E7179A1C2200FFCBCF /* Logger.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1115,7 +1120,7 @@
 		F490EFBB16AFD62900BBA594 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = F490EFBE16AFD62900BBA594 /* Build configuration list for PBXProject "ggj-cof" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1313,6 +1318,7 @@
 				CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */,
 				CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */,
 				F498F548177EB3D50040C44C /* Player.m in Sources */,
+				F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1366,6 +1372,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ggj-cof/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ggj-cof/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1381,6 +1388,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ggj-cof/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ggj-cof/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";

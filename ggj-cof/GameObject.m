@@ -7,6 +7,7 @@
 //
 
 #import "GameObject.h"
+#import "Logger.h"
 
 @implementation GameObject
 
@@ -17,17 +18,13 @@
     return [self boundingBox];
 }
 
--(void)changeState:(CharacterStates)newState {
-    //CCLOG(@"GameObject->changeState method should be overriden");
-}
+-(void)changeState:(CharacterStates)newState {}
 
--(void)updateStateWithDeltaTime:(ccTime)deltaTime andGameObject:(GameObject*)gameObject {
-    //CCLOG(@"updateStateWithDeltaTime method should be overriden");
-}
-
+-(void)updateStateWithDeltaTime:(ccTime)deltaTime andGameObject:(GameObject*)gameObject {}
 -(id)init {
 	if((self=[super init])){
-        CCLOG(@"GameObject init");
+        [[Logger sharedInstance] log:LogType_GameObjects content:@"GameObject initialized"];
+        
         screenSize = [CCDirector sharedDirector].winSize;
 		gameObjectType = kObjectTypeNone;
     }

@@ -8,6 +8,7 @@
 
 #import "GameCharacter.h"
 #import "CommonProtocol.h"
+#import "Logger.h"
 
 @implementation GameCharacter
 
@@ -36,7 +37,8 @@
 
 -(id) init {
 	if ((self = [super init])) {
-        CCLOG(@"GameCharacter init");
+        [[Logger sharedInstance] log:LogType_GameObjects content:@"GameCharacter initialized"];
+        
         self.speed = 0.0f;
         self.isMoving = NO;
 		gameObjectType = kObjectTypePlayer;

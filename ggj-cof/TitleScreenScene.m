@@ -11,6 +11,7 @@
 #import "ColoredCircleSprite.h"
 #import "ColoredSquareSprite.h"
 #import "KingOfHeartsLayer.h"
+#import "Logger.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
@@ -71,6 +72,12 @@
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"consumed.caf"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"press.caf"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"hurt.caf"];
+        
+        // Set up logger
+        //[[Logger sharedInstance] enable];
+        //[[Logger sharedInstance] setFeature:LogType_GameObjects doEnable:YES];
+        //[[Logger sharedInstance] setFeature:LogType_AIHelper doEnable:YES];
+        //[[Logger sharedInstance] setFeature:LogType_General doEnable:YES];
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];

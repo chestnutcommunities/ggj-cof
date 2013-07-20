@@ -12,6 +12,7 @@
 #import "TileMapManager.h"
 #import "ShortestPathStep.h"
 #import "Constants.h"
+#import "Logger.h"
 
 @implementation PopStepAnimateData
 
@@ -178,8 +179,6 @@
     
     do
 	{
-        CCLOG(@"Processing 'moveToTarget'");
-        
         // Because the list is ordered, the first step is always the one with the lowest F cost
 		ShortestPathStep *currentStep = [card.spOpenSteps objectAtIndex:0];
 		
@@ -272,7 +271,7 @@
     
     if (CGPointEqualToPoint(observerCard.position, observerCard.realPosition) == YES)
     {
-        CCLOG(@"same!");
+        [[Logger sharedInstance] log:LogType_AIHelper content:@"Displayed and actual positions are the same"];
     }
     
     int x, y;
