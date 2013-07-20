@@ -80,7 +80,7 @@
     for (NSValue* val in spawnPoints) {        
         CGPoint spawnPoint = [val CGPointValue];
         Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]] retain];
-        [card setRealPosition:spawnPoint];
+        
 		[card setPosition:spawnPoint];
 		[_enemyBatchNode addChild:card z:100];
         [card release];
@@ -133,7 +133,7 @@
         CGPoint spawnPoint = [val CGPointValue];
         
         Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]] retain];
-        [card setRealPosition:spawnPoint];
+        
 		[card setPosition:spawnPoint];
 		[_enemyBatchNode addChild:card z:100];
         [card release];

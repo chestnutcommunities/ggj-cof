@@ -82,8 +82,17 @@
 	
     CGPoint destination = [PositioningHelper positionInPointsForTileCoord:s.position tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
-    if (card.realPosition.x != destination.x) {
-        if (card.realPosition.x < destination.x) {
+    if (card.frontOrder == 0) {
+        destination.x = destination.x;
+        destination.y = destination.y;
+    }
+    else {
+        destination.x = destination.x + card.frontOrder * 5;
+        destination.y = destination.y - card.frontOrder * 5;
+    }
+    
+    if (card.position.x != destination.x) {
+        if (card.position.x < destination.x) {
             // TODO: Refactor this code, strange you have to call face and then set facing manually..
             [card face:kFacingRight];
             card.facing = kFacingRight;
@@ -93,8 +102,8 @@
             card.facing = kFacingLeft;
         }
     }
-    if (card.realPosition.y != destination.y) {
-        if (card.realPosition.y > destination.y) {
+    if (card.position.y != destination.y) {
+        if (card.position.y > destination.y) {
             card.facing = kFacingDown;
         }
         else {
@@ -108,9 +117,7 @@
         duration = 0.375f;
     }
     
-    [card setRealPosition:destination];
-    
-	id moveAction = [CCMoveTo actionWithDuration:duration position:[card getCardDisplayPosition]];
+	id moveAction = [CCMoveTo actionWithDuration:duration position:destination];
     
 	// set the method itself as the callback
     id moveCallback = [CCCallFuncND actionWithTarget:self selector:@selector(popStepAndAnimate:data:) data:data];
@@ -165,7 +172,7 @@
 	card.spClosedSteps = [NSMutableArray array];
 	card.shortestPath = nil;
     
-    CGPoint fromTileCoor = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
+    CGPoint fromTileCoor = [PositioningHelper tileCoordForPositionInPoints:card.position tileMap:tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     CGPoint toTileCoord = [PositioningHelper tileCoordForPositionInPoints:target tileMap:tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
 	//Check if target has been reached
@@ -257,11 +264,13 @@
 
 // Player detection is linear based on facing direction of card
 +(BOOL)sawPlayer:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager player:(Card *)player {
-    CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:player.realPosition
+    CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:player.position
                                                                    tileMap:tileMapManager.tileMap
                                                           tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
-    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.realPosition
+    
+    
+    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
                                                                         tileMap:tileMapManager.tileMap
                                                                tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
@@ -269,11 +278,6 @@
     
     //NSMutableArray *tempTiles = [[NSMutableArray alloc] init];
     CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
-    
-    if (CGPointEqualToPoint(observerCard.position, observerCard.realPosition) == YES)
-    {
-        CCLOG(@"same!");
-    }
     
     int x, y;
     
@@ -313,7 +317,7 @@
         [card changeState:kStateRunningAway];
     }
     
-    CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition
+    CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.position
                                                                  tileMap:tileMap
                                                         tileSizeInPoints:tileMapManager.tileSizeInPoints];
     CGPoint lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:card.facing];
@@ -356,7 +360,7 @@
 	card.spClosedSteps = [NSMutableArray array];
 	card.shortestPath = nil;
     
-    CGPoint fromTileCoor = [PositioningHelper tileCoordForPositionInPoints:card.realPosition
+    CGPoint fromTileCoor = [PositioningHelper tileCoordForPositionInPoints:card.position
                                                                    tileMap:tileMap
                                                           tileSizeInPoints:tileMapManager.tileSizeInPoints];
     CGPoint toTileCoord = [PositioningHelper tileCoordForPositionInPoints:target
@@ -427,7 +431,7 @@
     return lastTile;
     */
     
-    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.realPosition
+    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
                                                                         tileMap:tileMapManager.tileMap
                                                                tileSizeInPoints:tileMapManager.tileSizeInPoints];
     CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
@@ -467,7 +471,7 @@
 +(CCArray *)getTilesInStraightLine:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing {
     CCArray *tempTileList = [[CCArray alloc] init];
     
-    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.realPosition
+    CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.position
                                                                         tileMap:tileMapManager.tileMap
                                                                tileSizeInPoints:tileMapManager.tileSizeInPoints];
     CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
