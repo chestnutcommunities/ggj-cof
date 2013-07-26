@@ -12,6 +12,7 @@
 #import "ColoredSquareSprite.h"
 #import "KingOfHeartsLayer.h"
 #import "Logger.h"
+#import "GameSetting.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
@@ -37,8 +38,13 @@
     [[CCDirector sharedDirector] replaceScene:[KingOfHeartsLayer scene]];
 }
 
-- (void)startButtonTapped:(id)sender {
+- (void)startButtonTapped:(CCMenuItem *)sender {
     [[SimpleAudioEngine sharedEngine] playEffect:@"selection.caf"];
+    GameSetting *gs = [GameSetting instance];
+    [gs resetGameProperties];
+    
+    gs.difficultyLevel = (NSObject *)sender.userData;
+    
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:2.0f], [CCCallFunc actionWithTarget:self selector:@selector(replaceScene:)], nil]];
 }
 
@@ -107,12 +113,19 @@
         [self addChild:bg z:0];
         [self addChild:title z:0];
         
-        // Add start button
-        CCMenuItem *button = [CCMenuItemImage itemFromNormalImage:@"start.png" selectedImage:@"start-roll.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem *easyButton = [CCMenuItemImage itemFromNormalImage:@"difficulty-button.png" selectedImage:@"difficulty-button-hover.png" target:self selector:@selector(startButtonTapped:)];
+        easyButton.userData = 1;
+        easyButton.position = ccp(winSize.width *0.25f, winSize.height * 0.3f);
         
-        button.position = ccp(winSize.width * 0.5f, winSize.height * 0.3f);
+        CCMenuItem *mediumButton = [CCMenuItemImage itemFromNormalImage:@"difficulty-button.png" selectedImage:@"difficulty-button-hover.png" target:self selector:@selector(startButtonTapped:)];
+        mediumButton.userData = 2;
+        mediumButton.position = ccp(winSize.width *0.5f, winSize.height * 0.3f);
         
-        CCMenu *starMenu = [CCMenu menuWithItems:button, nil];
+        CCMenuItem *hardButton = [CCMenuItemImage itemFromNormalImage:@"difficulty-button.png" selectedImage:@"difficulty-button-hover.png" target:self selector:@selector(startButtonTapped:)];
+        hardButton.userData = 3;
+        hardButton.position = ccp(winSize.width *0.75f, winSize.height * 0.3f);
+        
+        CCMenu *starMenu = [CCMenu menuWithItems:easyButton, mediumButton, hardButton, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         

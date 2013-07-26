@@ -9,6 +9,8 @@
 #import "Card.h"
 #import "AIHelper.h"
 #import "TileMapManager.h"
+#import "GameSetting.h"
+#import "Constants.h"
 
 @implementation Card
 
@@ -127,10 +129,12 @@
 -(CGRect)chaseRunBoundingBox {
     CGRect cardSightBoundingBox;
     CGRect cardBoundingBox = [self adjustedBoundingBox];
-	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width*7.0f,
-										cardBoundingBox.origin.y - cardBoundingBox.size.height*7.0f,
-										cardBoundingBox.size.width*14.0f,
-										cardBoundingBox.size.height*14.0f);
+    int cardRange = kCardDetectRange + [[GameSetting instance] difficultyLevel];
+    int cardRangeSize = cardRange * 2;
+	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width * cardRange,
+										cardBoundingBox.origin.y - cardBoundingBox.size.height * cardRange,
+										cardBoundingBox.size.width * cardRangeSize,
+										cardBoundingBox.size.height * cardRangeSize);
 	return cardSightBoundingBox;
 }
 

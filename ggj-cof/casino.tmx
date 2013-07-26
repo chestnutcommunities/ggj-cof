@@ -96,7 +96,7 @@
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="1545" y="346" width="45" height="43">
+  <object name="CardSpawnPoint1" x="1545" y="646" width="45" height="43">
    <properties>
     <property name="Card" value="1"/>
    </properties>
@@ -157,6 +157,81 @@
    </properties>
   </object>
   <object name="Destination1" x="1099" y="341" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="1100" y="784" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="460" y="1416" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="786" y="332" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="1412" y="460" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="1158" y="974" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="334" y="1040" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="1158" y="1422" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="900" y="586" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="838" y="1154" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="1408" y="1040" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="1412" y="1294" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="998" y="1544" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="CardSpawnPoint1" x="586" y="398" width="45" height="43">
+   <properties>
+    <property name="Card" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="329" y="1287" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="1287" y="651" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>

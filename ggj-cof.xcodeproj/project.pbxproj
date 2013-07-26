@@ -11,6 +11,9 @@
 		CE163AC516B2719C0066449B /* casino-land.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC316B2719C0066449B /* casino-land.png */; };
 		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
+		CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = CE32D9A017A26BB4000395CA /* GameSetting.m */; };
+		CE32D9A317A27304000395CA /* difficulty-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CE32D9A217A27304000395CA /* difficulty-button.png */; };
+		CE32D9A517A2792B000395CA /* difficulty-button-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE32D9A417A2792B000395CA /* difficulty-button-hover.png */; };
 		CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A12D816B37F010091D6BC /* AIHelper.m */; };
 		CE622754178198A4007F48D4 /* casino-test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE622753178198A4007F48D4 /* casino-test.tmx */; };
 		CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */; };
@@ -188,6 +191,10 @@
 		CE163AC416B2719C0066449B /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta.png; sourceTree = "<group>"; };
 		CE163ACA16B2818C0066449B /* CardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardManager.h; sourceTree = "<group>"; };
 		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
+		CE32D99F17A26BB4000395CA /* GameSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSetting.h; sourceTree = "<group>"; };
+		CE32D9A017A26BB4000395CA /* GameSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSetting.m; sourceTree = "<group>"; };
+		CE32D9A217A27304000395CA /* difficulty-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difficulty-button.png"; sourceTree = "<group>"; };
+		CE32D9A417A2792B000395CA /* difficulty-button-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difficulty-button-hover.png"; sourceTree = "<group>"; };
 		CE4A12D716B37F010091D6BC /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
 		CE4A12D816B37F010091D6BC /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
 		CE622753178198A4007F48D4 /* casino-test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "casino-test.tmx"; sourceTree = "<group>"; };
@@ -1008,6 +1015,8 @@
 				F4B9319A16B265F50079774F /* TileMapManager.m */,
 				F4B300E6179A1C2200FFCBCF /* Logger.h */,
 				F4B300E7179A1C2200FFCBCF /* Logger.m */,
+				CE32D99F17A26BB4000395CA /* GameSetting.h */,
+				CE32D9A017A26BB4000395CA /* GameSetting.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1025,6 +1034,8 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CE32D9A417A2792B000395CA /* difficulty-button-hover.png */,
+				CE32D9A217A27304000395CA /* difficulty-button.png */,
 				F46D74F91790F5B600640FA2 /* button-sprite.plist */,
 				F46D74FA1790F5B600640FA2 /* button-sprite.png */,
 				F45FCEA716B478EE00E5EC4C /* start-roll.png */,
@@ -1184,6 +1195,8 @@
 				F46D74FB1790F5B600640FA2 /* button-sprite.plist in Resources */,
 				F46D74FC1790F5B600640FA2 /* button-sprite.png in Resources */,
 				F4ABA6F117924DDF00152C47 /* press.caf in Resources */,
+				CE32D9A317A27304000395CA /* difficulty-button.png in Resources */,
+				CE32D9A517A2792B000395CA /* difficulty-button-hover.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1319,6 +1332,7 @@
 				CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */,
 				F498F548177EB3D50040C44C /* Player.m in Sources */,
 				F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */,
+				CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
