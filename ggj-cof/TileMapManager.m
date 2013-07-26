@@ -110,13 +110,11 @@
             CGPoint tileFittingPositionInPixels = [PositioningHelper computeTileFittingPositionInPixels:ccp(x, y) tileMap:_tileMap tileSizeInPoints:_tileSizeInPoints];
             CGPoint objPos = [PositioningHelper convertPixelsToPoints:tileFittingPositionInPixels retina:YES];
             
-            if (cardCount > cardLimit) {
-                //restrict number of cards spawned by difficulty level
-                break;
-            }
-            
             if ([[obj valueForKey:@"Card"] intValue] == 1) {
-                [self.enemySpawnPoints addObject:[NSValue valueWithCGPoint:objPos]];
+                //restrict number of cards spawned by difficulty level
+                if (cardCount <= cardLimit) {
+                    [self.enemySpawnPoints addObject:[NSValue valueWithCGPoint:objPos]];
+                }
                 cardCount++;
             }
             else if ([[obj valueForKey:@"Destination"] intValue] == 1) {

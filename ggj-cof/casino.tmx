@@ -66,12 +66,7 @@
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="599" y="338" width="44" height="40">
-   <properties>
-    <property name="Destination" value="1"/>
-   </properties>
-  </object>
-  <object name="Destination1" x="522" y="912" width="44" height="40">
+  <object name="Destination1" x="526" y="1032" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
@@ -116,27 +111,17 @@
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="713" y="1169" width="44" height="40">
-   <properties>
-    <property name="Destination" value="1"/>
-   </properties>
-  </object>
-  <object name="Destination1" x="967" y="915" width="44" height="40">
-   <properties>
-    <property name="Destination" value="1"/>
-   </properties>
-  </object>
   <object name="Destination1" x="843" y="589" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="461" y="1223" width="44" height="40">
+  <object name="Destination1" x="771" y="1425" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="971" y="1299" width="44" height="40">
+  <object name="Destination1" x="909" y="1287" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
@@ -146,7 +131,7 @@
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="783" y="1549" width="44" height="40">
+  <object name="Destination1" x="1285" y="1547" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>
@@ -231,7 +216,17 @@
     <property name="Destination" value="1"/>
    </properties>
   </object>
-  <object name="Destination1" x="1287" y="651" width="44" height="40">
+  <object name="Destination1" x="1285" y="593" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="585" y="519" width="44" height="40">
+   <properties>
+    <property name="Destination" value="1"/>
+   </properties>
+  </object>
+  <object name="Destination1" x="967" y="909" width="44" height="40">
    <properties>
     <property name="Destination" value="1"/>
    </properties>

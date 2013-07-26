@@ -127,20 +127,16 @@
         //2. Determine card's behavior by state
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             CGRect heroBoundingBox = [_player adjustedBoundingBox];
+            CGRect cardBoundingBox = [card adjustedBoundingBox];
             CGRect cardSightBoundingBox = [card chaseRunBoundingBox];
             
+            BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
             BOOL isHeroWithinChasingRange = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox);
-            
-            CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
-            
-            CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
-            
-            BOOL isHeroOnSameTile = CGPointEqualToPoint(tileOfCard, tileOfPlayer);
             
             int playerNumber = [self.player getNumber];
             int cardNumber = [(Card *)card getNumber];
             
-            if (isHeroOnSameTile) {
+            if (isHeroWithinBoundingBox) {
                 // If card number is lower than or equal to the player's number...
                 if (playerNumber >= cardNumber) {
                     // Kill the card and add the numbers together
@@ -179,6 +175,9 @@
             }
             else {
                 BOOL isHeroWithinSight = NO;
+                CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+                
+                CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
                 
                 if (tileOfCard.x == tileOfPlayer.x || tileOfCard.y == tileOfPlayer.y) {
                     isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:(Card*)_player];
