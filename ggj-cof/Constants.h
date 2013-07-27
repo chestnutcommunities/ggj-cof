@@ -21,7 +21,3 @@
 
 #define kMaxLineOfSight 200
 #define kNumberOfDestinationPointsPerCard 2
-
-
-#define kNumberOfAdditionalCardsPerLevel 8
-#define kCardDetectRange 5

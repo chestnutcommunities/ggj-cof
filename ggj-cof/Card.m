@@ -129,7 +129,7 @@
 -(CGRect)chaseRunBoundingBox {
     CGRect cardSightBoundingBox;
     CGRect cardBoundingBox = [self adjustedBoundingBox];
-    int cardRange = kCardDetectRange + [[GameSetting instance] difficultyLevel];
+    int cardRange = [[GameSetting instance] cardRange];
     int cardRangeSize = cardRange * 2;
 	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width * cardRange,
 										cardBoundingBox.origin.y - cardBoundingBox.size.height * cardRange,

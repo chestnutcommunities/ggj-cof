@@ -44,7 +44,7 @@
     [gs resetGameProperties];
     
     gs.difficultyLevel = (NSObject *)sender.userData;
-    
+    [gs loadGameProperties];
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:2.0f], [CCCallFunc actionWithTarget:self selector:@selector(replaceScene:)], nil]];
 }
 
@@ -113,15 +113,15 @@
         [self addChild:bg z:0];
         [self addChild:title z:0];
         
-        CCMenuItem *easyButton = [CCMenuItemImage itemFromNormalImage:@"difficulty-button.png" selectedImage:@"difficulty-button-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem *easyButton = [CCMenuItemImage itemFromNormalImage:@"easy.png" selectedImage:@"easy-hover.png" target:self selector:@selector(startButtonTapped:)];
         easyButton.userData = 1;
         easyButton.position = ccp(winSize.width *0.25f, winSize.height * 0.3f);
         
-        CCMenuItem *mediumButton = [CCMenuItemImage itemFromNormalImage:@"difficulty-button.png" selectedImage:@"difficulty-button-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem *mediumButton = [CCMenuItemImage itemFromNormalImage:@"medium.png" selectedImage:@"medium-hover.png" target:self selector:@selector(startButtonTapped:)];
         mediumButton.userData = 2;
         mediumButton.position = ccp(winSize.width *0.5f, winSize.height * 0.3f);
         
-        CCMenuItem *hardButton = [CCMenuItemImage itemFromNormalImage:@"difficulty-button.png" selectedImage:@"difficulty-button-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem *hardButton = [CCMenuItemImage itemFromNormalImage:@"hard.png" selectedImage:@"hard-hover.png" target:self selector:@selector(startButtonTapped:)];
         hardButton.userData = 3;
         hardButton.position = ccp(winSize.width *0.75f, winSize.height * 0.3f);
         

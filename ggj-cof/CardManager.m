@@ -43,7 +43,7 @@
     for (Card* card in [_enemyBatchNode children]) {
         if (card.characterState != kStateDying && card.characterState != kStateDead) {
             int cardNumber;
-            if (count % ([[GameSetting instance] difficultyLevel] + 1) == 0) {
+            if (count % ([[GameSetting instance] predatorToPreyRatio]) == 0) {
                 cardNumber = [self generateLowerOrSameNumber:baseNumber];
             }
             else {

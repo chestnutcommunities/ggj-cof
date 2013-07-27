@@ -9,20 +9,25 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-typedef enum gametype {
-	easy = 1,
-	medium,
-	hard
-} gametype;
-
 @interface GameSetting : NSObject {
     uint difficultyLevel;
+    float enemySpeed;
+    float enemyAcceleratedSpeed;
+    int cardLimit;
+    int cardRange;
+    int predatorToPreyRatio;
 }
 
 @property(nonatomic) uint difficultyLevel;
 @property(nonatomic) BOOL hasSound;
+@property(nonatomic) float enemySpeed;
+@property(nonatomic) float enemyAcceleratedSpeed;
+@property(nonatomic) int cardLimit;
+@property(nonatomic) int cardRange;
+@property(nonatomic) int predatorToPreyRatio;
 
 +(GameSetting *) instance;
 -(void)resetGameProperties;
+-(void)loadGameProperties;
 
 @end

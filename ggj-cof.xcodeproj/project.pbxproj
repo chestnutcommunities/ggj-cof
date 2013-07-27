@@ -12,12 +12,19 @@
 		CE163AC616B2719C0066449B /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = CE163AC416B2719C0066449B /* meta.png */; };
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
 		CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = CE32D9A017A26BB4000395CA /* GameSetting.m */; };
-		CE32D9A317A27304000395CA /* difficulty-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CE32D9A217A27304000395CA /* difficulty-button.png */; };
-		CE32D9A517A2792B000395CA /* difficulty-button-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE32D9A417A2792B000395CA /* difficulty-button-hover.png */; };
 		CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A12D816B37F010091D6BC /* AIHelper.m */; };
 		CE622754178198A4007F48D4 /* casino-test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE622753178198A4007F48D4 /* casino-test.tmx */; };
 		CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */; };
 		CE6317CE16B4920F00823F1C /* decoration.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6317CD16B4920F00823F1C /* decoration.png */; };
+		CE78716117A36BBA00471015 /* easy-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715B17A36BBA00471015 /* easy-hover.png */; };
+		CE78716217A36BBA00471015 /* easy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715C17A36BBA00471015 /* easy.png */; };
+		CE78716317A36BBA00471015 /* hard-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715D17A36BBA00471015 /* hard-hover.png */; };
+		CE78716417A36BBA00471015 /* hard.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715E17A36BBA00471015 /* hard.png */; };
+		CE78716517A36BBA00471015 /* medium-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715F17A36BBA00471015 /* medium-hover.png */; };
+		CE78716617A36BBA00471015 /* medium.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78716017A36BBA00471015 /* medium.png */; };
+		CE78717917A377A900471015 /* level-1.dat in Resources */ = {isa = PBXBuildFile; fileRef = CE78717617A377A900471015 /* level-1.dat */; };
+		CE78717A17A377A900471015 /* level-2.dat in Resources */ = {isa = PBXBuildFile; fileRef = CE78717717A377A900471015 /* level-2.dat */; };
+		CE78717B17A377A900471015 /* level-3.dat in Resources */ = {isa = PBXBuildFile; fileRef = CE78717817A377A900471015 /* level-3.dat */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
 		F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA516B478EE00E5EC4C /* bg-960x640.png */; };
@@ -193,14 +200,23 @@
 		CE163ACB16B2818C0066449B /* CardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
 		CE32D99F17A26BB4000395CA /* GameSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSetting.h; sourceTree = "<group>"; };
 		CE32D9A017A26BB4000395CA /* GameSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSetting.m; sourceTree = "<group>"; };
-		CE32D9A217A27304000395CA /* difficulty-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difficulty-button.png"; sourceTree = "<group>"; };
-		CE32D9A417A2792B000395CA /* difficulty-button-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difficulty-button-hover.png"; sourceTree = "<group>"; };
 		CE4A12D716B37F010091D6BC /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
 		CE4A12D816B37F010091D6BC /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
 		CE622753178198A4007F48D4 /* casino-test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "casino-test.tmx"; sourceTree = "<group>"; };
 		CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KingOfHeartsLayer.h; sourceTree = "<group>"; };
 		CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KingOfHeartsLayer.m; sourceTree = "<group>"; };
 		CE6317CD16B4920F00823F1C /* decoration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration.png; sourceTree = "<group>"; };
+		CE78715B17A36BBA00471015 /* easy-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "easy-hover.png"; sourceTree = "<group>"; };
+		CE78715C17A36BBA00471015 /* easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easy.png; sourceTree = "<group>"; };
+		CE78715D17A36BBA00471015 /* hard-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hard-hover.png"; sourceTree = "<group>"; };
+		CE78715E17A36BBA00471015 /* hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hard.png; sourceTree = "<group>"; };
+		CE78715F17A36BBA00471015 /* medium-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medium-hover.png"; sourceTree = "<group>"; };
+		CE78716017A36BBA00471015 /* medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medium.png; sourceTree = "<group>"; };
+		CE78717417A3772000471015 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		CE78717517A3772000471015 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		CE78717617A377A900471015 /* level-1.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "level-1.dat"; sourceTree = "<group>"; };
+		CE78717717A377A900471015 /* level-2.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "level-2.dat"; sourceTree = "<group>"; };
+		CE78717817A377A900471015 /* level-3.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "level-3.dat"; sourceTree = "<group>"; };
 		CE79B73F16B312B3004B160B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
@@ -545,6 +561,16 @@
 			name = Sam;
 			sourceTree = "<group>";
 		};
+		CE78716717A375B000471015 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				CE78717617A377A900471015 /* level-1.dat */,
+				CE78717717A377A900471015 /* level-2.dat */,
+				CE78717817A377A900471015 /* level-3.dat */,
+			);
+			name = Levels;
+			sourceTree = "<group>";
+		};
 		F45FCEB716B4795300E5EC4C /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +646,7 @@
 		F490EFD916AFD62900BBA594 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE78716717A375B000471015 /* Levels */,
 				F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */,
 				F4ABBC3316B2AA3800BB3A51 /* Default-568h@2x.png */,
 				F4B1EBC116B0FE86009A4F12 /* Maps */,
@@ -1003,6 +1030,8 @@
 		F4B1EBBD16B0FD73009A4F12 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CE78717417A3772000471015 /* JSONKit.h */,
+				CE78717517A3772000471015 /* JSONKit.m */,
 				CE4A12D716B37F010091D6BC /* AIHelper.h */,
 				CE4A12D816B37F010091D6BC /* AIHelper.m */,
 				CE163ACA16B2818C0066449B /* CardManager.h */,
@@ -1034,8 +1063,12 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				CE32D9A417A2792B000395CA /* difficulty-button-hover.png */,
-				CE32D9A217A27304000395CA /* difficulty-button.png */,
+				CE78715B17A36BBA00471015 /* easy-hover.png */,
+				CE78715C17A36BBA00471015 /* easy.png */,
+				CE78715D17A36BBA00471015 /* hard-hover.png */,
+				CE78715E17A36BBA00471015 /* hard.png */,
+				CE78715F17A36BBA00471015 /* medium-hover.png */,
+				CE78716017A36BBA00471015 /* medium.png */,
 				F46D74F91790F5B600640FA2 /* button-sprite.plist */,
 				F46D74FA1790F5B600640FA2 /* button-sprite.png */,
 				F45FCEA716B478EE00E5EC4C /* start-roll.png */,
@@ -1195,8 +1228,15 @@
 				F46D74FB1790F5B600640FA2 /* button-sprite.plist in Resources */,
 				F46D74FC1790F5B600640FA2 /* button-sprite.png in Resources */,
 				F4ABA6F117924DDF00152C47 /* press.caf in Resources */,
-				CE32D9A317A27304000395CA /* difficulty-button.png in Resources */,
-				CE32D9A517A2792B000395CA /* difficulty-button-hover.png in Resources */,
+				CE78716117A36BBA00471015 /* easy-hover.png in Resources */,
+				CE78716217A36BBA00471015 /* easy.png in Resources */,
+				CE78716317A36BBA00471015 /* hard-hover.png in Resources */,
+				CE78716417A36BBA00471015 /* hard.png in Resources */,
+				CE78716517A36BBA00471015 /* medium-hover.png in Resources */,
+				CE78716617A36BBA00471015 /* medium.png in Resources */,
+				CE78717917A377A900471015 /* level-1.dat in Resources */,
+				CE78717A17A377A900471015 /* level-2.dat in Resources */,
+				CE78717B17A377A900471015 /* level-3.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

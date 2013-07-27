@@ -99,7 +99,7 @@
         self.enemyDestinationPoints = [[[NSMutableArray alloc] init] retain];
         
         
-        int cardLimit = [[GameSetting instance] difficultyLevel] * kNumberOfAdditionalCardsPerLevel;
+        int cardLimit = [[GameSetting instance] cardLimit];
         int cardCount = 0;
         
         NSMutableDictionary *obj;
