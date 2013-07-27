@@ -22,9 +22,6 @@
 		CE78716417A36BBA00471015 /* hard.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715E17A36BBA00471015 /* hard.png */; };
 		CE78716517A36BBA00471015 /* medium-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715F17A36BBA00471015 /* medium-hover.png */; };
 		CE78716617A36BBA00471015 /* medium.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78716017A36BBA00471015 /* medium.png */; };
-		CE78717917A377A900471015 /* level-1.dat in Resources */ = {isa = PBXBuildFile; fileRef = CE78717617A377A900471015 /* level-1.dat */; };
-		CE78717A17A377A900471015 /* level-2.dat in Resources */ = {isa = PBXBuildFile; fileRef = CE78717717A377A900471015 /* level-2.dat */; };
-		CE78717B17A377A900471015 /* level-3.dat in Resources */ = {isa = PBXBuildFile; fileRef = CE78717817A377A900471015 /* level-3.dat */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
 		F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA516B478EE00E5EC4C /* bg-960x640.png */; };
@@ -215,9 +212,6 @@
 		CE78716017A36BBA00471015 /* medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medium.png; sourceTree = "<group>"; };
 		CE78717417A3772000471015 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		CE78717517A3772000471015 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		CE78717617A377A900471015 /* level-1.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "level-1.dat"; sourceTree = "<group>"; };
-		CE78717717A377A900471015 /* level-2.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "level-2.dat"; sourceTree = "<group>"; };
-		CE78717817A377A900471015 /* level-3.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "level-3.dat"; sourceTree = "<group>"; };
 		CE79B73F16B312B3004B160B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
@@ -567,9 +561,6 @@
 		CE78716717A375B000471015 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				CE78717617A377A900471015 /* level-1.dat */,
-				CE78717717A377A900471015 /* level-2.dat */,
-				CE78717817A377A900471015 /* level-3.dat */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -1239,9 +1230,6 @@
 				CE78716417A36BBA00471015 /* hard.png in Resources */,
 				CE78716517A36BBA00471015 /* medium-hover.png in Resources */,
 				CE78716617A36BBA00471015 /* medium.png in Resources */,
-				CE78717917A377A900471015 /* level-1.dat in Resources */,
-				CE78717A17A377A900471015 /* level-2.dat in Resources */,
-				CE78717B17A377A900471015 /* level-3.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
