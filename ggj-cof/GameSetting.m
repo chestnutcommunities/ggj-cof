@@ -7,7 +7,6 @@
 //
 
 #import "GameSetting.h"
-#import "JSONKit.h"
 
 @implementation GameSetting
 
@@ -37,26 +36,31 @@ static GameSetting *instance = nil;
     difficultyLevel = 1; //reset to easy
 }
 
--(void)loadGameProperties {
-    enemySpeed = 0.65f;
-    enemyAcceleratedSpeed = 0.375f;
-    cardLimit = difficultyLevel * 8;
-    cardRange = 4 + difficultyLevel;
-    predatorToPreyRatio = difficultyLevel + 1;
-
-    /*
+-(void)loadGameProperties {    
     NSString *fileName = [NSString stringWithFormat:@"level-%d", difficultyLevel];
-    fileName = [[NSBundle mainBundle] pathForResource:fileName ofType:@"dat" inDirectory:@"Levels"];
-    NSDictionary* state = [[NSString stringWithContentsOfFile:fileName encoding:NSASCIIStringEncoding error:nil] objectFromJSONString];
+    fileName = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
+    NSString *jsonSettings = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     
-    for(NSDictionary* data in state) {
-        enemySpeed = [[data objectForKey:@"enemySpeed"] floatValue];
-        enemyAcceleratedSpeed = [[data objectForKey:@"enemyAcceleratedSpeed"] floatValue];
-        cardLimit = [[data objectForKey:@"cardLimit"] intValue];
-        cardRange = [[data objectForKey:@"cardRange"] intValue];
-        predatorToPreyRatio = [[data objectForKey:@"predatorToPreyRatio"] intValue];
+    if (!jsonSettings) {
+        /* default settings if can't read json */
+        enemySpeed = 0.65f;
+        enemyAcceleratedSpeed = 0.375f;
+        cardLimit = difficultyLevel * 8;
+        cardRange = 4 + difficultyLevel;
+        predatorToPreyRatio = difficultyLevel + 1;
     }
-     */
+    else {
+        NSData *jsonData = [jsonSettings dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:NULL];
+        
+        for(NSDictionary* data in dict) {
+            enemySpeed = [[data objectForKey:@"enemySpeed"] floatValue];
+            enemyAcceleratedSpeed = [[data objectForKey:@"enemyAcceleratedSpeed"] floatValue];
+            cardLimit = [[data objectForKey:@"cardLimit"] intValue];
+            cardRange = [[data objectForKey:@"cardRange"] intValue];
+            predatorToPreyRatio = [[data objectForKey:@"predatorToPreyRatio"] intValue];
+        }
+    }
 }
 
 -(void) setHasSound:(BOOL)b {

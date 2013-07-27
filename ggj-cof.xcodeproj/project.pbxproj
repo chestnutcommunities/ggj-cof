@@ -22,6 +22,9 @@
 		CE78716417A36BBA00471015 /* hard.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715E17A36BBA00471015 /* hard.png */; };
 		CE78716517A36BBA00471015 /* medium-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78715F17A36BBA00471015 /* medium-hover.png */; };
 		CE78716617A36BBA00471015 /* medium.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78716017A36BBA00471015 /* medium.png */; };
+		CE78719617A3B8D800471015 /* level-1.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719317A3B8D800471015 /* level-1.json */; };
+		CE78719717A3B8D800471015 /* level-2.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719417A3B8D800471015 /* level-2.json */; };
+		CE78719817A3B8D800471015 /* level-3.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719517A3B8D800471015 /* level-3.json */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
 		F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA516B478EE00E5EC4C /* bg-960x640.png */; };
@@ -210,8 +213,9 @@
 		CE78715E17A36BBA00471015 /* hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hard.png; sourceTree = "<group>"; };
 		CE78715F17A36BBA00471015 /* medium-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medium-hover.png"; sourceTree = "<group>"; };
 		CE78716017A36BBA00471015 /* medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medium.png; sourceTree = "<group>"; };
-		CE78717417A3772000471015 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		CE78717517A3772000471015 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		CE78719317A3B8D800471015 /* level-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "level-1.json"; sourceTree = "<group>"; };
+		CE78719417A3B8D800471015 /* level-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "level-2.json"; sourceTree = "<group>"; };
+		CE78719517A3B8D800471015 /* level-3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "level-3.json"; sourceTree = "<group>"; };
 		CE79B73F16B312B3004B160B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
@@ -561,6 +565,9 @@
 		CE78716717A375B000471015 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				CE78719317A3B8D800471015 /* level-1.json */,
+				CE78719417A3B8D800471015 /* level-2.json */,
+				CE78719517A3B8D800471015 /* level-3.json */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -1024,8 +1031,6 @@
 		F4B1EBBD16B0FD73009A4F12 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CE78717417A3772000471015 /* JSONKit.h */,
-				CE78717517A3772000471015 /* JSONKit.m */,
 				CE4A12D716B37F010091D6BC /* AIHelper.h */,
 				CE4A12D816B37F010091D6BC /* AIHelper.m */,
 				CE163ACA16B2818C0066449B /* CardManager.h */,
@@ -1230,6 +1235,9 @@
 				CE78716417A36BBA00471015 /* hard.png in Resources */,
 				CE78716517A36BBA00471015 /* medium-hover.png in Resources */,
 				CE78716617A36BBA00471015 /* medium.png in Resources */,
+				CE78719617A3B8D800471015 /* level-1.json in Resources */,
+				CE78719717A3B8D800471015 /* level-2.json in Resources */,
+				CE78719817A3B8D800471015 /* level-3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
