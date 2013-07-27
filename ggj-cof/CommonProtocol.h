@@ -16,6 +16,13 @@ typedef enum {
 } FacingDirection;
 
 typedef enum {
+    CardAnimationWalking,
+    CardAnimationRunning,
+    CardAnimationNone
+    
+} CardAnimationType;
+
+typedef enum {
     kStateSpawning,
     kStateIdle,
     kStateCrouching,

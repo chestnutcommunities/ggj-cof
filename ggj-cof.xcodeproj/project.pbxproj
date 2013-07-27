@@ -184,6 +184,7 @@
 		F4B1EC0316B152C2009A4F12 /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B1EC0116B152C2009A4F12 /* ninja.png */; };
 		F4B1EC0616B152F0009A4F12 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B1EC0516B152F0009A4F12 /* Human.m */; };
 		F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300E7179A1C2200FFCBCF /* Logger.m */; };
+		F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */; };
 		F4B9318416B210940079774F /* PositioningHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9318316B210940079774F /* PositioningHelper.m */; };
 		F4B9319116B21B930079774F /* lever.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9318F16B21B930079774F /* lever.png */; };
 		F4B9319216B21B930079774F /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319016B21B930079774F /* wheel.png */; };
@@ -520,6 +521,8 @@
 		F4B1EC0516B152F0009A4F12 /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
 		F4B300E6179A1C2200FFCBCF /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		F4B300E7179A1C2200FFCBCF /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		F4B300E9179A44EB00FFCBCF /* PopStepAnimateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopStepAnimateData.h; sourceTree = "<group>"; };
+		F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopStepAnimateData.m; sourceTree = "<group>"; };
 		F4B9318216B210940079774F /* PositioningHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningHelper.h; sourceTree = "<group>"; };
 		F4B9318316B210940079774F /* PositioningHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningHelper.m; sourceTree = "<group>"; };
 		F4B9318F16B21B930079774F /* lever.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lever.png; sourceTree = "<group>"; };
@@ -1044,6 +1047,8 @@
 				F4B9319A16B265F50079774F /* TileMapManager.m */,
 				F4B300E6179A1C2200FFCBCF /* Logger.h */,
 				F4B300E7179A1C2200FFCBCF /* Logger.m */,
+				F4B300E9179A44EB00FFCBCF /* PopStepAnimateData.h */,
+				F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */,
 				CE32D99F17A26BB4000395CA /* GameSetting.h */,
 				CE32D9A017A26BB4000395CA /* GameSetting.m */,
 			);
@@ -1372,6 +1377,7 @@
 				CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */,
 				F498F548177EB3D50040C44C /* Player.m in Sources */,
 				F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */,
+				F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */,
 				CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

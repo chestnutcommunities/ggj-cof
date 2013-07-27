@@ -180,28 +180,32 @@
                 CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
                 
                 if (tileOfCard.x == tileOfPlayer.x || tileOfCard.y == tileOfPlayer.y) {
-                    isHeroWithinSight = [AIHelper sawPlayer:card tileMapManager:_mapManager player:(Card*)_player];
+                    isHeroWithinSight = [AIHelper isPlayerWithinSight:card tileMapManager:_mapManager player:(Card*)_player];
                 }
                 
-				if (isHeroWithinSight == YES || (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
+                CGPoint target = _player.realPosition;
+                CharacterStates currentState = card.characterState;
+                
+				if (isHeroWithinSight || (isHeroWithinChasingRange && (card.characterState == kStateRunningAway || card.characterState == kStateChasing))) {
 					if (playerNumber >= cardNumber) {
-                        [AIHelper moveAwayFromChaser:card tileMapManager:_mapManager tileMap:_mapManager.tileMap];
+                        [card changeState:kStateRunningAway];
 					}
 					else {
-						[card changeState:kStateChasing];
-						[AIHelper moveToTarget:(Card *)card tileMapManager:_mapManager tileMap:_mapManager.tileMap target:_player.realPosition];
+                        [card changeState:kStateChasing];
 					}
-                    //Set back to walking only when player is out of range so that prey or predator will not give up at once
+                    // Set back to walking only when player is out of range so that prey or
+                    // predator will not give up at once
                     if (!isHeroWithinChasingRange) {
-                        card.characterState = kStateWalking;
+                        [card changeState:kStateWalking];
                     }
                     
 				}
 				else {
 					[card changeState:kStateWalking];
-                    [AIHelper moveToTarget:(Card *)card tileMapManager:_mapManager tileMap:_mapManager.tileMap target:[_mapManager getCurrentDestinationOfCard:card]];
-					
+                    target = [_mapManager getCurrentDestinationOfCard:card];
 				}
+                
+                [AIHelper thinkAndMove:card previouslyOfState:currentState targets:target mapManager:_mapManager map:_mapManager.tileMap];
 			}
         }
     }

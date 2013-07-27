@@ -30,13 +30,9 @@
 - (void) dealloc
 {
     [_swipeLeftRecognizer release];
-    _swipeLeftRecognizer = nil;
     [_swipeRightRecognizer release];
-    _swipeRightRecognizer = nil;
     [_swipeUpRecognizer release];
-    _swipeUpRecognizer = nil;
     [_swipeDownRecognizer release];
-    _swipeDownRecognizer = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
@@ -83,6 +79,7 @@
                 newPosition.x += subject.speed;
                 break;
             default:
+                dir = kFacingNone;
                 break;
         }
         

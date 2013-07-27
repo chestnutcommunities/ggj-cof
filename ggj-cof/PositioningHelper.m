@@ -95,7 +95,7 @@
     return ccp(x, y);
 }
 
-+(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curvePosition finalDest:(CGPoint)finalPosition {
++(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curvePosition finalDestination:(CGPoint)finalPosition {
     if (curvePosition.x < finalPosition.x) {
         return kFacingRight;
     }
@@ -137,12 +137,10 @@
     }
     
     return ccp(x, y);
-
 }
 
 //Get adject tile coordinate for curve movement on collidable corners
-+(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection
-{    
++(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection {
     CGFloat x = initialDestination.x;
     CGFloat y = initialDestination.y;
     switch (current) {
@@ -187,27 +185,6 @@
 		return NO;
 	}
 	return YES;
-}
-
-+(FacingDirection)getOppositeDirection:(FacingDirection)facingDirection {
-	FacingDirection oppositeDirection = kFacingNone;
-	switch (facingDirection) {
-		case kFacingLeft:
-			oppositeDirection = kFacingRight;
-			break;
-		case kFacingRight:
-			oppositeDirection = kFacingLeft;
-			break;
-		case kFacingUp:
-			oppositeDirection = kFacingDown;
-			break;
-		case kFacingDown:
-			oppositeDirection = kFacingUp;
-			break;
-		default:
-			break;
-	}
-	return oppositeDirection;
 }
 
 @end

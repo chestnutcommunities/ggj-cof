@@ -62,7 +62,8 @@
 
     va_list args;
     va_start(args, formatString);
-    CCLOG(formatString, args);
+    NSString *output = [[[NSString alloc] initWithFormat:formatString arguments:args] autorelease];
+    CCLOG(output);
     va_end(args);
 }
 

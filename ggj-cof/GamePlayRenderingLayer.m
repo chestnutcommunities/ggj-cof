@@ -72,7 +72,7 @@
 -(void) initTileMap
 {
     CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino.tmx"];
-    self.mapManager = [[[TileMapManager alloc] initWithTileMap:map] retain];
+    self.mapManager = [[TileMapManager alloc] initWithTileMap:map];
     [self addChild:self.mapManager.tileMap];
 }
 
@@ -83,7 +83,7 @@
 
 -(void) movePlayer:(CGPoint)destination facing:(FacingDirection)direction {
     BOOL doMove = NO;
-    BOOL noPossibleDestFound = YES;
+    BOOL foundPossibleDestination = NO;
     CGPoint positionInPointsForNextTileCoord;
     CGPoint positionInPointsForFinalTileCoord;
     
@@ -109,7 +109,7 @@
         NSDictionary *properties = [_mapManager.tileMap propertiesForGID:metaGid];
         if (properties) {
             if ([_mapManager isCollidable:fittedPos forMeta:properties]) {
-                noPossibleDestFound = YES;
+                foundPossibleDestination = NO;
                 CGPoint finalTileCoord = [PositioningHelper getFinalTileCoordForCurveMovement:tileCoord tileMap:_mapManager.tileMap previous: _player.previousDirection];
                 
                 CGPoint nextTileCoord = [PositioningHelper getAdjacentTileCoordForCurveMovement:tileCoord tileMap:_mapManager.tileMap currentDirection:direction previous: _player.previousDirection];
@@ -126,35 +126,19 @@
                         positionInPointsForFinalTileCoord = [PositioningHelper positionInPointsForTileCoord:finalTileCoord tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
                         if (![_mapManager isCollidable:positionInPointsForNextTileCoord forMeta:possibleProperties] &&
                             ![_mapManager isCollidable:positionInPointsForFinalTileCoord forMeta:possibleFinalProperties]) {
-                            noPossibleDestFound = NO;
+                            foundPossibleDestination = YES;
                         }
                     }
                 }
-                if (noPossibleDestFound) {
+                if (!foundPossibleDestination) {
                     return;
                 }
             }
         }
     }
-    if (noPossibleDestFound) {
-        // No curve movements
-        _player.previousDirection = direction;
-        [_player face:direction];
-
-        id actionMove = [[CCMoveTo actionWithDuration:0.3f position:fittedPos] retain];
-        id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
-        CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
-        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.3f position:viewPointPosition] retain];
-        
-        _player.isMoving = YES;
-        
-        [_player runAction:[[CCSequence actions:actionMove, actionMoveDone, nil] retain]];
-        [_player setRealPosition:fittedPos];
-        [self runAction:[[CCSequence actions:actionViewpointMove, nil] retain]];
-    }
-    else {
+    if (foundPossibleDestination) {
         // Curve assist
-        _player.previousDirection = [PositioningHelper getPreviousDirectionBasedFromCurveMovement:positionInPointsForNextTileCoord finalDest:positionInPointsForFinalTileCoord];
+        _player.previousDirection = [PositioningHelper getPreviousDirectionBasedFromCurveMovement:positionInPointsForNextTileCoord finalDestination:positionInPointsForFinalTileCoord];
         [_player face:_player.previousDirection];
         ccBezierConfig playerMoveBezier;
         playerMoveBezier.controlPoint_1 = _player.realPosition;
@@ -178,7 +162,24 @@
         
         [_player runAction:[[CCSequence actions:actionCurveMove, actionCurveMoveDone, nil] retain]];
         [_player setRealPosition:positionInPointsForFinalTileCoord];
-        [self runAction:[[CCSequence actions:actionCurveViewpointMove, nil] retain]];
+        [self runAction:[[CCSequence actions:actionCurveViewpointMove, nil] retain]];    }
+    else {
+        
+        // No curve movements
+        _player.previousDirection = direction;
+        [_player face:direction];
+        
+        id actionMove = [[CCMoveTo actionWithDuration:0.3f position:fittedPos] retain];
+        id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
+        CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
+        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.3f position:viewPointPosition] retain];
+        
+        _player.isMoving = YES;
+        
+        [_player runAction:[[CCSequence actions:actionMove, actionMoveDone, nil] retain]];
+        [_player setRealPosition:fittedPos];
+        [self runAction:[[CCSequence actions:actionViewpointMove, nil] retain]];
+
     }
 }
 

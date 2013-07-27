@@ -25,9 +25,14 @@
     
     FacingDirection _facing;
     
+    CardAnimationType _requestedAnimation;
+    
+    BOOL _delayFlipX;
+    
     CGFloat _factor;
     CGFloat _limit;
     CGFloat _momentum;
+    CGFloat _tilePerSecond;
     
     //spawning & AI
     CGPoint _originPoint;
@@ -42,10 +47,12 @@
 @property (nonatomic, assign) CGPoint originPoint;
 @property (nonatomic, assign) int currentDestinationPath;
 @property (nonatomic, retain) NSMutableArray *destinationPoints;
-@property (nonatomic, assign) FacingDirection facing;
 @property (nonatomic, assign) FacingDirection previousDirection;
 @property (nonatomic, assign) int frontOrder;
 @property (nonatomic, assign) CGPoint realPosition;
+@property (nonatomic, assign) CGFloat tilePerSecond;
+@property (readonly, nonatomic) FacingDirection facing;
+@property (readonly, nonatomic) CardAnimationType requestedAnimation;
 
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;
@@ -54,9 +61,8 @@
 -(CardSuit)getSuit;
 -(CGPoint)getCardDisplayPosition;
 -(void)face:(FacingDirection)direction;
--(void) startWalking;
--(void) stopWalking;
-
--(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager;
 -(CGRect)chaseRunBoundingBox;
+-(void)updateHorizontalFacingDirection;
+-(void)requestAnimation:(CardAnimationType)animation;
+-(void)updateAnimation;
 @end

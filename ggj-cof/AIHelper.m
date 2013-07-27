@@ -13,26 +13,32 @@
 #import "ShortestPathStep.h"
 #import "Constants.h"
 #import "Logger.h"
-
-@implementation PopStepAnimateData
-
-@synthesize card = _card;
-@synthesize tileMapManager = _tileMapManager;
-
-- (void) dealloc
-{
-	self.tileMapManager = nil;
-    self.card = nil;
-    
-	[_tileMapManager release];
-	[_card release];
-    
-    [super dealloc];
-}
-
-@end
+#import "PopStepAnimateData.h"
 
 @implementation AIHelper
+
++(NSString*)getCardInfo:(Card*)card {
+    CardSuit suit = [card getSuit];
+    NSString *suitString;
+    switch (suit) {
+        case kCardSuitClover:
+            suitString = @"Clubs";
+            break;
+        case kCardSuitDiamond:
+            suitString = @"Diamonds";
+            break;
+        case kCardSuitSpades:
+            suitString = @"Spades";
+            break;
+        default:
+            suitString = @"Hearts";
+            break;
+    }
+    
+    int number = [card getNumber];
+    NSString *cardInfoString = [NSString stringWithFormat:@"%d of %@", number, suitString];
+    return cardInfoString;
+}
 
 // Insert a path step (ShortestPathStep) in the ordered open steps list (spOpenSteps)
 + (void)insertInOpenSteps:(Card *)card step:(ShortestPathStep *)step
@@ -90,34 +96,30 @@
     
     if (card.realPosition.x != destination.x) {
         if (card.realPosition.x < destination.x) {
-            // TODO: Refactor this code, strange you have to call face and then set facing manually..
             [card face:kFacingRight];
-            card.facing = kFacingRight;
         }
         else {
             [card face:kFacingLeft];
-            card.facing = kFacingLeft;
         }
     }
     if (card.realPosition.y != destination.y) {
         if (card.realPosition.y > destination.y) {
-            card.facing = kFacingDown;
+            [card face:kFacingDown];
         }
         else {
-            card.facing = kFacingUp;
+            [card face:kFacingUp];
         }
     }
-    
-	// Prepare the action and the callback
-    CGFloat duration = 0.65f; // normal speed
-    if (card.characterState == kStateChasing || card.characterState == kStateRunningAway) {
-        duration = 0.375f;
-    }
-    
+
     [card setRealPosition:destination];
     
-    // TO RESOLVE: AI Helper must not move cards
-	id moveAction = [CCMoveTo actionWithDuration:duration position:[card getCardDisplayPosition]];
+    // Animation of the card needs to be sync'd with its speed
+    // Update animation
+    [card updateAnimation];
+    [card updateHorizontalFacingDirection];
+    
+    // Move the card to the destination at tile/second
+	id moveAction = [CCMoveTo actionWithDuration:card.tilePerSecond position:[card getCardDisplayPosition]];
     
 	// set the method itself as the callback
     id moveCallback = [CCCallFuncND actionWithTarget:self selector:@selector(popStepAndAnimate:data:) data:data];
@@ -126,12 +128,18 @@
 	// Remove the step
 	[card.shortestPath removeObjectAtIndex:0];
 	
+    NSString* cardInfo = [self getCardInfo:card];
+    [[Logger sharedInstance] log:LogType_AIHelper content:@"[%@]: moving to the next tile", cardInfo];
+    
 	// Play actions
 	[card runAction:card.currentStepAction];
 }
 
 // Go backward from a step (the final one) to reconstruct the shortest computed path
 + (void)constructPathAndStartAnimationFromStep:(Card *)card step:(ShortestPathStep *)step tileMapManager:(TileMapManager *)tileMapManager {
+    NSString* cardInfo = [self getCardInfo:card];
+    [[Logger sharedInstance] log:LogType_AIHelper content:@"[%@]: planning its moves...", cardInfo];
+    
 	card.shortestPath = [NSMutableArray array];
 	
 	do {
@@ -149,18 +157,17 @@
 }
 
 // Compute the cost of moving from a step to an adjecent one
-+(int) costToMoveFromStep:(ShortestPathStep *)fromStep toAdjacentStep:(ShortestPathStep *)toStep
-{
++(int)costToMoveFromStep:(ShortestPathStep *)fromStep toAdjacentStep:(ShortestPathStep *)toStep {
 	return ((fromStep.position.x != toStep.position.x) && (fromStep.position.y != toStep.position.y)) ? 14 : 10;
 }
 
-+(int) computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord
-{
++(int)computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord {
 	// Manhattan distance
 	return abs(toCoord.x - fromCoord.x) + abs(toCoord.y - fromCoord.y);
 }
 
 +(void) moveToTarget:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap target:(CGPoint)target {
+    
     if (card.currentStepAction) {
         if (card.characterState == kStateChasing) {
             card.pendingMove = [NSValue valueWithCGPoint:target];
@@ -261,16 +268,15 @@
 }
 
 // Player detection is linear based on facing direction of card
-+(BOOL)sawPlayer:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager player:(Card *)player {
++(BOOL)isPlayerWithinSight:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager player:(Card *)player {
     CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:player.realPosition tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
     CGPoint currentTileOfCard = [PositioningHelper tileCoordForPositionInPoints:observerCard.realPosition tileMap:tileMapManager.tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
     CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
     
-    if (CGPointEqualToPoint(observerCard.position, observerCard.realPosition) == YES)
-    {
-        [[Logger sharedInstance] log:LogType_AIHelper content:@"Displayed and actual positions are the same"];
+    if (CGPointEqualToPoint(observerCard.position, observerCard.realPosition) == YES) {
+        // Displayed and actual positions are the same
     }
     
     int x, y;
@@ -298,20 +304,18 @@
         tempTile = CGPointMake(x, y);
         
         if (CGPointEqualToPoint(tempTile, tileOfPlayer) == YES) {
+            NSString* cardInfo = [self getCardInfo:observerCard];
+            [[Logger sharedInstance] log:LogType_AIHelper content:@"[%@]: The card sees the player", cardInfo];
+
             return YES;
-            [[Logger sharedInstance] log:LogType_AIHelper content:@"The card sees the player"];
         }
         
     } while ([tileMapManager isWalkableTile:tempTile]);
+    
     return NO;
 }
 
-+(void) moveAwayFromChaser:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap {
-    if (card.characterState != kStateRunningAway) {
-        card.facing = [PositioningHelper getOppositeDirection:card.facing];
-        [card changeState:kStateRunningAway];
-    }
-    
++(void)moveAwayFromChaser:(Card *)card tileMapManager:(TileMapManager *)tileMapManager tileMap:(CCTMXTiledMap*)tileMap {   
     CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:tileMap tileSizeInPoints:tileMapManager.tileSizeInPoints];
     
     CGPoint lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:card.facing];
@@ -333,7 +337,7 @@
         
         // dead end for card! charge to the player!
         if ([tileMapManager isWalkableTile:lastTile] == NO || CGPointEqualToPoint(tileOfCard, lastTile)) {
-            lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:[PositioningHelper getOppositeDirection:card.facing]];
+            lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:card.facing];
         }
     }
     
@@ -407,6 +411,40 @@
 			}
         }
 	} while ([card.spOpenSteps count] > 0);
+}
+// Get the card through the AI process and determine where the card should move to
++(void)thinkAndMove:(Card*)card previouslyOfState:(CharacterStates)previousState targets:(CGPoint)target mapManager:(TileMapManager*)mapManager map:(CCTMXTiledMap*)map {
+    
+    if (card.characterState == kStateChasing || card.characterState == kStateWalking) {
+        [self moveToTarget:card tileMapManager:mapManager tileMap:map target:target];
+    }
+    else if (card.characterState == kStateRunningAway) {
+        // Make the card face its opposite direction so it will actually move away from player
+        if (previousState != kStateRunningAway) {
+            switch (card.facing) {
+                case kFacingUp:
+                    [card face:kFacingDown];
+                    break;
+                case kFacingDown:
+                    [card face:kFacingUp];
+                    break;
+                case kFacingLeft:
+                    [card face:kFacingRight];
+                    break;
+                case kFacingRight:
+                    [card face:kFacingLeft];
+                    break;
+                default:
+                    // do nothing
+                    break;
+            }
+        }
+        
+        [self moveAwayFromChaser:card tileMapManager:mapManager tileMap:map];
+    }
+    else {
+        // the card shouldn't be moving
+    }
 }
 
 // Get last tile of where card is facing
