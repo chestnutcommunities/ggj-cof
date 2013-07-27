@@ -16,14 +16,13 @@
 @synthesize destinationPoints = _destinationPoints;
 @synthesize currentDestinationPath = _currentDestinationPath;
 @synthesize previousDirection = _previousDirection;
-@synthesize facing = _facing;
 @synthesize frontOrder = _frontOrder;
 @synthesize realPosition = _realPosition;
+@synthesize tilePerSecond = _tilePerSecond;
+@synthesize facing = _facing;
+@synthesize requestedAnimation = _requestedAnimation;
 
 -(void) dealloc {
-    _walkingAnim = nil;
-    _destinationPoints = nil;
-    
     [_walkingAnim release];
     [_destinationPoints release];
     
@@ -35,17 +34,21 @@
         case kFacingRight:
             if (_facing != kFacingRight) {
                 _facing = kFacingRight;
-                self.flipX = NO;
+                if (!_delayFlipX) {
+                    self.flipX = NO;
+                }
             }
             break;
         case kFacingLeft:
             if (_facing != kFacingLeft) {
                 _facing = kFacingLeft;
-                self.flipX = YES;
+                if (!_delayFlipX) {
+                    self.flipX = YES;
+                }
             }
             break;
         default:
-            // keep current facing direction
+            _facing = direction;
             break;
     }
 }
@@ -127,25 +130,15 @@
 -(CGRect)chaseRunBoundingBox {
     CGRect cardSightBoundingBox;
     CGRect cardBoundingBox = [self adjustedBoundingBox];
-	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width*7.0f,
-										cardBoundingBox.origin.y - cardBoundingBox.size.height*7.0f,
-										cardBoundingBox.size.width*14.0f,
-										cardBoundingBox.size.height*14.0f);
+    
+	cardSightBoundingBox = CGRectMake(
+        cardBoundingBox.origin.x - cardBoundingBox.size.width * 7.0f,
+        cardBoundingBox.origin.y - cardBoundingBox.size.height * 7.0f,
+        cardBoundingBox.size.width * 14.0f,
+        cardBoundingBox.size.height * 14.0f
+    );
+    
 	return cardSightBoundingBox;
-}
-
--(void) updateStateWithTileMapManager:(ccTime)deltaTime andGameObject:(GameObject *)gameObject tileMapManager:(TileMapManager *)tileMapManager {
-    CGRect heroBoundingBox = [gameObject adjustedBoundingBox];
-	CGRect cardSightBoundingBox = [self chaseRunBoundingBox];
-    
-    BOOL isHeroWithinSight = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox)? YES : NO;
-    
-    if (isHeroWithinSight) {
-        [self changeState:kStateChasing];
-    }
-    else {
-        [self changeState:kStateWalking];
-    }
 }
 
 -(void) startWalking {
@@ -162,13 +155,42 @@
     [self face:_facing];
 }
 
--(void) stopWalking {
+-(void) stopWalkingOrRunning {
     [self stopAllActions];
 }
 
 -(void) handleDead:(id)sender {
     self.characterState = kStateDead;
     self.visible = NO;
+}
+
+-(void)requestAnimation:(CardAnimationType)animation {
+    _requestedAnimation = animation;
+}
+
+-(void)updateAnimation {
+    if (_requestedAnimation == CardAnimationNone) { return; }
+    
+    if (_requestedAnimation == CardAnimationWalking) {
+        [self startWalking];
+    }
+    else if (_requestedAnimation == CardAnimationRunning) {
+        [self startRunning];
+    }
+    
+    // Reset animation
+    _requestedAnimation = CardAnimationNone;
+}
+
+-(void)updateHorizontalFacingDirection {
+    if (_delayFlipX) {
+        if (_facing == kFacingRight) {
+            self.flipX = NO;
+        }
+        else if (_facing == kFacingLeft) {
+            self.flipX = YES;
+        }
+    }
 }
 
 -(void)changeState:(CharacterStates)newState {
@@ -178,8 +200,7 @@
     
     switch (newState) {
         case kStateDying:
-            [self stopAllActions];
-            [self stopWalking];
+            [self stopWalkingOrRunning];
             
             id actionFade1 = [CCFadeOut actionWithDuration:0.5f];
             id actionScale1 = [CCScaleTo actionWithDuration:0.5f scale:0.0f];
@@ -211,11 +232,15 @@
         case kStateRunningAway:
         case kStateChasing:
             self.characterState = newState;
-            [self startRunning];
+            // Increase speed tile/second
+            _tilePerSecond = ENEMY_FAST_SPEED;
+            [self requestAnimation:CardAnimationRunning];
             break;
         case kStateWalking:
             self.characterState = newState;
-            [self startWalking];
+            // Reset speed tile/second
+            _tilePerSecond = ENEMY_NORMAL_SPEED;
+            [self requestAnimation:CardAnimationWalking];
             break;
         default:
             self.characterState = newState;
@@ -225,8 +250,7 @@
 
 -(id) init
 {
-    if( (self=[super init]) )
-    {
+    if((self=[super init])) {
         _number = 1;
         self.characterState = kStateIdle;
         _cardSuit = kCardSuitHeart;
@@ -238,6 +262,7 @@
         _suitPanel.position = ccp(22, 14);
         _numberPanel.position = ccp(11, 24);
         
+        _tilePerSecond = ENEMY_NORMAL_SPEED;
         _previousDirection = kFacingNone;
         
         [self loadAnimations];
@@ -246,6 +271,10 @@
         [self addChild:_numberPanel];
         
         _currentDestinationPath = 0;
+        
+        _requestedAnimation = CardAnimationNone;
+        
+        _delayFlipX = YES;
         
         [self startWalking];
     }

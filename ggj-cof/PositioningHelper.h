@@ -22,7 +22,6 @@
 +(CGPoint) computeTileFittingPositionInPixels:(CGPoint)positionInPixels tileMap:(CCTMXTiledMap*)tileMap tileSizeInPoints:(CGSize)tileSizeInPoints;
 +(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection;
 +(CGPoint) getFinalTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap previous:(FacingDirection)previousDirection;
-+(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curveTile finalDest:(CGPoint)finalTile;
-+(FacingDirection)getOppositeDirection:(FacingDirection)facingDirection;
++(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curveTile finalDestination:(CGPoint)finalTile;
 +(BOOL)isMovingLateral:(FacingDirection)direction;
 @end

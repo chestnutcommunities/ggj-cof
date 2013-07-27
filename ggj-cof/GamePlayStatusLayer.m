@@ -20,11 +20,6 @@
     [_pauseButtonMenu release];
     [_audioButton release];
     
-    _background = nil;
-    _menuPanel = nil;
-    _pauseButtonMenu = nil;
-    _audioButton = nil;
-    
 	[super dealloc];
 }
 
@@ -140,7 +135,7 @@
     _background.visible = NO;
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button-sprite.plist"];
-    CCSpriteBatchNode *sheet = [[CCSpriteBatchNode batchNodeWithFile:@"button-sprite.png"] retain];
+    CCSpriteBatchNode *sheet = [CCSpriteBatchNode batchNodeWithFile:@"button-sprite.png"];
     [self addChild:sheet];
     
     // Set up pause button

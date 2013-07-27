@@ -26,7 +26,6 @@
 
 - (void)dealloc {
     [_layer release];
-    _layer = nil;
     [super dealloc];
 }
 @end

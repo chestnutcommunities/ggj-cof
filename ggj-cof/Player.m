@@ -24,4 +24,14 @@
     _walkingAnim = [[CCAnimation animationWithFrames:animFrames delay:0.1f] retain];
 }
 
+
+
+-(id) init
+{
+    if((self=[super init])) {
+        // Don't delay sprite flipping for player
+        _delayFlipX = NO;
+    }
+    return self;
+}
 @end
