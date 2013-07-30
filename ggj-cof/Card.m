@@ -31,6 +31,31 @@
     [super dealloc];
 }
 
+// Gets the opposite facing direction
+-(FacingDirection)facingOppositeTo {
+    FacingDirection opposite;
+    
+    switch (_facing) {
+        case kFacingUp:
+            opposite = kFacingDown;
+            break;
+        case kFacingDown:
+            opposite = kFacingUp;
+            break;
+        case kFacingLeft:
+            opposite = kFacingRight;
+            break;
+        case kFacingRight:
+            opposite = kFacingLeft;
+            break;
+        default:
+            opposite = kFacingNone;
+            break;
+    }
+    
+    return opposite;
+}
+
 -(void)face:(FacingDirection)direction {
     switch (direction) {
         case kFacingRight:

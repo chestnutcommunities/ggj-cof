@@ -337,7 +337,7 @@
         
         // dead end for card! charge to the player!
         if ([tileMapManager isWalkableTile:lastTile] == NO || CGPointEqualToPoint(tileOfCard, lastTile)) {
-            lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:card.facing];
+            lastTile = [self getLastTileWhereCardIsFacing:card tileMapManager:tileMapManager facing:[card facingOppositeTo]];
         }
     }
     

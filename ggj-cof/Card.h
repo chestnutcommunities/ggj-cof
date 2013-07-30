@@ -65,4 +65,6 @@
 -(void)updateHorizontalFacingDirection;
 -(void)requestAnimation:(CardAnimationType)animation;
 -(void)updateAnimation;
+-(FacingDirection)facingOppositeTo;
+
 @end
