@@ -130,8 +130,13 @@
             CGRect cardBoundingBox = [card adjustedBoundingBox];
             CGRect cardSightBoundingBox = [card chaseRunBoundingBox];
             
-            BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
+            //BOOL isHeroWithinBoundingBox = CGRectIntersectsRect(heroBoundingBox, cardBoundingBox);
             BOOL isHeroWithinChasingRange = CGRectIntersectsRect(heroBoundingBox, cardSightBoundingBox);
+            
+            CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+            
+            CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
+            BOOL isHeroWithinBoundingBox = CGPointEqualToPoint(tileOfCard, tileOfPlayer);
             
             int playerNumber = [self.player getNumber];
             int cardNumber = [(Card *)card getNumber];
@@ -175,9 +180,6 @@
             }
             else {
                 BOOL isHeroWithinSight = NO;
-                CGPoint tileOfCard = [PositioningHelper tileCoordForPositionInPoints:card.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
-                
-                CGPoint tileOfPlayer = [PositioningHelper tileCoordForPositionInPoints:_player.realPosition tileMap:_mapManager.tileMap tileSizeInPoints:_mapManager.tileSizeInPoints];
                 
                 if (tileOfCard.x == tileOfPlayer.x || tileOfCard.y == tileOfPlayer.y) {
                     isHeroWithinSight = [AIHelper isPlayerWithinSight:card tileMapManager:_mapManager player:(Card*)_player];
