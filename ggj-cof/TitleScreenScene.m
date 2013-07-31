@@ -63,6 +63,12 @@
 	return scene;
 }
 
+- (void)facebookButtonTapped:(id)sender {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
+    NSURL *url = [NSURL URLWithString:@"https://www.facebook.com/ChopsticksOnFire"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (void)infoButtonTapped:(id)sender {
     [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
     CreditsScene *scene = [CreditsScene node];
@@ -184,12 +190,17 @@
         
         infoButton.position = ccp((buttonSize.width * 0.5f) + (gapSize.width * 0.5f), (buttonSize.height * 0.5f) + (gapSize.width * 0.5f));
         
+        // Set up facebook link button
+        CCMenuItemSprite* facebookButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-facebook-normal.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-facebook-pressed.png"] target:self selector:@selector(facebookButtonTapped:)];
+        
+        facebookButton.position = ccp((buttonSize.width * 1.5f) + gapSize.width, (buttonSize.height * 0.5f) + (gapSize.width * 0.5f));
+        
         // Set up audio button
         _audioButton = [[CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:audioButtonNormalName] selectedSprite:[CCSprite spriteWithSpriteFrameName:audioButtonPressedName] target:self selector:@selector(audioButtonTapped:)] retain];
 
         _audioButton.position = ccp(winSize.width - (buttonSize.width * 0.5f) - (gapSize.width * 0.5f), (buttonSize.height * 0.5f) + (gapSize.width * 0.5f));
         
-        CCMenu* starMenu = [CCMenu menuWithItems:easyButton, mediumButton, hardButton, infoButton, _audioButton, nil];
+        CCMenu* starMenu = [CCMenu menuWithItems:easyButton, mediumButton, hardButton, infoButton, facebookButton, _audioButton, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         

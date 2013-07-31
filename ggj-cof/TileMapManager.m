@@ -98,7 +98,6 @@
         self.enemySpawnPoints = [[[NSMutableArray alloc] init] retain];
         self.enemyDestinationPoints = [[[NSMutableArray alloc] init] retain];
         
-        
         int cardLimit = [[GameSetting instance] cardLimit];
         int cardCount = 0;
         

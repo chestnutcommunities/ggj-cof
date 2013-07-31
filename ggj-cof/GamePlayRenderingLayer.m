@@ -63,7 +63,6 @@
     
     [_sceneBatchNode addChild:_player z:0];
     
-    
     self.position = [PositioningHelper getViewpointPosition:_player.realPosition]; // TODO: get spawning point from tilemap
 }
 
