@@ -12,7 +12,7 @@
 @end
 
 @interface GameCompleteScene : CCScene {
-    GameCompleteLayer *layer;
+    GameCompleteLayer *_layer;
 }
 @property (nonatomic, retain) GameCompleteLayer *layer;
 @end

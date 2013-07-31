@@ -13,6 +13,7 @@
 #import "KingOfHeartsLayer.h"
 #import "Logger.h"
 #import "GameSetting.h"
+#import "CreditsLayer.h"
 
 @implementation TitleScreenScene
 @synthesize layer = _layer;
@@ -62,6 +63,34 @@
 	return scene;
 }
 
+- (void)infoButtonTapped:(id)sender {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    CreditsScene *scene = [CreditsScene node];
+    [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+- (void)audioButtonTapped:(id)sender {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    
+    // Change the displayed image on the button
+    
+    if (_audioOn) {
+        // If it's currently on, show 'audio off' button
+        [_audioButton setNormalImage:[CCSprite spriteWithSpriteFrameName:_audioOffButtonNormalName]];
+        [_audioButton setSelectedImage:[CCSprite spriteWithSpriteFrameName:_audioOffButtonPressedName]];
+    }
+    else {
+        // If it's currently off, show 'audio on' button
+        [_audioButton setNormalImage:[CCSprite spriteWithSpriteFrameName:_audioOnButtonNormalName]];
+        [_audioButton setSelectedImage:[CCSprite spriteWithSpriteFrameName:_audioOnButtonPressedName]];
+    }
+    
+    _audioOn = !_audioOn;
+    
+    // Mute if audio turned off, Unmute if turned on
+    [[SimpleAudioEngine sharedEngine] setMute:!_audioOn];
+}
+
 -(id) init {
     if ((self=[super initWithColor:ccc4(0, 0, 0, 255)])) {
         self.isTouchEnabled = YES;
@@ -86,6 +115,8 @@
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];
+        CGSize buttonSize = CGSizeMake(32, 32);
+        CGSize gapSize = CGSizeMake(8, 8);
         
         // Add sprites that make up the title screen
         CCSprite *bg, *title;
@@ -112,19 +143,48 @@
         [self addChild:bg z:0];
         [self addChild:title z:0];
         
-        CCMenuItem *easyButton = [CCMenuItemImage itemFromNormalImage:@"easy.png" selectedImage:@"easy-hover.png" target:self selector:@selector(startButtonTapped:)];
+        // Initialize spritesheet
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button-sprite.plist"];
+        CCSpriteBatchNode* sheet = [CCSpriteBatchNode batchNodeWithFile:@"button-sprite.png"];
+        [self addChild:sheet];
+
+        // Set up audio button names
+        _audioOnButtonNormalName = @"button-audio-on-normal.png";
+        _audioOnButtonPressedName = @"button-audio-on-pressed.png";
+        _audioOffButtonNormalName = @"button-audio-off-normal.png";
+        _audioOffButtonPressedName = @"button-audio-off-pressed.png";
+
+        NSString* audioButtonNormalName = _audioOnButtonNormalName;
+        NSString* audioButtonPressedName = _audioOnButtonPressedName;
+
+        // Cache current audio engine state
+        _audioOn = ![[SimpleAudioEngine sharedEngine] mute];
+        
+        // Set up menu buttons
+        
+        CCMenuItem* easyButton = [CCMenuItemImage itemFromNormalImage:@"easy.png" selectedImage:@"easy-hover.png" target:self selector:@selector(startButtonTapped:)];
         easyButton.userData = 1;
-        easyButton.position = ccp(winSize.width *0.25f, winSize.height * 0.3f);
+        easyButton.position = ccp(winSize.width * 0.25f, winSize.height * 0.3f);
         
-        CCMenuItem *mediumButton = [CCMenuItemImage itemFromNormalImage:@"medium.png" selectedImage:@"medium-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem* mediumButton = [CCMenuItemImage itemFromNormalImage:@"medium.png" selectedImage:@"medium-hover.png" target:self selector:@selector(startButtonTapped:)];
         mediumButton.userData = 2;
-        mediumButton.position = ccp(winSize.width *0.5f, winSize.height * 0.3f);
+        mediumButton.position = ccp(winSize.width * 0.5f, winSize.height * 0.3f);
         
-        CCMenuItem *hardButton = [CCMenuItemImage itemFromNormalImage:@"hard.png" selectedImage:@"hard-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem* hardButton = [CCMenuItemImage itemFromNormalImage:@"hard.png" selectedImage:@"hard-hover.png" target:self selector:@selector(startButtonTapped:)];
         hardButton.userData = 3;
-        hardButton.position = ccp(winSize.width *0.75f, winSize.height * 0.3f);
+        hardButton.position = ccp(winSize.width * 0.75f, winSize.height * 0.3f);
         
-        CCMenu *starMenu = [CCMenu menuWithItems:easyButton, mediumButton, hardButton, nil];
+        // Set up info button
+        CCMenuItemSprite* infoButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-info-normal.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-info-pressed.png"] target:self selector:@selector(infoButtonTapped:)];
+        
+        infoButton.position = ccp((buttonSize.width * 0.5f) + (gapSize.width * 0.5f), (buttonSize.height * 0.5f) + (gapSize.width * 0.5f));
+        
+        // Set up audio button
+        _audioButton = [[CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:audioButtonNormalName] selectedSprite:[CCSprite spriteWithSpriteFrameName:audioButtonPressedName] target:self selector:@selector(audioButtonTapped:)] retain];
+
+        _audioButton.position = ccp(winSize.width - (buttonSize.width * 0.5f) - (gapSize.width * 0.5f), (buttonSize.height * 0.5f) + (gapSize.width * 0.5f));
+        
+        CCMenu* starMenu = [CCMenu menuWithItems:easyButton, mediumButton, hardButton, infoButton, _audioButton, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         
@@ -136,6 +196,8 @@
 }
 
 -(void)dealloc {
+    [_audioButton release];
+    
     [super dealloc];
 }
 

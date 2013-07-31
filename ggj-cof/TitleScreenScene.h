@@ -9,6 +9,14 @@
 #import "cocos2d.h"
 
 @interface TitleScreenLayer : CCLayerColor {
+    NSString* _audioOnButtonNormalName;
+    NSString* _audioOnButtonPressedName;
+    NSString* _audioOffButtonNormalName;
+    NSString* _audioOffButtonPressedName;
+    
+    BOOL _audioOn;
+    
+    CCMenuItemSprite *_audioButton;
 }
 
 +(CCScene *) scene;
@@ -16,7 +24,7 @@
 @end
 
 @interface TitleScreenScene : CCScene {
-    TitleScreenLayer *layer;
-}
+    TitleScreenLayer *layer;}
+
 @property (nonatomic, retain) TitleScreenLayer *layer;
 @end

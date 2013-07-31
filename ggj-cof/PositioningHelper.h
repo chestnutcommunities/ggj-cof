@@ -11,7 +11,7 @@
 
 @interface PositioningHelper : CCLayer
 
-+(CGPoint)getViewpointPosition:(CGPoint)position ;
++(CGPoint)getViewpointPosition:(CGPoint)position;
 +(CGPoint)convertPixelsToPoints:(CGPoint)pixels retina:(BOOL)retina;
 +(CGPoint)convertPointsToPixels:(CGPoint)points retina:(BOOL)retina;
 +(CGPoint)tileCoordForPositionInPixels:(CGPoint)positionInPixels tileMap:(CCTMXTiledMap*)tileMap;
@@ -22,7 +22,7 @@
 +(CGPoint) computeTileFittingPositionInPixels:(CGPoint)positionInPixels tileMap:(CCTMXTiledMap*)tileMap tileSizeInPoints:(CGSize)tileSizeInPoints;
 +(CGPoint) getAdjacentTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap currentDirection:(FacingDirection)current previous:(FacingDirection)previousDirection;
 +(CGPoint) getFinalTileCoordForCurveMovement:(CGPoint)initialDestination tileMap:(CCTMXTiledMap*)tileMap previous:(FacingDirection)previousDirection;
-+(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curveTile finalDest:(CGPoint)finalTile;
-+(FacingDirection)getOppositeDirection:(FacingDirection)facingDirection;
++(FacingDirection)getPreviousDirectionBasedFromCurveMovement:(CGPoint)curvePosition finalDestination:(CGPoint)finalPosition;
 +(BOOL)isMovingLateral:(FacingDirection)direction;
+
 @end

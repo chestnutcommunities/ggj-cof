@@ -27,6 +27,9 @@
 		CE78719817A3B8D800471015 /* level-3.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719517A3B8D800471015 /* level-3.json */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
+		F428480B17A7BD010098BB0B /* CreditsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F428480A17A7BD010098BB0B /* CreditsLayer.m */; };
+		F428480E17A7C6BF0098BB0B /* button-sprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = F428480C17A7C6BF0098BB0B /* button-sprite.plist */; };
+		F428481017A7CDF60098BB0B /* button-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = F428480D17A7C6BF0098BB0B /* button-sprite.png */; };
 		F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA516B478EE00E5EC4C /* bg-960x640.png */; };
 		F45FCEAC16B478EE00E5EC4C /* bg-1136x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA616B478EE00E5EC4C /* bg-1136x640.png */; };
 		F45FCEAD16B478EE00E5EC4C /* start-roll.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEA716B478EE00E5EC4C /* start-roll.png */; };
@@ -39,8 +42,6 @@
 		F45FCEC716B48BBA00E5EC4C /* selection.caf in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEC516B48BBA00E5EC4C /* selection.caf */; };
 		F45FCEC916B48D9700E5EC4C /* draw-card.caf in Resources */ = {isa = PBXBuildFile; fileRef = F45FCEC816B48D9700E5EC4C /* draw-card.caf */; };
 		F45FCEDA16B4BE4700E5EC4C /* Default-480h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */; };
-		F46D74FB1790F5B600640FA2 /* button-sprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = F46D74F91790F5B600640FA2 /* button-sprite.plist */; };
-		F46D74FC1790F5B600640FA2 /* button-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = F46D74FA1790F5B600640FA2 /* button-sprite.png */; };
 		F490EFC916AFD62900BBA594 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFC816AFD62900BBA594 /* QuartzCore.framework */; };
 		F490EFCB16AFD62900BBA594 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCA16AFD62900BBA594 /* OpenGLES.framework */; };
 		F490EFCD16AFD62900BBA594 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F490EFCC16AFD62900BBA594 /* OpenAL.framework */; };
@@ -220,6 +221,10 @@
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
 		CE79B74D16B330EC004B160B /* AICharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICharacter.m; sourceTree = "<group>"; };
+		F428480917A7BD010098BB0B /* CreditsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsLayer.h; sourceTree = "<group>"; };
+		F428480A17A7BD010098BB0B /* CreditsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsLayer.m; sourceTree = "<group>"; };
+		F428480C17A7C6BF0098BB0B /* button-sprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "button-sprite.plist"; sourceTree = "<group>"; };
+		F428480D17A7C6BF0098BB0B /* button-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-sprite.png"; sourceTree = "<group>"; };
 		F45FCEA516B478EE00E5EC4C /* bg-960x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-960x640.png"; sourceTree = "<group>"; };
 		F45FCEA616B478EE00E5EC4C /* bg-1136x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-1136x640.png"; sourceTree = "<group>"; };
 		F45FCEA716B478EE00E5EC4C /* start-roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-roll.png"; sourceTree = "<group>"; };
@@ -232,8 +237,6 @@
 		F45FCEC516B48BBA00E5EC4C /* selection.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = selection.caf; sourceTree = "<group>"; };
 		F45FCEC816B48D9700E5EC4C /* draw-card.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "draw-card.caf"; sourceTree = "<group>"; };
 		F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-480h@2x.png"; sourceTree = "<group>"; };
-		F46D74F91790F5B600640FA2 /* button-sprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "button-sprite.plist"; sourceTree = "<group>"; };
-		F46D74FA1790F5B600640FA2 /* button-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-sprite.png"; sourceTree = "<group>"; };
 		F490EFC416AFD62900BBA594 /* ggj-cof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ggj-cof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F490EFC816AFD62900BBA594 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F490EFCA16AFD62900BBA594 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -982,6 +985,8 @@
 		F4B1EBB916B0FD0D009A4F12 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F428480917A7BD010098BB0B /* CreditsLayer.h */,
+				F428480A17A7BD010098BB0B /* CreditsLayer.m */,
 				F4A6208F16B340280092DB8E /* GameCompleteLayer.h */,
 				F4A6209016B340290092DB8E /* GameCompleteLayer.m */,
 				F4A6209316B3404A0092DB8E /* GameOverLayer.h */,
@@ -1064,14 +1069,14 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F428480C17A7C6BF0098BB0B /* button-sprite.plist */,
+				F428480D17A7C6BF0098BB0B /* button-sprite.png */,
 				CE78715B17A36BBA00471015 /* easy-hover.png */,
 				CE78715C17A36BBA00471015 /* easy.png */,
 				CE78715D17A36BBA00471015 /* hard-hover.png */,
 				CE78715E17A36BBA00471015 /* hard.png */,
 				CE78715F17A36BBA00471015 /* medium-hover.png */,
 				CE78716017A36BBA00471015 /* medium.png */,
-				F46D74F91790F5B600640FA2 /* button-sprite.plist */,
-				F46D74FA1790F5B600640FA2 /* button-sprite.png */,
 				F45FCEA716B478EE00E5EC4C /* start-roll.png */,
 				F45FCEA816B478EE00E5EC4C /* start.png */,
 				F45FCEA916B478EE00E5EC4C /* title.png */,
@@ -1226,8 +1231,6 @@
 				F45FCEDA16B4BE4700E5EC4C /* Default-480h@2x.png in Resources */,
 				F498F54A177EC36D0040C44C /* consumed.caf in Resources */,
 				CE622754178198A4007F48D4 /* casino-test.tmx in Resources */,
-				F46D74FB1790F5B600640FA2 /* button-sprite.plist in Resources */,
-				F46D74FC1790F5B600640FA2 /* button-sprite.png in Resources */,
 				F4ABA6F117924DDF00152C47 /* press.caf in Resources */,
 				CE78716117A36BBA00471015 /* easy-hover.png in Resources */,
 				CE78716217A36BBA00471015 /* easy.png in Resources */,
@@ -1238,6 +1241,8 @@
 				CE78719617A3B8D800471015 /* level-1.json in Resources */,
 				CE78719717A3B8D800471015 /* level-2.json in Resources */,
 				CE78719817A3B8D800471015 /* level-3.json in Resources */,
+				F428480E17A7C6BF0098BB0B /* button-sprite.plist in Resources */,
+				F428481017A7CDF60098BB0B /* button-sprite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1375,6 +1380,7 @@
 				F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */,
 				F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */,
 				CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */,
+				F428480B17A7BD010098BB0B /* CreditsLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
