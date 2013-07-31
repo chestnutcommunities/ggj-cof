@@ -49,7 +49,7 @@
    eJztljkOwCAMBPmES/7/zVSR0MoLvkIaTwMW+CAxK8ZomjtIoa8n1kzkQl9vLA9abIHRAvMRMtfsCaMF5jPJfLWx5sh50bbEwpoj57XEwr2V5z3Vpa0J2BbWvdG7jPm9ZDRkze/Nl7333rqrdMYT5y99Znt3evWS0WfWi7t7y4h8u0ztkb7M9PJXenX695X6bFljPZHVHSs33xtNgzzxtQjg
   </data>
  </layer>
- <layer name="Background2" width="30" height="30">
+ <layer name="Background2" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt1LENgDAMRNFMA1RABakCFWT/ifiNF7AlK0j3pF9ee6WMZ6KZlqSdWWmjPWlnDjqpJu1Mo4vupJ156KWetBP5q+ineUU/zSv6aV7RT/PSp4mIyAg+8MYJrA==
   </data>
