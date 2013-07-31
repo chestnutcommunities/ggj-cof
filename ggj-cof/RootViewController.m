@@ -3,7 +3,7 @@
 //  TileGame
 //
 //  Created by Shingo Tamura on 5/07/12.
-//  Copyright Chopsticks On Fire 2012. All rights reserved.
+//  Copyright Chopsticks On Fire 2013. All rights reserved.
 //
 
 //

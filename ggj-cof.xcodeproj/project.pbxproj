@@ -180,8 +180,6 @@
 		F4B300E8179A1C2200FFCBCF /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300E7179A1C2200FFCBCF /* Logger.m */; };
 		F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */; };
 		F4B9318416B210940079774F /* PositioningHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9318316B210940079774F /* PositioningHelper.m */; };
-		F4B9319616B262740079774F /* shingo.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319516B262740079774F /* shingo.tmx */; };
-		F4B9319816B262910079774F /* shingo.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B9319716B262910079774F /* shingo.png */; };
 		F4B9319B16B265F60079774F /* TileMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9319A16B265F50079774F /* TileMapManager.m */; };
 /* End PBXBuildFile section */
 
@@ -510,8 +508,6 @@
 		F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopStepAnimateData.m; sourceTree = "<group>"; };
 		F4B9318216B210940079774F /* PositioningHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningHelper.h; sourceTree = "<group>"; };
 		F4B9318316B210940079774F /* PositioningHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningHelper.m; sourceTree = "<group>"; };
-		F4B9319516B262740079774F /* shingo.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = shingo.tmx; sourceTree = "<group>"; };
-		F4B9319716B262910079774F /* shingo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shingo.png; sourceTree = "<group>"; };
 		F4B9319916B265F50079774F /* TileMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapManager.h; sourceTree = "<group>"; };
 		F4B9319A16B265F50079774F /* TileMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1043,9 +1039,9 @@
 			children = (
 				F43159BC17A92A0D007D201C /* bg-nologo-960x640.png */,
 				F43159BD17A92A0D007D201C /* bg-nologo-1136x640.png */,
-				F43159BA17A92843007D201C /* credits.png */,
 				F45FCEA516B478EE00E5EC4C /* bg-960x640.png */,
 				F45FCEA616B478EE00E5EC4C /* bg-1136x640.png */,
+				F43159BA17A92843007D201C /* credits.png */,
 				F4B1EBBF16B0FDF0009A4F12 /* Sprites */,
 			);
 			name = Images;
@@ -1056,10 +1052,10 @@
 			children = (
 				F43159C817A93F65007D201C /* button-sprite.plist */,
 				F43159C917A93F65007D201C /* button-sprite.png */,
-				F45FCEA916B478EE00E5EC4C /* title.png */,
-				F45FCEAA16B478EE00E5EC4C /* you-lose.png */,
 				F49E3B4C16B36BE30051B21E /* card-sprite.plist */,
 				F49E3B4D16B36BE30051B21E /* card-sprite.png */,
+				F45FCEA916B478EE00E5EC4C /* title.png */,
+				F45FCEAA16B478EE00E5EC4C /* you-lose.png */,
 				F4A6209A16B342110092DB8E /* you-win.png */,
 			);
 			name = Sprites;
@@ -1078,7 +1074,6 @@
 			isa = PBXGroup;
 			children = (
 				CE163ABB16B26F270066449B /* Sam */,
-				F4B9319416B261B90079774F /* Shingo */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
@@ -1106,15 +1101,6 @@
 				F4B1EBEC16B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		F4B9319416B261B90079774F /* Shingo */ = {
-			isa = PBXGroup;
-			children = (
-				F4B9319716B262910079774F /* shingo.png */,
-				F4B9319516B262740079774F /* shingo.tmx */,
-			);
-			name = Shingo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1176,8 +1162,6 @@
 				F490EFE716AFD62900BBA594 /* Icon.png in Resources */,
 				F490EFE916AFD62900BBA594 /* Icon@2x.png in Resources */,
 				F490EFEC16AFD62900BBA594 /* iTunesArtwork in Resources */,
-				F4B9319616B262740079774F /* shingo.tmx in Resources */,
-				F4B9319816B262910079774F /* shingo.png in Resources */,
 				CE163AC116B26F390066449B /* casino.tmx in Resources */,
 				CE163AC516B2719C0066449B /* casino-land.png in Resources */,
 				CE163AC616B2719C0066449B /* meta.png in Resources */,

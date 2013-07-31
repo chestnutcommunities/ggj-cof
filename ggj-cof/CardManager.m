@@ -97,7 +97,6 @@
         
         for (int i = 0; i < kNumberOfDestinationPointsPerCard; i++) {
             //specify at different destinations so that card always moves
-            //selectedDestination = [tileMapManager.enemyDestinationPoints objectAtIndex:i];
             
             do
             {

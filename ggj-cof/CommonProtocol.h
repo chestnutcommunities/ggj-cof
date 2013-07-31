@@ -3,7 +3,7 @@
  *  TileGame
  *
  *  Created by Sam Christian Lee on 9/22/12.
- *  Copyright 2012 GameCurry. All rights reserved.
+ *  Copyright 2013 Chopsticks On Fire. All rights reserved.
  *
  */
 
@@ -82,9 +82,6 @@ typedef enum {
 
 @protocol GameplayLayerDelegate
 
--(void)createObjectOfType:(GameObjectType)objectType 
-               withHealth:(int)initialHealth
-               atLocation:(CGPoint)spawnLocationInPixels 
-               withZValue:(int)ZValue;
+-(void)createObjectOfType:(GameObjectType)objectType withHealth:(int)initialHealth atLocation:(CGPoint)spawnLocationInPixels withZValue:(int)ZValue;
 
 @end

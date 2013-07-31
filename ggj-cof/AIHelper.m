@@ -275,10 +275,6 @@
     
     CGPoint tempTile = CGPointMake(currentTileOfCard.x, currentTileOfCard.y);
     
-    if (CGPointEqualToPoint(observerCard.position, observerCard.realPosition) == YES) {
-        // Displayed and actual positions are the same
-    }
-    
     int x, y;
     
     do {
@@ -522,21 +518,6 @@
     } while ([tileMapManager isWalkableTile:tempTile]);
     
     return tempTileList;
-}
-
-+(CCArray *)getTilesForEscapePath:(Card *)observerCard tileMapManager:(TileMapManager *)tileMapManager facing:(FacingDirection)facing {
-    
-    //Get straight escape
-    
-    
-    //Go perpendicular (random maybe?)
-    
-    
-    //Go perpendicular again (random)
-    
-    
-    //Go perpendicular last time (random)
-    return NULL;
 }
 
 @end

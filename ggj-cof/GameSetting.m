@@ -41,25 +41,25 @@ static GameSetting *instance = nil;
     fileName = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
     NSString *jsonSettings = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     
-    if (!jsonSettings) {
-        /* default settings if can't read json */
-        enemySpeed = 0.65f;
-        enemyAcceleratedSpeed = 0.375f;
-        cardLimit = difficultyLevel * 8;
-        cardRange = 4 + difficultyLevel;
-        predatorToPreyRatio = difficultyLevel + 1;
-    }
-    else {
+    if (jsonSettings) {
         NSData *jsonData = [jsonSettings dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:NULL];
         
-        for(NSDictionary* data in dict) {
+        for (NSDictionary* data in dict) {
             enemySpeed = [[data objectForKey:@"enemySpeed"] floatValue];
             enemyAcceleratedSpeed = [[data objectForKey:@"enemyAcceleratedSpeed"] floatValue];
             cardLimit = [[data objectForKey:@"cardLimit"] intValue];
             cardRange = [[data objectForKey:@"cardRange"] intValue];
             predatorToPreyRatio = [[data objectForKey:@"predatorToPreyRatio"] intValue];
         }
+    }
+    else {
+        /* default settings if can't read json */
+        enemySpeed = 0.65f;
+        enemyAcceleratedSpeed = 0.375f;
+        cardLimit = difficultyLevel * 8;
+        cardRange = 4 + difficultyLevel;
+        predatorToPreyRatio = difficultyLevel + 1;
     }
 }
 
