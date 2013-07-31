@@ -115,8 +115,8 @@
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];
-        CGSize buttonSize = CGSizeMake(32, 32);
-        CGSize gapSize = CGSizeMake(8, 8);
+        CGSize buttonSize = CGSizeMake(40, 40);
+        CGSize gapSize = CGSizeMake(12, 12);
         
         // Add sprites that make up the title screen
         CCSprite *bg, *title;
@@ -162,17 +162,17 @@
         
         // Set up menu buttons
         
-        CCMenuItem* easyButton = [CCMenuItemImage itemFromNormalImage:@"easy.png" selectedImage:@"easy-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem* easyButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-easy-normal.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-easy-pressed.png"] target:self selector:@selector(startButtonTapped:)];
         easyButton.userData = 1;
-        easyButton.position = ccp(winSize.width * 0.25f, winSize.height * 0.3f);
+        easyButton.position = ccp(winSize.width * 0.3f, winSize.height * 0.3f);
         
-        CCMenuItem* mediumButton = [CCMenuItemImage itemFromNormalImage:@"medium.png" selectedImage:@"medium-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItem* mediumButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-med-normal.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-med-pressed.png"] target:self selector:@selector(startButtonTapped:)];
         mediumButton.userData = 2;
         mediumButton.position = ccp(winSize.width * 0.5f, winSize.height * 0.3f);
         
-        CCMenuItem* hardButton = [CCMenuItemImage itemFromNormalImage:@"hard.png" selectedImage:@"hard-hover.png" target:self selector:@selector(startButtonTapped:)];
+        CCMenuItemSprite* hardButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-hard-normal.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-hard-pressed.png"] target:self selector:@selector(startButtonTapped:)];
         hardButton.userData = 3;
-        hardButton.position = ccp(winSize.width * 0.75f, winSize.height * 0.3f);
+        hardButton.position = ccp(winSize.width * 0.7f, winSize.height * 0.3f);
         
         // Set up info button
         CCMenuItemSprite* infoButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-info-normal.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-info-pressed.png"] target:self selector:@selector(infoButtonTapped:)];

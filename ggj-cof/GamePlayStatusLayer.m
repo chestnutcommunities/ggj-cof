@@ -113,8 +113,8 @@
 
 -(void)buildComponents {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CGSize buttonSize = CGSizeMake(32, 32);
-    CGSize gapSize = CGSizeMake(8, 8);
+    CGSize buttonSize = CGSizeMake(40, 40);
+    CGSize gapSize = CGSizeMake(12, 12);
     CGSize menuPanelSize = CGSizeMake(winSize.width * 0.25f, winSize.height);
     CGPoint menuPanelLocation = ccp(-menuPanelSize.width * 0.5f, menuPanelSize.height * 0.5f);
     CGPoint backgroundLocation = ccp(winSize.width * 0.5f, winSize.height * 0.5f);

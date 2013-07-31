@@ -39,8 +39,24 @@
 
 -(id)init {
     if ((self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
-        CGSize buttonSize = CGSizeMake(32, 32);
-        CGSize gapSize = CGSizeMake(8, 8);
+        CGSize pixelSize = [[CCDirector sharedDirector] winSizeInPixels];
+        CGSize buttonSize = CGSizeMake(40, 40);
+        CGSize gapSize = CGSizeMake(12, 12);
+        
+        // Add background image
+        CCSprite* bg;
+        if (pixelSize.width == 1136) {
+            // iPhone 5
+            bg = [CCSprite spriteWithFile:@"bg-1136x640.png"];
+        }
+        else {
+            // iPhone 4
+            bg = [CCSprite spriteWithFile:@"bg-960x640.png"];
+        }
+        
+        bg.tag = 1;
+        bg.anchorPoint = CGPointMake(0, 0);
+        [self addChild:bg z:0];
         
         // Set up spritesheet
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"button-sprite.plist"];
