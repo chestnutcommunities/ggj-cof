@@ -31,7 +31,7 @@
 @implementation CreditsLayer
 
 -(void) backButtonTapped:(id)sender {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
     
     TitleScreenScene *titleScene = [TitleScreenScene node];
     [[CCDirector sharedDirector] replaceScene:titleScene];

@@ -64,13 +64,13 @@
 }
 
 - (void)infoButtonTapped:(id)sender {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
     CreditsScene *scene = [CreditsScene node];
     [[CCDirector sharedDirector] replaceScene:scene];
 }
 
 - (void)audioButtonTapped:(id)sender {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
     
     // Change the displayed image on the button
     
@@ -104,7 +104,7 @@
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"selection.caf"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"draw-card.caf"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"consumed.caf"];
-        [[SimpleAudioEngine sharedEngine] preloadEffect:@"press.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"3-key-strum.caf"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"hurt.caf"];
         
         // Set up logger
@@ -159,6 +159,11 @@
 
         // Cache current audio engine state
         _audioOn = ![[SimpleAudioEngine sharedEngine] mute];
+
+        if (!_audioOn) {
+            audioButtonNormalName = _audioOffButtonNormalName;
+            audioButtonPressedName = _audioOffButtonPressedName;
+        }
         
         // Set up menu buttons
         

@@ -72,7 +72,7 @@
 
 - (void)pauseButtonTapped:(id)sender {
     if (!_menuPanel.visible) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
         [self showPanel];
         // Notify subscribers game is to be paused
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"pauseGame" object:self];
@@ -81,7 +81,7 @@
 
 - (void)resumeButtonTapped:(id)sender {
     if (_menuPanel.visible) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
         [self hidePanel];
         // Notify subscribers game is to be resumed
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"resumeGame" object:self];
@@ -89,7 +89,7 @@
 }
 
 - (void)audioButtonTapped:(id)sender {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
     
     if (_audioOn) {
         // If it's currently on, show 'audio off' button
@@ -107,7 +107,7 @@
 }
 
 - (void)menuButtonTapped:(id)sender {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"press.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"backToMenu" object:self];
 }
 
