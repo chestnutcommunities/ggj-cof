@@ -3,7 +3,7 @@
 //  TileGame
 //
 //  Created by Sam Christian Lee on 9/22/12.
-//  Copyright 2013 Chopsticks On Fire. All rights reserved.
+//  Copyright 2013 Groovy Vision. All rights reserved.
 //
 
 #import "GameCharacter.h"

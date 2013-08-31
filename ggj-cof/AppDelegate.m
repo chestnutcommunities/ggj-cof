@@ -3,14 +3,14 @@
 //  TileGame
 //
 //  Created by Shingo Tamura on 5/07/12.
-//  Copyright Chopsticks On Fire 2013. All rights reserved.
+//  Copyright Groovy Vision 2013. All rights reserved.
 //
 
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "TitleScreenScene.h"
+#import "LoadingScene.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -119,7 +119,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [TitleScreenLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [LoadingLayer scene]];
 }
 
 

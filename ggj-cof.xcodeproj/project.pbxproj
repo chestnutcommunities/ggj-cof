@@ -181,6 +181,9 @@
 		F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */; };
 		F4B9318416B210940079774F /* PositioningHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9318316B210940079774F /* PositioningHelper.m */; };
 		F4B9319B16B265F60079774F /* TileMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9319A16B265F50079774F /* TileMapManager.m */; };
+		F4E4692317D1B2630018F662 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AF30F217D0750A0043D28E /* Default@2x.png */; };
+		F4E4692517D1B3D10018F662 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E4692417D1B3D10018F662 /* logo.png */; };
+		F4E4692817D1B4310018F662 /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E4692717D1B4310018F662 /* LoadingScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -466,6 +469,7 @@
 		F4A6209416B3404A0092DB8E /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		F4A6209A16B342110092DB8E /* you-win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you-win.png"; sourceTree = "<group>"; };
 		F4ABBC3316B2AA3800BB3A51 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F4AF30F217D0750A0043D28E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F4B1EBC316B101E2009A4F12 /* CommonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocol.h; sourceTree = "<group>"; };
 		F4B1EBC416B101E2009A4F12 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F4B1EBC516B1023A009A4F12 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
@@ -510,6 +514,9 @@
 		F4B9318316B210940079774F /* PositioningHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningHelper.m; sourceTree = "<group>"; };
 		F4B9319916B265F50079774F /* TileMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapManager.h; sourceTree = "<group>"; };
 		F4B9319A16B265F50079774F /* TileMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapManager.m; sourceTree = "<group>"; };
+		F4E4692417D1B3D10018F662 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F4E4692617D1B4310018F662 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
+		F4E4692717D1B4310018F662 /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,6 +584,7 @@
 		F490EFB916AFD62900BBA594 = {
 			isa = PBXGroup;
 			children = (
+				F4AF30F217D0750A0043D28E /* Default@2x.png */,
 				F490EFD816AFD62900BBA594 /* ggj-cof */,
 				F490EFC716AFD62900BBA594 /* Frameworks */,
 				F490EFC516AFD62900BBA594 /* Products */,
@@ -975,6 +983,8 @@
 				F4B1EBF716B104FE009A4F12 /* GamePlayRenderingLayer.m */,
 				F4B1EBCD16B102B0009A4F12 /* GamePlayStatusLayer.h */,
 				F4B1EBCE16B102B0009A4F12 /* GamePlayStatusLayer.m */,
+				F4E4692617D1B4310018F662 /* LoadingScene.h */,
+				F4E4692717D1B4310018F662 /* LoadingScene.m */,
 				F4B1EBCF16B102B0009A4F12 /* TitleScreenScene.h */,
 				F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */,
 				CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */,
@@ -1037,6 +1047,7 @@
 		F4B1EBBE16B0FDC8009A4F12 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F4E4692417D1B3D10018F662 /* logo.png */,
 				F43159BC17A92A0D007D201C /* bg-nologo-960x640.png */,
 				F43159BD17A92A0D007D201C /* bg-nologo-1136x640.png */,
 				F45FCEA516B478EE00E5EC4C /* bg-960x640.png */,
@@ -1191,6 +1202,8 @@
 				F43159C717A93948007D201C /* 3-key-strum.caf in Resources */,
 				F43159CA17A93F65007D201C /* button-sprite.plist in Resources */,
 				F43159CB17A93F65007D201C /* button-sprite.png in Resources */,
+				F4E4692317D1B2630018F662 /* Default@2x.png in Resources */,
+				F4E4692517D1B3D10018F662 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1329,6 +1342,7 @@
 				F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */,
 				CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */,
 				F428480B17A7BD010098BB0B /* CreditsLayer.m in Sources */,
+				F4E4692817D1B4310018F662 /* LoadingScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

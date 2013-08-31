@@ -3,7 +3,7 @@
 //  ggj-cof
 //
 //  Created by Sam Christian Lee on 1/26/13.
-//  Copyright 2013 Chopsticks On Fire. All rights reserved.
+//  Copyright 2013 Groovy Vision. All rights reserved.
 //
 
 #import "AIHelper.h"

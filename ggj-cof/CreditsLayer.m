@@ -60,7 +60,7 @@
         [self addChild:bg z:0];
         
         CCSprite* credits = [CCSprite spriteWithFile:@"credits.png"];
-        credits.position = ccp(winSize.width * 0.5f, winSize.height * 0.5f);
+        credits.position = ccp(winSize.width * 0.5f, winSize.height * 0.55f);
         [self addChild:credits z:1];
         
         // Set up spritesheet
