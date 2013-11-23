@@ -135,9 +135,6 @@
 		F490F0EB16AFD62A00BBA594 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0EA16AFD62A00BBA594 /* CDOpenALSupport.m */; };
 		F490F0EE16AFD62B00BBA594 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0ED16AFD62B00BBA594 /* CocosDenshion.m */; };
 		F490F0F116AFD62B00BBA594 /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0F016AFD62B00BBA594 /* SimpleAudioEngine.m */; };
-		F490F0F616AFD62B00BBA594 /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0F516AFD62B00BBA594 /* CLScoreServerPost.m */; };
-		F490F0F916AFD62B00BBA594 /* CLScoreServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0F816AFD62B00BBA594 /* CLScoreServerRequest.m */; };
-		F490F0FC16AFD62B00BBA594 /* cocoslive.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0FB16AFD62B00BBA594 /* cocoslive.m */; };
 		F490F10116AFD62B00BBA594 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F10016AFD62B00BBA594 /* CDataScanner.m */; };
 		F490F10516AFD62B00BBA594 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F10416AFD62B00BBA594 /* CDataScanner_Extensions.m */; };
 		F490F10816AFD62B00BBA594 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F10716AFD62B00BBA594 /* NSDictionary_JSONExtensions.m */; };
@@ -225,7 +222,7 @@
 		F45FCEC516B48BBA00E5EC4C /* selection.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = selection.caf; sourceTree = "<group>"; };
 		F45FCEC816B48D9700E5EC4C /* draw-card.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "draw-card.caf"; sourceTree = "<group>"; };
 		F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-480h@2x.png"; sourceTree = "<group>"; };
-		F490EFC416AFD62900BBA594 /* ggj-cof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ggj-cof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F490EFC416AFD62900BBA594 /* cardchase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardchase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F490EFC816AFD62900BBA594 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F490EFCA16AFD62900BBA594 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		F490EFCC16AFD62900BBA594 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -419,12 +416,6 @@
 		F490F0EF16AFD62B00BBA594 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleAudioEngine.h; path = libs/CocosDenshion/SimpleAudioEngine.h; sourceTree = "<group>"; };
 		F490F0F016AFD62B00BBA594 /* SimpleAudioEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SimpleAudioEngine.m; path = libs/CocosDenshion/SimpleAudioEngine.m; sourceTree = "<group>"; };
 		F490F0F216AFD62B00BBA594 /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_CocosDenshion.txt; path = libs/LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
-		F490F0F416AFD62B00BBA594 /* CLScoreServerPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CLScoreServerPost.h; path = libs/cocoslive/CLScoreServerPost.h; sourceTree = "<group>"; };
-		F490F0F516AFD62B00BBA594 /* CLScoreServerPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CLScoreServerPost.m; path = libs/cocoslive/CLScoreServerPost.m; sourceTree = "<group>"; };
-		F490F0F716AFD62B00BBA594 /* CLScoreServerRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CLScoreServerRequest.h; path = libs/cocoslive/CLScoreServerRequest.h; sourceTree = "<group>"; };
-		F490F0F816AFD62B00BBA594 /* CLScoreServerRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CLScoreServerRequest.m; path = libs/cocoslive/CLScoreServerRequest.m; sourceTree = "<group>"; };
-		F490F0FA16AFD62B00BBA594 /* cocoslive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cocoslive.h; path = libs/cocoslive/cocoslive.h; sourceTree = "<group>"; };
-		F490F0FB16AFD62B00BBA594 /* cocoslive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = cocoslive.m; path = libs/cocoslive/cocoslive.m; sourceTree = "<group>"; };
 		F490F0FD16AFD62B00BBA594 /* LICENSE_TouchJSON.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_TouchJSON.txt; path = libs/LICENSE_TouchJSON.txt; sourceTree = "<group>"; };
 		F490F0FF16AFD62B00BBA594 /* CDataScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CDataScanner.h; path = libs/TouchJSON/CDataScanner.h; sourceTree = "<group>"; };
 		F490F10016AFD62B00BBA594 /* CDataScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = libs/TouchJSON/CDataScanner.m; sourceTree = "<group>"; };
@@ -594,7 +585,7 @@
 		F490EFC516AFD62900BBA594 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F490EFC416AFD62900BBA594 /* ggj-cof.app */,
+				F490EFC416AFD62900BBA594 /* cardchase.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -637,12 +628,12 @@
 			isa = PBXGroup;
 			children = (
 				CE78716717A375B000471015 /* Levels */,
-				F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */,
-				F4ABBC3316B2AA3800BB3A51 /* Default-568h@2x.png */,
 				F4B1EBC116B0FE86009A4F12 /* Maps */,
 				F4B1EBC016B0FDFE009A4F12 /* Sounds */,
 				F4B1EBBE16B0FDC8009A4F12 /* Images */,
 				F490EFDA16AFD62900BBA594 /* Default.png */,
+				F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */,
+				F4ABBC3316B2AA3800BB3A51 /* Default-568h@2x.png */,
 				F490EFDC16AFD62900BBA594 /* fps_images.png */,
 				F490EFDE16AFD62900BBA594 /* Icon-72.png */,
 				F490EFE016AFD62900BBA594 /* Icon-Small-50.png */,
@@ -666,7 +657,6 @@
 				F490F12516AFD62B00BBA594 /* LICENSE_FontLabel.txt */,
 				F490EFEE16AFD62900BBA594 /* cocos2d */,
 				F490F0E416AFD62A00BBA594 /* CocosDenshion */,
-				F490F0F316AFD62B00BBA594 /* cocoslive */,
 				F490F0FE16AFD62B00BBA594 /* TouchJSON */,
 				F490F11416AFD62B00BBA594 /* FontLabel */,
 			);
@@ -892,19 +882,6 @@
 			name = CocosDenshion;
 			sourceTree = "<group>";
 		};
-		F490F0F316AFD62B00BBA594 /* cocoslive */ = {
-			isa = PBXGroup;
-			children = (
-				F490F0F416AFD62B00BBA594 /* CLScoreServerPost.h */,
-				F490F0F516AFD62B00BBA594 /* CLScoreServerPost.m */,
-				F490F0F716AFD62B00BBA594 /* CLScoreServerRequest.h */,
-				F490F0F816AFD62B00BBA594 /* CLScoreServerRequest.m */,
-				F490F0FA16AFD62B00BBA594 /* cocoslive.h */,
-				F490F0FB16AFD62B00BBA594 /* cocoslive.m */,
-			);
-			name = cocoslive;
-			sourceTree = "<group>";
-		};
 		F490F0FE16AFD62B00BBA594 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -1117,9 +1094,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F490EFC316AFD62900BBA594 /* ggj-cof */ = {
+		F490EFC316AFD62900BBA594 /* cardchase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "ggj-cof" */;
+			buildConfigurationList = F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "cardchase" */;
 			buildPhases = (
 				F490EFC016AFD62900BBA594 /* Sources */,
 				F490EFC116AFD62900BBA594 /* Frameworks */,
@@ -1129,9 +1106,9 @@
 			);
 			dependencies = (
 			);
-			name = "ggj-cof";
+			name = cardchase;
 			productName = "ggj-cof";
-			productReference = F490EFC416AFD62900BBA594 /* ggj-cof.app */;
+			productReference = F490EFC416AFD62900BBA594 /* cardchase.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1154,7 +1131,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F490EFC316AFD62900BBA594 /* ggj-cof */,
+				F490EFC316AFD62900BBA594 /* cardchase */,
 			);
 		};
 /* End PBXProject section */
@@ -1294,9 +1271,6 @@
 				F490F0EB16AFD62A00BBA594 /* CDOpenALSupport.m in Sources */,
 				F490F0EE16AFD62B00BBA594 /* CocosDenshion.m in Sources */,
 				F490F0F116AFD62B00BBA594 /* SimpleAudioEngine.m in Sources */,
-				F490F0F616AFD62B00BBA594 /* CLScoreServerPost.m in Sources */,
-				F490F0F916AFD62B00BBA594 /* CLScoreServerRequest.m in Sources */,
-				F490F0FC16AFD62B00BBA594 /* cocoslive.m in Sources */,
 				F490F10116AFD62B00BBA594 /* CDataScanner.m in Sources */,
 				F490F10516AFD62B00BBA594 /* CDataScanner_Extensions.m in Sources */,
 				F490F10816AFD62B00BBA594 /* NSDictionary_JSONExtensions.m in Sources */,
@@ -1433,7 +1407,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "ggj-cof" */ = {
+		F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "cardchase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F490F13716AFD62B00BBA594 /* Debug */,
