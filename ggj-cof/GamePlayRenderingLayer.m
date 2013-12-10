@@ -48,11 +48,11 @@
 
 -(void) initPlayer:(CGSize)winSize
 {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"card-sprite.plist"];
-    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"card-sprite.png"] retain];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"character-sprite.plist"];
+    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"character-sprite.png"] retain];
     [self addChild:_sceneBatchNode];
     
-    _player = [[Player alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]];
+    _player = [[Player alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"hero-front-1.png"]];
     
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     

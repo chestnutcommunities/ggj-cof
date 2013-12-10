@@ -25,7 +25,10 @@
 @synthesize requestedAnimation = _requestedAnimation;
 
 -(void) dealloc {
-    [_walkingAnim release];
+    [_upAnim release];
+    [_downAnim release];
+    [_leftAnim release];
+    [_rightAnim release];
     [_destinationPoints release];
     
     [super dealloc];
@@ -58,19 +61,35 @@
 
 -(void)face:(FacingDirection)direction {
     switch (direction) {
+        case kFacingUp:
+            if (_facing != kFacingUp) {
+                _facing = kFacingUp;
+                if (!_delayFlip) {
+                    [self syncAnimationAndDirection];
+                }
+            }
+            break;
+        case kFacingDown:
+            if (_facing != kFacingDown) {
+                _facing = kFacingDown;
+                if (!_delayFlip) {
+                    [self syncAnimationAndDirection];
+                }
+            }
+            break;
         case kFacingRight:
             if (_facing != kFacingRight) {
                 _facing = kFacingRight;
-                if (!_delayFlipX) {
-                    self.flipX = NO;
+                if (!_delayFlip) {
+                    [self syncAnimationAndDirection];
                 }
             }
             break;
         case kFacingLeft:
             if (_facing != kFacingLeft) {
                 _facing = kFacingLeft;
-                if (!_delayFlipX) {
-                    self.flipX = YES;
+                if (!_delayFlip) {
+                    [self syncAnimationAndDirection];
                 }
             }
             break;
@@ -92,7 +111,7 @@
     }
     
     NSString *numberString;
-    numberString = [NSString stringWithFormat:@"%d.png", _number];
+    numberString = [NSString stringWithFormat:@"enemy-number-%d.png", _number];
     
     CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:numberString];
     [_numberPanel setDisplayFrame:frame];
@@ -103,16 +122,49 @@
 }
 
 -(void) loadAnimations {
-    NSMutableArray *animFrames = [NSMutableArray array];
-    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]];
-    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-2.png"]];
-    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-3.png"]];
-    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-4.png"]];
-    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-5.png"]];
-    [animFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-6.png"]];
+    NSMutableArray *afUp = [NSMutableArray array];
     
-    // set up walking animations
-    _walkingAnim = [[CCAnimation animationWithFrames:animFrames delay:0.1f] retain];
+    [afUp addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-back-1.png"]];
+    [afUp addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-back-2.png"]];
+    [afUp addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-back-3.png"]];
+    [afUp addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-back-4.png"]];
+    [afUp addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-back-5.png"]];
+    [afUp addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-back-6.png"]];
+    
+    _upAnim = [[CCAnimation animationWithFrames:afUp delay:0.1f] retain];
+    
+    NSMutableArray *afDown = [NSMutableArray array];
+    
+    [afDown addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-1.png"]];
+    [afDown addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-2.png"]];
+    [afDown addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-3.png"]];
+    [afDown addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-4.png"]];
+    [afDown addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-5.png"]];
+    [afDown addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-6.png"]];
+    
+    _downAnim = [[CCAnimation animationWithFrames:afDown delay:0.1f] retain];
+    
+    NSMutableArray *afLeft = [NSMutableArray array];
+    
+    [afLeft addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-left-1.png"]];
+    [afLeft addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-left-2.png"]];
+    [afLeft addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-left-3.png"]];
+    [afLeft addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-left-4.png"]];
+    [afLeft addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-left-5.png"]];
+    [afLeft addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-left-6.png"]];
+    
+    _leftAnim = [[CCAnimation animationWithFrames:afLeft delay:0.1f] retain];
+    
+    NSMutableArray *afRight = [NSMutableArray array];
+    
+    [afRight addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-right-1.png"]];
+    [afRight addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-right-2.png"]];
+    [afRight addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-right-3.png"]];
+    [afRight addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-right-4.png"]];
+    [afRight addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-right-5.png"]];
+    [afRight addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-right-6.png"]];
+    
+    _rightAnim = [[CCAnimation animationWithFrames:afRight delay:0.1f] retain];
 }
 
 -(void)setSuit:(CardSuit)suit {
@@ -159,23 +211,60 @@
     CGRect cardBoundingBox = [self adjustedBoundingBox];
     int cardRange = [[GameSetting instance] cardRange];
     int cardRangeSize = cardRange * 2;
-	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width * cardRange,
-										cardBoundingBox.origin.y - cardBoundingBox.size.height * cardRange,
-										cardBoundingBox.size.width * cardRangeSize,
-										cardBoundingBox.size.height * cardRangeSize);
+    
+	cardSightBoundingBox = CGRectMake(cardBoundingBox.origin.x - cardBoundingBox.size.width * cardRange, cardBoundingBox.origin.y - cardBoundingBox.size.height * cardRange, cardBoundingBox.size.width * cardRangeSize, cardBoundingBox.size.height * cardRangeSize);
+    
 	return cardSightBoundingBox;
 }
 
 -(void) startWalking {
-    [_walkingAnim setDelay:0.1f];
-    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkingAnim restoreOriginalFrame:YES]] retain];
+    CCAnimation* animation;
+    
+    switch (_facing) {
+        case kFacingUp:
+            animation = _upAnim;
+            break;
+        case kFacingDown:
+            animation = _downAnim;
+            break;
+        case kFacingRight:
+            animation = _rightAnim;
+            break;
+        case kFacingLeft:
+            animation = _leftAnim;
+            break;
+        default:
+            break;
+    }
+
+    [animation setDelay:0.1f];
+    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:YES]] retain];
     [self runAction:action];
     [self face:_facing];
 }
 
 -(void) startRunning {
-    [_walkingAnim setDelay:0.05f];
-    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkingAnim restoreOriginalFrame:YES]] retain];
+    CCAnimation* animation;
+    
+    switch (_facing) {
+        case kFacingUp:
+            animation = _upAnim;
+            break;
+        case kFacingDown:
+            animation = _downAnim;
+            break;
+        case kFacingRight:
+            animation = _rightAnim;
+            break;
+        case kFacingLeft:
+            animation = _leftAnim;
+            break;
+        default:
+            break;
+    }
+
+    [animation setDelay:0.05f];
+    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:YES]] retain];
     [self runAction:action];
     [self face:_facing];
 }
@@ -193,6 +282,38 @@
     _requestedAnimation = animation;
 }
 
+-(void) syncAnimationAndDirection {
+    CCAnimation* animation;
+    
+    switch (_facing) {
+        case kFacingUp:
+            animation = _upAnim;
+            _suitPanel.position = _suitPosUp;
+            _numberPanel.position = _numberPosUp;
+            break;
+        case kFacingDown:
+            animation = _downAnim;
+            _suitPanel.position = _suitPosDown;
+            _numberPanel.position = _numberPosDown;
+            break;
+        case kFacingRight:
+            animation = _rightAnim;
+            _suitPanel.position =  _suitPosRight;
+            _numberPanel.position = _numberPosRight;
+            break;
+        case kFacingLeft:
+            animation = _leftAnim;
+            _suitPanel.position = _suitPosLeft;
+            _numberPanel.position = _numberPosLeft;
+            break;
+        default:
+            break;
+    }
+
+    id action = [[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation restoreOriginalFrame:YES]] retain];
+    [self runAction:action];
+}
+
 -(void)updateAnimation {
     if (_requestedAnimation == CardAnimationNone) { return; }
     
@@ -207,13 +328,19 @@
     _requestedAnimation = CardAnimationNone;
 }
 
--(void)updateHorizontalFacingDirection {
-    if (_delayFlipX) {
+-(void)updateFacingDirection {
+    if (_delayFlip) {
         if (_facing == kFacingRight) {
-            self.flipX = NO;
+            [self syncAnimationAndDirection];
         }
         else if (_facing == kFacingLeft) {
-            self.flipX = YES;
+            [self syncAnimationAndDirection];
+        }
+        else if (_facing == kFacingUp) {
+            [self syncAnimationAndDirection];
+        }
+        else if (_facing == kFacingDown) {
+            [self syncAnimationAndDirection];
         }
     }
 }
@@ -273,6 +400,19 @@
     }
 }
 
+-(void) initSuitAndNumberPositions
+{
+    _suitPosUp = ccp(16, 15);
+    _suitPosDown = ccp(25, 15);
+    _suitPosLeft = ccp(25, 15);
+    _suitPosRight = ccp(21, 15);
+    
+    _numberPosUp = ccp(25, 24);
+    _numberPosDown = ccp(25, 24);
+    _numberPosLeft = ccp(25, 24);
+    _numberPosRight = ccp(22, 24);
+}
+
 -(id) init
 {
     if ((self = [super init])) {
@@ -282,14 +422,15 @@
         _facing = kFacingRight;
         
         _suitPanel = [[[GameObject alloc] initWithSpriteFrameName:@"hearts.png"] retain];
-        _numberPanel = [[[GameObject alloc] initWithSpriteFrameName:@"1.png"] retain];
+        _numberPanel = [[[GameObject alloc] initWithSpriteFrameName:@"enemy-number-1.png"] retain];
                 
-        _suitPanel.position = ccp(22, 14);
-        _numberPanel.position = ccp(11, 24);
+        _suitPanel.position = ccp(25, 16);
+        _numberPanel.position = ccp(25, 23);
         
         _tilePerSecond = ENEMY_NORMAL_SPEED;
         _previousDirection = kFacingNone;
         
+        [self initSuitAndNumberPositions];
         [self loadAnimations];
         
         [self addChild:_suitPanel];
@@ -299,7 +440,7 @@
         
         _requestedAnimation = CardAnimationNone;
         
-        _delayFlipX = YES;
+        _delayFlip = YES;
         
         [self startWalking];
     }

@@ -116,7 +116,7 @@
     // Animation of the card needs to be sync'd with its speed
     // Update animation
     [card updateAnimation];
-    [card updateHorizontalFacingDirection];
+    [card updateFacingDirection];
     
     // Move the card to the destination at tile/second
 	id moveAction = [CCMoveTo actionWithDuration:card.tilePerSecond position:[card getCardDisplayPosition]];
