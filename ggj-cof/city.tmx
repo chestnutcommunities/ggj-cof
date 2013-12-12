@@ -27,7 +27,7 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="30" height="30">
-  <object name="SpawnPoint" x="486" y="1540" width="84" height="84"/>
+  <object name="SpawnPoint" x="495" y="1561" width="63" height="54"/>
   <object name="CardSpawnPoint1" x="960" y="480" width="96" height="96">
    <properties>
     <property name="Card" value="1"/>
@@ -53,7 +53,7 @@
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="960" y="1440" width="96" height="96">
+  <object name="CardSpawnPoint1" x="977" y="1460" width="63" height="59">
    <properties>
     <property name="Card" value="1"/>
    </properties>
@@ -198,7 +198,7 @@
     <property name="Card" value="1"/>
    </properties>
   </object>
-  <object name="CardSpawnPoint1" x="768" y="1248" width="96" height="96">
+  <object name="CardSpawnPoint1" x="780" y="1254" width="72" height="81">
    <properties>
     <property name="Card" value="1"/>
    </properties>

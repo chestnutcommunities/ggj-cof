@@ -21,6 +21,9 @@
 		CE78719817A3B8D800471015 /* level-3.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719517A3B8D800471015 /* level-3.json */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
+		CEB669F21857100A00474E34 /* city.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CEB669EF1857100A00474E34 /* city.tmx */; };
+		CEB669F31857100A00474E34 /* map_96.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB669F01857100A00474E34 /* map_96.png */; };
+		CEB669F41857100A00474E34 /* meta-96.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB669F11857100A00474E34 /* meta-96.png */; };
 		F428480B17A7BD010098BB0B /* CreditsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F428480A17A7BD010098BB0B /* CreditsLayer.m */; };
 		F43159BB17A92843007D201C /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = F43159BA17A92843007D201C /* credits.png */; };
 		F43159BE17A92A0D007D201C /* bg-nologo-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F43159BC17A92A0D007D201C /* bg-nologo-960x640.png */; };
@@ -206,6 +209,9 @@
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
 		CE79B74D16B330EC004B160B /* AICharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICharacter.m; sourceTree = "<group>"; };
+		CEB669EF1857100A00474E34 /* city.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = city.tmx; sourceTree = "<group>"; };
+		CEB669F01857100A00474E34 /* map_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_96.png; sourceTree = "<group>"; };
+		CEB669F11857100A00474E34 /* meta-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meta-96.png"; sourceTree = "<group>"; };
 		F428480917A7BD010098BB0B /* CreditsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsLayer.h; sourceTree = "<group>"; };
 		F428480A17A7BD010098BB0B /* CreditsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsLayer.m; sourceTree = "<group>"; };
 		F43159BA17A92843007D201C /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
@@ -553,6 +559,16 @@
 				CE78719517A3B8D800471015 /* level-3.json */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		CEB669F51857101000474E34 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				CEB669EF1857100A00474E34 /* city.tmx */,
+				CEB669F01857100A00474E34 /* map_96.png */,
+				CEB669F11857100A00474E34 /* meta-96.png */,
+			);
+			name = City;
 			sourceTree = "<group>";
 		};
 		F45FCEB716B4795300E5EC4C /* Music */ = {
@@ -1067,6 +1083,7 @@
 		F4B1EBC116B0FE86009A4F12 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				CEB669F51857101000474E34 /* City */,
 				CE163ABB16B26F270066449B /* Sam */,
 			);
 			name = Maps;
@@ -1155,6 +1172,7 @@
 				F490EFE516AFD62900BBA594 /* Icon-Small@2x.png in Resources */,
 				F490EFE716AFD62900BBA594 /* Icon.png in Resources */,
 				F490EFE916AFD62900BBA594 /* Icon@2x.png in Resources */,
+				CEB669F21857100A00474E34 /* city.tmx in Resources */,
 				F490EFEC16AFD62900BBA594 /* iTunesArtwork in Resources */,
 				CE163AC116B26F390066449B /* casino.tmx in Resources */,
 				CE163AC516B2719C0066449B /* casino-land.png in Resources */,
@@ -1167,11 +1185,13 @@
 				F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */,
 				F45FCEAC16B478EE00E5EC4C /* bg-1136x640.png in Resources */,
 				F45FCEAF16B478EE00E5EC4C /* title.png in Resources */,
+				CEB669F31857100A00474E34 /* map_96.png in Resources */,
 				F45FCEB016B478EE00E5EC4C /* you-lose.png in Resources */,
 				F45FCEB216B4791800E5EC4C /* main-theme.mp3 in Resources */,
 				F45FCEB516B4794C00E5EC4C /* lose!.mp3 in Resources */,
 				F45FCEB616B4794C00E5EC4C /* win!.mp3 in Resources */,
 				F45FCEC716B48BBA00E5EC4C /* selection.caf in Resources */,
+				CEB669F41857100A00474E34 /* meta-96.png in Resources */,
 				F45FCEC916B48D9700E5EC4C /* draw-card.caf in Resources */,
 				CE6317CE16B4920F00823F1C /* decoration.png in Resources */,
 				F45FCEDA16B4BE4700E5EC4C /* Default-480h@2x.png in Resources */,

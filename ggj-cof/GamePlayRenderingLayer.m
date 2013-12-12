@@ -59,7 +59,7 @@
     [_player setPosition:position];
     [_player setRealPosition:position];
     
-    _player.speed = 20.0f;
+    _player.speed = 30.0f;
     
     [_sceneBatchNode addChild:_player z:0];
     
@@ -70,7 +70,7 @@
 
 -(void) initTileMap
 {
-    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino.tmx"];
+    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"city.tmx"];
     self.mapManager = [[TileMapManager alloc] initWithTileMap:map];
     [self addChild:self.mapManager.tileMap];
 }
