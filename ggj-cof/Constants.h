@@ -22,5 +22,5 @@
 #define kMaxLineOfSight 200
 #define kNumberOfDestinationPointsPerCard 2
 
-#define ENEMY_NORMAL_SPEED 0.65f
-#define ENEMY_FAST_SPEED 0.375f
+#define ENEMY_NORMAL_SPEED 0.975f
+#define ENEMY_FAST_SPEED 0.5625f

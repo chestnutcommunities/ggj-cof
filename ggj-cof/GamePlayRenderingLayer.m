@@ -59,7 +59,7 @@
     [_player setPosition:position];
     [_player setRealPosition:position];
     
-    _player.speed = 30.0f;
+    _player.speed = 40.0f;
     
     [_sceneBatchNode addChild:_player z:0];
     
@@ -168,10 +168,10 @@
         _player.previousDirection = direction;
         [_player face:direction];
         
-        id actionMove = [[CCMoveTo actionWithDuration:0.3f position:fittedPos] retain];
+        id actionMove = [[CCMoveTo actionWithDuration:0.35f position:fittedPos] retain];
         id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
         CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
-        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.3f position:viewPointPosition] retain];
+        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.35f position:viewPointPosition] retain];
         
         _player.isMoving = YES;
         
