@@ -18,6 +18,8 @@
 
 @implementation GamePlayInputLayer
 
+@synthesize movingThreshold = _movingThreshold;
+
 @synthesize gameLayer = _gameLayer;
 
 @synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
@@ -50,35 +52,40 @@
     if (_inputState == kStateAwaitingInput || !_enabled) {
         return;
     }
+    
+    _tmpMovingDelta += deltaTime;
 
-    GameCharacter* subject = (GameCharacter*)_gameLayer.player;
-    
-    FacingDirection dir;
-    CGPoint newPosition = ccp(subject.position.x, subject.position.y);
-    
-    switch (_inputState) {
-        case kStateSwipedUp:
-            dir = kFacingUp;
-            newPosition.y += subject.speed;
-            break;
-        case kStateSwipedDown:
-            dir = kFacingDown;
-            newPosition.y -= subject.speed;
-            break;
-        case kStateSwipedLeft:
-            dir = kFacingLeft;
-            newPosition.x -= subject.speed;
-            break;
-        case kStateSwipedRight:
-            dir = kFacingRight;
-            newPosition.x += subject.speed;
-            break;
-        default:
-            dir = kFacingNone;
-            break;
+    if (_tmpMovingDelta >= _movingThreshold) {
+        GameCharacter* subject = (GameCharacter*)_gameLayer.player;
+        
+        FacingDirection dir;
+        CGPoint newPosition = ccp(subject.position.x, subject.position.y);
+        
+        switch (_inputState) {
+            case kStateSwipedUp:
+                dir = kFacingUp;
+                newPosition.y += subject.speed;
+                break;
+            case kStateSwipedDown:
+                dir = kFacingDown;
+                newPosition.y -= subject.speed;
+                break;
+            case kStateSwipedLeft:
+                dir = kFacingLeft;
+                newPosition.x -= subject.speed;
+                break;
+            case kStateSwipedRight:
+                dir = kFacingRight;
+                newPosition.x += subject.speed;
+                break;
+            default:
+                dir = kFacingNone;
+                break;
+        }
+        
+        _tmpMovingDelta = 0;
+        [_gameLayer movePlayer:newPosition facing:dir];
     }
-    
-    [_gameLayer movePlayer:newPosition facing:dir];
 }
 
 -(void)handleLeftSwipe:(UISwipeGestureRecognizer*)sender {

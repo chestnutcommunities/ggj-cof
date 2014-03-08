@@ -80,7 +80,7 @@
 -(void) spawnCards:(int)baseNumber spawnPoints:(NSMutableArray*) spawnPoints {
     for (NSValue* val in spawnPoints) {        
         CGPoint spawnPoint = [val CGPointValue];
-        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-1.png"]] retain];
+        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]] retain];
         [card setRealPosition:spawnPoint];
 		[card setPosition:spawnPoint];
 		[_enemyBatchNode addChild:card z:100];
@@ -132,7 +132,7 @@
     for (NSValue* val in spawnPoints) {
         CGPoint spawnPoint = [val CGPointValue];
         
-        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-front-1.png"]] retain];
+        Card* card = [[[Card alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"enemy-1.png"]] retain];
         [card setRealPosition:spawnPoint];
 		[card setPosition:spawnPoint];
 		[_enemyBatchNode addChild:card z:100];
@@ -143,8 +143,8 @@
 }
 
 -(id) init {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"character-sprite.plist"];
-    _enemyBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"character-sprite.png"] retain];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"card-sprite.plist"];
+    _enemyBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"card-sprite.png"] retain];
     
     return self;
 }

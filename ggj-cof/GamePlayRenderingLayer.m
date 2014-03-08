@@ -48,18 +48,18 @@
 
 -(void) initPlayer:(CGSize)winSize
 {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"character-sprite.plist"];
-    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"character-sprite.png"] retain];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"card-sprite.plist"];
+    _sceneBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"card-sprite.png"] retain];
     [self addChild:_sceneBatchNode];
     
-    _player = [[Player alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"hero-front-1.png"]];
+    _player = [[Player alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"card-1.png"]];
     
     CGPoint position = [_mapManager getPlayerSpawnPoint];
     
     [_player setPosition:position];
     [_player setRealPosition:position];
     
-    _player.speed = 40.0f;
+    _player.speed = 20.0f;
     
     [_sceneBatchNode addChild:_player z:0];
     
@@ -70,7 +70,7 @@
 
 -(void) initTileMap
 {
-    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"city.tmx"];
+    CCTMXTiledMap* map = [CCTMXTiledMap tiledMapWithTMXFile:@"casino.tmx"];
     self.mapManager = [[TileMapManager alloc] initWithTileMap:map];
     [self addChild:self.mapManager.tileMap];
 }
@@ -168,10 +168,10 @@
         _player.previousDirection = direction;
         [_player face:direction];
         
-        id actionMove = [[CCMoveTo actionWithDuration:0.35f position:fittedPos] retain];
+        id actionMove = [[CCMoveTo actionWithDuration:0.3f position:fittedPos] retain];
         id actionMoveDone = [[CCCallFuncN actionWithTarget:self selector:@selector(playerMoved:)] retain];
         CGPoint viewPointPosition = [PositioningHelper getViewpointPosition:fittedPos];
-        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.35f position:viewPointPosition] retain];
+        id actionViewpointMove = [[CCMoveTo actionWithDuration:0.3f position:viewPointPosition] retain];
         
         _player.isMoving = YES;
         

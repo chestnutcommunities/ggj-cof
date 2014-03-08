@@ -21,9 +21,6 @@
 		CE78719817A3B8D800471015 /* level-3.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719517A3B8D800471015 /* level-3.json */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
-		CEB669F21857100A00474E34 /* city.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CEB669EF1857100A00474E34 /* city.tmx */; };
-		CEB669F31857100A00474E34 /* map_96.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB669F01857100A00474E34 /* map_96.png */; };
-		CEB669F41857100A00474E34 /* meta-96.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB669F11857100A00474E34 /* meta-96.png */; };
 		F428480B17A7BD010098BB0B /* CreditsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F428480A17A7BD010098BB0B /* CreditsLayer.m */; };
 		F43159BB17A92843007D201C /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = F43159BA17A92843007D201C /* credits.png */; };
 		F43159BE17A92A0D007D201C /* bg-nologo-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F43159BC17A92A0D007D201C /* bg-nologo-960x640.png */; };
@@ -138,9 +135,6 @@
 		F490F0EB16AFD62A00BBA594 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0EA16AFD62A00BBA594 /* CDOpenALSupport.m */; };
 		F490F0EE16AFD62B00BBA594 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0ED16AFD62B00BBA594 /* CocosDenshion.m */; };
 		F490F0F116AFD62B00BBA594 /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0F016AFD62B00BBA594 /* SimpleAudioEngine.m */; };
-		F490F0F616AFD62B00BBA594 /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0F516AFD62B00BBA594 /* CLScoreServerPost.m */; };
-		F490F0F916AFD62B00BBA594 /* CLScoreServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0F816AFD62B00BBA594 /* CLScoreServerRequest.m */; };
-		F490F0FC16AFD62B00BBA594 /* cocoslive.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F0FB16AFD62B00BBA594 /* cocoslive.m */; };
 		F490F10116AFD62B00BBA594 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F10016AFD62B00BBA594 /* CDataScanner.m */; };
 		F490F10516AFD62B00BBA594 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F10416AFD62B00BBA594 /* CDataScanner_Extensions.m */; };
 		F490F10816AFD62B00BBA594 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F490F10716AFD62B00BBA594 /* NSDictionary_JSONExtensions.m */; };
@@ -184,8 +178,6 @@
 		F4B300EB179A44EB00FFCBCF /* PopStepAnimateData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */; };
 		F4B9318416B210940079774F /* PositioningHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9318316B210940079774F /* PositioningHelper.m */; };
 		F4B9319B16B265F60079774F /* TileMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B9319A16B265F50079774F /* TileMapManager.m */; };
-		F4D250741852EF3000DC327B /* character-sprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D250721852EF3000DC327B /* character-sprite.plist */; };
-		F4D250751852EF3000DC327B /* character-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D250731852EF3000DC327B /* character-sprite.png */; };
 		F4E4692317D1B2630018F662 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AF30F217D0750A0043D28E /* Default@2x.png */; };
 		F4E4692517D1B3D10018F662 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E4692417D1B3D10018F662 /* logo.png */; };
 		F4E4692817D1B4310018F662 /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E4692717D1B4310018F662 /* LoadingScene.m */; };
@@ -212,9 +204,6 @@
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
 		CE79B74D16B330EC004B160B /* AICharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICharacter.m; sourceTree = "<group>"; };
-		CEB669EF1857100A00474E34 /* city.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = city.tmx; sourceTree = "<group>"; };
-		CEB669F01857100A00474E34 /* map_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_96.png; sourceTree = "<group>"; };
-		CEB669F11857100A00474E34 /* meta-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meta-96.png"; sourceTree = "<group>"; };
 		F428480917A7BD010098BB0B /* CreditsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsLayer.h; sourceTree = "<group>"; };
 		F428480A17A7BD010098BB0B /* CreditsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsLayer.m; sourceTree = "<group>"; };
 		F43159BA17A92843007D201C /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
@@ -233,7 +222,7 @@
 		F45FCEC516B48BBA00E5EC4C /* selection.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = selection.caf; sourceTree = "<group>"; };
 		F45FCEC816B48D9700E5EC4C /* draw-card.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "draw-card.caf"; sourceTree = "<group>"; };
 		F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-480h@2x.png"; sourceTree = "<group>"; };
-		F490EFC416AFD62900BBA594 /* ggj-cof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ggj-cof.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F490EFC416AFD62900BBA594 /* cardchase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardchase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F490EFC816AFD62900BBA594 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F490EFCA16AFD62900BBA594 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		F490EFCC16AFD62900BBA594 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -427,12 +416,6 @@
 		F490F0EF16AFD62B00BBA594 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleAudioEngine.h; path = libs/CocosDenshion/SimpleAudioEngine.h; sourceTree = "<group>"; };
 		F490F0F016AFD62B00BBA594 /* SimpleAudioEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SimpleAudioEngine.m; path = libs/CocosDenshion/SimpleAudioEngine.m; sourceTree = "<group>"; };
 		F490F0F216AFD62B00BBA594 /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_CocosDenshion.txt; path = libs/LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
-		F490F0F416AFD62B00BBA594 /* CLScoreServerPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CLScoreServerPost.h; path = libs/cocoslive/CLScoreServerPost.h; sourceTree = "<group>"; };
-		F490F0F516AFD62B00BBA594 /* CLScoreServerPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CLScoreServerPost.m; path = libs/cocoslive/CLScoreServerPost.m; sourceTree = "<group>"; };
-		F490F0F716AFD62B00BBA594 /* CLScoreServerRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CLScoreServerRequest.h; path = libs/cocoslive/CLScoreServerRequest.h; sourceTree = "<group>"; };
-		F490F0F816AFD62B00BBA594 /* CLScoreServerRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CLScoreServerRequest.m; path = libs/cocoslive/CLScoreServerRequest.m; sourceTree = "<group>"; };
-		F490F0FA16AFD62B00BBA594 /* cocoslive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cocoslive.h; path = libs/cocoslive/cocoslive.h; sourceTree = "<group>"; };
-		F490F0FB16AFD62B00BBA594 /* cocoslive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = cocoslive.m; path = libs/cocoslive/cocoslive.m; sourceTree = "<group>"; };
 		F490F0FD16AFD62B00BBA594 /* LICENSE_TouchJSON.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_TouchJSON.txt; path = libs/LICENSE_TouchJSON.txt; sourceTree = "<group>"; };
 		F490F0FF16AFD62B00BBA594 /* CDataScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CDataScanner.h; path = libs/TouchJSON/CDataScanner.h; sourceTree = "<group>"; };
 		F490F10016AFD62B00BBA594 /* CDataScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = libs/TouchJSON/CDataScanner.m; sourceTree = "<group>"; };
@@ -522,8 +505,6 @@
 		F4B9318316B210940079774F /* PositioningHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningHelper.m; sourceTree = "<group>"; };
 		F4B9319916B265F50079774F /* TileMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapManager.h; sourceTree = "<group>"; };
 		F4B9319A16B265F50079774F /* TileMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapManager.m; sourceTree = "<group>"; };
-		F4D250721852EF3000DC327B /* character-sprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "character-sprite.plist"; sourceTree = "<group>"; };
-		F4D250731852EF3000DC327B /* character-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "character-sprite.png"; sourceTree = "<group>"; };
 		F4E4692417D1B3D10018F662 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F4E4692617D1B4310018F662 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		F4E4692717D1B4310018F662 /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
@@ -570,16 +551,6 @@
 			name = Levels;
 			sourceTree = "<group>";
 		};
-		CEB669F51857101000474E34 /* City */ = {
-			isa = PBXGroup;
-			children = (
-				CEB669EF1857100A00474E34 /* city.tmx */,
-				CEB669F01857100A00474E34 /* map_96.png */,
-				CEB669F11857100A00474E34 /* meta-96.png */,
-			);
-			name = City;
-			sourceTree = "<group>";
-		};
 		F45FCEB716B4795300E5EC4C /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,7 +585,7 @@
 		F490EFC516AFD62900BBA594 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F490EFC416AFD62900BBA594 /* ggj-cof.app */,
+				F490EFC416AFD62900BBA594 /* cardchase.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -657,12 +628,12 @@
 			isa = PBXGroup;
 			children = (
 				CE78716717A375B000471015 /* Levels */,
-				F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */,
-				F4ABBC3316B2AA3800BB3A51 /* Default-568h@2x.png */,
 				F4B1EBC116B0FE86009A4F12 /* Maps */,
 				F4B1EBC016B0FDFE009A4F12 /* Sounds */,
 				F4B1EBBE16B0FDC8009A4F12 /* Images */,
 				F490EFDA16AFD62900BBA594 /* Default.png */,
+				F45FCED916B4BE4700E5EC4C /* Default-480h@2x.png */,
+				F4ABBC3316B2AA3800BB3A51 /* Default-568h@2x.png */,
 				F490EFDC16AFD62900BBA594 /* fps_images.png */,
 				F490EFDE16AFD62900BBA594 /* Icon-72.png */,
 				F490EFE016AFD62900BBA594 /* Icon-Small-50.png */,
@@ -686,7 +657,6 @@
 				F490F12516AFD62B00BBA594 /* LICENSE_FontLabel.txt */,
 				F490EFEE16AFD62900BBA594 /* cocos2d */,
 				F490F0E416AFD62A00BBA594 /* CocosDenshion */,
-				F490F0F316AFD62B00BBA594 /* cocoslive */,
 				F490F0FE16AFD62B00BBA594 /* TouchJSON */,
 				F490F11416AFD62B00BBA594 /* FontLabel */,
 			);
@@ -912,19 +882,6 @@
 			name = CocosDenshion;
 			sourceTree = "<group>";
 		};
-		F490F0F316AFD62B00BBA594 /* cocoslive */ = {
-			isa = PBXGroup;
-			children = (
-				F490F0F416AFD62B00BBA594 /* CLScoreServerPost.h */,
-				F490F0F516AFD62B00BBA594 /* CLScoreServerPost.m */,
-				F490F0F716AFD62B00BBA594 /* CLScoreServerRequest.h */,
-				F490F0F816AFD62B00BBA594 /* CLScoreServerRequest.m */,
-				F490F0FA16AFD62B00BBA594 /* cocoslive.h */,
-				F490F0FB16AFD62B00BBA594 /* cocoslive.m */,
-			);
-			name = cocoslive;
-			sourceTree = "<group>";
-		};
 		F490F0FE16AFD62B00BBA594 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,8 +1038,6 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				F4D250721852EF3000DC327B /* character-sprite.plist */,
-				F4D250731852EF3000DC327B /* character-sprite.png */,
 				F43159C817A93F65007D201C /* button-sprite.plist */,
 				F43159C917A93F65007D201C /* button-sprite.png */,
 				F49E3B4C16B36BE30051B21E /* card-sprite.plist */,
@@ -1106,7 +1061,6 @@
 		F4B1EBC116B0FE86009A4F12 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				CEB669F51857101000474E34 /* City */,
 				CE163ABB16B26F270066449B /* Sam */,
 			);
 			name = Maps;
@@ -1140,9 +1094,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F490EFC316AFD62900BBA594 /* ggj-cof */ = {
+		F490EFC316AFD62900BBA594 /* cardchase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "ggj-cof" */;
+			buildConfigurationList = F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "cardchase" */;
 			buildPhases = (
 				F490EFC016AFD62900BBA594 /* Sources */,
 				F490EFC116AFD62900BBA594 /* Frameworks */,
@@ -1152,9 +1106,9 @@
 			);
 			dependencies = (
 			);
-			name = "ggj-cof";
+			name = cardchase;
 			productName = "ggj-cof";
-			productReference = F490EFC416AFD62900BBA594 /* ggj-cof.app */;
+			productReference = F490EFC416AFD62900BBA594 /* cardchase.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1177,7 +1131,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F490EFC316AFD62900BBA594 /* ggj-cof */,
+				F490EFC316AFD62900BBA594 /* cardchase */,
 			);
 		};
 /* End PBXProject section */
@@ -1195,12 +1149,10 @@
 				F490EFE516AFD62900BBA594 /* Icon-Small@2x.png in Resources */,
 				F490EFE716AFD62900BBA594 /* Icon.png in Resources */,
 				F490EFE916AFD62900BBA594 /* Icon@2x.png in Resources */,
-				CEB669F21857100A00474E34 /* city.tmx in Resources */,
 				F490EFEC16AFD62900BBA594 /* iTunesArtwork in Resources */,
 				CE163AC116B26F390066449B /* casino.tmx in Resources */,
 				CE163AC516B2719C0066449B /* casino-land.png in Resources */,
 				CE163AC616B2719C0066449B /* meta.png in Resources */,
-				F4D250751852EF3000DC327B /* character-sprite.png in Resources */,
 				F4ABBC3416B2AA3800BB3A51 /* Default-568h@2x.png in Resources */,
 				F4A6209B16B342110092DB8E /* you-win.png in Resources */,
 				F49E3B4E16B36BE30051B21E /* card-sprite.plist in Resources */,
@@ -1208,13 +1160,11 @@
 				F45FCEAB16B478EE00E5EC4C /* bg-960x640.png in Resources */,
 				F45FCEAC16B478EE00E5EC4C /* bg-1136x640.png in Resources */,
 				F45FCEAF16B478EE00E5EC4C /* title.png in Resources */,
-				CEB669F31857100A00474E34 /* map_96.png in Resources */,
 				F45FCEB016B478EE00E5EC4C /* you-lose.png in Resources */,
 				F45FCEB216B4791800E5EC4C /* main-theme.mp3 in Resources */,
 				F45FCEB516B4794C00E5EC4C /* lose!.mp3 in Resources */,
 				F45FCEB616B4794C00E5EC4C /* win!.mp3 in Resources */,
 				F45FCEC716B48BBA00E5EC4C /* selection.caf in Resources */,
-				CEB669F41857100A00474E34 /* meta-96.png in Resources */,
 				F45FCEC916B48D9700E5EC4C /* draw-card.caf in Resources */,
 				CE6317CE16B4920F00823F1C /* decoration.png in Resources */,
 				F45FCEDA16B4BE4700E5EC4C /* Default-480h@2x.png in Resources */,
@@ -1230,7 +1180,6 @@
 				F43159CA17A93F65007D201C /* button-sprite.plist in Resources */,
 				F43159CB17A93F65007D201C /* button-sprite.png in Resources */,
 				F4E4692317D1B2630018F662 /* Default@2x.png in Resources */,
-				F4D250741852EF3000DC327B /* character-sprite.plist in Resources */,
 				F4E4692517D1B3D10018F662 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1322,9 +1271,6 @@
 				F490F0EB16AFD62A00BBA594 /* CDOpenALSupport.m in Sources */,
 				F490F0EE16AFD62B00BBA594 /* CocosDenshion.m in Sources */,
 				F490F0F116AFD62B00BBA594 /* SimpleAudioEngine.m in Sources */,
-				F490F0F616AFD62B00BBA594 /* CLScoreServerPost.m in Sources */,
-				F490F0F916AFD62B00BBA594 /* CLScoreServerRequest.m in Sources */,
-				F490F0FC16AFD62B00BBA594 /* cocoslive.m in Sources */,
 				F490F10116AFD62B00BBA594 /* CDataScanner.m in Sources */,
 				F490F10516AFD62B00BBA594 /* CDataScanner_Extensions.m in Sources */,
 				F490F10816AFD62B00BBA594 /* NSDictionary_JSONExtensions.m in Sources */,
@@ -1461,7 +1407,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "ggj-cof" */ = {
+		F490F13616AFD62B00BBA594 /* Build configuration list for PBXNativeTarget "cardchase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F490F13716AFD62B00BBA594 /* Debug */,

@@ -84,7 +84,7 @@
         self.tileMap = tileMap;
         
         // Set the tile size in points (this is universal across normal and retina displays)
-        self.tileSizeInPoints = CGSizeMake(48.0f, 48.0f);
+        self.tileSizeInPoints = CGSizeMake(32.0f, 32.0f);
         
         self.meta = [_tileMap layerNamed:@"Meta"];
         NSAssert(self.meta != nil, @"'Meta' layer not found");

@@ -17,11 +17,7 @@
     int _number;
 	CardSuit _cardSuit;
     
-    CCAnimation *_upAnim;
-    CCAnimation *_downAnim;
-    CCAnimation *_leftAnim;
-    CCAnimation *_rightAnim;
-    
+    CCAnimation *_walkingAnim;
     CCAnimate *_animationHandle;
     
     GameObject* _suitPanel;
@@ -31,7 +27,7 @@
     
     CardAnimationType _requestedAnimation;
     
-    BOOL _delayFlip;
+    BOOL _delayFlipX;
     
     CGFloat _factor;
     CGFloat _limit;
@@ -44,16 +40,6 @@
     NSMutableArray *_destinationPoints;
     FacingDirection _previousDirection;
     int _frontOrder;
-    
-    CGPoint _suitPosUp;
-    CGPoint _suitPosDown;
-    CGPoint _suitPosLeft;
-    CGPoint _suitPosRight;
-    
-    CGPoint _numberPosUp;
-    CGPoint _numberPosDown;
-    CGPoint _numberPosLeft;
-    CGPoint _numberPosRight;
     
     CGPoint _realPosition;
 }
@@ -68,7 +54,6 @@
 @property (readonly, nonatomic) FacingDirection facing;
 @property (readonly, nonatomic) CardAnimationType requestedAnimation;
 
--(void)initSuitAndNumberPositions;
 -(void)setNumber:(int)number;
 -(void)setSuit:(CardSuit)suit;
 -(void)setRealPosition:(CGPoint)mapPosition;
@@ -77,7 +62,7 @@
 -(CGPoint)getCardDisplayPosition;
 -(void)face:(FacingDirection)direction;
 -(CGRect)chaseRunBoundingBox;
--(void)updateFacingDirection;
+-(void)updateHorizontalFacingDirection;
 -(void)requestAnimation:(CardAnimationType)animation;
 -(void)updateAnimation;
 -(FacingDirection)facingOppositeTo;
