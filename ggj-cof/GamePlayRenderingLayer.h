@@ -13,6 +13,8 @@
 @class GamePlayStatusLayer;
 @class Player;
 @class TileMapManager;
+@class CountdownLayer;
+@class ScoreLayer;
 
 @interface GamePlayRenderingLayer: CCLayerColor
 {
@@ -22,10 +24,15 @@
     
     GamePlayInputLayer *_inputLayer;
     GamePlayStatusLayer *_statusLayer;
+    CountdownLayer *_countdownLayer;
+    ScoreLayer *_scoreLayer;
 }
 
 @property (nonatomic, retain) GamePlayInputLayer *inputLayer;
 @property (nonatomic, retain) GamePlayStatusLayer *statusLayer;
+@property (nonatomic, retain) CountdownLayer *countdownLayer;
+@property (nonatomic, retain) ScoreLayer *scoreLayer;
+
 @property (nonatomic, retain) TileMapManager *mapManager;
 @property (nonatomic, retain) Player *player;
 @property (nonatomic, retain) CCSpriteBatchNode *sceneBatchNode;

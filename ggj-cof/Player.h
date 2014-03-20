@@ -8,6 +8,11 @@
 
 #import "Card.h"
 
-@interface Player : Card
+@interface Player : Card {
+    int _score; // crown counter
+}
+
+-(void)setScore:(int)scorePoint;
+-(int)getScore;
 
 @end

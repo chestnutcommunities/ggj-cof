@@ -21,6 +21,7 @@
 -(void)changeState:(CharacterStates)newState {}
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andGameObject:(GameObject*)gameObject {}
+
 -(id)init {
 	if((self=[super init])){
         [[Logger sharedInstance] log:LogType_GameObjects content:@"GameObject initialized"];

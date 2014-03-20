@@ -24,6 +24,8 @@
 @synthesize player = _player;
 @synthesize mapManager = _mapManager;
 @synthesize sceneBatchNode = _sceneBatchNode;
+@synthesize countdownLayer = _countdownLayer;
+@synthesize scoreLayer = _scoreLayer;
 
 - (void) dealloc
 {
@@ -32,12 +34,15 @@
 	self.player = nil;
 	self.mapManager = nil;
 	self.sceneBatchNode = nil;
+    self.countdownLayer = nil;
     
 	[_inputLayer release];
     [_statusLayer release];
     [_player release];
     [_mapManager release];
     [_sceneBatchNode release];
+    [_countdownLayer release];
+    [_scoreLayer release];
     
 	[super dealloc];
 }

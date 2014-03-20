@@ -13,14 +13,24 @@
 		CE163ACC16B2818C0066449B /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE163ACB16B2818C0066449B /* CardManager.m */; };
 		CE32D9A117A26BB4000395CA /* GameSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = CE32D9A017A26BB4000395CA /* GameSetting.m */; };
 		CE4A12D916B37F010091D6BC /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A12D816B37F010091D6BC /* AIHelper.m */; };
+		CE590B3018D6E125004B9860 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE590B2F18D6E125004B9860 /* libsqlite3.dylib */; };
+		CE590B3318D6E14E004B9860 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE590B3218D6E14E004B9860 /* DBManager.m */; };
+		CE590B3618D6F78B004B9860 /* ScoreBoardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE590B3518D6F78B004B9860 /* ScoreBoardLayer.m */; };
 		CE622754178198A4007F48D4 /* casino-test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CE622753178198A4007F48D4 /* casino-test.tmx */; };
 		CE6317BC16B4743500823F1C /* KingOfHeartsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */; };
 		CE6317CE16B4920F00823F1C /* decoration.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6317CD16B4920F00823F1C /* decoration.png */; };
+		CE6A6B9C18CDC68C001FE167 /* CountdownLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6A6B9B18CDC68C001FE167 /* CountdownLayer.m */; };
 		CE78719617A3B8D800471015 /* level-1.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719317A3B8D800471015 /* level-1.json */; };
 		CE78719717A3B8D800471015 /* level-2.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719417A3B8D800471015 /* level-2.json */; };
 		CE78719817A3B8D800471015 /* level-3.json in Resources */ = {isa = PBXBuildFile; fileRef = CE78719517A3B8D800471015 /* level-3.json */; };
 		CE79B74116B312B3004B160B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74016B312B3004B160B /* Card.m */; };
 		CE79B74E16B330EC004B160B /* AICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79B74D16B330EC004B160B /* AICharacter.m */; };
+		CE985DE018D99E73002AAFD5 /* IntotheVortex-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE985DDF18D99D5B002AAFD5 /* IntotheVortex-Regular.otf */; };
+		CEAE946318D1BA3400B2B47D /* SoupofJustice.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEAE946218D1B99400B2B47D /* SoupofJustice.ttf */; };
+		CEB32AD218D3BDEB00BF11E0 /* ScoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB32AD118D3BDEB00BF11E0 /* ScoreLayer.m */; };
+		CEB32AD418D3C3E000BF11E0 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB32AD318D3C3E000BF11E0 /* crown.png */; };
+		CEB32AD618D4072100BF11E0 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB32AD518D4072100BF11E0 /* arrow.png */; };
+		CEBA71BB18D84EB7001DA2E3 /* ScoreMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA71BA18D84EB7001DA2E3 /* ScoreMessage.m */; };
 		F428480B17A7BD010098BB0B /* CreditsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F428480A17A7BD010098BB0B /* CreditsLayer.m */; };
 		F43159BB17A92843007D201C /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = F43159BA17A92843007D201C /* credits.png */; };
 		F43159BE17A92A0D007D201C /* bg-nologo-960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = F43159BC17A92A0D007D201C /* bg-nologo-960x640.png */; };
@@ -193,10 +203,17 @@
 		CE32D9A017A26BB4000395CA /* GameSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSetting.m; sourceTree = "<group>"; };
 		CE4A12D716B37F010091D6BC /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
 		CE4A12D816B37F010091D6BC /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
+		CE590B2F18D6E125004B9860 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CE590B3118D6E14E004B9860 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		CE590B3218D6E14E004B9860 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		CE590B3418D6F78B004B9860 /* ScoreBoardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardLayer.h; sourceTree = "<group>"; };
+		CE590B3518D6F78B004B9860 /* ScoreBoardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardLayer.m; sourceTree = "<group>"; };
 		CE622753178198A4007F48D4 /* casino-test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "casino-test.tmx"; sourceTree = "<group>"; };
 		CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KingOfHeartsLayer.h; sourceTree = "<group>"; };
 		CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KingOfHeartsLayer.m; sourceTree = "<group>"; };
 		CE6317CD16B4920F00823F1C /* decoration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoration.png; sourceTree = "<group>"; };
+		CE6A6B9A18CDC68C001FE167 /* CountdownLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownLayer.h; sourceTree = "<group>"; };
+		CE6A6B9B18CDC68C001FE167 /* CountdownLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownLayer.m; sourceTree = "<group>"; };
 		CE78719317A3B8D800471015 /* level-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "level-1.json"; sourceTree = "<group>"; };
 		CE78719417A3B8D800471015 /* level-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "level-2.json"; sourceTree = "<group>"; };
 		CE78719517A3B8D800471015 /* level-3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "level-3.json"; sourceTree = "<group>"; };
@@ -204,6 +221,14 @@
 		CE79B74016B312B3004B160B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		CE79B74C16B330EB004B160B /* AICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICharacter.h; sourceTree = "<group>"; };
 		CE79B74D16B330EC004B160B /* AICharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICharacter.m; sourceTree = "<group>"; };
+		CE985DDF18D99D5B002AAFD5 /* IntotheVortex-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IntotheVortex-Regular.otf"; sourceTree = "<group>"; };
+		CEAE946218D1B99400B2B47D /* SoupofJustice.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoupofJustice.ttf; sourceTree = "<group>"; };
+		CEB32AD018D3BDEB00BF11E0 /* ScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLayer.h; sourceTree = "<group>"; };
+		CEB32AD118D3BDEB00BF11E0 /* ScoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreLayer.m; sourceTree = "<group>"; };
+		CEB32AD318D3C3E000BF11E0 /* crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crown.png; sourceTree = "<group>"; };
+		CEB32AD518D4072100BF11E0 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		CEBA71B918D84EB7001DA2E3 /* ScoreMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreMessage.h; sourceTree = "<group>"; };
+		CEBA71BA18D84EB7001DA2E3 /* ScoreMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreMessage.m; sourceTree = "<group>"; };
 		F428480917A7BD010098BB0B /* CreditsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsLayer.h; sourceTree = "<group>"; };
 		F428480A17A7BD010098BB0B /* CreditsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsLayer.m; sourceTree = "<group>"; };
 		F43159BA17A92843007D201C /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
@@ -515,6 +540,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE590B3018D6E125004B9860 /* libsqlite3.dylib in Frameworks */,
 				F490EFC916AFD62900BBA594 /* QuartzCore.framework in Frameworks */,
 				F490EFCB16AFD62900BBA594 /* OpenGLES.framework in Frameworks */,
 				F490EFCD16AFD62900BBA594 /* OpenAL.framework in Frameworks */,
@@ -549,6 +575,15 @@
 				CE78719517A3B8D800471015 /* level-3.json */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		CEAE946118D1B97500B2B47D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE985DDF18D99D5B002AAFD5 /* IntotheVortex-Regular.otf */,
+				CEAE946218D1B99400B2B47D /* SoupofJustice.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		F45FCEB716B4795300E5EC4C /* Music */ = {
@@ -593,6 +628,7 @@
 		F490EFC716AFD62900BBA594 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE590B2F18D6E125004B9860 /* libsqlite3.dylib */,
 				F490EFC816AFD62900BBA594 /* QuartzCore.framework */,
 				F490EFCA16AFD62900BBA594 /* OpenGLES.framework */,
 				F490EFCC16AFD62900BBA594 /* OpenAL.framework */,
@@ -627,6 +663,7 @@
 		F490EFD916AFD62900BBA594 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEAE946118D1B97500B2B47D /* Fonts */,
 				CE78716717A375B000471015 /* Levels */,
 				F4B1EBC116B0FE86009A4F12 /* Maps */,
 				F4B1EBC016B0FDFE009A4F12 /* Sounds */,
@@ -948,12 +985,12 @@
 		F4B1EBB916B0FD0D009A4F12 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F428480917A7BD010098BB0B /* CreditsLayer.h */,
 				F428480A17A7BD010098BB0B /* CreditsLayer.m */,
 				F4A6208F16B340280092DB8E /* GameCompleteLayer.h */,
 				F4A6209016B340290092DB8E /* GameCompleteLayer.m */,
 				F4A6209316B3404A0092DB8E /* GameOverLayer.h */,
 				F4A6209416B3404A0092DB8E /* GameOverLayer.m */,
+				F428480917A7BD010098BB0B /* CreditsLayer.h */,
 				F4B1EBCB16B102B0009A4F12 /* GamePlayInputLayer.h */,
 				F4B1EBCC16B102B0009A4F12 /* GamePlayInputLayer.m */,
 				F4B1EBF616B104FE009A4F12 /* GamePlayRenderingLayer.h */,
@@ -966,6 +1003,12 @@
 				F4B1EBD016B102B0009A4F12 /* TitleScreenScene.m */,
 				CE6317BA16B4743500823F1C /* KingOfHeartsLayer.h */,
 				CE6317BB16B4743500823F1C /* KingOfHeartsLayer.m */,
+				CE6A6B9A18CDC68C001FE167 /* CountdownLayer.h */,
+				CE6A6B9B18CDC68C001FE167 /* CountdownLayer.m */,
+				CEB32AD018D3BDEB00BF11E0 /* ScoreLayer.h */,
+				CEB32AD118D3BDEB00BF11E0 /* ScoreLayer.m */,
+				CE590B3418D6F78B004B9860 /* ScoreBoardLayer.h */,
+				CE590B3518D6F78B004B9860 /* ScoreBoardLayer.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -985,6 +1028,8 @@
 				F4B1EC0516B152F0009A4F12 /* Human.m */,
 				F498F546177EB3D50040C44C /* Player.h */,
 				F498F547177EB3D50040C44C /* Player.m */,
+				CEBA71B918D84EB7001DA2E3 /* ScoreMessage.h */,
+				CEBA71BA18D84EB7001DA2E3 /* ScoreMessage.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1017,6 +1062,8 @@
 				F4B300EA179A44EB00FFCBCF /* PopStepAnimateData.m */,
 				CE32D99F17A26BB4000395CA /* GameSetting.h */,
 				CE32D9A017A26BB4000395CA /* GameSetting.m */,
+				CE590B3118D6E14E004B9860 /* DBManager.h */,
+				CE590B3218D6E14E004B9860 /* DBManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1038,6 +1085,8 @@
 		F4B1EBBF16B0FDF0009A4F12 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CEB32AD518D4072100BF11E0 /* arrow.png */,
+				CEB32AD318D3C3E000BF11E0 /* crown.png */,
 				F43159C817A93F65007D201C /* button-sprite.plist */,
 				F43159C917A93F65007D201C /* button-sprite.png */,
 				F49E3B4C16B36BE30051B21E /* card-sprite.plist */,
@@ -1118,6 +1167,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					F490EFC316AFD62900BBA594 = {
+						DevelopmentTeam = H2NAUXD3GQ;
+					};
+				};
 			};
 			buildConfigurationList = F490EFBE16AFD62900BBA594 /* Build configuration list for PBXProject "ggj-cof" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1141,6 +1195,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE985DE018D99E73002AAFD5 /* IntotheVortex-Regular.otf in Resources */,
+				CEAE946318D1BA3400B2B47D /* SoupofJustice.ttf in Resources */,
 				F490EFDB16AFD62900BBA594 /* Default.png in Resources */,
 				F490EFDD16AFD62900BBA594 /* fps_images.png in Resources */,
 				F490EFDF16AFD62900BBA594 /* Icon-72.png in Resources */,
@@ -1173,6 +1229,7 @@
 				CE78719617A3B8D800471015 /* level-1.json in Resources */,
 				CE78719717A3B8D800471015 /* level-2.json in Resources */,
 				CE78719817A3B8D800471015 /* level-3.json in Resources */,
+				CEB32AD418D3C3E000BF11E0 /* crown.png in Resources */,
 				F43159BB17A92843007D201C /* credits.png in Resources */,
 				F43159BE17A92A0D007D201C /* bg-nologo-960x640.png in Resources */,
 				F43159BF17A92A0D007D201C /* bg-nologo-1136x640.png in Resources */,
@@ -1180,6 +1237,7 @@
 				F43159CA17A93F65007D201C /* button-sprite.plist in Resources */,
 				F43159CB17A93F65007D201C /* button-sprite.png in Resources */,
 				F4E4692317D1B2630018F662 /* Default@2x.png in Resources */,
+				CEB32AD618D4072100BF11E0 /* arrow.png in Resources */,
 				F4E4692517D1B3D10018F662 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1200,8 +1258,10 @@
 				F490F00316AFD62900BBA594 /* CCActionInterval.m in Sources */,
 				F490F00616AFD62900BBA594 /* CCActionManager.m in Sources */,
 				F490F00916AFD62900BBA594 /* CCActionPageTurn3D.m in Sources */,
+				CE6A6B9C18CDC68C001FE167 /* CountdownLayer.m in Sources */,
 				F490F00C16AFD62900BBA594 /* CCActionProgressTimer.m in Sources */,
 				F490F00F16AFD62900BBA594 /* CCActionTiledGrid.m in Sources */,
+				CE590B3318D6E14E004B9860 /* DBManager.m in Sources */,
 				F490F01216AFD62900BBA594 /* CCActionTween.m in Sources */,
 				F490F01516AFD62900BBA594 /* CCAnimation.m in Sources */,
 				F490F01816AFD62900BBA594 /* CCAnimationCache.m in Sources */,
@@ -1222,6 +1282,7 @@
 				F490F04716AFD62900BBA594 /* CCMotionStreak.m in Sources */,
 				F490F04A16AFD62900BBA594 /* CCNode.m in Sources */,
 				F490F04D16AFD62900BBA594 /* CCParallaxNode.m in Sources */,
+				CEB32AD218D3BDEB00BF11E0 /* ScoreLayer.m in Sources */,
 				F490F05016AFD62900BBA594 /* CCParticleExamples.m in Sources */,
 				F490F05316AFD62900BBA594 /* CCParticleSystem.m in Sources */,
 				F490F05616AFD62900BBA594 /* CCParticleSystemPoint.m in Sources */,
@@ -1297,6 +1358,7 @@
 				F4B1EBF016B104A5009A4F12 /* SneakyButton.m in Sources */,
 				F4B1EBF116B104A5009A4F12 /* SneakyButtonSkinnedBase.m in Sources */,
 				F4B1EBF216B104A5009A4F12 /* SneakyJoystick.m in Sources */,
+				CE590B3618D6F78B004B9860 /* ScoreBoardLayer.m in Sources */,
 				F4B1EBF316B104A5009A4F12 /* SneakyJoystickSkinnedBase.m in Sources */,
 				F4B1EBF416B104A5009A4F12 /* SneakyJoystickSkinnedDPadExample.m in Sources */,
 				F4B1EBF516B104A5009A4F12 /* SneakyJoystickSkinnedJoystickExample.m in Sources */,
@@ -1305,6 +1367,7 @@
 				F4B9318416B210940079774F /* PositioningHelper.m in Sources */,
 				F4B9319B16B265F60079774F /* TileMapManager.m in Sources */,
 				CE163ACC16B2818C0066449B /* CardManager.m in Sources */,
+				CEBA71BB18D84EB7001DA2E3 /* ScoreMessage.m in Sources */,
 				CE79B74116B312B3004B160B /* Card.m in Sources */,
 				CE79B74E16B330EC004B160B /* AICharacter.m in Sources */,
 				F4A6209116B340290092DB8E /* GameCompleteLayer.m in Sources */,
@@ -1365,6 +1428,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1374,6 +1439,7 @@
 				INFOPLIST_FILE = "ggj-cof/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1382,6 +1448,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ggj-cof/Prefix.pch";
@@ -1390,6 +1458,7 @@
 				INFOPLIST_FILE = "ggj-cof/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

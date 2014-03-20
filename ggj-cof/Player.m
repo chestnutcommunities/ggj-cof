@@ -29,7 +29,17 @@
     if((self=[super init])) {
         // Don't delay sprite flipping for player
         _delayFlipX = NO;
+        _score = 0;
     }
     return self;
 }
+
+-(void)setScore:(int)scorePoint {
+    _score = _score + scorePoint;
+}
+
+-(int)getScore {
+    return _score;
+}
+
 @end

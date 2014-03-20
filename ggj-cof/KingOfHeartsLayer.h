@@ -19,6 +19,7 @@
     GameOverLayer *_gameOverLayer;
     CardManager* _cardManager;
     ccTime _tmpPathFindingDelta;
+    BOOL _enabled;
 }
 
 +(CCScene *) scene;

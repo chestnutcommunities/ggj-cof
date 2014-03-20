@@ -19,13 +19,16 @@
 #import "SimpleAudioEngine.h"
 #import "PositioningHelper.h"
 #import "TitleScreenScene.h"
+#import "CountdownLayer.h"
+#import "ScoreLayer.h"
+#import "ScoreBoardLayer.h"
 
 @implementation KingOfHeartsLayer
 
 @synthesize completeLayer = _completeLayer;
 @synthesize gameOverLayer = _gameOverLayer;
 
-- (void) dealloc
+-(void) dealloc
 {
     self.completeLayer = nil;
     self.gameOverLayer = nil;
@@ -55,13 +58,22 @@
     [scene addChild: inputLayer];
     renderingLayer.inputLayer = inputLayer;
     inputLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
-	
+    
+    ScoreLayer *scoreLayer = [ScoreLayer node];
+    [scene addChild: scoreLayer];
+    renderingLayer.scoreLayer = scoreLayer;
+    scoreLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
+    
+    CountdownLayer *countdownLayer = [CountdownLayer node];
+    [scene addChild: countdownLayer];
+    renderingLayer.countdownLayer = countdownLayer;
+    countdownLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
+    
     GamePlayStatusLayer *statusDisplayLayer = [GamePlayStatusLayer node];
     [scene addChild: statusDisplayLayer];
     renderingLayer.statusLayer = statusDisplayLayer;
     statusDisplayLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
     
-	// return the scene
 	return scene;
 }
 
@@ -78,8 +90,9 @@
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6f];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"lose!.mp3" loop:NO];
-    
-    GameOverScene *scene = [GameOverScene node];
+
+    //GameOverScene *scene = [GameOverScene node];
+    ScoreBoardScene *scene = [[ScoreBoardScene node] initWithNewScore:[self.player getScore]];
     [[CCDirector sharedDirector] replaceScene:scene];
 }
 
@@ -96,6 +109,7 @@
     for (CCNode* child in [self children]) {
         [child pauseSchedulerAndActions];
     }
+    _enabled = NO;
 }
 
 - (void) resumeGame:(NSNotification *) notification {
@@ -104,13 +118,15 @@
     for (CCNode* child in [self children]) {
         [child resumeSchedulerAndActions];
     }
+    _enabled = YES;
 }
 
 -(void) update:(ccTime)delta
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];
     NSMutableArray *cardsLocation = [[NSMutableArray alloc] init];
-    
+    if (_enabled == YES) {
+        
     for (Card *card in cards) {
         card.frontOrder = 0;
         //1. Get overlapping cards
@@ -149,11 +165,23 @@
                     [card changeState:kStateDying];
                     
                     if (playerNumber >= 13) {
+                        // update score
+                        [self.player setScore:1];
+                        
+                        // animate crown
+                        [_scoreLayer animateScore:[PositioningHelper getViewpointPosition:_player.realPosition]
+                                         newScore:[self.player getScore]];
+
+                        // reset new number
+                        [self.player setNumber:(playerNumber - 13)];
+                        
+                        /* disable winning; implement 'flow'
                         // Disable touch
                         [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:NO];
                         
                         id sequeunce = [CCSequence actions: [CCDelayTime actionWithDuration:0.8f], [CCCallFunc actionWithTarget:self selector:@selector(handleWin:)], nil];
                         [self runAction:sequeunce];
+                         */
                     }
                     else {
                         // Game goes on, shuffle cards
@@ -212,6 +240,8 @@
 			}
         }
     }
+        
+    }
     [cardsLocation release];
 }
 
@@ -227,7 +257,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame:) name:@"resumeGame" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goBackToMenu:) name:@"backToMenu" object:nil];
 
-		[self scheduleUpdate];
+        [self scheduleUpdate];
+        
 	}
 	return self;
 }

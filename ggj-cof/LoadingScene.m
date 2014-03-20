@@ -9,6 +9,7 @@
 #import "LoadingScene.h"
 #import "TitleScreenScene.h"
 #import "GameSetting.h"
+#import "DBManager.h"
 
 @implementation LoadingScene
 @synthesize layer = _layer;
@@ -51,6 +52,8 @@
 
 -(id) init {
     if ((self=[super initWithColor:ccc4(26, 37, 45, 255)])) {
+        [[DBManager getSharedInstance] createDB];
+        [[DBManager getSharedInstance] createMessages];
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
