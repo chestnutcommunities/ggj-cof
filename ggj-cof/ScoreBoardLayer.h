@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface ScoreBoardLayer : CCLayerColor
+@interface ScoreBoardLayer : CCLayerColor {
+}
 
 @end
 

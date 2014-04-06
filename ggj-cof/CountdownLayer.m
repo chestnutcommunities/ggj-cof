@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 #import "CountdownLayer.h"
-
+#import "SimpleAudioEngine.h"
 
 @implementation CountdownLayer
 
@@ -23,9 +23,28 @@
 -(id) init
 {
     if ((self = [super init])) {
+        self.isTouchEnabled = YES;
         _winSize = [[CCDirector sharedDirector] winSize];
         _currentAnimation = -1;
         _instructionsDone = NO;
+        
+        // tap to skip
+        //CCLabelTTF *tapToSkip = [CCLabelTTF labelWithString:@"TAP TO SKIP" fontName:@"SoupofJustice" fontSize:35];
+        //tapToSkip.position = ccp(_winSize.width * 0.75f, _winSize.height * 0.15f);
+        //tapToSkip.color = ccGREEN;
+        //[self addChild:tapToSkip z:1000];
+        
+        CCMenuItem* backToTitleButton = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"button-resume-normal.png"]
+                                                                selectedSprite:[CCSprite spriteWithSpriteFrameName:@"button-resume-pressed.png"]
+                                                                        target:self
+                                                                      selector:@selector(skipTapped:)];
+        backToTitleButton.position = ccp(_winSize.width * 0.95f, _winSize.height * 0.05f);
+        CCMenu *menuList = [CCMenu menuWithItems:backToTitleButton, nil];
+        menuList.position = CGPointZero;
+        [self addChild:menuList z:1000];
+
+        [[CCTouchDispatcher sharedDispatcher] setDispatchEvents:YES];
+        
         [self startBlackout];
     }
     return self;
@@ -111,14 +130,14 @@
 }
 
 -(void)showScore {
-    _scoreLabel = [CCLabelTTF labelWithString:@"Aim High!" fontName:@"SoupofJustice" fontSize:46];
-    _scoreLabel.position = ccp(_winSize.width * 0.4, _winSize.height * 0.90f);
+    _scoreLabel = [CCLabelTTF labelWithString:@"Aim High, Eat Low!" fontName:@"SoupofJustice" fontSize:46];
+    _scoreLabel.position = ccp(_winSize.width * 0, _winSize.height * 0.90f);
     _scoreLabel.color = ccYELLOW;
     _scoreLabel.opacity = 0;
     
     [self addChild:_scoreLabel z:2];
     
-    id actionTitleMove = [CCMoveTo actionWithDuration:1.0f position:ccp(_winSize.width * 0.65f, _winSize.height * 0.90f)];
+    id actionTitleMove = [CCMoveTo actionWithDuration:1.0f position:ccp(_winSize.width * 0.35f, _winSize.height * 0.90f)];
     
     [_scoreLabel runAction: [CCSequence actions:
         [CCFadeIn actionWithDuration:0.35f],
@@ -138,7 +157,7 @@
 }
 
 -(void)showPrey {
-    _preyLabel = [CCLabelTTF labelWithString:@"Hunt Them All!" fontName:@"SoupofJustice" fontSize:46];
+    _preyLabel = [CCLabelTTF labelWithString:@"GO!" fontName:@"SoupofJustice" fontSize:46];
     _preyLabel.position = ccp(_winSize.width * 0.5, _winSize.height * 0.95f);
     _preyLabel.color = ccYELLOW;
     _preyLabel.opacity = 0;
@@ -164,6 +183,7 @@
 -(void)hideBlackout {
     if (_instructionsDone == YES) {
         _blackOut.visible = NO;
+        self.visible = NO;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"resumeGame" object:self];
     }
 }
@@ -172,14 +192,22 @@
     // pause everything and blackout everything first
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pauseGame" object:self];
     CGPoint backgroundLocation = ccp(_winSize.width * 0.5f, _winSize.height * 0.5f);
-    
-    _blackOut = [[[ColoredSquareSprite alloc] initWithColor:ccc4(0, 0, 0, 125) size:_winSize] retain];
+    _blackOut = [[[ColoredSquareSprite alloc] initWithColor:ccc4(0, 0, 0, 150) size:_winSize] retain];
     _blackOut.position = backgroundLocation;
     _blackOut.visible = YES;
     [self addChild:_blackOut z:0];
     
     // animate instructions starting with player
     [self animate];
+}
+
+-(void)skipTapped:(CCMenuItem *)sender {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"3-key-strum.caf"];
+    _instructionsDone = YES;
+    if (_currentAnimation < 7) {
+        _currentAnimation = 7;
+        [self animate];
+    }
 }
 
 -(void)animate {

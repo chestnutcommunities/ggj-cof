@@ -64,15 +64,15 @@
     renderingLayer.scoreLayer = scoreLayer;
     scoreLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
     
-    CountdownLayer *countdownLayer = [CountdownLayer node];
-    [scene addChild: countdownLayer];
-    renderingLayer.countdownLayer = countdownLayer;
-    countdownLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
-    
     GamePlayStatusLayer *statusDisplayLayer = [GamePlayStatusLayer node];
     [scene addChild: statusDisplayLayer];
     renderingLayer.statusLayer = statusDisplayLayer;
     statusDisplayLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
+    
+    CountdownLayer *countdownLayer = [CountdownLayer node];
+    [scene addChild: countdownLayer];
+    renderingLayer.countdownLayer = countdownLayer;
+    countdownLayer.gameLayer = (GamePlayRenderingLayer*)renderingLayer;
     
 	return scene;
 }
@@ -125,6 +125,7 @@
 {
     CCArray *cards = [_cardManager.enemyBatchNode children];
     NSMutableArray *cardsLocation = [[NSMutableArray alloc] init];
+    //_enabled = YES;
     if (_enabled == YES) {
         
     for (Card *card in cards) {
@@ -256,7 +257,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame:) name:@"pauseGame" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame:) name:@"resumeGame" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goBackToMenu:) name:@"backToMenu" object:nil];
-
+        
         [self scheduleUpdate];
         
 	}
